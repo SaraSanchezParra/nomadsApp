@@ -55,7 +55,7 @@ form{
     border: 1px solid grey;
     width: 240px;
     height: 5vh;
-    font-size: 10pt;
+    font-size: 12pt;
     margin-top: 15px;
     margin-bottom: 3px;
 }
@@ -65,7 +65,7 @@ form{
     border: 1px solid grey;
     width: 240px;
     height: 5vh;
-    font-size: 10pt;
+    font-size: 12pt;
     margin-bottom: 3px;
 
 }
@@ -75,7 +75,7 @@ form{
     border: 1px solid grey;
     width: 240px;
     height: 5vh;
-    font-size: 10pt;
+    font-size: 12pt;
     margin-bottom: 3px;
 }
 
@@ -84,7 +84,7 @@ form{
     border: 1px solid grey;
     width: 240px;
     height: 5vh;
-    font-size: 10pt;
+    font-size: 12pt;
     margin-bottom: 3px;
 }
 
@@ -93,7 +93,7 @@ form{
     border: 1px solid grey;
     width: 240px;
     height: 10vh;
-    font-size: 10pt;
+    font-size: 12pt;
 }
 
 .botones{
@@ -208,7 +208,7 @@ form{
 }
 
 .titulo {
-
+    color:grey;
     height: 45%;
     font-size: 18px;
     font-family: 'Mulish', sans-serif;
@@ -218,7 +218,7 @@ form{
 }
 
 .descripcion {
-    
+    color: rgba(128, 128, 128, 0.851);
     height: 55%;
     font-size: 15px;
     font-family: 'Quicksand', sans-serif;
@@ -246,6 +246,7 @@ form{
     display: flex;
     align-items: center;
     justify-content: center;
+    color:grey;
 }
 
 .texto2 {
@@ -255,7 +256,7 @@ form{
 }
 
 .titulo2 {
-    
+    color: grey;
     height: 45%;
     font-size: 18px;
     font-family: 'Mulish', sans-serif;
@@ -265,7 +266,7 @@ form{
 }
 
 .descripcion2 {
-    
+    color: rgba(128, 128, 128, 0.851);
     height: 55%;
     font-size: 15px;
     font-family: 'Quicksand', sans-serif;
@@ -281,7 +282,7 @@ form{
 }
 
 .titulo3 {
-    
+    color: grey;
     height: 45%;
     font-size: 18px;
     font-family: 'Mulish', sans-serif;
@@ -291,7 +292,7 @@ form{
 }
 
 .descripcion3 {
-    
+    color: rgba(128, 128, 128, 0.851);
     height: 55%;
     font-size: 15px;
     font-family: 'Quicksand', sans-serif;
