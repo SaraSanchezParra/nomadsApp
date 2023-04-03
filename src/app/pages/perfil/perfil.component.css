@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@600&family=Quicksand:wght@300;700&display=swap');
+
+h1{
+    text-align: center;
+    margin-top: 60px;
+    color: #1f8989;
+    border: 3px solid blue;
+    font-weight: 100;
+    font-family: 'Mulish', sans-serif;
+
+}
+body{
+    border: 3px solid black;
+    margin-top: 3px;
+    width: 90%;
+    height: 87vh;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: space-around;
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+.userInfo{
+    border: 3px solid green;
+    height: 42vh;
+    display: flex;
+    flex-direction: row;
+}
+.userInfo img{
+    border: 3px solid yellow;
+    margin-top: 3px;
+    border: 1px solid grey;
+    border-radius: 6px;
+    height: 13vh;
+    width: 26vw;
+}
+form{
+    border: 3px solid red;
+    font-size: small;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    margin-left: 5px;
+    width: 70%;
+    height: 25vh;
+    
+
+}
+
+#nombre{
+    border-radius: 6px;
+    border: 1px solid grey;
+    width: 240px;
+    height: 3vh;
+    font-size: 8pt;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+#apellidos{
+    border-radius: 6px;
+    border: 1px solid grey;
+    width: 240px;
+    height: 3vh;
+    font-size: 8pt;
+    margin-bottom: 3px;
+
+}
+
+#correo{
+    border-radius: 6px;
+    border: 1px solid grey;
+    width: 240px;
+    height: 3vh;
+    font-size: 8pt;
+    margin-bottom: 3px;
+}
+
+#usuario{
+    border-radius: 6px;
+    border: 1px solid grey;
+    width: 240px;
+    height: 3vh;
+    font-size: 8pt;
+    margin-bottom: 3px;
+}
+
+#descripcion{
+    border-radius: 6px;
+    border: 1px solid grey;
+    width: 240px;
+    height: 10vh;
+    font-size: 8pt;
+}
+
+.botones{
+    border: 3px solid yellow;
+    height: 6vh;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    box-shadow: 1px;
+    justify-content: space-around;
+
+
+}
+.button1{
+    width: 70px;
+    background-color: #1f8989;
+    
+}
+
+
+.cards {
+    border: 2px solid rgb(255, 0, 0); 
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.cards1 {
+    border: 2px solid #1F8989;
+    border-radius: 6px;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+}
+
+.cards2 {
+    border: 2px solid #1F8989;
+    border-radius: 6px;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+}
+
+.cards3 {
+    border: 2px solid #1F8989;
+    border-radius: 6px;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+}
+
+.footer {
+    border: 2px solid black;
+    height: 6vh;
+}
+
+.foto1 {
+    border: 2px solid black; 
+    border-radius: 6px;
+    background-size: cover;
+    background-image: none;
+    height: 100%;
+    width: 30%;
+}
+
+.foto2 {
+    border: 2px solid black;
+    border-radius: 6px;
+    background-size: cover;
+    background-image: none;
+    height: 100%;
+    width: 30%;
+}
+
+.foto3 {
+    border: 2px solid black;
+    border-radius: 6px;
+    background-size: cover;
+    background-image: none;
+    height: 100%;
+    width: 30%;
+}
+
+.texto {
+    border: 2px solid black; 
+    height: 100%;
+    width: 50%;
+}
+
+.titulo {
+
+    height: 45%;
+    font-size: 15px;
+    font-family: 'Courgette', cursive;
+    font-family: 'Mulish', sans-serif;
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+}
+
+.descripcion {
+    border: 2px solid black;
+    height: 55%;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    align-items: start;
+    margin-left: 8px;
+}
+
+.like {
+    border: 2px solid black;
+    width: 20%;
+}
+
+.user {
+    border: 2px solid black;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.likes {
+    border: 2px solid black;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.texto2 {
+    border: 2px solid black;
+    height: 100%;
+    width: 50%;
+}
+
+.titulo2 {
+    border: 2px solid black;
+    height: 45%;
+    font-size: 20px;
+    font-family: 'Courgette', cursive;
+    font-family: 'Mulish', sans-serif;
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+}
+
+.descripcion2 {
+    border: 2px solid black;
+    height: 55%;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    align-items: start;
+    margin-left: 8px;
+}
+
+.texto3 {
+    border: 2px solid black;
+    height: 100%;
+    width: 50%;
+}
+
+.titulo3 {
+    border: 2px solid black;
+    height: 45%;
+    font-size: 20px;
+    font-family: 'Courgette', cursive;
+    font-family: 'Mulish', sans-serif;
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+}
+
+.descripcion3 {
+    border: 2px solid black;
+    height: 55%;
+    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    align-items: start;
+    margin-left: 8px;
+}
