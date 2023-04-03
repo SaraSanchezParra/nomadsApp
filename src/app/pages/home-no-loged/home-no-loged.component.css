@@ -134,27 +134,45 @@
     /* border: 2px solid black; */
     border-radius: 6px;
     background-size: cover;
-    background-image: none;
     height: 100%;
     width: 30%;
+}
+
+.foto1 img {
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .foto2 {
     /* border: 2px solid black; */
     border-radius: 6px;
     background-size: cover;
-    background-image: none;
     height: 100%;
     width: 30%;
+}
+
+.foto2 img {
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .foto3 {
     /* border: 2px solid black; */
     border-radius: 6px;
     background-size: cover;
-    background-image: none;
     height: 100%;
     width: 30%;
+}
+
+.foto3 img {
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .texto {
