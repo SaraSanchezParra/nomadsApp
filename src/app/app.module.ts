@@ -24,6 +24,7 @@ import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.compo
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { SobrelaAppComponent } from './pages/sobrela-app/sobrela-app.component';
 import { MenuHamburguesaComponent } from './components/menu-hamburguesa/menu-hamburguesa.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { MenuHamburguesaComponent } from './components/menu-hamburguesa/menu-ham
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
