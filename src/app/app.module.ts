@@ -24,6 +24,9 @@ import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.compo
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { SobrelaAppComponent } from './pages/sobrela-app/sobrela-app.component';
 import { MenuHamburguesaComponent } from './components/menu-hamburguesa/menu-hamburguesa.component';
+import { CardDiaComponent } from './components/card-dia/card-dia.component';
+import { CardPuntoInteresComponent } from './components/card-punto-interes/card-punto-interes.component';
+import { HeaderVerdeComponent } from './components/header-verde/header-verde.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { MenuHamburguesaComponent } from './components/menu-hamburguesa/menu-ham
     QuienesSomosComponent,
     ContactoComponent,
     SobrelaAppComponent,
-    MenuHamburguesaComponent
+    MenuHamburguesaComponent,
+    CardDiaComponent,
+    CardPuntoInteresComponent,
+    HeaderVerdeComponent
   ],
   imports: [
     BrowserModule,
