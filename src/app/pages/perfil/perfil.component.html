@@ -7,85 +7,82 @@
     <link rel="stylesheet" href="perfil.component.css">
     <title>Perfil</title>
 </head>
-<h1>Perfil</h1>
-
 <body>
-    <div class="userInfo">
-        <img src="assets/perfil.png" alt="perfil">
-        <form>
-
-            <input type="text" placeholder="Nombre" id="nombre" name="nombre">
-
-            <input type="text" placeholder="Apellidos" id="apellidos" name="apellidos">
-
-            <input type="email" placeholder="Correo electrónico" id="correo" name="correo">
-
-            <input type="text" placeholder="Nombre de usuario" id="usuario" name="usuario">
-
-            <input type="text" placeholder="Descripción" id="descripcion" name="descripcion">
-
-        </form>
-    </div>
-    <div class="botones">
-        <button class="button1" type="button">Favoritas</button>
-        <button class="button2" type="button">Mis viajes</button>
-    </div>
-    <div class="cards">
-        <div class="cards1">
-            <div class="foto1">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTci4UfjBX-FCF6YQw349r_fyAaBd6Of0j4vw&usqp=CAU"
-                    alt="" width="100" height="100">
+    <main>
+        <h1>Perfil</h1>
+        
+        <div class="userInfo">
+    
+            <div class="profile_photo">
+                <img src={{user.photo}} alt="perfil">
             </div>
-            <div class="texto">
-                <div class="titulo">Madrid Centro</div>
-                <div class="descripcion">Descubre gran via y todas sus calles.</div>
-            </div>
-            <div class="like">
-                <div class="user">
-                    <img src="assets/perfil.png" width="45" height="45">
+    
+            <section>
+                <div name="nombre">{{user.name}}</div>
+                <div name="apellido">{{user.surname}}</div>
+                <div name="email">{{user.email}}</div>
+                <div name="nombre">{{user.username}}</div>
+                <div id="descripcion" name="descripcion">{{user.descripcion}}</div>
+            </section>
+        </div>
+        
+        <div class="botones">
+            <button class="button1" type="button" (click)="mostrarFavoritas()">Favoritas</button>
+            <button class="button1" type="button" (click)="mostrarMisViajes()">Mis viajes</button>
+        </div>
+        
+        <div class="cards" *ngIf="showFavs ; else misviajes">
+
+            <div class="card" *ngFor="let fav of user.favs; let i = index">
+                <div class="img">
+                    <img src="https://media.istockphoto.com/id/1059076792/es/foto/madrid-ciudad-skyline-gran-v%C3%ADa-calle-crep%C3%BAsculo-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=gWGpBRHVNJleHrVRmetRPTFuau_aahvCUKDMNfCrMNE="
+                        alt="" width="100" height="100">
                 </div>
-                <div class="likes">
-                    <img src="assets/corazon.png" width="20" height="20">544
+                <div class="info">
+                    <div class="title">{{ fav.titulo }}</div>
+                    <div class="desc">{{ fav.descripcion }}</div>
+                </div>
+                <div class="like">
+                    <div class="user">
+                        <img src="assets/perfil.png" width="45" height="45">
+                    </div>
+                    <div class="likes">
+                        <img src="assets/corazon.png" width="20" height="20">
+                        <p>{{ this.user.favs[i].likes }}</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="cards2">
-            <div class="foto2">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa63MfSCB-n_i-qPtiWK5j0Ex6e1QcykUUoA&usqp=CAU"
-                    alt="" width="100" height="100">
-            </div>
-            <div class="texto2">
-                <div class="titulo2">Málaga Costa</div>
-                <div class="descripcion2">Visita la costa del sol y nunca querras irte.</div>
-            </div>
-            <div class="like">
-                <div class="user">
+        
+        <ng-template #misviajes>
+            <div class="card" *ngFor="let viaje of user.misviajes; let i = index"> 
+
+                <div class="img">
+                    <img src="https://media.istockphoto.com/id/1059076792/es/foto/madrid-ciudad-skyline-gran-v%C3%ADa-calle-crep%C3%BAsculo-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=gWGpBRHVNJleHrVRmetRPTFuau_aahvCUKDMNfCrMNE="
+                        alt="" width="100" height="100">
+                </div>
+                <div class="info">
+                    <div class="title">{{ viaje.titulo }}</div>
+                    <div class="desc">{{ viaje.descripcion }}</div>
+                </div>
+                <div class="like">
+                    <div class="user">
+                       
+
                     <img src="assets/perfil.png" width="45" height="45">
                 </div>
                 <div class="likes">
-                    <img src="assets/corazon.png" width="20" height="20">428
+                    <img src="assets/corazon.png" width="20" height="20">
+                    <p>{{this.user.misviajes[i].likes }}</p>
                 </div>
             </div>
-        </div>
-        <div class="cards3">
-            <div class="foto3">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkzvBJpeAqcdCMyQdKNom38AgaR_mUHiW8og&usqp=CAU"
-                    alt="" width="100" height="100">
             </div>
-            <div class="texto3">
-                <div class="titulo3">Sevilla</div>
-                <div class="descripcion3">Disfruta de su color y su encanto.</div>
-            </div>
-            <div class="like">
-                <div class="user">
-                    <img src="assets/perfil.png" width="45" height="45">
-                </div>
-                <div class="likes">
-                    <img src="assets/corazon.png" width="20" height="20">152
-                </div>
-            </div>
-        </div>
-    </div>
+ 
+        </ng-template>
+        
+       
+    
+</main>
 </body>
 
 </html>

@@ -1,303 +1,167 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@600&family=Quicksand:wght@300;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700&family=Quicksand:wght@300;400;500;600&display=swap'); */
 
-h1{
-    text-align: center;
-    margin-top: 60px;
-    color: #1f8989;
-    font-weight: 600;
-    font-family: 'Mulish', sans-serif;
-    font-size: 20pt;
-
-}
-body{
-    
-    margin-top: 3px;
-    width: 90%;
-    height: 87vh;
-    margin-left: 20px;
-    margin-right: 20px;
+main{
+    margin-top: 6vh;
+    width: 100vw;
+    padding-left: 20px;
+    padding-right: 20px;
+ 
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-content: space-around;
-    font-family: 'Quicksand', sans-serif;
+    justify-content: center;  
+    gap: 3%;
 
+}
+h1{
+    text-align: center;
+    width: 100%;
+    padding: 5%;
+    color: #1f8989;
+
+    font-family: 'Mulish', sans-serif;  
+    font-weight: 500;  
+    font-size: 36px;
 }
 
 .userInfo{
-    
-    height: 42vh;
+    height: 35vh;
+    width: 100%;
     display: flex;
     flex-direction: row;
+    gap: 2%;
+    margin-bottom: 4%;
 }
-.userInfo img{
-   
-    margin-top: 15px;
-    border: 1px solid grey;
-    border-radius: 6px;
-    height: 13vh;
-    width: 26vw;
-}
-form{
+    .profile_photo{
+        width: 40%;
+        height: 60%;
+    }
+    .profile_photo img {
+        border-radius: 6px;
+        width: 100%;
+        max-height: 100%;
+    }
 
+section{
     font-size: small;
     display: flex;
     flex-direction: column;
     align-content: flex-start;
-    margin-left: 5px;
+    gap: 3%;
     width: 70%;
-    height: 30vh;
-    
 
 }
 
-#nombre{
+section div{
     border-radius: 6px;
-    border: 1px solid grey;
-    width: 240px;
-    height: 5vh;
+    background-color: rgba(232, 229, 229, 0.577);
+    /* border: 1px solid grey; */
+    width: 100%;
+    height: 17%;
     font-size: 12pt;
-    margin-top: 15px;
-    margin-bottom: 3px;
-}
+    font-weight: 400;
+    font-family: 'Quicksand', sans-serif;
 
-#apellidos{
-    border-radius: 6px;
-    border: 1px solid grey;
-    width: 240px;
-    height: 5vh;
-    font-size: 12pt;
-    margin-bottom: 3px;
-
-}
-
-#correo{
-    border-radius: 6px;
-    border: 1px solid grey;
-    width: 240px;
-    height: 5vh;
-    font-size: 12pt;
-    margin-bottom: 3px;
-}
-
-#usuario{
-    border-radius: 6px;
-    border: 1px solid grey;
-    width: 240px;
-    height: 5vh;
-    font-size: 12pt;
-    margin-bottom: 3px;
+    padding: 2%;
 }
 
 #descripcion{
-    border-radius: 6px;
-    border: 1px solid grey;
-    width: 240px;
-    height: 10vh;
-    font-size: 12pt;
-}
+    height: 30%;
+    padding: 2%;
+} 
 
 .botones{
     height: 6vh;
+    width: 100%;
     display: flex;
     flex-direction: row;
     color: white;
     box-shadow: 1px;
     justify-content: space-between;
-    
-
-
+    margin-bottom: 4%;
 }
+
+
 .button1{
-    width: 171px;
-    border: 1px solid #ffb800;
+    width: 47%;
+    border: none;
+    /* border: 1px solid #ffb800; */
     border-radius: 6px;
     background-color: #1f8989;
     color: white;
-    box-shadow: 0px 3px 6px 0px rgba(84, 83, 83, 0.466);
+    box-shadow: 0px 3px 6px 0px rgba(156, 155, 155, 0.652);
     font-family: 'Quicksand', sans-serif;
     font-size: 13pt;
     text-align: center;
 }
 
-.button2{
-    width: 171px;
-    border-radius: 6px;
-    border: 1px solid #1f8989;
-    background-color: #ffb800;
-    color: white;
-    font-size: 13pt;
-    box-shadow: 0px 3px 6px 0px rgba(84, 83, 83, 0.466);
-    font-family: 'Quicksand', sans-serif;
-    text-align: center;
-}
 
 
 .cards {
-
-    height: 70%;
+  
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin-top: 10px;
+    margin-bottom: 4%;
+  
 }
-
-.cards1 {
-    border: 1px solid #1f8989;
-    border-radius: 6px;
-    height: 30%;
-    display: flex;
-    flex-direction: row;
-    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
-}
-
-.cards2 {
-    border: 1px solid #1f8989;
-    box-shadow: 2px;
-    border-radius: 6px;
-    height: 30%;
-    display: flex;
-    flex-direction: row;
-    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
-}
-
-.cards3 {
-    border: 1px solid #1f8989;
-    border-radius: 6px;
-    height: 30%;
-    display: flex;
-    flex-direction: row;
-    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
-}
-
-
-
-.foto1 {
+    .card{
+        border: 1px solid #1f8989;
+        border-radius: 6px;
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
+        margin-bottom: 10px;
     
-    border-radius: 6px;
-    background-size: cover;
-    background-image: none;
-    height: 100%;
-    width: 30%;
-    margin-top: 9px;
-}
+    }
+        .img{
+            width: 25%;
+            height: 100%;
+        }
+            .img img{
+                width: 100%;
+                max-height: 100%;
+                border-radius: 6px 0px 0px 6px;
+            }
+        .info{
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 7%;
+            padding: 2%;
+        }
+            .title{
+                font-family: 'Mulish', sans-serif;
+                color: rgb(91, 90, 90);
+                font-size: large;
+                font-weight:500;
+            }
+            .desc{
+                font-family: 'Mulish', sans-serif;
+                color: grey;
+                font-size: 11pt;
+            }
+        .like{
+            width: 15%;
+            display: flex;
+            flex-direction: column;
+        }
+            .user{
+                height: 65%;
 
-.foto2 {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+            .likes{
+                height: 35%;
+                font-size: 11pt;
+                color: grey;
 
-    border-radius: 6px;
-    background-size: cover;
-    background-image: none;
-    height: 100%;
-    width: 30%;
-    margin-top: 9px;
-}
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: space-around;
+            }
 
-.foto3 {
 
-    border-radius: 6px;
-    background-size: cover;
-    background-image: none;
-    height: 100%;
-    width: 30%;
-    margin: 3px;
-}
-
-.texto {
-    
-    height: 100%;
-    width: 50%;
-}
-
-.titulo {
-    color:grey;
-    height: 45%;
-    font-size: 18px;
-    font-family: 'Mulish', sans-serif;
-    display: flex;
-    align-items: center;
-    margin-left: 8px;
-}
-
-.descripcion {
-    color: rgba(128, 128, 128, 0.851);
-    height: 55%;
-    font-size: 15px;
-    font-family: 'Quicksand', sans-serif;
-    display: flex;
-    font-weight: 300;
-    margin-left: 8px;
-}
-
-.like {
-    
-    width: 20%;
-}
-
-.user {
-    
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-.likes {
-    
-    height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color:grey;
-}
-
-.texto2 {
-   
-    height: 100%;
-    width: 50%;
-}
-
-.titulo2 {
-    color: grey;
-    height: 45%;
-    font-size: 18px;
-    font-family: 'Mulish', sans-serif;
-    display: flex;
-    align-items: center;
-    margin-left: 8px;
-}
-
-.descripcion2 {
-    color: rgba(128, 128, 128, 0.851);
-    height: 55%;
-    font-size: 15px;
-    font-family: 'Quicksand', sans-serif;
-    display: flex;
-    align-items: start;
-    margin-left: 8px;
-}
-
-.texto3 {
-   
-    height: 100%;
-    width: 50%;
-}
-
-.titulo3 {
-    color: grey;
-    height: 45%;
-    font-size: 18px;
-    font-family: 'Mulish', sans-serif;
-    display: flex;
-    align-items: center;
-    margin-left: 8px;
-}
-
-.descripcion3 {
-    color: rgba(128, 128, 128, 0.851);
-    height: 55%;
-    font-size: 15px;
-    font-family: 'Quicksand', sans-serif;
-    display: flex;
-    align-items: start;
-    margin-left: 8px;
-}

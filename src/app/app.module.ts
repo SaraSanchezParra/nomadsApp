@@ -27,6 +27,8 @@ import { MenuHamburguesaComponent } from './components/menu-hamburguesa/menu-ham
 import { CardDiaComponent } from './components/card-dia/card-dia.component';
 import { CardPuntoInteresComponent } from './components/card-punto-interes/card-punto-interes.component';
 import { HeaderVerdeComponent } from './components/header-verde/header-verde.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,10 @@ import { HeaderVerdeComponent } from './components/header-verde/header-verde.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
