@@ -1,1 +1,21 @@
-<p>pagina-viaje works!</p>
+<div class="viaje_body">
+    <div class="viaje_top" style="background-image: url({{viaje.main_img}});">
+        <div class="viaje_top_button_area">
+            <span class="material-symbols-outlined">
+                arrow_back_ios
+                </span>
+            <span id="fav-btn" ng-clicked="liked='liked" ngclass="liked" class="material-symbols-outlined">
+                favorite
+                </span>
+        </div>
+        <div class="viaje_tittle_area">
+            <h2>{{viaje.title}}</h2>
+        </div>
+
+    </div>
+    <div class="map_area">
+    </div>
+    <div class="days-area">
+        <app-day-card></app-day-card>
+    </div>
+</div>
