@@ -94,7 +94,10 @@ section div{
     text-align: center;
 }
 
-
+.button1.active {
+    border: 3px solid #ffb800;
+    cursor: pointer;
+  }
 
 .cards {
   

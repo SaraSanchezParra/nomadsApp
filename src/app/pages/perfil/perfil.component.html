@@ -27,8 +27,8 @@
         </div>
         
         <div class="botones">
-            <button class="button1" type="button" (click)="mostrarFavoritas()">Favoritas</button>
-            <button class="button1" type="button" (click)="mostrarMisViajes()">Mis viajes</button>
+           <button [ngClass]="{'active': showFavs}" class="button1" type="button" (click)="mostrarFavoritas()">Favoritas</button>
+           <button [ngClass]="{'active': !showFavs}" class="button1" type="button" (click)="mostrarMisViajes()">Mis viajes</button>
         </div>
         
         <div class="cards" *ngIf="showFavs ; else misviajes">
@@ -67,15 +67,18 @@
                 </div>
                 <div class="like">
                     <div class="user">
-                       
-
-                    <img src="assets/perfil.png" width="45" height="45">
-                </div>
-                <div class="likes">
-                    <img src="assets/corazon.png" width="20" height="20">
-                    <p>{{this.user.misviajes[i].likes }}</p>
-                </div>
-            </div>
+                      <div *ngIf="showIcons" class="iconos">
+                        <img src="assets/lapiz.png" width="25" height="25" alt="editar" class="icono">
+                        <img src="assets/borrar.png" width="25" height="25" alt="borrar" class="icono">
+                      </div>
+                    </div>
+                    <div class="likes">
+                      <img src="assets/corazon.png" width="20" height="20">
+                      <p>{{ this.user.favs[i].likes }}</p>
+                    </div>
+                  </div>
+                  
+                  
             </div>
  
         </ng-template>
