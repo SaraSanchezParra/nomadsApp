@@ -28,6 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardDiaComponent } from './components/card-dia/card-dia.component';
 import { CardPuntoInteresComponent } from './components/card-punto-interes/card-punto-interes.component';
 import { HeaderVerdeComponent } from './components/header-verde/header-verde.component';
+import { DayCardComponent } from './components/day-card/day-card.component';
+import { PuntoDeInteresCardComponent } from './components/punto-de-interes-card/punto-de-interes-card.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { HeaderVerdeComponent } from './components/header-verde/header-verde.com
     MenuHamburguesaComponent,
     CardDiaComponent,
     CardPuntoInteresComponent,
-    HeaderVerdeComponent
+    HeaderVerdeComponent,
+    DayCardComponent,
+    PuntoDeInteresCardComponent
   ],
   imports: [
     BrowserModule,

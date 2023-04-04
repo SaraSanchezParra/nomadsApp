@@ -1,7 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
- }
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --yellow: #FFB800;
+    --green: #1F8989;
+    --ff-titles: 'Mulish', sans-serif;
+    --ff-main: 'Quicksand', sans-serif;
+    --ff-nomads: 'Shadows Into Light Two', cursive;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
