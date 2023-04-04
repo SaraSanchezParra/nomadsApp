@@ -12,9 +12,8 @@ export class FooterComponent {
  
   constructor(){
     
-    this.loged = false
+    this.loged = true
 
-   
   }
 
 }
