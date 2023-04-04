@@ -53,9 +53,9 @@
     border-radius: 12px;
     background-color: #F5F5F5;
     height: 60%;
-    width: 42%;
+    width: 35%;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     font-size: 15px;
     font-family: 'Quicksand', sans-serif;
 }
@@ -70,6 +70,7 @@
 }
 
 .boton {
+       border: 2px solid #FFB800;
     color: white;
     background-color: #1F8989;
     border-radius: 6px;
