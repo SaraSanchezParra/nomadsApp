@@ -4,12 +4,10 @@ import { HomeNoLogedComponent } from './pages/home-no-loged/home-no-loged.compon
 
 <<<<<<< HEAD
 
-const routes: Routes = [];
 =======
 const routes: Routes = [
   {path: "home-no-loged", component: HomeNoLogedComponent}
 ];
->>>>>>> julioHomeSinLog
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
