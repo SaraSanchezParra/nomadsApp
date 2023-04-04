@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@600&family=Quicksand:wght@500&display=swap');
+
+
+.cuerpo {
+    /* border: 2px solid black; */
+    margin-top: 6vh;
+    height: 88vh;
+}
+
+.titulo {
+    /* border: 2px solid black; */
+    color: #1F8989;
+    height: 18%;
+    font-family: 'Mulish', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.caja {
+    /* border: 2px solid black; */
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.nombreYapellidos {
+    background-color: #F5F5F5;
+    border: none;
+    border-radius: 6px;
+    height: 15%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+}
+
+.asunto {
+    background-color: #F5F5F5;
+    border: none;
+    border-radius: 6px;
+    height: 15%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+}
+
+.email {
+    background-color: #F5F5F5;
+    border: none;
+    border-radius: 6px;
+    height: 15%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+}
+
+.mensaje {
+    background-color: #F5F5F5;
+    border: none;
+    border-radius: 6px;
+    height: 40%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+}
+
+.caja2 {
+    /* border: 2px solid black; */
+    height: 30%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.boton {
+    /* border: 2px solid rgb(0, 0, 0); */
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.enviar {
+    border: 2px solid #1F8989;
+    color: white;
+    background-color: #ffb800;
+    font-family: 'Quicksand', sans-serif;
+    border-radius: 6px;
+    height: 60%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    box-shadow: 0px 3px 6px 0px rgba(84, 83, 83, 0.466);
+}
+
+.paginas {
+    /* border: 2px solid rgb(0, 0, 0); */
+    height: 60%;
+}
+
+.donde {
+    /* border: 2px solid rgb(0, 0, 0); */
+    color: #1F8989;
+    height: 40%;
+    font-family: 'Mulish', sans-serif;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.enlaces {
+    /* border: 2px solid rgb(0, 0, 0); */
+    height: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -16,27 +16,28 @@ import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.compo
 import { RegisterComponent } from './pages/register/register.component';
 import { SobrelaAppComponent } from './pages/sobrela-app/sobrela-app.component';
 import { ViajesDestinoComponent } from './pages/viajes-destino/viajes-destino.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
 
 const routes: Routes = [
-  {path: "home-loged", component: HomeLogedComponent },
-  {path: "home-no-loged",component:HomeNoLogedComponent},
-  {path:"perfil", component:PerfilComponent},
-  {path:"busqueda", component:BusquedaComponent},
-  {path:"chatGeneral", component:ChatGeneralComponent},
-  {path:"chatPrivado", component:ChatPrivadoComponent},
-  {path:"add-viaje", component:AddViajeComponent},
-  {path:"landin-page", component:LandingPageComponent},
-  {path:"login", component:LoginComponent},
-  {path:"modifgicarPerfil", component:ModificarPerfilComponent},
-  {path:"modificarViaje", component:ModificarViajeComponent},
-  {path:"onBoarding", component:OnBoardingComponent},
-  {path:"paginaViaje", component:AddViajeComponent},
-  {path:"quienesSomos", component:QuienesSomosComponent},
-  {path:"register", component:RegisterComponent},
-  {path:"sobreLaApp", component:SobrelaAppComponent},
-  {path:"viajesDestino", component:ViajesDestinoComponent}
-
-]
+  { path: "home-loged", component: HomeLogedComponent },
+  { path: "home-no-loged", component: HomeNoLogedComponent },
+  { path: "perfil", component: PerfilComponent },
+  { path: "busqueda", component: BusquedaComponent },
+  { path: "chatGeneral", component: ChatGeneralComponent },
+  { path: "chatPrivado", component: ChatPrivadoComponent },
+  { path: "add-viaje", component: AddViajeComponent },
+  { path: "landin-page", component: LandingPageComponent },
+  { path: "login", component: LoginComponent },
+  { path: "modifgicarPerfil", component: ModificarPerfilComponent },
+  { path: "modificarViaje", component: ModificarViajeComponent },
+  { path: "onBoarding", component: OnBoardingComponent },
+  { path: "paginaViaje", component: AddViajeComponent },
+  { path: "quienesSomos", component: QuienesSomosComponent },
+  { path: "register", component: RegisterComponent },
+  { path: "sobreLaApp", component: SobrelaAppComponent },
+  { path: "viajesDestino", component: ViajesDestinoComponent },
+  { path: "contactanos", component: ContactoComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
