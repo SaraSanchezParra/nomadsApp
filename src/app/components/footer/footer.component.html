@@ -1,1 +1,25 @@
-<p>footer works!</p>
+
+
+    <div *ngIf="this.loged;else esFalso" class="footer_container">
+        <footer class="footer_loged" > 
+            <a href=""><img src="assets\Mas\Logo_Mas_Blanco.png" alt="Mas" class="mas"></a>
+            <a href=""><img src="assets\Usuario\Usuario_Transparente.png" alt="Usuario" class="usuario"></a>
+            <a href=""><img src="assets\Home\Home_Transparente.png" alt="Home" class="home"></a>
+            <a href=""><img src="assets\Lupa\Lupa_Sin_Background.png" alt="Buscar" class="buscar"></a>
+            <a href=""><img src="assets\Mail\Mail_Blanco_FondoTransparente.png" alt="Mail" class="mail"></a>
+        </footer>
+    </div>
+
+    <ng-template #esFalso>
+        <footer class="footer_noLoged" > 
+            <a href=""><img src="assets\Mas\Logo_Mas_Blanco.png" alt="Mas" class="mas"></a>
+            <a href=""><img src="assets\Usuario\Usuario_Transparente.png" alt="Usuario" class="usuario"></a>
+            <a href=""><img src="assets\Home\Home_Transparente.png" alt="Home" class="home"></a>
+            <a href=""><img src="assets\Lupa\Lupa_Sin_Background.png" alt="Buscar" class="buscar"></a>
+            <a href=""><img src="assets\Mail\Mail_Blanco_FondoTransparente.png" alt="Mail" class="mail"></a>
+        </footer>
+
+    </ng-template>
+
+  
+
