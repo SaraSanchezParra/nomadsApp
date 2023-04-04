@@ -1,1 +1,86 @@
-<p>register works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="register.component.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300&family=Shadows+Into+Light&display=swap"
+      rel="stylesheet"/>
+   
+    <title>Register</title>
+  </head>
+  <body>
+    <main class="fondo">
+      <div class="padre">
+        <div class="title">
+          <img src="../../../assets/logo_verde.png" alt="img" />
+          <h1>Nomads</h1>
+        </div>
+
+        <div class="formulario">
+          <form [formGroup]="myForm">
+            <input type="text" placeholder="Nombre de usuario" formControlName="nombreUsuario" class="form-control" 
+              [ngClass]="{'is-invalid': myForm.get('nombreUsuario').invalid && (myForm.get('nombreUsuario').dirty || myForm.get('nombreUsuario').touched) }">
+            <div *ngIf="myForm.get('nombreUsuario').invalid && (myForm.get('nombreUsuario').dirty || myForm.get('nombreUsuario').touched)" class="invalid-feedback">
+              El nombre de usuario debe comenzar con '@'
+            </div>
+          
+            <input type="email" placeholder="Correo electrónico" formControlName="email" class="form-control" 
+              [ngClass]="{'is-invalid': (myForm.get('email').dirty || myForm.get('email').touched) && !myForm.get('email').valid}" />
+            <div *ngIf="!myForm.get('email').valid" class="invalid-feedback">
+              <div *ngIf="myForm.get('email').errors.required">La direccion de email es obligatoria</div>
+              <div *ngIf="myForm.get('email').errors.email">
+                Direccion de email incorrecta
+              </div>
+            </div>
+          
+            <input type="text" placeholder="Nombre" formControlName="nombre" class="form-control" 
+              [ngClass]="{'is-invalid': (myForm.get('nombre').dirty || myForm.get('nombre').touched) && !myForm.get('nombre').valid}" />
+            <div *ngIf="!myForm.get('nombre').valid" class="invalid-feedback" >
+              El nombre es necesario
+            </div> 
+          
+            <input type="text" placeholder="apellidos" formControlName="apellido" class="form-control" 
+              [ngClass]="{'is-invalid': (myForm.get('apellido').dirty || myForm.get('apellido').touched) && !myForm.get('apellido').valid}"/>
+            <div *ngIf="!myForm.get('apellido').valid" class="invalid-feedback" >
+              El apellido es necesario
+            </div>
+          
+            <input type="text" placeholder="Foto" formControlName ="foto" class="form-control"
+              [ngClass]="{'is-invalid': myForm.get('foto').invalid && (myForm.get('foto').dirty || myForm.get('foto').touched)}"/>
+            <div *ngIf="myForm.get('foto').invalid && (myForm.get('foto').dirty || myForm.get('foto').touched)" class="invalid-feedback">
+              La foto es requerida
+            </div>
+          
+            <input type="text" placeholder="Contraseña" formControlName="password" class="form-control" 
+              [ngClass]="{'is-invalid': (myForm.get('password').dirty || myForm.get('password').touched) && !myForm.get('password').valid}"/>
+            <div *ngIf="!myForm.get('password').valid" class="invalid-feedback">
+              <div *ngIf="myForm.get('password').errors.required">La clave es obligatoria</div>
+              <div *ngIf="myForm.get('password').errors.minlength">Debe contener al menos 8 caracteres</div> 
+            </div>
+          
+
+            <input type="text" placeholder="Repetir contraseña" formControlName="password2" class="form-control" 
+            [ngClass]="{'is-invalid': (myForm.get('password2').dirty || myForm.get('password2').touched) && !myForm.get('password2').valid}" />
+            <div *ngIf="!myForm.get('password2').valid" class="invalid-feedback">
+              <div *ngIf="myForm.get('password2').errors.required">La clave es obligatoria</div>
+              <div *ngIf="!myForm.get('password2').errors.required && myForm.get('password2').errors.matchPassword">las claves no coinciden</div>
+            </div>
+
+            <button type="submit" (click)="register()" [disabled]="myForm.invalid">Regístrate</button>
+           
+          </form>
+
+        </div>
+      </div>
+    </main>
+
+    <script src="register.component.ts"></script>
+  </body>
+</html>
