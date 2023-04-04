@@ -1,0 +1,91 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(31, 137, 137, 1);
+}
+
+
+.padre{
+  width: 100%;
+  height: 100vh;
+ 
+}
+
+
+.title{
+
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4%;
+ 
+
+}
+
+img{
+  width: 70%;
+  height: 70%;
+}
+
+h1{
+
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 400%;
+  font-weight: lighter;
+  color: rgba(255, 184, 0, 1);
+}
+
+.formulario{
+  width: 100%;
+  height: 70%; 
+}
+
+form{
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3%;
+}
+
+input {
+  border-radius: 12px;
+  min-height: 40px;
+  width: 70%;
+  border: none;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  overflow-y: auto;
+}
+
+
+button{
+  color: rgba(255, 184, 0, 1);
+  font-size: 150%;
+  border-radius: 6px;
+  height: 10%;
+  width: 60%;
+  margin-top: 5%;
+  margin-bottom: 4%;
+  background-color: rgba(31, 137, 137, 1);
+  border: 1px solid rgba(255, 184, 0, 1);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.356);
+  font-family: 'Quicksand', sans-serif;
+  
+}
