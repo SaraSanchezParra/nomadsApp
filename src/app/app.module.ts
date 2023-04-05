@@ -29,6 +29,7 @@ import { CardPuntoInteresComponent } from './components/card-punto-interes/card-
 import { HeaderVerdeComponent } from './components/header-verde/header-verde.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CardViajeComponent } from './components/card-viaje/card-viaje.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { CommonModule } from '@angular/common';
     MenuHamburguesaComponent,
     CardDiaComponent,
     CardPuntoInteresComponent,
-    HeaderVerdeComponent
+    HeaderVerdeComponent,
+    CardViajeComponent
   ],
   imports: [
     BrowserModule,
