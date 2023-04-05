@@ -6,28 +6,29 @@ header{
     left:0;
     background-color: #1F8989;
     width: 100vw;
-    height: 6vh;
+    height: 9vh;
+    z-index: index 9;
   }
 
   .brand{
     margin-left: 20px;
     margin-right: 20px;
-    font-size: 19pt;
+
     color: #ffb800;
-    margin-left: 3%;
+    margin-left: 20px;
     display: flex;
     flex-direction: row;
 
   }
   img{
     margin-top: 4px;
-    width: 12%;
-    height: 12%;
+    width: 20%;
+    height: 20%;
   }
 
     .name{
         margin-top: 3px;
-    
         font-family: 'Shadows Into Light', cursive;
+        font-size: 35pt;
    }
    
