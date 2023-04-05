@@ -59,11 +59,18 @@ import { PuntoDeInteresCardComponent } from './components/punto-de-interes-card/
     MenuHamburguesaComponent,
     CardDiaComponent,
     CardPuntoInteresComponent,
-    HeaderVerdeComponent
+    HeaderVerdeComponent,
+    CardViajeComponent,
+    DayCardComponent,
+    PuntoDeInteresCardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule, 
+    ReactiveFormsModule,
+    CommonModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
