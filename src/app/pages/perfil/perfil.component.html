@@ -12,10 +12,25 @@
         <h1>Perfil</h1>
         
         <div class="userInfo">
-    
-            <div class="profile_photo">
-                <img src={{user.photo}} alt="perfil">
+
+            <div class="ajustesProfile"> 
+                 <div class="profile_photo">
+                    <img src={{user.photo}} alt="perfil">
+                </div>
+                <div class="ajustesymensaje" *ngIf ="loged; else esFalso">
+                    <button type="button" class="icono" (click)="ajustesPerfil()"> Editar
+                    </button>
+                </div>
+                <!-- cambio de boton cuando loged -->
+                <ng-template #esFalso>
+                    <div class="ajustesymensaje" >
+                        <button type="button" class="icono" (click)="enviarMensaje()"> Mensaje
+                        </button>
+                    </div>
+                </ng-template>
+                
             </div>
+          
     
             <section>
                 <div name="nombre">{{user.name}}</div>
@@ -44,7 +59,9 @@
                 </div>
                 <div class="like">
                     <div class="user">
+                        <button type="button" class="icono" (click)="iraUser">
                         <img src="assets/perfil.png" width="45" height="45">
+                        </button>
                     </div>
                     <div class="likes">
                         <img src="assets/corazon.png" width="20" height="20">
@@ -66,14 +83,19 @@
                 </div>
                 <div class="like">
                     <div class="user">
-                        <div *ngIf="showIcons" class="iconos">
-                            <button type="button" class="icono" (click)="editarViaje(i)">
-                              <img src="assets/lapiz.png" width="15" height="15" alt="editar">
-                            </button>
+                        <div *ngIf="loged; else noDelete" class="iconos">
                             <button type="button" class="icono" (click)="borrarViaje(i)">
-                              <img src="assets/borrar.png" width="15" height="15" alt="borrar">
+                              <img src="assets/borrar.png" width="20" height="20" alt="borrar">
                             </button>
-                          </div>
+                        </div>
+                        <!-- eliminar boton eiminar si no loged -->
+                        <ng-template #noDelete>
+                            <div class="iconos">
+                                <button type="button" class="icono" >
+                                </button>
+                            </div>
+                        </ng-template>
+                        
                     </div>
                     <div class="likes">
                       <img src="assets/corazon.png" width="20" height="20">
