@@ -1,0 +1,32 @@
+.viajes {
+    margin-top: 8vh;
+    margin-inline: 1rem;
+}
+
+.inputs {
+    display: flex;
+    justify-content: space-around;
+}
+
+.buscar {
+    border: none;
+    border-radius: 12px;
+    background-color: #F5F5F5;
+    min-height: 2rem;
+    width: 53%;
+    display: flex;
+    font-size: 15px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.dias {
+    border: none;
+    border-radius: 12px;
+    background-color: #F5F5F5;
+
+    width: 35%;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-family: 'Quicksand', sans-serif;
+}
