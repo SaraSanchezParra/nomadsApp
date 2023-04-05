@@ -10,7 +10,7 @@ bottom: 0px;
 }
 .footer_loged{  
     /* border: 2px solid black; */
-    height: 6vh;
+    height: 9vh;
     width: 100vw;
     background-color: #FFB800;
     display: flex;
@@ -22,7 +22,7 @@ bottom: 0px;
 } 
 .footer_noLoged{ 
      /* border: 2px solid black; */
-     height: 6vh;
+     height: 9vh;
      width: 100vw;
      background-color:#1F8989;
      display: flex;
