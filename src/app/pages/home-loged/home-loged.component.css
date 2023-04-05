@@ -11,7 +11,7 @@
 
 .header {
     /* border: 2px solid black; */
-    height: 6vh;
+    height: 9vh;
 
 }
 
@@ -47,7 +47,7 @@
     border-radius: 12px;
     background-color: #F5F5F5;
     height: 45%;
-    width: 35%;
+    width: 45%;
     display: flex;
     font-size: 15px;
     font-family: 'Quicksand', sans-serif;
@@ -68,7 +68,7 @@
 .boton {
     color: white;
     background-color: #FFB800;
-    border: 1px solid #1F8989;
+    border: none;
     border-radius: 6px;
     height: 45%;
     width: 25%;
@@ -292,19 +292,43 @@
     color: #1F8989;
     height: 50%;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: row;
     align-items: center;
     font-size: 36px;
     font-family: 'Mulish', sans-serif;
 }
-
+.top-nomads{
+    /* border: 2px solid black; */
+    height: 100%;
+    width: 65%;
+    display: flex;
+    align-items: center;
+}
+/* .lupa{
+    border: 2px solid black;
+    height: 100%;
+    width: 35%;
+    margin-right: 20px;
+} */
 .topUsers {
     /* border: 2px solid rgb(255, 0, 0); */
     height: 50%;
     display: flex;
     justify-content: space-between;
 }
-
+.nomads{
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 50px;
+    height: 65%;
+    width: 17%;
+    overflow: hidden;
+}
+.nomads img{
+    border-radius: 50px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
 
 
 
