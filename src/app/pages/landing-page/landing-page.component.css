@@ -1,0 +1,141 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(31, 137, 137, 1);
+}
+
+.padre{
+  /* border: 3px solid black; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4%;
+}
+
+
+.nombre{
+  /* border: 2px solid red; */
+  height: 30%;
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+  font-size:205%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
+
+  
+  
+}
+
+h1{
+  color:rgba(255, 184, 0, 1);
+  font-family: 'Shadows Into Light', cursive;
+  /* font-size: 400%; */
+  font-weight: lighter;
+  font-size: 300%;
+
+}
+
+.frase{
+  border: 2px solid green; 
+  width: 100%;
+  height: 30%;
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+  font-size:205%;
+  font-weight: lighter;
+  padding: 10%;
+  text-align: center;
+}
+
+
+
+.logo{
+  /* border: 2px solid blue; */
+  height: 35%;
+  
+  /* display: flex;
+  flex-direction: row;
+  align-items: center; */
+}
+
+.img2{
+  height: 100%;
+  /* width: 100%; */
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  margin-left: 15%;
+  
+  animation-name: mover-logo;
+    animation-duration: 3s;
+    animation-iteration-count: inherit;
+    animation-direction:alternate-reverse;
+  
+
+}
+
+@keyframes mover-logo {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(10deg);
+  }
+}
+
+/* Animacion frase y nombre  */
+
+.animate-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  animation: slide-in-left 1s ease-out forwards;
+}
+
+.animate-right {
+  opacity: 0;
+  transform: translateX(100px);
+  animation: slide-in-right 1s ease-out forwards;
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
