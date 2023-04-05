@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  public loged : Boolean;
+
+  constructor(){
+
+    this.loged = true;
+    console.log(this.loged);
+    
+  }
 }
