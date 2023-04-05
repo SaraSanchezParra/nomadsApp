@@ -7,6 +7,7 @@
 .footer_container{
     position: fixed;
 bottom: 0px;
+z-index: 9;
 }
 .footer_loged{  
     /* border: 2px solid black; */

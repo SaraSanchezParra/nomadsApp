@@ -1,17 +1,24 @@
 <div class="viajes">
-<div class="searchbars">
-    <div class="inputs">
-        <input class="buscar" type="text" placeholder="Viajes en">
-        <select class="dias" name="myFirstSelect" id="selectExample" placeholder="Nº de Dias">
-                    <option value="1">1 Dia</option> 
-                    <option value="2">2 Dias</option>
-                    <option value="3">3 Dias</option>
-                    <option value="4">4 Dias</option>
-                    <option value="5">5 Dias</option>
-        </select>
+    <div class="searchbars">
+        <div class="inputs">
+            <input class="buscar" type="text" placeholder="Viajes en">
+            <select class="dias" name="myFirstSelect" id="selectExample" placeholder="Nº de Dias">
+                <option value="1">1 Dia</option>
+                <option value="2">2 Dias</option>
+                <option value="3">3 Dias</option>
+                <option value="4">4 Dias</option>
+                <option value="5">5 Dias</option>
+            </select>
+        </div>
     </div>
-</div>
-<div class="area-viajes">
-    <app-card-viajes></app-card-viajes>
-</div>
+    <div class="area-viajes">
+        <div class="noViajes" *ngIf="viajesADestino.length == 0; else showViajes">
+            <h3>No hay viajes para ese destino todavia</h3>
+        </div>
+        <ng-template #showViajes>
+            <ng-container *ngFor="let viaje of viajesADestino">
+                <app-card-viaje [viaje]="viaje"></app-card-viaje>
+            </ng-container>
+        </ng-template>
+    </div>
 </div>
