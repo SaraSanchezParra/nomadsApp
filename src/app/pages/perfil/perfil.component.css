@@ -1,0 +1,174 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700&family=Quicksand:wght@300;400;500;600&display=swap'); */
+
+main{
+    margin-top: 6vh;
+    width: 100vw;
+    padding-left: 20px;
+    padding-right: 20px;
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    gap: 3%;
+
+}
+h1{
+    text-align: center;
+    width: 100%;
+    padding: 5%;
+    color: #1f8989;
+
+    font-family: 'Mulish', sans-serif;  
+    font-weight: 500;  
+    font-size: 36px;
+}
+
+.userInfo{
+    height: 35vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    margin-bottom: 4%;
+}
+    .profile_photo{
+        width: 40%;
+        height: 60%;
+    }
+    .profile_photo img {
+        border-radius: 6px;
+        width: 100%;
+        max-height: 100%;
+    }
+
+section{
+    font-size: small;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    gap: 3%;
+    width: 70%;
+
+}
+
+section div{
+    border-radius: 6px;
+    background-color: rgba(232, 229, 229, 0.577);
+    /* border: 1px solid grey; */
+    width: 100%;
+    height: 17%;
+    font-size: 12pt;
+    font-weight: 400;
+    font-family: 'Quicksand', sans-serif;
+
+    padding: 2%;
+}
+
+#descripcion{
+    height: 30%;
+    padding: 2%;
+} 
+
+.botones{
+    height: 6vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    box-shadow: 1px;
+    justify-content: space-between;
+    margin-bottom: 4%;
+}
+
+
+.button1{
+    width: 47%;
+    border: none;
+    /* border: 1px solid #ffb800; */
+    border-radius: 6px;
+    background-color: #1f8989;
+    color: white;
+    box-shadow: 0px 3px 6px 0px rgba(156, 155, 155, 0.652);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 13pt;
+    text-align: center;
+}
+
+.button1.active {
+    border: 3px solid #ffb800;
+    cursor: pointer;
+  }
+
+.cards {
+  
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4%;
+  
+}
+    .card{
+        border: 1px solid #1f8989;
+        border-radius: 6px;
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
+        margin-bottom: 10px;
+    
+    }
+        .img{
+            width: 25%;
+            height: 100%;
+        }
+            .img img{
+                width: 100%;
+                min-height: 100%;
+                border-radius: 6px 0px 0px 6px;
+            }
+        .info{
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 7%;
+            padding: 2%;
+        }
+            .title{
+                font-family: 'Mulish', sans-serif;
+                color: rgb(91, 90, 90);
+                font-size: large;
+                font-weight:500;
+            }
+            .desc{
+                font-family: 'Mulish', sans-serif;
+                color: grey;
+                font-size: 11pt;
+            }
+        .like{
+            width: 15%;
+            display: flex;
+            flex-direction: column;
+        }
+            .user{
+                height: 65%;
+
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+            .like button{
+                margin: 3px;
+            }
+            .likes{
+                height: 35%;
+                font-size: 11pt;
+                color: grey;
+
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 3%;
+            }
+
+

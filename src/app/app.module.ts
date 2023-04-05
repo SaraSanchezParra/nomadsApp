@@ -28,6 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardDiaComponent } from './components/card-dia/card-dia.component';
 import { CardPuntoInteresComponent } from './components/card-punto-interes/card-punto-interes.component';
 import { HeaderVerdeComponent } from './components/header-verde/header-verde.component';
+import { CommonModule } from '@angular/common';
+import { CardViajeComponent } from './components/card-viaje/card-viaje.component';
 import { DayCardComponent } from './components/day-card/day-card.component';
 import { PuntoDeInteresCardComponent } from './components/punto-de-interes-card/punto-de-interes-card.component';
 
@@ -57,15 +59,11 @@ import { PuntoDeInteresCardComponent } from './components/punto-de-interes-card/
     MenuHamburguesaComponent,
     CardDiaComponent,
     CardPuntoInteresComponent,
-    HeaderVerdeComponent,
-    DayCardComponent,
-    PuntoDeInteresCardComponent
+    HeaderVerdeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
