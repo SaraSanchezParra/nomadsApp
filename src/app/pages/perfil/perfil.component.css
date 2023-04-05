@@ -156,6 +156,9 @@ section div{
                 justify-content: flex-start;
                 align-items: center;
             }
+            .like button{
+                margin: 3px;
+            }
             .likes{
                 height: 35%;
                 font-size: 11pt;
