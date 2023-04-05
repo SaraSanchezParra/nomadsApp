@@ -8,9 +8,17 @@ import { Router } from '@angular/router';
 })
 export class BusquedaComponent {
 
-  constructor(private router: Router) { }
+  public loged:Boolean
+
+  constructor(private router: Router) { 
+
+    this.loged = true
+  }
 
   navigateToRegister() {
     this.router.navigate(['/login']);
+  }
+  navigateToPagViaje() {
+    this.router.navigate(['/paginaViaje']);
   }
 }

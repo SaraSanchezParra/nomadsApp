@@ -31,7 +31,14 @@
         </div>
 
     </div>
-    <div class="btn">
-        <button class="boton" type="button" (click)= "navigateToRegister()">Búsqueda</button>
+   
+    <div class="btn" *ngIf="this.loged;else esFalso">
+        <button class="botonLogado" type="button" (click)= "navigateToPagViaje()" >Búsqueda</button>
     </div>
+
+    <ng-template #esFalso>
+        <div class="btn" >
+            <button class="botonNoLogado" type="button" (click)= "navigateToRegister()" >Búsqueda</button>
+        </div>
+    </ng-template>
 </div>
