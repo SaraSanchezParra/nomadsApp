@@ -28,7 +28,7 @@ export class PerfilComponent {
       favs: [
         {img:"", titulo:'Málaga Costa', descripcion:'Visita la costa del Sol y nunca querrás irte', likes:290},
         {img:"", titulo:'Sevilla', descripcion:'Disfruta de su color y su encanto', likes:120},
-        {img:"", titulo:'Madrid Centro', descripcion:'Como siempre, de Madrid al cielo', likes:600}
+        {img:"https://media.istockphoto.com/id/1059076792/es/foto/madrid-ciudad-skyline-gran-v%C3%ADa-calle-crep%C3%BAsculo-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=gWGpBRHVNJleHrVRmetRPTFuau_aahvCUKDMNfCrMNE=", titulo:'Madrid Centro', descripcion:'Como siempre, de Madrid al cielo', likes:600}
       ],
       misviajes: [
         {img:"", titulo:'Salamanca', descripcion:'Piérdete por sus calles', likes:260},
