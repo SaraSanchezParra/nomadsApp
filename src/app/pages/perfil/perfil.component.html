@@ -67,10 +67,14 @@
                 </div>
                 <div class="like">
                     <div class="user">
-                      <div *ngIf="showIcons" class="iconos">
-                        <img src="assets/lapiz.png" width="25" height="25" alt="editar" class="icono">
-                        <img src="assets/borrar.png" width="25" height="25" alt="borrar" class="icono">
-                      </div>
+                        <div *ngIf="showIcons" class="iconos">
+                            <button type="button" class="icono" (click)="editarViaje(i)">
+                              <img src="assets/lapiz.png" width="25" height="25" alt="editar">
+                            </button>
+                            <button type="button" class="icono" (click)="borrarViaje(i)">
+                              <img src="assets/borrar.png" width="25" height="25" alt="borrar">
+                            </button>
+                          </div>
                     </div>
                     <div class="likes">
                       <img src="assets/corazon.png" width="20" height="20">

@@ -19,11 +19,11 @@ export class PerfilComponent {
   constructor() {
     
     this.user = {
-      name: 'stefi',
+      name: 'Estefi',
       surname: 'Martin',
-      email: 'stefi@stefi',
-      username: '@stefi',
-      descripcion: "Hola, me llamo Stefi y soy una viajera empedernida.",
+      email: 'estefi@stefi',
+      username: '@estefi',
+      descripcion: "Hola, me llamo Estefi y soy una viajera empedernida.",
       photo:'https://www.sevillainfo.es/wp-content/uploads/2022/05/IMG-0810.jpg',
       favs: [
         {titulo:'Málaga Costa', descripcion:'Visita la costa del Sol y nunca querrás irte', likes:290},
@@ -50,5 +50,18 @@ export class PerfilComponent {
    this.showFavs = false;
    this.showIcons = true;
   }
+  public editarViaje(i: number): void {
+    const nuevoTitulo = prompt('Ingresa el nuevo título del viaje:');
+    const nuevaDescripcion = prompt('Ingresa la nueva descripción del viaje:');
+    if (nuevoTitulo && nuevaDescripcion) {
+      this.user.misviajes[i].titulo = nuevoTitulo;
+      this.user.misviajes[i].descripcion = nuevaDescripcion;
+    }
+  }
+  
+  public borrarViaje(i: number): void {
+    this.user.misviajes.splice(i, 1);
+  }
+  
 }
 
