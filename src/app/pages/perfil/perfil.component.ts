@@ -26,14 +26,14 @@ export class PerfilComponent {
       descripcion: "Hola, me llamo Estefi y soy una viajera empedernida.",
       photo:'https://www.sevillainfo.es/wp-content/uploads/2022/05/IMG-0810.jpg',
       favs: [
-        {titulo:'Málaga Costa', descripcion:'Visita la costa del Sol y nunca querrás irte', likes:290},
-        {titulo:'Sevilla', descripcion:'Disfruta de su color y su encanto', likes:120},
-        {titulo:'Madrid Centro', descripcion:'Como siempre, de Madrid al cielo', likes:600}
+        {img:"", titulo:'Málaga Costa', descripcion:'Visita la costa del Sol y nunca querrás irte', likes:290},
+        {img:"", titulo:'Sevilla', descripcion:'Disfruta de su color y su encanto', likes:120},
+        {img:"", titulo:'Madrid Centro', descripcion:'Como siempre, de Madrid al cielo', likes:600}
       ],
       misviajes: [
-        {titulo:'Salamanca', descripcion:'Piérdete por sus calles', likes:260},
-        {titulo:'Porrua', descripcion:'El pueblo con más encanto de España', likes:490},
-        {titulo:'Galicia', descripcion:'Su gente, su marisco, sus paisajes...CALIDADE', likes:300}
+        {img:"", titulo:'Salamanca', descripcion:'Piérdete por sus calles', likes:260},
+        {img:"", titulo:'Porrua', descripcion:'El pueblo con más encanto de España', likes:490},
+        {img:"", titulo:'Galicia', descripcion:'Su gente, su marisco, sus paisajes...CALIDADE', likes:300}
       ]
     };
     console.log(this.user);
