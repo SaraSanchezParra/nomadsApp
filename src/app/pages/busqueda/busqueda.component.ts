@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-busqueda',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class BusquedaComponent {
 
+  constructor(private router: Router) { }
+
+  navigateToRegister() {
+    this.router.navigate(['/login']);
+  }
 }
