@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -9,11 +11,17 @@ import { Component } from '@angular/core';
 export class FooterComponent {
 
   public loged:Boolean
+  
  
-  constructor(){
+  constructor(private router: Router,public location: Location){
     
-    this.loged = false
+    this.loged = true;
+    
+   }
+  ngOnInit(): void {
+    console.log(this.location.path())
+   
 
   }
-
 }
+
