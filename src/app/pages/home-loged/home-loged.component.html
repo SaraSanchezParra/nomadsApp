@@ -3,16 +3,16 @@
     <div class="caja">
         <div class="buscador">
             <div class="caja1">
-                <input class="buscar" type="text" placeholder="¿Adónde vas?">
+                <input class="buscar" [(ngModel)]="inputValue" type="text" placeholder="¿Adónde vas?">
                 <select class="dias" name="myFirstSelect" id="selectExample" placeholder="Nº de Dias">
-                    <option value="1">1 Dia</option> 
+                    <option value="1">1 Dia</option>
                     <option value="2">2 Dias</option>
                     <option value="3">3 Dias</option>
                     <option value="4">4 Dias</option>
                     <option value="5">5 Dias</option>
                 </select>
-              
-                <button class="boton" type="button">Mostrar</button>
+
+                <button class="boton" type="button" [disabled]="!inputValue" [ngClass]="{ 'disabled': !inputValue }">Mostrar</button>
             </div>
 
         </div>
@@ -78,13 +78,28 @@
             </div>
         </div>
         <div class="users">
-            <div class="top">Top Nomads</div>
+            <div class="top">
+                <div class="top-nomads">Top Nomads</div>
+                <div class="lupa">
+
+                </div>
+            </div>
             <div class="topUsers">
-                <img src="assets/Diseño_sin_título-removebg-preview (1).png" width="55" height="55">
-                <img src="assets/Diseño_sin_título-removebg-preview (1).png" width="55" height="55">
-                <img src="assets/Diseño_sin_título-removebg-preview (1).png" width="55" height="55">
-                <img src="assets/Diseño_sin_título-removebg-preview (1).png" width="55" height="55">
-                <img src="assets/Diseño_sin_título-removebg-preview (1).png" width="55" height="55">
+                <div class="nomads">
+                    <a routerLink="/perfil"><img src="assets/d33f54ca-a0fe-4f44-9060-ab87e3f36ea7.jpeg" width="55" height="55"></a>
+                </div>
+                <div class="nomads">
+                  <a routerLink="/perfil"><img src="assets/b020a6bf-3585-4b0a-88ea-e5a6d2f71132.jpeg" width="55" height="55"></a>
+                </div>
+                <div class="nomads">
+                  <a routerLink="/perfil"><img src="assets/1122fa5f-bb73-40ec-9ed0-c755411c3973.jpeg" width="55" height="55"></a>
+                </div>
+                <div class="nomads">
+                   <a routerLink="/perfil"><img src="assets/6468c6a8-02eb-4a3e-9f1a-7969992c6975.jpeg" width="55" height="55"></a>
+                </div>
+                <div class="nomads">
+                   <a routerLink="/perfil"><img src="assets/416c4ac3-f660-466d-a5e1-9fcaaac432b1.jpeg" width="55" height="55"></a>
+                </div>
             </div>
         </div>
     </div>
