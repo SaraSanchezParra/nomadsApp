@@ -27,7 +27,6 @@
     margin-top: 1rem;
     justify-content: space-around;
     width: 80%;
-    min-height: 60vh;
 }
 
 .form {
@@ -75,5 +74,20 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    min-height: 12vh;
+}
+
+.day-card {
+    width: 99%;
+    background-color: var(--green);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.4rem;
+    border-radius: 12px;
+    margin-block-end: 1rem;
+}
+
+.day-card button {
+    width: 80%;
 }

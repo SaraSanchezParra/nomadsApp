@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray} from '@angular/forms';
 import { Day } from 'src/app/models/day';
 import { Viaje } from 'src/app/models/viaje';
 
@@ -13,6 +13,14 @@ export class AddViajeComponent {
   public viaje: Viaje;
   public addForm: FormGroup;
 
+  get days() {
+    return this.addForm.get('days') as FormArray;
+  }
+
+  addDay() {
+    this.days.push(this.formBuilder.control(''));
+  }
+
   constructor(private formBuilder: FormBuilder) {
     this.buildForm()
   }
@@ -21,7 +29,8 @@ export class AddViajeComponent {
     this.addForm = this.formBuilder.group({
       nombreViaje: ['', Validators.required],
       descripcionViaje: ['', Validators.required],
-      fotoViaje: ['', Validators.required]
+      fotoViaje: ['', Validators.required],
+      days: this.formBuilder.array([])
     })
   }
 }

@@ -28,13 +28,14 @@
                 class="invalid-feedback">
                 Una foto del viaje es necesaria
             </div>
-            <div class="day-area">
-                <ng-container *ngFor="let dia of viaje.days">
-                    <app-day-card [dia]="dia"></app-day-card>
-                </ng-container>
+            <div class="form day-area" formArrayName="days" *ngFor="let day of days.controls; let i = index">
+                <div class="day-card">
+                    <h3>Dia {{i+1}}</h3>
+                    <button type="button">Añadir punto de interes</button>
+                </div>
             </div>
             <div class="btn-area">
-                <button type="button">Añadir día</button>
+                <button type="button" (click)="addDay()">Añadir día</button>
                 <button type="button">Añadir viaje</button>
             </div>
         </form>
