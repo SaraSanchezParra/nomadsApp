@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Day } from 'src/app/models/day';
 
 @Component({
   selector: 'app-day-card',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class DayCardComponent {
 
+  @Input() dia!:Day
 }

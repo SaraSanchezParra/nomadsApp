@@ -1,0 +1,4 @@
+.content-inner {
+    display: flex;
+    flex-direction: row;
+}

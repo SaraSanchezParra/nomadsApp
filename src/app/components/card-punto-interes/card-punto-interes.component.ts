@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { PuntoDeInteres } from 'src/app/models/punto-de-interes';
 
 @Component({
   selector: 'app-card-punto-interes',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class CardPuntoInteresComponent {
 
+  @Input() puntoDeInteres!:PuntoDeInteres
+
+  
 }
