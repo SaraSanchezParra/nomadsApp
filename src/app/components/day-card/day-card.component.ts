@@ -9,4 +9,5 @@ import { Day } from 'src/app/models/day';
 export class DayCardComponent {
 
   @Input() dia!:Day
+  @Input() i!:number
 }

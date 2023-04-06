@@ -3,6 +3,7 @@ input[type='checkbox'] {
 }
 
 .lbl-toggle {
+  width: 100%;
     display: block;
     font-weight: bold;
     font-family: var(--ff-titles);
@@ -36,6 +37,7 @@ input[type='checkbox'] {
 
   .collapsible-content {
     max-height: 0px;
+    width: 100%;
     overflow: hidden;
     background-color: #F5F5F5;
     display: flex;
@@ -44,6 +46,8 @@ input[type='checkbox'] {
     justify-content: space-around;
     transition: max-height .25s ease-in-out;
   }
+
+  /* Creo que no sale el segundo punto de interes por que va detras del del retiro? */
 
   .toggle:checked + .lbl-toggle + .collapsible-content {
     max-height: 100vh;

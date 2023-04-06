@@ -1,9 +1,9 @@
 <div class="wrap-collabsible">
     <input id="collapsible" class="toggle" type="checkbox">
-    <label for="collapsible" class="lbl-toggle">Dia 1</label>
+    <label for="collapsible" class="lbl-toggle">Dia {{i+1}}</label>
     <div class="collapsible-content">
       <ng-container *ngFor="let puntoDeInteres of dia.puntosDeInteres">
-        <app-card-punto-interes [puntoDeInteres]="puntoDeInteres"></app-card-punto-interes>
+        <app-punto-de-interes-card [puntoDeInteres]="puntoDeInteres"></app-punto-de-interes-card>
       </ng-container>
     </div>
   </div>

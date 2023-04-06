@@ -1,4 +1,20 @@
 .content-inner {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    max-height: 6rem;
+    width: 100%;
+    background-color: white;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+
+.content-inner img {
+    max-width: 6rem;
+}
+
+.content-inner h4 {
+    padding-right: 0.4rem;
 }

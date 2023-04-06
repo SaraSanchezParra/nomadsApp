@@ -12,6 +12,7 @@ export class PaginaViajeComponent {
 
 viaje: Viaje
 dia: Day
+dia2: Day
 fav: boolean
 
 constructor() {

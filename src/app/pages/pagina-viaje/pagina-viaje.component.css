@@ -1,5 +1,5 @@
 .viaje_body {
-    margin-top: 6vh;
+    margin-top: 9vh;
     width: 390px;
     display: flex;
     flex-direction: column;
@@ -34,6 +34,9 @@
     flex-direction: column;
     align-items: center;
     padding-block: 0.2rem;
+    transform: translateY(-2.2rem);
+    position: sticky;
+    top: calc(9vh + 2.2rem);
 }
 
 .viaje_tittle_area h2 {
@@ -43,16 +46,26 @@
 
 .map_area {
     position: sticky;
-    top: 6vh;
+    top: calc(9vh + 4.4rem);
     background-image: url(https://i.pinimg.com/originals/54/ff/a7/54ffa7490b53149c3b0335e0fdad8a68.jpg);
     height: 250px;
     background-size: cover;
     margin-bottom: 1rem;
     z-index: 9;
+    transform: translateY(-2.2rem);
 }
 
 .days-area {
-    background-color: grey;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.days-area * {
+    margin-block: 0.4rem;
+    width: 80%;
 }
 
 
