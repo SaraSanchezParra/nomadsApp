@@ -2,7 +2,8 @@
     <input id="collapsible" class="toggle" type="checkbox">
     <label for="collapsible" class="lbl-toggle">Dia 1</label>
     <div class="collapsible-content">
-      <app-punto-de-interes-card></app-punto-de-interes-card>
-      <app-punto-de-interes-card></app-punto-de-interes-card>
+      <ng-container *ngFor="let puntoDeInteres of dia.puntosDeInteres">
+        <app-card-punto-interes [puntoDeInteres]="puntoDeInteres"></app-card-punto-interes>
+      </ng-container>
     </div>
   </div>
