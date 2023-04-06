@@ -83,7 +83,7 @@
 }
 
 .enviar {
-    border: 2px solid #1F8989;
+    border: none;
     color: white;
     background-color: #ffb800;
     font-family: 'Quicksand', sans-serif;
