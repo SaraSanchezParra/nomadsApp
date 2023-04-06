@@ -88,6 +88,11 @@
                               <img src="assets/borrar.png" width="20" height="20" alt="borrar">
                             </button>
                         </div>
+                        <div *ngIf="loged" class="iconos">
+                            <button type="button" class="icono" (click)="editarViaje">
+                                <img src="assets/lapiz.png" width="20" height="20" alt="editar">
+                            </button>
+                        </div>
                         <!-- eliminar boton eiminar si no loged -->
                         <ng-template #noDelete>
                             <div class="iconos">
