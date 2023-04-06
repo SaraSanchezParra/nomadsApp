@@ -8,6 +8,8 @@ import { Viaje } from 'src/app/models/viaje';
 })
 export class HomeLogedComponent {
 
+  inputValue: string = '';
+  
   public viaje: Viaje[];
 
   constructor() {

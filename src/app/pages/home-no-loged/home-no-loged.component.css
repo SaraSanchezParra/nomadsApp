@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish&family=Quicksand&display=swap');
 
 .home {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     width: 100vw;
     height: 100vh;
 }
 
 .header {
-    border: 2px solid black;
-    height: 6vh;
+    /* border: 2px solid black; */
+    height: 9vh;
 
 }
 
@@ -29,7 +29,7 @@
 
 .caja1 {
     /* border: 2px solid rgb(0, 0, 0); */
-    height: 50%;
+    height: 80%;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -41,10 +41,10 @@
     border: none;
     border-radius: 12px;
     background-color: #F5F5F5;
-    height: 60%;
-    width: 53%;
+    height: 45%;
+    width: 45%;
     display: flex;
-    font-size: 15px;
+    font-size: 18px;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -52,37 +52,27 @@
     border: none;
     border-radius: 12px;
     background-color: #F5F5F5;
-    height: 60%;
-    width: 35%;
+    height: 45%;
+    width: 25%;
     display: flex;
     align-items: center;
-    font-size: 15px;
+    font-size: 18px;
     font-family: 'Quicksand', sans-serif;
 }
 
-.mostrar {
-    /* border: 2px solid rgb(0, 0, 0); */
-    height: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
 .boton {
-       border: 2px solid #FFB800;
     color: white;
-    background-color: #1F8989;
+    background-color: #FFB800;
+    border: none;
     border-radius: 6px;
-    height: 65%;
-    width: 40%;
+    height: 45%;
+    width: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 14px;
     box-shadow: 0px 3px 6px 0px rgba(84, 83, 83, 0.466);
 }
-
 .caja2 {
     /* border: 2px solid rgb(25, 0, 255); */
     height: 80%;

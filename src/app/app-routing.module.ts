@@ -17,6 +17,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { SobrelaAppComponent } from './pages/sobrela-app/sobrela-app.component';
 import { ViajesDestinoComponent } from './pages/viajes-destino/viajes-destino.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { PaginaViajeComponent } from './pages/pagina-viaje/pagina-viaje.component';
 
 const routes: Routes = [
   { path: "home-loged", component: HomeLogedComponent },
@@ -31,7 +32,7 @@ const routes: Routes = [
   { path: "modifgicarPerfil", component: ModificarPerfilComponent },
   { path: "modificarViaje", component: ModificarViajeComponent },
   { path: "onBoarding", component: OnBoardingComponent },
-  { path: "paginaViaje", component: AddViajeComponent },
+  { path: "paginaViaje", component: PaginaViajeComponent },
   { path: "quienesSomos", component: QuienesSomosComponent },
   { path: "register", component: RegisterComponent },
   { path: "sobreLaApp", component: SobrelaAppComponent },
