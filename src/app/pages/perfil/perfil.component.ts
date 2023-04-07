@@ -20,7 +20,7 @@ export class PerfilComponent {
   
   
   constructor(private router:Router) {
-    this.loged = true;
+    this.loged = false;
     this.user = {
       name: 'Estefi',
       surname: 'Martin',
@@ -57,13 +57,6 @@ export class PerfilComponent {
   }
   public editarViaje(i: number): void {
     this.router.navigate(['/modificarViaje'])
-    //navigate a modificar viaje
-    // const nuevoTitulo = prompt('Ingresa el nuevo título del viaje:');
-    // const nuevaDescripcion = prompt('Ingresa la nueva descripción del viaje:');
-    // if (nuevoTitulo && nuevaDescripcion) {
-    //   this.user.misviajes[i].titulo = nuevoTitulo;
-    //   this.user.misviajes[i].descripcion = nuevaDescripcion;
-    // }
   }
   
   public borrarViaje(i: number): void {
@@ -79,6 +72,7 @@ export class PerfilComponent {
   public iraUser():void{
     this.router.navigate(['/modifgicarPerfil'])
   }
+  
 
 }
 
