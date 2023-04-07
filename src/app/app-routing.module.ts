@@ -20,6 +20,7 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
 import { PaginaViajeComponent } from './pages/pagina-viaje/pagina-viaje.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/landin-page', pathMatch: 'full' },
   { path: "home-loged", component: HomeLogedComponent },
   { path: "home-no-loged", component: HomeNoLogedComponent },
   { path: "perfil", component: PerfilComponent },

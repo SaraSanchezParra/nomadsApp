@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
 
 @Component({
@@ -8,5 +9,14 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
 })
 export class LandingPageComponent {
 
+  constructor(private router: Router) { }
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.router.navigateByUrl('/home-no-loged');
+    }, 3000); // redirige después de 3 segundos
+  }
+
 
 }
+
