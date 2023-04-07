@@ -20,7 +20,7 @@ export class PerfilComponent {
   
   
   constructor(private router:Router) {
-    this.loged = false;
+    this.loged =true;
     this.user = {
       name: 'Estefi',
       surname: 'Martin',
