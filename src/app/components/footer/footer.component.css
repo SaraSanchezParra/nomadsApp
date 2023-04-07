@@ -5,13 +5,13 @@
 }
 
 .footer_container{
-    position: fixed;
+position: fixed;
 bottom: 0px;
 z-index: 9;
 }
 .footer_loged{  
     /* border: 2px solid black; */
-    height: 6vh;
+    height: 9vh;
     width: 100vw;
     background-color: #FFB800;
     display: flex;
@@ -23,41 +23,28 @@ z-index: 9;
 } 
 .footer_noLoged{ 
      /* border: 2px solid black; */
-     height: 6vh;
+     height: 9vh;
      width: 100vw;
      background-color:#1F8989;
      display: flex;
      flex-direction: row;
-     justify-content: space-around;
+     justify-content: center;
      align-items: center;
-     text-align: center;
      position: fixed;
      bottom: 0px;
 }
 
 
-.mas{
-    /* border:2px solid black;  */
-    height: 30%;
-    width: 30%;   
-    margin-left: 20px;
+
+.primaryButton {
+    fill: var(--yellow);
 }
-.usuario{
-    height: 32%;
-    width: 32%;
+
+.secundaryButton {
+    fill: white;
 }
-.home{
-    height: 35%;
-    width: 35%;
+.tertiaryButton{
+    fill:var(--green)
 }
-.buscar{
-    height: 30%;
-    width: 30%;
-    margin-top: 2px;
-}
-.mail{
-    height: 33%;
-    width: 33%;
-    margin-right: 20px;
-  } 
+
 

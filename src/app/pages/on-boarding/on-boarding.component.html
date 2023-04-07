@@ -1,1 +1,57 @@
-<p>on-boarding works!</p>
+<section class="onboarding">
+  <div class="page page1" *ngIf="currentPage === 0" [ngClass]="{'active': currentPage === 0}">
+    <img src="assets/foto1.jpg" alt="Imagen de la página de Onboarding 1">
+    <h3>Ahorra tiempo en tus viajes</h3>
+    <p>Escribe una ubicación y encuentra excursiones de varios días según tus necesidades.</p>
+    <div class="botones">
+      <button class="next-button" (click)="goToNextPage()">Siguiente</button>
+    </div>
+  </div>
+  <div class="page page2" *ngIf="currentPage === 1" [ngClass]="{'active': currentPage === 1}">
+    <img src="assets/foto2.png" alt="Imagen de la página de Onboarding 2">
+    <h3>Regístrate como Nomad en nuestra app</h3>
+    <p>Regístrate para poder ver todos los viajes disponibles en la app.</p>
+    <div class="botones">
+      <button class="prev-button" (click)="goToPreviousPage()">Anterior</button>
+      <button class="next-button" (click)="goToNextPage()">Siguiente</button>
+    </div>
+  </div>
+  <div class="page page3" *ngIf="currentPage === 2" [ngClass]="{'active': currentPage === 2}">
+    <img src="assets/foto3.jpg" alt="Imagen de la página de Onboarding 3">
+    <h3>Añade tus viajes para que puedan calificarlos</h3>
+    <p>Sube viajes de un máximo de 5 días para que otros Nomads puedan verlos y calificarte.</p>
+    <div class="botones">
+      <button class="prev-button" (click)="goToPreviousPage()">Anterior</button>
+      <button class="next-button" (click)="goToNextPage()">Siguiente</button>
+    </div>
+  </div>
+  <div class="page page4" *ngIf="currentPage === 3" [ngClass]="{'active': currentPage === 3}">
+    <img src="assets/foto4.png" alt="Imagen de la página de Onboarding ">
+    <h3>Chatea con los usuarios una vez te registres</h3>
+    <p>Interactúa con Nomads para compartir impresiones sobre los viajes.</p>
+    <div class="botones">
+      <button class="prev-button" (click)="goToPreviousPage()">Anterior</button>
+      <button class="next-button" (click)="goToNextPage()">Siguiente</button>
+    </div>
+  </div>
+  <div class="page page5" *ngIf="currentPage === 4" [ngClass]="{'active': currentPage === 4}">
+    <img src="assets/foto5.jpg" alt="Imagen de la página de Onboarding 5">
+    <h3>Mapa interactivo con los puntos de interés</h3>
+    <p>Escribe una ubicación y encuentra viajes de varios días según tus necesidades.</p>
+    <div class="botones">
+      <button class="prev-button" (click)="goToPreviousPage()">Anterior</button>
+      <button class="next-button" (click)="goToNextPage()">Siguiente</button>
+    </div>
+  </div>
+  <div class="page page6" [ngClass]="{'active': currentPage === 5}">
+    <img src="assets/foto6.jpg" alt="Imagen de la página de Onboarding 6">
+    <h3>Modifica el viaje que has creado</h3>
+    <p>Puedes añadir días o eliminar viajes según tus preferencias.</p>
+    <div *ngIf ="showButtons" class="botones">
+      <button class="prev-button" (click)="goToPreviousPage()">Anterior</button>
+      <button class="finish-button" *ngIf="currentPage === 5" (click)="goToHome()">Home</button>
+    </div>
+  </div>
+  
+
+</section>  

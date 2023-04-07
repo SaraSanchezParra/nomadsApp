@@ -1,0 +1,109 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+
+
+.onboarding {
+            margin-top: 100px;
+            padding: 0 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			height: calc(100vh - 9vh);
+            z-index: 8;
+		}
+
+		.onboarding img {
+			height: 100%;
+			max-height: 400px;
+			object-fit: cover;
+		  }
+		  
+		  .onboarding h3, .onboarding p {
+			text-align: center;
+			margin: 0;
+		  }
+
+		.page {
+			display: none;
+			max-width: 500px;
+			text-align: center;
+			margin: 0 auto;
+			padding: 20px;
+		}
+        
+          .page.active {
+            display: block; 
+          }
+
+		.page img {
+			max-width: 100%;
+			margin-bottom: 20px;
+		}
+
+		.page h3 {
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
+
+		.page p {
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
+
+		.page1 {
+			display: block;
+		}
+
+		
+			.botones {
+				position: absolute;
+				bottom: 9vh;
+				left: 0;
+				right: 0;
+				display: flex;
+				justify-content: space-between;
+				padding: 1rem;
+			  
+		  }
+
+		  .page1 .botones {
+			
+			display:flex;
+			justify-content: flex-end;
+		  }
+		  .page1 .page6-buttons {
+			display: none;
+		  }
+		  .page6-buttons.hide-buttons {
+			display: none;
+		  }
+		 
+
+		.prev-button,
+		.next-button {
+			padding: 10px 20px;
+			border-radius: 20px;
+			border: none;
+			background-color: #ffb800;
+			color: white;
+			font-size: 16px;
+			cursor: pointer;
+			margin-right: 10px;
+            
+            
+		}
+
+		.finish-button {
+			background-color: #1f8989;
+            padding: 10px 20px;
+			border-radius: 20px;
+			border: none;
+			color: white;
+			font-size: 16px;
+			cursor: pointer;
+			margin-right: 10px;
+		}

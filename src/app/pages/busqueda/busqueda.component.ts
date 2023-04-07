@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-busqueda',
   templateUrl: './busqueda.component.html',
@@ -9,10 +10,14 @@ import { Router } from '@angular/router';
 export class BusquedaComponent {
 
   public loged:Boolean
+ 
+  
 
   constructor(private router: Router) { 
 
-    this.loged = true
+    this.loged = false
+    
+    
   }
 
   navigateToRegister() {
