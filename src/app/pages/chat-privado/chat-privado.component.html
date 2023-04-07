@@ -1,47 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="stylesheet" href="chat-privado.component.css" />
 
-  <link rel="stylesheet" href="register.component.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300&family=Shadows+Into+Light&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300&family=Shadows+Into+Light&display=swap"
-    rel="stylesheet"/>
+    <title>Chat Privado</title>
+  </head>
+  <body>
+    <main class="fondo">
+      <div class="chat">
+        <div class="barra">
+          <div class="botonAtras">
+            <button (click)="navegarAChats()" class="atras" type="button" [disabled]="false"><</button>
+          </div>
 
-  <title>Chat Privado</title>
-</head>
-<body>
-
-  <main class="fondo">
-
-    <div class="chat">
-
-      <div class="barra">
-
-        <div class="botonAtras">
-
+          <div class="puntos">
+            <button *ngIf="!mostrarBloquear"(click)="toggleMenu()" class="bloquear"><img class="puntos" src="../../../assets/puntos4-removebg-preview.png" alt=""></button>
+            
+            <ul class="puntos-menu" *ngIf="mostrarBloquear ">
+              <li><a (click)="bloquearChat()"> {{ chatBloqueado ? 'Desbloquear' : 'Bloquear' }}</a></li>
+            </ul>
+          </div>
         </div>
 
-        <div class="puntos">
-
+        <div class="nombreUsuario">
+          <img src="https://cdn.discordapp.com/attachments/1070261797162061844/1093196668800880680/perfil.png" alt="img" />
+          <p>Juan Ramirez</p>
         </div>
 
+        
+
+        <div class="bocadillos">
+
+         
+           
+          <div class="bocadilloVerde">
+            <div class="bocadillo1">{{ mensajePredefinido }}</div>
+          </div>
+
+          <div class="bocadilloMorado">
+            <div *ngIf="haRespondidoPredefinido" class="bocadillo2">{{ mensajePredefinido2 }}</div>
+             <div *ngFor="let mensaje of mensajes" class="bocadillo1">{{ mensaje }}</div>
+             
+            </div>
+            
+        </div>
+
+        <div class="mensaje" [style.height]="bocadilloHeight">
+          <textarea [(ngModel)]="mensajeActual" placeholder="Escribe tu mensaje..."></textarea>
+          <button (click)="enviarMensaje()" class="enviar"><img class="enviar2" src="../../../assets/Diseño_sin_título__9_-removebg-preview.png" alt=""></button>
+        </div>
+        
       </div>
-
-      <div class="bocadillo1">
-
-      </div>
-
-     
-    </div>
-
-  </main>
-
-</body>
+    </main>
+  </body>
 </html>
