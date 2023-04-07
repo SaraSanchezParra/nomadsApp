@@ -1,1 +1,44 @@
-<p>modificar-viaje works!</p>
+<div class="mod-viaje">
+    <div class="title">
+        <h3>Añadir viaje</h3>
+    </div>
+    <div class="form-area">
+        <form [formGroup]="modifyForm" class="form">
+            <!-- Nombre de Viaje -->
+            <label for="nombreViaje">Nombre del Viaje</label>
+            <input id="nombreViaje" placeholder={{viaje.title}} type="text" formControlName="nombreViaje"
+                class="form-control"
+                [ngClass]="{'is-invalid': modifyForm.get('nombreViaje').invalid && (modifyForm.get('nombreViaje').dirty || modifyForm.get('nombreViaje').touched)}">
+            <div *ngIf="modifyForm.get('nombreViaje').invalid && (modifyForm.get('nombreViaje').dirty || modifyForm.get('nombreViaje').touched)"
+                class="invalid-feedback">
+                El nombre del viaje es necesario
+            </div>
+            <!-- Descripcion Viaje -->
+            <label for="descripcionViaje">Descripcion del Viaje</label>
+            <input id="descripcionViaje" type="text" formControlName="descripcionViaje" class="form-control"
+                [ngClass]="{'is-invalid': modifyForm.get('descripcionViaje').invalid && (modifyForm.get('descripcionViaje').dirty || modifyForm.get('descripcionViaje').touched)}">
+            <div *ngIf="modifyForm.get('descripcionViaje').invalid && (modifyForm.get('descripcionViaje').dirty || modifyForm.get('descripcionViaje').touched)"
+                class="invalid-feedback">
+                Una breve descripcion del viaje es necesaria
+            </div>
+            <!-- Foto -->
+            <label for="fotoViaje">Foto</label>
+            <input id="fotoViaje" type="text" formControlName="fotoViaje" class="form-control"
+                [ngClass]="{'is-invalid': modifyForm.get('fotoViaje').invalid && (modifyForm.get('fotoViaje').dirty || modifyForm.get('fotoViaje').touched)}">
+            <div *ngIf="modifyForm.get('fotoViaje').invalid && (modifyForm.get('fotoViaje').dirty || modifyForm.get('fotoViaje').touched)"
+                class="invalid-feedback">
+                Una foto del viaje es necesaria
+            </div>
+            <div class="form day-area" formArrayName="days" *ngFor="let day of viaje.days;  let i = index">
+                <div class="day-card">
+                    <h3>Dia {{i+1}}</h3>
+                    <button type="button">Añadir punto de interes</button>
+                </div>
+            </div>
+            <div class="btn-area">
+                <button type="button" (click)="addDay()">Añadir día</button>
+                <button type="button" (click)="modify()">Modificar viaje</button>
+            </div>
+        </form>
+    </div>
+</div>
