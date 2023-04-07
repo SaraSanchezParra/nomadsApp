@@ -19,10 +19,29 @@ import { ViajesDestinoComponent } from './pages/viajes-destino/viajes-destino.co
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { PaginaViajeComponent } from './pages/pagina-viaje/pagina-viaje.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: "home-loged", component: HomeLogedComponent },
+  { path: "home-no-loged", component: HomeNoLogedComponent },
+  { path: "perfil", component: PerfilComponent },
+  { path: "busqueda", component: BusquedaComponent },
+  { path: "chatGeneral", component: ChatGeneralComponent },
+  { path: "chatPrivado", component: ChatPrivadoComponent },
+  { path: "add-viaje", component: AddViajeComponent },
+  { path: "landin-page", component: LandingPageComponent },
+  { path: "login", component: LoginComponent },
+  { path: "modifgicarPerfil", component: ModificarPerfilComponent },
+  { path: "modificarViaje", component: ModificarViajeComponent },
+  { path: "onBoarding", component: OnBoardingComponent },
+  { path: "paginaViaje", component: PaginaViajeComponent },
+  { path: "quienesSomos", component: QuienesSomosComponent },
+  { path: "register", component: RegisterComponent },
+  { path: "sobreLaApp", component: SobrelaAppComponent },
+  { path: "viajesDestino", component: ViajesDestinoComponent },
+  { path: "contactanos", component: ContactoComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
