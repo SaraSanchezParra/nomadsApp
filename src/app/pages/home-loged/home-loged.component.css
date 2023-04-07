@@ -18,7 +18,7 @@
 .caja {
     /* border: 2px solid rgb(60, 255, 0); */
     width: 100%;
-    height: 88%;
+    height: 82%;
     display: flex;
     flex-direction: column;
 }
@@ -46,7 +46,7 @@
     border: none;
     border-radius: 12px;
     background-color: #F5F5F5;
-    height: 45%;
+    height: 60%;
     width: 45%;
     display: flex;
     font-size: 18px;
@@ -57,7 +57,7 @@
     border: none;
     border-radius: 12px;
     background-color: #F5F5F5;
-    height: 45%;
+    height: 60%;
     width: 25%;
     display: flex;
     align-items: center;
@@ -70,7 +70,7 @@
     background-color: #FFB800;
     border: none;
     border-radius: 6px;
-    height: 45%;
+    height: 60%;
     width: 25%;
     display: flex;
     justify-content: center;
@@ -81,7 +81,7 @@
 
 .caja2 {
     /* border: 2px solid rgb(25, 0, 255); */
-    height: 70%;
+    height: 80%;
     margin-left: 20px;
     margin-right: 20px;
     display: flex;
@@ -94,9 +94,11 @@
     height: 20%;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
-    font-size: 36px;
+    align-items: flex-start;
+    font-size: 40px;
     font-family: 'Mulish', sans-serif;
+ 
+    padding-block-end: 20px;
 }
 
 .cards {
@@ -107,6 +109,7 @@
     justify-content: space-between
 }
 
+/* 
 .cards1 {
     border: 2px solid #1F8989;
     border-radius: 6px;
@@ -180,13 +183,13 @@
 }
 
 .texto {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 100%;
     width: 50%;
 }
 
 .titulo {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 45%;
     font-size: 20px;
     font-family: 'Courgette', cursive;
@@ -197,7 +200,7 @@
 }
 
 .descripcion {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 55%;
     font-size: 16px;
     font-family: 'Quicksand', sans-serif;
@@ -207,12 +210,12 @@
 }
 
 .like {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     width: 20%;
 }
 
 .user {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 50%;
     display: flex;
     justify-content: center;
@@ -220,7 +223,7 @@
 }
 
 .likes {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 50%;
     display: flex;
     align-items: center;
@@ -228,13 +231,13 @@
 }
 
 .texto2 {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 100%;
     width: 50%;
 }
 
 .titulo2 {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 45%;
     font-size: 20px;
     font-family: 'Courgette', cursive;
@@ -245,7 +248,7 @@
 }
 
 .descripcion2 {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 55%;
     font-size: 16px;
     font-family: 'Quicksand', sans-serif;
@@ -255,13 +258,13 @@
 }
 
 .texto3 {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 100%;
     width: 50%;
 }
 
 .titulo3 {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 45%;
     font-size: 20px;
     font-family: 'Courgette', cursive;
@@ -272,14 +275,14 @@
 }
 
 .descripcion3 {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 55%;
     font-size: 16px;
     font-family: 'Quicksand', sans-serif;
     display: flex;
     align-items: start;
     margin-left: 8px;
-}
+} */
 
 .users {
     /* border: 2px solid black; */
@@ -294,16 +297,18 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 36px;
+    font-size: 40px;
     font-family: 'Mulish', sans-serif;
 }
-.top-nomads{
+
+.top-nomads {
     /* border: 2px solid black; */
     height: 100%;
-    width: 65%;
+    width: 100%;
     display: flex;
     align-items: center;
 }
+
 /* .lupa{
     border: 2px solid black;
     height: 100%;
@@ -316,14 +321,16 @@
     display: flex;
     justify-content: space-between;
 }
-.nomads{
+
+.nomads {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 50px;
     height: 65%;
     width: 17%;
     overflow: hidden;
 }
-.nomads img{
+
+.nomads img {
     border-radius: 50px;
     height: 100%;
     width: 100%;
@@ -333,5 +340,5 @@
 
 .footer {
     border: 2px solid black;
-    height: 6vh;
+    height: 9vh;
 }

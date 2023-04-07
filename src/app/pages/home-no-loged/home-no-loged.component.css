@@ -85,23 +85,23 @@
 .top-viajes {
     /* border: 2px solid black; */
     color: #1F8989;
-    height: 20%;
+    height: 16%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size: 36px;
+    font-size: 40px;
     font-family: 'Mulish', sans-serif;
 }
 
 .cards {
     /* border: 2px solid rgb(255, 0, 0); */
-    height: 60%;
+    height: 23%;
     display: flex;
     flex-direction: column;
     justify-content: space-between
 }
 
-.cards1 {
+/* .cards1 {
     border: 2px solid #1F8989;
     border-radius: 6px;
     height: 30%;
@@ -174,13 +174,13 @@
 }
 
 .texto {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 100%;
     width: 50%;
 }
 
 .titulo {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 45%;
     font-size: 20px;
     font-family: 'Courgette', cursive;
@@ -191,7 +191,7 @@
 }
 
 .descripcion {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 55%;
     font-size: 16px;
     font-family: 'Quicksand', sans-serif;
@@ -201,12 +201,12 @@
 }
 
 .like {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     width: 20%;
 }
 
 .user {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 50%;
     display: flex;
     justify-content: center;
@@ -214,7 +214,7 @@
 }
 
 .likes {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 50%;
     display: flex;
     align-items: center;
@@ -222,13 +222,13 @@
 }
 
 .texto2 {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 100%;
     width: 50%;
 }
 
 .titulo2 {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 45%;
     font-size: 20px;
     font-family: 'Courgette', cursive;
@@ -239,7 +239,7 @@
 }
 
 .descripcion2 {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 55%;
     font-size: 16px;
     font-family: 'Quicksand', sans-serif;
@@ -249,13 +249,13 @@
 }
 
 .texto3 {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 100%;
     width: 50%;
 }
 
 .titulo3 {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 45%;
     font-size: 20px;
     font-family: 'Courgette', cursive;
@@ -266,7 +266,7 @@
 }
 
 .descripcion3 {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     height: 55%;
     font-size: 16px;
     font-family: 'Quicksand', sans-serif;
@@ -274,7 +274,7 @@
     align-items: start;
     margin-left: 8px;
 }
-
+ */
 
 .footer {
     border: 2px solid black;
