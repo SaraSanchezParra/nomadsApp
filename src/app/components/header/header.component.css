@@ -9,7 +9,7 @@
        background-color: #FFB800;
        width: 100vw;
        height: 9vh;
-       z-index: index 9;
+       z-index: 9999;
      }
    
      .brand{
