@@ -1,12 +1,12 @@
+<div *ngIf = "this.showHeader ">
+  <header *ngIf="this.loged; else headerNoLoged">
+  <div class="brand">
+      <img src="../../../assets/mundo amarillo.png" alt="favicon">
+      <p class="name">Nomads</p>
+  </div>
+</header>
 
-<header *ngIf="loged; else headerNoLoged">
-    <div class="brand" >
-        <img src="../../../assets/mundo amarillo.png" alt="favicon">
-        <p class="name">Nomads</p>
-    </div>
-  </header>
-
-  <ng-template #headerNoLoged>
-    <app-header-verde></app-header-verde>
-  </ng-template>
-  
+<ng-template #headerNoLoged>
+  <app-header-verde></app-header-verde>
+</ng-template>
+</div>
