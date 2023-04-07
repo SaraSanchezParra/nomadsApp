@@ -10,4 +10,11 @@ export class DayCardComponent {
 
   @Input() dia!:Day
   @Input() i!:number
+  ReadMore: boolean = true
+  visible: boolean = false
+
+  onClick() {
+    this.ReadMore = !this.ReadMore;
+    this.visible = !this.visible
+  }
 }

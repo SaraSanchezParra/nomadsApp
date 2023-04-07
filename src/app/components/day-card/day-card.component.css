@@ -1,7 +1,46 @@
-input[type='checkbox'] {
-    display: none;
+.day-card {
+  background-color: #F5F5F5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  overflow: hidden;
+  justify-content: space-between;
 }
 
+.day-card-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  color: var(--green);
+  font-family: var(--ff-titles);
+}
+
+.day-card-title button {
+  border: none;
+  padding: 0.4rem;
+  border-radius: 6px;
+  background-color: var(--green);
+  color: white;
+  font-family: var(--ff-titles);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.content * {
+  width: 100%;
+  height: 4rem;
+}
+
+/* 
 .lbl-toggle {
   width: 100%;
     display: block;
@@ -49,7 +88,7 @@ input[type='checkbox'] {
 
   /* Creo que no sale el segundo punto de interes por que va detras del del retiro? */
 
-  .toggle:checked + .lbl-toggle + .collapsible-content {
+  /* .toggle:checked + .lbl-toggle + .collapsible-content {
     max-height: 100vh;
   }
 
@@ -60,4 +99,4 @@ input[type='checkbox'] {
   .toggle:checked + .lbl-toggle {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
-  }
+  } */ 

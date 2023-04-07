@@ -1,9 +1,13 @@
-<div class="wrap-collabsible">
-    <input id="collapsible" class="toggle" type="checkbox">
-    <label for="collapsible" class="lbl-toggle">Dia {{i+1}}</label>
-    <div class="collapsible-content">
+<div class="day-card">
+  <div class="day-card-title">
+      <h3>Dia {{i+1}}</h3>
+  <button type="button" (click)="onClick()">{{ReadMore?"Ampliar":"Colapsar"}}</button>
+  </div>
+  <ng-container *ngIf="visible">
+    <div class="content">
       <ng-container *ngFor="let puntoDeInteres of dia.puntosDeInteres">
         <app-punto-de-interes-card [puntoDeInteres]="puntoDeInteres"></app-punto-de-interes-card>
       </ng-container>
     </div>
+  </ng-container>
   </div>
