@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class LandingPageComponent {
 
+  constructor(private router: Router) { }
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.router.navigateByUrl('/home-no-loged');
+    }, 3000); // redirige después de 3 segundos
+  }
+
 }
+
