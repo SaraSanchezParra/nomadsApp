@@ -1,15 +1,16 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700&family=Quicksand:wght@300;400;500;600&display=swap'); */
 
 main{
-    margin-top: 9vh;
+    margin-top: 10vh;
     width: 100vw;
     padding-left: 20px;
     padding-right: 20px;
- 
+    min-height: calc(100vh - 9vh); /* El 9vh es la altura del header */
     display: flex;
     flex-direction: column;
     justify-content: center;  
     gap: 3%;
+    z-index: 8;
 
 }
 h1{
