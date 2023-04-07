@@ -12,6 +12,8 @@ import { Router} from '@angular/router';
 export class OnBoardingComponent {
   
   currentPage = 0;
+  public showButtons =true;
+  public isLogged = true;
 
   constructor(private router: Router) {}
 
@@ -31,13 +33,13 @@ export class OnBoardingComponent {
   }
 
   goToHome() {
-    const isLogged = sessionStorage.getItem('isLogged');
-    if (isLogged === 'true') {
-      this.router.navigate(['/home-logged']);
+   
+    if (this.isLogged === true) {
+      this.showButtons = false;
+      this.router.navigate(['/home-loged']);
     } else {
       this.router.navigate(['/login']);
     }
-  }
   // goToHome() {
   //   const isLogged = sessionStorage.getItem('isLogged');
   //   if (isLogged === 'false') {
@@ -45,7 +47,8 @@ export class OnBoardingComponent {
   //   } else {
   //     this.router.navigate(['/login']);
   //   }
-  // }
+   }
+  
   
   
 }
