@@ -1,7 +1,7 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700&family=Quicksand:wght@300;400;500;600&display=swap'); */
 
 main{
-    margin-top: 10vh;
+    margin-top: 9vh; /* Se ajusta para que esté debajo del header */
     width: 100vw;
     padding-left: 20px;
     padding-right: 20px;
@@ -10,8 +10,7 @@ main{
     flex-direction: column;
     justify-content: center;  
     gap: 3%;
-    z-index: 8;
-
+    z-index: 8; 
 }
 h1{
     text-align: center;
