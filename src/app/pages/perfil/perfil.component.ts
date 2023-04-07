@@ -20,7 +20,7 @@ export class PerfilComponent {
   
   
   constructor(private router:Router) {
-    this.loged = false;
+    this.loged = true;
     this.user = {
       name: 'Estefi',
       surname: 'Martin',
@@ -71,13 +71,13 @@ export class PerfilComponent {
   }
 
   public ajustesPerfil():void{
-    // this.router.navigate(['/modificar-perfil'])
+    this.router.navigate(['/modifgicarPerfil'])
   }
   public enviarMensaje():void{
-    // this.router.navigate(['/chat-privado'])
+    this.router.navigate(['/chatPrivado'])
   }
   public iraUser():void{
-    // this.router.navigate(['/modificar-perfil'])
+    this.router.navigate(['/modifgicarPerfil'])
   }
 
 }
