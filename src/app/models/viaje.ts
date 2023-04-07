@@ -1,3 +1,4 @@
+import { User } from "src/models/user";
 import { Day } from "./day";
 
 export class Viaje {
@@ -7,6 +8,8 @@ export class Viaje {
     public description: string
     public days: Day[]
     public likes: number
+    public ubicacion: string
+    public user: User
 
     constructor(title: string, main_img:string, description: string, days: Day[], likes: number){
         this.title = title

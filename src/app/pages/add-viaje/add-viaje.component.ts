@@ -17,9 +17,7 @@ export class AddViajeComponent {
     return this.addForm.get('days') as FormArray;
   }
 
-  addDay() {
-    this.days.push(this.formBuilder.control(''));
-  }
+  
 
   constructor(private formBuilder: FormBuilder) {
     this.buildForm()

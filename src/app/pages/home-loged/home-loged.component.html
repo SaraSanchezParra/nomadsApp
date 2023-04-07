@@ -20,8 +20,9 @@
             <div class="top-viajes">
                 Top viajes
             </div>
-            <div class="cards">
-                <div class="cards1">
+            <div class="cards" *ngFor="let viaje of viajes">
+                <app-card-viaje [viaje]="viaje"></app-card-viaje>
+                <!-- <div class="cards1">
                     <div class="foto1">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTci4UfjBX-FCF6YQw349r_fyAaBd6Of0j4vw&usqp=CAU"
                             alt="" width="100" height="100">
@@ -74,7 +75,7 @@
                             <img src="assets/corazon.png" width="20" height="20">152
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="users">
