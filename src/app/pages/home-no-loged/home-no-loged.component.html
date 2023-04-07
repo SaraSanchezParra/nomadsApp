@@ -22,7 +22,7 @@
             <div class="top-viajes">
                 Top viajes
             </div>
-            <div class="cards" *ngFor="let viaje of viajes">
+            <div class="cards" *ngFor="let viaje of viajes" routerLink="/login">
                 <app-card-viaje [viaje]="viaje"></app-card-viaje>
                 <!-- <div class="cards1" routerLink="/login">
                     <div class="foto1">
