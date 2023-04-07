@@ -1,1 +1,10 @@
-<p>chat-general works!</p>
+<div class="fondo">
+  <div class="titulo">
+    <h1>CHATS</h1>
+    <button type="button"><img src="../../../assets/Lupa/lupa verde.png" alt=""></button>
+  </div>
+
+  <div *ngFor="let chat of chats">
+    <app-card-chat [cardGeneral]="chat"></app-card-chat>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@600&family=Quicksand:wght@500&display=swap');
+
+
+.fondo{
+  
+    position: fixed;
+    top: 9vh;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  
+  
+}
+
+.titulo{
+
+    color: #1F8989;
+    height: 18%;
+    font-family: 'Mulish', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+
+button{
+  width: 20%;
+  height: 40%;
+  border: none;
+  background-color: white;
+}
