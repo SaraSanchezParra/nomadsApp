@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: "add-viaje", component: AddViajeComponent },
   { path: "landin-page", component: LandingPageComponent },
   { path: "login", component: LoginComponent },
-  { path: "modifgicarPerfil", component: ModificarPerfilComponent },
+  { path: "modificarPerfil", component: ModificarPerfilComponent },
   { path: "modificarViaje", component: ModificarViajeComponent },
   { path: "onBoarding", component: OnBoardingComponent },
   { path: "paginaViaje", component: PaginaViajeComponent },

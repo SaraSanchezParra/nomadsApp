@@ -10,18 +10,26 @@ import { Location } from '@angular/common';
 })
 export class FooterComponent {
 
-  public loged:Boolean
+  public loged:Boolean;
+  public showFooter: Boolean = true;
   
  
   constructor(private router: Router,public location: Location){
     
     this.loged = true;
+    this.showFooter = true;
+    if(this.location.path() === `/landin-page` || this.location.path() === `/login` ||
+       this.location.path() === `/register`){
+        this.showFooter = false
     
    }
+  }
+   
   ngOnInit(): void {
     console.log(this.location.path())
    
 
   }
+
 }
 
