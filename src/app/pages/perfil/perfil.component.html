@@ -45,7 +45,7 @@
         </div>
         <div  class="cards"><ng-template #misviajes>
             <ng-container *ngFor="let viaje of user.misviajes; let i = index">
-                <app-card-viaje [viaje]="viaje"></app-card-viaje>
+                <app-card-viaje [viaje]="viaje" (cardEvent)="borrarViaje($event)"></app-card-viaje>
             </ng-container>
 
         </ng-template>

@@ -10,7 +10,7 @@ export class CardViajeComponent {
 
 @Output() cardEvent = new EventEmitter<number>
 
-userLogged = {username: 'Sara'}
+userLogged = {username: 'Amber'}
 @Input() viaje!: Viaje
 
 constructor() {}
