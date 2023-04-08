@@ -1,10 +1,29 @@
 <div class="fondo">
-  <div class="titulo">
+ 
+  <div class="titulo"> 
+     
     <h1>CHATS</h1>
-    <button type="button"><img src="../../../assets/Lupa/lupa verde.png" alt=""></button>
+    <form>
+      <label for="search">Search</label>
+      
+      <input required pattern=".\S." type="search" class="input" id="search" name="search" [(ngModel)]="textoBusqueda" (keyup)="mostrarBotonBusqueda()" (blur)="mostrarBotonBusqueda()">
+      <span class="caret"></span>
+      <button class="buscar" id="search-button" type="submit" (click)="buscarUsuario()">Buscar</button>
+    </form>
   </div>
 
-  <div *ngFor="let chat of chats">
-    <app-card-chat [cardGeneral]="chat"></app-card-chat>
+ 
+ 
+  <div class="container">
+    <div *ngIf="chatBuscado">
+      <button class="atras"  (click)="resetearBusqueda()"><</button>
+      <app-card-chat [cardGeneral]="chatBuscado"></app-card-chat>
+
+    </div>
+    <div *ngIf="!chatBuscado">
+      <div *ngFor="let chat of chats">
+        <app-card-chat [cardGeneral]="chat" (eliminarTarjeta)="eliminarTarjeta(chat)"></app-card-chat>
+      </div>
+    </div>
   </div>
 </div>

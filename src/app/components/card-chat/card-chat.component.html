@@ -1,4 +1,4 @@
-<div class="cardChats">
+<div class="cardChats" (click)="irAChatPrivado()">
 
   <img src="{{cardGeneral.photo}}" class="photo" alt="">
   <div class="cardNombre">
@@ -6,7 +6,12 @@
     <p>{{cardGeneral.nameUser}}</p>
 
   </div>
+   <div class="containerHora">
+      <div class="hora">{{cardGeneral.hour}}</div>
+     <button class="eliminar" (click)="eliminarCard()"><img src="../../../assets/borrar.png" alt=""></button>
 
-  <div class="hora">{{cardGeneral.hour}}</div>
+   </div>
+
+  
 
 </div>

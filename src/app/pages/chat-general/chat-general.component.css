@@ -4,7 +4,7 @@
 .fondo{
   
     position: fixed;
-    top: 9vh;
+    top: 15vh;
     left: 0;
     width: 100%;
     height: 100vh;
@@ -15,20 +15,130 @@
 .titulo{
 
     color: #1F8989;
-    height: 18%;
+    height: 10%;
     font-family: 'Mulish', sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 36px;
+    font-size: 20px;
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 13%;
+    gap: 20px;
 
 }
 
-button{
-  width: 20%;
-  height: 40%;
+h1{
+  font-size: 36px;
+}
+
+/* form{
+   height: 5%;
+   margin-top: 2%;
+} */
+.input {
+  color: #1F8989;
+  font: 1em/1.5 var(--ff-main);
+}
+
+form, .input, .caret {
+  margin: auto;
+}
+
+form {
+  position: relative;
+  width: 100%;
+  max-width: 17em;
+}
+
+.input, .caret {
+  display: block;
+  transition: all calc(1s * 0.3) linear;
+  
+}
+
+.input {
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.25em inset;
+  caret-color: #255ff4;
+  width: 1.5em;
+  height: 1.5em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border: none;
+}
+
+.input:focus, .input:valid {
+  background: rgba(245,245,245);
+  border-radius: 0.25em;
+  box-shadow: none;
+  padding: 0.75em 1em;
+  transition-duration: calc(1s * 0.15);
+  transition-delay: calc(1s * 0.10);
+  width: 95%;
+  height: 2em;
+  
+ 
+}
+
+
+.input:focus + .caret, .input:valid + .caret {
+  background: transparent;
+  width: 1px;
+  height: 1.5em;
+
+}
+
+.input::-webkit-search-decoration {
+  -webkit-appearance: none;
+  
+}
+
+label {
+  color: #e3e4e8;
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+  height: 0%;
+  
+}
+
+.caret {
+  background:  #1F8989;
+  border-radius: 0 0 0.125em 0.125em;
+  margin-bottom: -0.6em;
+  width: 0.3em;
+  height: 0.8em;
+  transform: translate(0,-1em) rotate(-45deg) translate(0,0.875em);
+  transform-origin: 50% 0;
+ 
+}
+
+.container {
+  height: 500px; /* ajusta la altura a lo que necesites */
+  overflow-y: auto;
+}
+
+.atras{
+  border: none;
+  width: 0.01%;
+  color:rgba(255, 184, 0, 1);
+  font-size: 200%;
+  font-weight: bolder;
   background-color: white;
+} 
+
+#search-button {
+  display: none;
+}
+
+
+.buscar{
+   border: none;
+   background-color: #1F8989;
+   color: white;
+   border-radius: 5%;
 }
