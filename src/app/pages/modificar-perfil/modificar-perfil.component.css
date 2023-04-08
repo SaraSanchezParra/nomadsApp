@@ -55,7 +55,7 @@ h1{
     font-size: 16px;
   }
   
-  button[type="submit"] {
+  button[type="button"] {
     background-color: #ffb800;
     color: #fff;
     font-weight: bold;
@@ -67,7 +67,7 @@ h1{
     margin-top: 20px;
   }
   
-  button[type="submit"]:hover {
+  button[type="button"]:hover {
     background-color: #1f8989;
   }
   
@@ -75,6 +75,6 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 textarea,
-button[type="submit"] {
+button[type="button"] {
   box-shadow: 0 0 5px rgba(3, 0, 0, 0.1);
 }

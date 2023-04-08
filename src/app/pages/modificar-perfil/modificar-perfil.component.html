@@ -52,7 +52,7 @@
             <div *ngIf="!myForm.get('password2').errors.required && myForm.get('password2').errors.matchPassword">las claves no coinciden</div>
           </div>
 
-          <button type="submit" (click)="modificar()" [disabled]="myForm.invalid">Modificar</button>
+          <button type="button" (click)="modificar()" [disabled]="myForm.invalid">Modificar</button>
          
         </form>
-    </div>
+    </div>  
