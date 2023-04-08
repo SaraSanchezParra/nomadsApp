@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modificar-perfil',
@@ -10,15 +12,15 @@ export class ModificarPerfilComponent implements OnInit {
 
   myForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private router:Router, private fb: FormBuilder, public userService: DatosUsuarioService) { }
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
-      nombreUsuario: ['', [Validators.required, Validators.pattern(/^@/)]],
-      email: ['', [Validators.required, Validators.email]],
-      nombre: ['', [Validators.required]],
-      apellido: ['', [Validators.required]],
-      foto: ['', [Validators.required]],
+      nombreUsuario: [this.userService.user.username, [Validators.required, Validators.pattern(/^@/)]],
+      email: [this.userService.user.email, [Validators.required, Validators.email]],
+      nombre: [this.userService.user.name, [Validators.required]],
+      apellido: [this.userService.user.surname, [Validators.required]],
+      foto: [this.userService.user.photo, [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       password2: ['', [Validators.required, this.matchPassword.bind(this)]]
     });
@@ -44,7 +46,7 @@ export class ModificarPerfilComponent implements OnInit {
 
   modificar() {
     if (this.myForm.valid) {
-      console.log(this.myForm.value);
+      this.router.navigate(['/perfil']);
       // Aquí iría la lógica para modificar el perfil del usuario
     }
   }

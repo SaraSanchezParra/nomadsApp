@@ -7,7 +7,7 @@
 
             <div class="ajustesProfile"> 
                  <div class="profile_photo">
-                    <img src={{user.photo}} alt="perfil">
+                    <img src={{this.userService.user.photo}} alt="perfil">
                 </div>
                 <div class="ajustesymensaje" *ngIf ="loged; else esFalso">
                     <button type="button" class="icono" (click)="ajustesPerfil()"> Editar
@@ -25,11 +25,11 @@
           
     
             <section>
-                <div name="nombre">{{user.name}}</div>
-                <div name="apellido">{{user.surname}}</div>
-                <div name="email">{{user.email}}</div>
-                <div name="nombre">{{user.username}}</div>
-                <div id="descripcion" name="descripcion">{{user.descripcion}}</div>
+                <div name="nombre">{{this.userService.user.name}}</div>
+                <div name="apellido">{{this.userService.user.surname}}</div>
+                <div name="email">{{this.userService.user.email}}</div>
+                <div name="nombre">{{this.userService.user.username}}</div>
+                <div id="descripcion" name="descripcion">{{this.userService.user.descripcion}}</div>
             </section>
         </div>
         
@@ -39,12 +39,12 @@
         </div>
         
         <div class="cards" *ngIf="showFavs ; else misviajes">
-            <ng-container *ngFor="let viaje of user.favs; let i = index">
+            <ng-container *ngFor="let viaje of this.userService.user.favs; let i = index">
                 <app-card-viaje [viaje]="viaje"></app-card-viaje>
             </ng-container>
         </div>
         <div  class="cards"><ng-template #misviajes>
-            <ng-container *ngFor="let viaje of user.misviajes; let i = index">
+            <ng-container *ngFor="let viaje of this.userService.user.misviajes; let i = index">
                 <app-card-viaje [viaje]="viaje"></app-card-viaje>
             </ng-container>
 
