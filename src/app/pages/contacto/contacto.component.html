@@ -1,12 +1,37 @@
 <div class="cuerpo">
     <div class="titulo">Contáctanos</div>
+
     <div class="caja">
-        <input class="nombreYapellidos" type="text" placeholder="Nombre y apellidos">
-        <input class="asunto" type="text" placeholder="Asunto">
-        <input class="email" type="text" placeholder="Email">
-        <textarea name="" id="" cols="1" rows="50" class="mensaje" type="text"
-            placeholder="Escribe tu mensaje..."></textarea>
+        <form [formGroup]="myForm">
+            <div class="nombreYapellidos">
+                <input type="text" placeholder="Nombre y Apellidos" formControlName="nombre" class="form-control"
+                    [ngClass]="{'is-invalid': (myForm.get('nombre').dirty || myForm.get('nombre').touched) && !myForm.get('nombre').valid}" />
+                <div *ngIf="!myForm.get('nombre').valid" class="invalid-feedback">
+                    Campo obligatorio.
+                </div>
+            </div>
+            <div class="asunto">
+                <input type="text" placeholder="Asunto" formControlName="asunto" class="form-control"
+                    [ngClass]="{'is-invalid': (myForm.get('asunto').dirty || myForm.get('asunto').touched) && !myForm.get('asunto').valid}" />
+                <div *ngIf="!myForm.get('asunto').valid" class="invalid-feedback">
+                    Campo obligatorio.
+                </div>
+            </div>
+            <div class="email">
+                <input type="email" placeholder="Correo electrónico" formControlName="email" class="form-control"
+                    [ngClass]="{'is-invalid': (myForm.get('email').dirty || myForm.get('email').touched) && !myForm.get('email').valid}" />
+                <div *ngIf="!myForm.get('email').valid" class="invalid-feedback">
+                    <div *ngIf="myForm.get('email').errors.required">Campo obligatorio.</div>
+                    <div *ngIf="myForm.get('email').errors.email">
+                        Direccion de email incorrecta
+                    </div>
+                </div>
+            </div>
+            <textarea name="" id="" cols="1" rows="50" class="mensaje" type="text"
+                placeholder="Escribe tu mensaje..."></textarea>
+        </form>
     </div>
+
     <div class="caja2">
         <div class="boton">
             <button class="enviar" type="button">Enviar</button>
