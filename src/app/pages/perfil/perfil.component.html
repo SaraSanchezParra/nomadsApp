@@ -44,41 +44,10 @@
             </ng-container>
         </div>
         <div  class="cards"><ng-template #misviajes>
-            <div class="card" *ngFor="let viaje of user.misviajes; let i = index"> 
-                <div class="img">
-                    <img src= '{{user.misviajes[i].imagen }}'>
-                </div>
-                <div class="info">
-                    <div class="title">{{ viaje.titulo }}</div>
-                    <div class="desc">{{ viaje.descripcion }}</div>
-                </div>
-                <div class="like">
-                    <div class="user">
-                        <div *ngIf="loged; else noDelete" class="iconos">
-                            <button type="button" class="icono" (click)="borrarViaje(i)">
-                              <img src="assets/borrar.png" width="30" height="25" alt="borrar">
-                            </button>
-                        </div>
-                        <div *ngIf="loged" class="iconos">
-                            <button type="button" class="icono" (click)="editarViaje()">
-                                <img src="assets/lapiz.png" width="30" height="25" alt="editar">
-                            </button>
-                        </div>
-                        <!-- eliminar boton eiminar si no loged -->
-                        <ng-template #noDelete>
-                            <div class="iconos">
-                                <button type="button" class="icono" >
-                                </button>
-                            </div>
-                        </ng-template>
-                        
-                    </div>
-                    <div class="likes">
-                      <img src="assets/corazon.png" width="20" height="20">
-                      <p>{{ this.user.favs[i].likes }}</p>
-                    </div>
-                  </div>
-            </div>
+            <ng-container *ngFor="let viaje of user.misviajes; let i = index">
+                <app-card-viaje [viaje]="viaje"></app-card-viaje>
+            </ng-container>
+
         </ng-template>
     </div>
         

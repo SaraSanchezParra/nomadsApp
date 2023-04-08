@@ -8,7 +8,7 @@ import { Viaje } from 'src/app/models/viaje';
 })
 export class CardViajeComponent {
 
-userLogged = {username: 'Sara'}
+userLogged = {username: 'Amber'}
 @Input() viaje!: Viaje
 
 constructor() {}
