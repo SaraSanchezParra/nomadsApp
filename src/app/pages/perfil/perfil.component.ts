@@ -20,7 +20,7 @@ export class PerfilComponent {
   
   
   constructor(private router:Router) {
-    this.loged = false;
+    this.loged = true;
     this.user = {
       name: 'Estefi',
       surname: 'Martin',
@@ -46,31 +46,32 @@ export class PerfilComponent {
     
   }
   
-  public mostrarFavoritas(): void {
+   mostrarFavoritas(): void {
     this.showFavs = true;
     this.showIcons = false;
   }
   
-  public mostrarMisViajes(): void {
+  mostrarMisViajes(): void {
    this.showFavs = false;
    this.showIcons = true;
   }
-  public editarViaje(i: number): void {
+  editarViaje(): void {
     this.router.navigate(['/modificarViaje'])
   }
   
-  public borrarViaje(i: number): void {
+   borrarViaje(i: number): void {
     this.user.misviajes.splice(i, 1);
   }
 
-  public ajustesPerfil():void{
-    this.router.navigate(['/modifgicarPerfil'])
+   ajustesPerfil():void{
+    this.router.navigate(['/modificarPerfil'])
   }
-  public enviarMensaje():void{
+  enviarMensaje():void{
+
     this.router.navigate(['/chatPrivado'])
   }
-  public iraUser():void{
-    this.router.navigate(['/modifgicarPerfil'])
+  iraUser():void{
+    this.router.navigate(['/modificarPerfil'])
   }
   
 

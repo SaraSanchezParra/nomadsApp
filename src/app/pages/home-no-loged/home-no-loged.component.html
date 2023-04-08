@@ -4,7 +4,8 @@
         <div class="buscador">
             <div class="caja1">
                 <input class="buscar" [(ngModel)]="inputValue" type="text" placeholder="¿Adónde vas?">
-                <select class="dias" name="myFirstSelect" id="selectExample" placeholder="Nº de Dias" required title="Debes introducir un destino">
+                <select class="dias" name="myFirstSelect" id="selectExample" placeholder="Nº de Dias" required
+                    title="Debes introducir un destino">
                     <option value="1">1 Dia</option>
                     <option value="2">2 Dias</option>
                     <option value="3">3 Dias</option>
@@ -12,7 +13,8 @@
                     <option value="5">5 Dias</option>
                 </select>
 
-                <button class="boton" type="button" [disabled]="!inputValue" [ngClass]="{ 'disabled': !inputValue }">Mostrar</button>
+                <button class="boton" type="button" [disabled]="!inputValue"
+                    [ngClass]="{ 'disabled': !inputValue }">Mostrar</button>
             </div>
 
         </div>
@@ -20,8 +22,9 @@
             <div class="top-viajes">
                 Top viajes
             </div>
-            <div class="cards">
-                <div class="cards1" routerLink="/login">
+            <div class="cards" *ngFor="let viaje of viajes" routerLink="/login">
+                <app-card-viaje [viaje]="viaje"></app-card-viaje>
+                <!-- <div class="cards1" routerLink="/login">
                     <div class="foto1">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTci4UfjBX-FCF6YQw349r_fyAaBd6Of0j4vw&usqp=CAU"
                             alt="" width="100" height="100">
@@ -74,7 +77,7 @@
                             <img src="assets/corazon.png" width="20" height="20">152
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
