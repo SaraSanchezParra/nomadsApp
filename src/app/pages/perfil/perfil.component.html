@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="perfil.component.css">
-    <title>Perfil</title>
-</head>
-<body>
-    <div style="height: 9vh;"></div>
+
+    
     <main>
         <h1>Perfil</h1>
         
@@ -60,7 +51,7 @@
                 </div>
                 <div class="like">
                     <div class="user">
-                        <button type="button" class="icono" (click)="iraUser">
+                        <button type="button" class="icono" (click)="iraUser()">
                         <img src="assets/perfil.png" width="45" height="45">
                         </button>
                     </div>
@@ -71,8 +62,7 @@
                 </div>
             </div>
         </div>
-        
-        <ng-template #misviajes>
+        <div  class="cards"><ng-template #misviajes>
             <div class="card" *ngFor="let viaje of user.misviajes; let i = index"> 
 
                 <div class="img">
@@ -86,12 +76,12 @@
                     <div class="user">
                         <div *ngIf="loged; else noDelete" class="iconos">
                             <button type="button" class="icono" (click)="borrarViaje(i)">
-                              <img src="assets/borrar.png" width="20" height="20" alt="borrar">
+                              <img src="assets/borrar.png" width="30" height="25" alt="borrar">
                             </button>
                         </div>
                         <div *ngIf="loged" class="iconos">
-                            <button type="button" class="icono" (click)="editarViaje">
-                                <img src="assets/lapiz.png" width="20" height="20" alt="editar">
+                            <button type="button" class="icono" (click)="editarViaje()">
+                                <img src="assets/lapiz.png" width="30" height="25" alt="editar">
                             </button>
                         </div>
                         <!-- eliminar boton eiminar si no loged -->
@@ -110,10 +100,9 @@
                   </div>
             </div>
         </ng-template>
+    </div>
+        
         
        
     
 </main>
-</body>
-
-</html>
