@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Viaje } from 'src/app/models/viaje';
 
 @Component({
@@ -8,6 +8,8 @@ import { Viaje } from 'src/app/models/viaje';
 })
 export class CardViajeComponent {
 
+@Output() cardEvent = new EventEmitter<number>
+
 userLogged = {username: 'Sara'}
 @Input() viaje!: Viaje
 
@@ -15,6 +17,15 @@ constructor() {}
 
 goToViaje(){
   console.log("take to viaje");
-  
+}
+
+borrarViaje(){
+  let ref = this.viaje.viaje_Id;
+  this.cardEvent.emit(ref)
+}
+
+editarViaje(){
+  let ref = this.viaje.viaje_Id;
+  this.cardEvent.emit(ref)
 }
 }

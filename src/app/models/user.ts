@@ -1,12 +1,15 @@
+import { Viaje } from "./viaje";
+
 export class User {
+  public user_Id: number
   public name: string;
   public surname: string;
   public email: string;
   public username: string;
   public descripcion: string;
   public photo: string;
-  public favs: [{titulo: string, descripcion: string, imagen: string, likes: number}];
-  public misviajes: [{titulo: string, descripcion: string, imagen: string, likes: number}];
+  public favs: Viaje[];
+  public misviajes: Viaje[];
 
 
 constructor(name: string, surname:string, email:string, username:string, descripcion:string, photo:string, favs:[{titulo:string, descripcion:string, imagen:string, likes:number}], misviajes:[{titulo: string, descripcion: string, imagen: string, likes: number}]) {
@@ -16,8 +19,6 @@ constructor(name: string, surname:string, email:string, username:string, descrip
     this.username = username;
     this.descripcion = descripcion;
     this.photo = photo;
-    this.favs = favs;
-    this.misviajes = misviajes;
   }
 }
 

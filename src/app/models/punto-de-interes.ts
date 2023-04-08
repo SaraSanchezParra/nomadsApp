@@ -1,7 +1,8 @@
 export class PuntoDeInteres {
 
     // set up properties
-
+    
+    public pI_id: number
     public img_url: string
     public title: string
 
