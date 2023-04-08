@@ -20,6 +20,10 @@ export class ChatPrivadoComponent {
   mostrarBloquear = false;
   chatBloqueado = false;
   habilitarBotonBloquear = true;
+  
+ 
+  
+
 
 
   constructor(private router: Router,private elementRef: ElementRef){
@@ -27,7 +31,7 @@ export class ChatPrivadoComponent {
   }
   
   navegarAChats() {
-    this.router.navigate(['/chat-general']);
+    this.router.navigate(['/chatGeneral']);
   }
 
   enviarMensaje() {
