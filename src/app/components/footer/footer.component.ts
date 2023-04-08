@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -14,7 +15,7 @@ export class FooterComponent {
   public showFooter: Boolean = true;
   
  
-  constructor(private router: Router,public location: Location){
+  constructor(private router: Router,public location: Location ){
     
     this.loged = true;
     this.showFooter = true;

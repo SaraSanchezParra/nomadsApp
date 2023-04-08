@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -10,13 +11,14 @@ import { Router } from '@angular/router';
 export class BusquedaComponent {
 
   public loged:Boolean
+
  
   
 
   constructor(private router: Router) { 
 
-    this.loged = false
-    
+    this.loged = true
+   
     
   }
 
@@ -26,4 +28,10 @@ export class BusquedaComponent {
   navigateToPagViaje() {
     this.router.navigate(['/paginaViaje']);
   }
+
+  onSubmit(form:NgForm) {
+    console.log(form.value)
+    
+  }
+
 }
