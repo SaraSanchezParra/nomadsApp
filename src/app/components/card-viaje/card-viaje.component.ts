@@ -12,4 +12,9 @@ userLogged = {username: 'Sara'}
 @Input() viaje!: Viaje
 
 constructor() {}
+
+goToViaje(){
+  console.log("take to viaje");
+  
+}
 }

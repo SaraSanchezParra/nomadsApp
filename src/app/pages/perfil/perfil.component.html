@@ -39,32 +39,12 @@
         </div>
         
         <div class="cards" *ngIf="showFavs ; else misviajes">
-
-            <div class="card" *ngFor="let fav of user.favs; let i = index">
-                <div class="img">
-                    <img src= '{{user.favs[i].imagen }}'>
-                    
-                </div>
-                <div class="info">
-                    <div class="title">{{ fav.titulo }}</div>
-                    <div class="desc">{{ fav.descripcion }}</div>
-                </div>
-                <div class="like">
-                    <div class="user">
-                        <button type="button" class="icono" (click)="iraUser()">
-                        <img src="assets/perfil.png" width="45" height="45">
-                        </button>
-                    </div>
-                    <div class="likes">
-                        <img src="assets/corazon.png" width="20" height="20">
-                        <p>{{ user.favs[i].likes }}</p>
-                    </div>
-                </div>
-            </div>
+            <ng-container *ngFor="let viaje of user.favs; let i = index">
+                <app-card-viaje [viaje]="viaje"></app-card-viaje>
+            </ng-container>
         </div>
         <div  class="cards"><ng-template #misviajes>
             <div class="card" *ngFor="let viaje of user.misviajes; let i = index"> 
-
                 <div class="img">
                     <img src= '{{user.misviajes[i].imagen }}'>
                 </div>
