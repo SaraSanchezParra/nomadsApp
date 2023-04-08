@@ -11,9 +11,15 @@
         <div class="desc">{{viaje.description}}</div>
     </div>
     <div class="like">
-        <div class="user">
-            <img src="assets/perfil.png" width="45" height="45">
+        <div class="user-options" *ngIf="userLogged.username == 'Amber'; else profileView">
+            <!-- Compare against viaje.user.username -->
+            <button type="button" class="icono" (click)="borrarViaje(i)"><img src="assets/borrar.png" width="20" height="20" alt="borrar"></button>
+            <button type="button" class="icono" (click)="editarViaje(i)"><img src="assets/lapiz.png" width="20" height="20" alt="editar"></button>
         </div>
+        <ng-template class="user" #profileView>
+            <img src="assets/perfil.png" width="45" height="45">
+            <!-- src: {{viaje.user.photo}} -->
+        </ng-template>
         <div class="likes">
             <img src="assets/corazon.png" width="20" height="20">
             <p>{{viaje.likes}}</p>

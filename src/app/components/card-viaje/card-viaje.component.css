@@ -21,11 +21,12 @@
 }
 
 .info {
-    width: 60%;
+    width: 55%;
     display: flex;
     flex-direction: column;
     gap: 7%;
     padding: 2%;
+
 }
 
 .title {
@@ -42,9 +43,12 @@
 }
 
 .like {
-    width: 15%;
+    width: 20%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .user {
@@ -68,4 +72,15 @@
     align-items: center;
     justify-content: flex-start;
     gap: 3%;
+}
+
+.user-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-options button {
+    border: none;
+    background: none;
 }
