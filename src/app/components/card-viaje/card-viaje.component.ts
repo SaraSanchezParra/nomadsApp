@@ -8,13 +8,9 @@ import { Viaje } from 'src/app/models/viaje';
 })
 export class CardViajeComponent {
 
-<<<<<<< HEAD
-userLogged = {username: 'Amber'}
-=======
 @Output() cardEvent = new EventEmitter<number>
 
 userLogged = {username: 'Sara'}
->>>>>>> modelsA
 @Input() viaje!: Viaje
 
 constructor() {}
