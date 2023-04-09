@@ -11,7 +11,7 @@ body {
 }
 
 .fondo {
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
   width: 100%;
@@ -129,14 +129,17 @@ img{
 }
 
 .atras{
+ 
   border: none;
-  width: 0.01%;
+  width: 30%;
+  height: 6%;
   color:rgba(255, 184, 0, 1);
   font-size: 200%;
   font-weight: bolder;
 } 
 
 .bloquear{
+
   border: none;
   display: flex;
   justify-content: flex-end;
@@ -145,12 +148,13 @@ img{
 
 
 .enviar{
-  border: none;
-  
+  border: 1px solid rgb(158, 158, 158);
+  border-left: none; 
   color: white;
   width: 40%;
-  height: 25%;
-  border-radius: 6px;
+  height: 36%;
+  margin-top: 2%;
+  padding: 1%;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -158,24 +162,28 @@ img{
  .enviar2{
   width: 40%;
   height: 70%;
+  margin-bottom: 4% ;
  }
 
 
 textarea {
-  border: none;
+  border: 1px solid rgb(158, 158, 158);
+  border-right: none;
   resize: none;
   overflow: hidden;
   width: 100%;
   min-height: 50px; /* altura mínima del textarea */
   max-height: 200px; /* altura máxima del textarea */
   height: 25%;
+  margin-top: 2%;
+  padding: 2%;
 }
 
 
 
 .chat-bloqueado {
   background-color: rgba(128, 128, 128, 0.5);
-  pointer-events: none;
+  /* pointer-events: fill; */
 }
 
 .chat-desbloqueado {
@@ -193,11 +201,24 @@ textarea {
   color: rgba(31, 137, 137, 1)
 }
 
-.puntos-menu li a:hover {
+/* .puntos-menu li a:hover {
   background-color: #f2f2f2;
+} */
+
+/* .puntos-menu.show {
+  display: block;
+} */
+
+.puntos{
+  /* border: 2px solid black; */
+  width: 30%;
+ 
 }
 
-.puntos-menu.show {
-  display: block;
+.botonAtras{
+  /* border: 3px solid purple; */
+  width: 30%;
+  display: flex;
+  
 }
 
