@@ -11,7 +11,8 @@ export class CardViajeComponent {
 @Output() cardEvent = new EventEmitter<number>
 
 userLogged = {username: 'Amber'}
-@Input() viaje!: Viaje
+@Input() viaje!: Viaje;
+@Input() i:number
 
 constructor() {}
 
@@ -20,12 +21,13 @@ goToViaje(){
 }
 
 borrarViaje(){
-  let ref = this.viaje.viaje_Id;
+  let ref = this.i;
   this.cardEvent.emit(ref)
 }
 
 editarViaje(){
-  let ref = this.viaje.viaje_Id;
+  let ref = this.i;
   this.cardEvent.emit(ref)
+  //esto debería de mandar el id de viaje
 }
 }

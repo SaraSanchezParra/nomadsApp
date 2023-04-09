@@ -19,6 +19,8 @@ constructor(name: string, surname:string, email:string, username:string, descrip
     this.username = username;
     this.descripcion = descripcion;
     this.photo = photo;
+    this.favs = favs;
+    this.misviajes = misviajes;
   }
 }
 
