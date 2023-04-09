@@ -12,12 +12,14 @@ export class BusquedaComponent {
 
   public loged:Boolean
 
+
  
   
 
   constructor(private router: Router) { 
 
-    this.loged = true
+    this.loged = true;
+   
    
     
   }
@@ -29,9 +31,17 @@ export class BusquedaComponent {
     this.router.navigate(['/paginaViaje']);
   }
 
+   navigateToPagPerfil() {
+    this.router.navigate(['/perfil']);
+  }
+
+
+
   onSubmit(form:NgForm) {
     console.log(form.value)
     
   }
 
+
+  
 }
