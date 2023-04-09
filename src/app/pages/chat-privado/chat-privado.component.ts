@@ -2,9 +2,6 @@ import { Component, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 
 
-
-
-
 @Component({
   selector: 'app-chat-privado',
   templateUrl: './chat-privado.component.html',
@@ -21,10 +18,6 @@ export class ChatPrivadoComponent {
   chatBloqueado = false;
   habilitarBotonBloquear = true;
   
- 
-  
-
-
 
   constructor(private router: Router,private elementRef: ElementRef){
     this.chatBloqueado = false;
@@ -56,7 +49,7 @@ export class ChatPrivadoComponent {
       this.habilitarBotonBloquear = true;
     } else {
       chat.classList.add('chat-bloqueado');
-      this.habilitarBotonBloquear = false;
+      this.habilitarBotonBloquear = true;
     }
     this.chatBloqueado = !this.chatBloqueado;
     this.mostrarBloquear = false;

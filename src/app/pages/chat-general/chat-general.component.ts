@@ -9,6 +9,7 @@ import { Chats } from 'src/models/chat';
 })
 export class ChatGeneralComponent {
   public formattedTime: string;
+  usuarioNoEncontrado = false;
   chats: Chats[] = [
     {
       photo: 'https://img.freepik.com/foto-gratis/mujer-hermosa-joven-mirando-camara-chica-moda-verano-casual-camiseta-blanca-pantalones-cortos-hembra-positiva-muestra-emociones-faciales-modelo-divertido-aislado-amarillo_158538-15796.jpg',
@@ -54,11 +55,17 @@ export class ChatGeneralComponent {
 
   buscarUsuario() {
     this.chatBuscado = this.chats.find(chat => chat.nameUser === this.textoBusqueda);
+    if (!this.chatBuscado) {
+      this.usuarioNoEncontrado = true;
+    } else {
+      this.usuarioNoEncontrado = false;
+    }
   }
 
   resetearBusqueda() {
     this.chatBuscado = undefined;
     this.textoBusqueda = '';
+    this.usuarioNoEncontrado= false;
   }
 
   mostrarBotonBusqueda() {
