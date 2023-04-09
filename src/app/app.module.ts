@@ -32,6 +32,7 @@ import { CommonModule } from '@angular/common';
 import { CardViajeComponent } from './components/card-viaje/card-viaje.component';
 import { DayCardComponent } from './components/day-card/day-card.component';
 import { PuntoDeInteresCardComponent } from './components/punto-de-interes-card/punto-de-interes-card.component';
+import { CardChatComponent } from './components/card-chat/card-chat.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { PuntoDeInteresCardComponent } from './components/punto-de-interes-card/
     HeaderVerdeComponent,
     CardViajeComponent,
     DayCardComponent,
-    PuntoDeInteresCardComponent
+    PuntoDeInteresCardComponent,
+    CardChatComponent
   ],
   imports: [
     BrowserModule,

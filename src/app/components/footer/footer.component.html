@@ -6,7 +6,7 @@
 <div *ngIf="this.showFooter">
     <div *ngIf="this.loged;else esFalso" class="footer_container">
         <footer class="footer_loged">
-            <div routerLink="add-viaje">
+            <div routerLink="/add-viaje">
                 <svg [ngClass]="this.location.path() === '/add-viaje' ? 'tertiaryButton':'secundaryButton'"
                     xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9" viewBox="0 0 448 512">
                     <path
@@ -15,7 +15,7 @@
             </div>
 
 
-            <div routerLink="perfil">
+            <div routerLink="/perfil">
                 <svg [ngClass]="this.location.path() === '/perfil' ? 'tertiaryButton':'secundaryButton'"
                     xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9" viewBox="0 0 512 512">
                     <path
@@ -24,7 +24,7 @@
             </div>
 
 
-            <div routerLink="home-loged">
+            <div routerLink="/home-loged">
                 <svg [ngClass]="this.location.path() === '/home-loged' ? 'tertiaryButton':'secundaryButton'"
                     xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9"
                     class="bi bi-house-fill" viewBox="0 0 16 16">
@@ -35,7 +35,7 @@
                 </svg>
             </div>
 
-            <div class="butt" id="chat" routerLink="chatGeneral">
+            <div class="butt" id="chat" routerLink="/chatGeneral">
                 <svg [ngClass]="this.location.path() === '/chatGeneral' ? 'tertiaryButton':'secundaryButton'"
                     xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9" viewBox="0 0 512 512">
                     <path
