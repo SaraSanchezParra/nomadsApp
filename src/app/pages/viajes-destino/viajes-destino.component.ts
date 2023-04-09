@@ -14,5 +14,6 @@ export class ViajesDestinoComponent {
   new Viaje('Madrid Divertido', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFFR3S-MvP4lxreLG6dorNvNYAT9CVWb-6Mw&usqp=CAU', 'Pasarás un dia de aventuras.', [], 190),
   new Viaje('Madrid Cultural', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCJhKvBdXNk-ngNbClmtowH--lFT3CGd9hdw&usqp=CAU', 'Los mejores museos a tu disposicion.', [], 190)]
 
+  
   constructor() { }
 }
