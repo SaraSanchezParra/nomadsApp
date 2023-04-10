@@ -12,7 +12,7 @@ export class ChatGeneralComponent {
   usuarioNoEncontrado = false;
   chats: Chats[] = [
     {
-      photo: 'https://img.freepik.com/foto-gratis/mujerHermosaJoven.jpg',
+      photo: 'https://img.freepik.com/foto-gratis/mujerHermosa.jpg',
       nameUser: '@Maria',
       hour: "12:00"
     },
