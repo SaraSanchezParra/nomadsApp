@@ -18,6 +18,7 @@ import { SobrelaAppComponent } from './pages/sobrela-app/sobrela-app.component';
 import { ViajesDestinoComponent } from './pages/viajes-destino/viajes-destino.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { PaginaViajeComponent } from './pages/pagina-viaje/pagina-viaje.component';
+import { AddDiaComponent } from './pages/add-dia/add-dia.component';
 
 const routes: Routes = [
   { path: "home-loged", component: HomeLogedComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: "chatGeneral", component: ChatGeneralComponent },
   { path: "chatPrivado", component: ChatPrivadoComponent },
   { path: "add-viaje", component: AddViajeComponent },
+  { path: "add-dia", component: AddDiaComponent},
   { path: "landin-page", component: LandingPageComponent },
   { path: "login", component: LoginComponent },
   { path: "modificarPerfil", component: ModificarPerfilComponent },

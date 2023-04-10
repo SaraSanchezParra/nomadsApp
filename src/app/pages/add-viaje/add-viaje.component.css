@@ -51,7 +51,7 @@ input {
 }
 
 .btn-area {
-    margin-top: 1rem;
+    margin-top: 2rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -59,10 +59,16 @@ input {
     width: 100%;
 }
 
+label {
+    font-family: var(--ff-main);
+    margin-bottom: 0.2rem;
+}
+
 button {
     width: 140px;
     color: #fff;
-    font-size: 150%;
+    font-size: 14px;
+    padding: 0.4rem;
     border-radius: 6px;
     background-color: var(--yellow);
     border: none;
@@ -74,6 +80,7 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    margin-top: 2rem;
 }
 
 .day-card {
@@ -90,4 +97,9 @@ button {
 
 .day-card button {
     width: 80%;
+}
+
+button:disabled {
+    color: #F5F5F5;
+    opacity: 0.4;
 }
