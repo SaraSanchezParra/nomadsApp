@@ -1,11 +1,11 @@
 <!-- componente card viaje -->
-<div class="card" (click)="goToViaje()">
+<div class="card" >
   
-    <div class="img">
+    <div class="img"(click)="goToViaje()">
         <img src={{viaje.main_img}}>
 
     </div>
-    <div class="info">
+    <div class="info"(click)="goToViaje()">
         <div class="title">{{viaje.title}}</div>
         <div class="desc">{{viaje.description}}</div>
     </div>

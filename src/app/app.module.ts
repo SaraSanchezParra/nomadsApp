@@ -34,6 +34,7 @@ import { DayCardComponent } from './components/day-card/day-card.component';
 import { PuntoDeInteresCardComponent } from './components/punto-de-interes-card/punto-de-interes-card.component';
 import { CardChatComponent } from './components/card-chat/card-chat.component';
 import { AddDiaComponent } from './pages/add-dia/add-dia.component';
+import { ModificarDiaComponent } from './pages/modificar-dia/modificar-dia.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { AddDiaComponent } from './pages/add-dia/add-dia.component';
     DayCardComponent,
     PuntoDeInteresCardComponent,
     CardChatComponent,
-    AddDiaComponent
+    AddDiaComponent,
+    ModificarDiaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 <div class="mod-viaje">
     <div class="title">
-        <h3>Añadir viaje</h3>
+        <h3>Modificar viaje</h3>
     </div>
     <div class="form-area">
         <form [formGroup]="modifyForm" class="form">
@@ -16,29 +16,34 @@
             <!-- Descripcion Viaje -->
             <label for="descripcionViaje">Descripcion del Viaje</label>
             <input id="descripcionViaje" type="text" formControlName="descripcionViaje" class="form-control"
+            placeholder="{{viaje.description}}"
                 [ngClass]="{'is-invalid': modifyForm.get('descripcionViaje').invalid && (modifyForm.get('descripcionViaje').dirty || modifyForm.get('descripcionViaje').touched)}">
             <div *ngIf="modifyForm.get('descripcionViaje').invalid && (modifyForm.get('descripcionViaje').dirty || modifyForm.get('descripcionViaje').touched)"
                 class="invalid-feedback">
                 Una breve descripcion del viaje es necesaria
             </div>
+            <!-- Lugar Viaje -->
+            <label for="lugarViaje">Lugar del Viaje</label>
+            <input id="lugarViaje" type="text" formControlName="lugarViaje"
+                class="form-control">
             <!-- Foto -->
             <label for="fotoViaje">Foto</label>
             <input id="fotoViaje" type="text" formControlName="fotoViaje" class="form-control"
+            placeholder="{{viaje.main_img}}"
                 [ngClass]="{'is-invalid': modifyForm.get('fotoViaje').invalid && (modifyForm.get('fotoViaje').dirty || modifyForm.get('fotoViaje').touched)}">
             <div *ngIf="modifyForm.get('fotoViaje').invalid && (modifyForm.get('fotoViaje').dirty || modifyForm.get('fotoViaje').touched)"
                 class="invalid-feedback">
                 Una foto del viaje es necesaria
             </div>
-            <div class="form day-area" formArrayName="days" *ngFor="let day of viaje.days;  let i = index">
-                <div class="day-card">
-                    <h3>Dia {{i+1}}</h3>
-                    <button type="button">Añadir punto de interes</button>
-                </div>
+            </form>
+            <div class="day-area">
+                <ng-container *ngFor="let dia of viaje.days; let i = index">
+                    <app-day-card [dia]="dia" [i]="i" (cardEvent)="eliminate($event)"></app-day-card>
+                </ng-container>
             </div>
             <div class="btn-area">
-                <button type="button" (click)="addDay()">Añadir día</button>
-                <button type="button" (click)="modify()">Modificar viaje</button>
+                <button type="button" [disabled]="modifyForm.invalid" (click)="modify()">Modificar viaje</button>
             </div>
-        </form>
+        
     </div>
 </div>

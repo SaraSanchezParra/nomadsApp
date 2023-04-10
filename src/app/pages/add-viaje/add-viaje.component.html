@@ -6,7 +6,8 @@
         <form [formGroup]="addForm" class="form">
             <!-- Nombre de Viaje -->
             <label for="nombreViaje">Nombre del Viaje</label>
-            <input id="nombreViaje" type="text" formControlName="nombreViaje" class="form-control" placeholder="{{viaje.title}}"
+            <input id="nombreViaje" type="text" formControlName="nombreViaje" class="form-control"
+                placeholder="{{viaje.title}}"
                 [ngClass]="{'is-invalid': addForm.get('nombreViaje').invalid && (addForm.get('nombreViaje').dirty || addForm.get('nombreViaje').touched)}">
             <div *ngIf="addForm.get('nombreViaje').invalid && (addForm.get('nombreViaje').dirty || addForm.get('nombreViaje').touched)"
                 class="invalid-feedback">
@@ -22,7 +23,8 @@
             </div>
             <!-- Descripcion Viaje -->
             <label for="descripcionViaje">Descripcion del Viaje</label>
-            <input id="descripcionViaje" type="text" formControlName="descripcionViaje" class="form-control" placeholder="{{viaje.description}}"
+            <input id="descripcionViaje" type="text" formControlName="descripcionViaje" class="form-control"
+                placeholder="{{viaje.description}}"
                 [ngClass]="{'is-invalid': addForm.get('descripcionViaje').invalid && (addForm.get('descripcionViaje').dirty || addForm.get('descripcionViaje').touched)}">
             <div *ngIf="addForm.get('descripcionViaje').invalid && (addForm.get('descripcionViaje').dirty || addForm.get('descripcionViaje').touched)"
                 class="invalid-feedback">
@@ -30,21 +32,22 @@
             </div>
             <!-- Foto -->
             <label for="fotoViaje">Foto</label>
-            <input id="fotoViaje" type="text" formControlName="fotoViaje" class="form-control" placeholder="{{viaje.main_img}}"
+            <input id="fotoViaje" type="text" formControlName="fotoViaje" class="form-control"
+                placeholder="{{viaje.main_img}}"
                 [ngClass]="{'is-invalid': addForm.get('fotoViaje').invalid && (addForm.get('fotoViaje').dirty || addForm.get('fotoViaje').touched)}">
             <div *ngIf="addForm.get('fotoViaje').invalid && (addForm.get('fotoViaje').dirty || addForm.get('fotoViaje').touched)"
                 class="invalid-feedback">
                 Una foto del viaje es necesaria
             </div>
-            <div class="days-area">
-                <ng-container *ngFor="let dia of viaje.days; let i = index">
-                    <app-day-card [dia]="dia" [i]="i"></app-day-card>
-                </ng-container>
-            </div>
-            <div class="btn-area">
-                <button type="button" (click)="addDays()">Añadir día</button>
-                <button type="button" [disabled]="addForm.invalid" (click)="submitViaje()">Añadir</button>
-            </div>
         </form>
+        <div class="days-area">
+            <ng-container *ngFor="let dia of viaje.days; let i = index">
+                <app-day-card [dia]="dia" [i]="i" (cardEvent)="eliminate($event)"></app-day-card>
+            </ng-container>
+        </div>
+        <div class="btn-area">
+            <button type="button" (click)="addDays()">Añadir día</button>
+            <button type="button" [disabled]="addForm.invalid" (click)="submitViaje()">Añadir</button>
+        </div>
     </div>
 </div>

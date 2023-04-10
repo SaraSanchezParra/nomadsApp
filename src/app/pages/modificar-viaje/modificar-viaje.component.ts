@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Day } from 'src/app/models/day';
 import { PuntoDeInteres } from 'src/app/models/punto-de-interes';
 import { Viaje } from 'src/app/models/viaje';
+import { ModifyViajeService } from 'src/app/services/modify-viaje.service';
 
 @Component({
   selector: 'app-modificar-viaje',
@@ -14,40 +16,32 @@ export class ModificarViajeComponent {
   public viaje: Viaje
   public modifyForm: FormGroup
 
-  get days() {
-    return this.modifyForm.get('days') as FormArray;
-  }
 
-  addDay() {
-    this.viaje.days.push(new Day([]));
-  }
-  
-  // addPI(i:number) {
-  //   this.viaje.days[i].push(new PuntoDeInteres())
-  // manera de anadir form controls y saquar los valores para anadirlos al dia en particular
-  // }
+  constructor(private fb: FormBuilder, public modifyViajeService: ModifyViajeService, private router: Router) {
+    this.viaje = new Viaje('Aruba', 'http://blog.gogo-vacations.com/wp-content/uploads/2016/01/XAN_14_001-1.jpg', 'Las playas del Caribe', [new Day([new PuntoDeInteres('https://i0.wp.com/residencialvistaalegre.com/wp-content/uploads/2019/03/playa-tortugas.jpg?fit=1200%2C831','Playa de las Tortugas')])], 2)
 
-  constructor(private fb: FormBuilder) {
-    this.viaje = new Viaje('Madrid Centro', 'https://media.istockphoto.com/id/1059076792/es/foto/madrid-ciudad-skyline-gran-v%C3%ADa-calle-crep%C3%BAsculo-espa%C3%B1a.jpg?s=612x612&w=0&k=20&c=gWGpBRHVNJleHrVRmetRPTFuau_aahvCUKDMNfCrMNE=', 'El corazon de la capital', [new Day([new PuntoDeInteres('foto', 'place')])], 490)
     this.modifyForm = this.fb.group({
-      nombreViaje: ['', ],
-      descripcionViaje: ['', ],
-      fotoViaje: ['', ],
-      days: this.fb.array([])
+      nombreViaje: ['', Validators.required],
+      descripcionViaje: ['',  Validators.required],
+      fotoViaje: ['', Validators.required]
     })
   }
 
   public modify(){
-    let newViaje = this.modifyForm.value;
-    console.log(newViaje);
-    if (newViaje.nombreViaje != "") {
-      this.viaje.title = newViaje.nombreViaje
+    let modViaje = this.modifyForm.value;
+    console.log(modViaje);
+    if (modViaje.nombreViaje != "") {
+      this.viaje.title = modViaje.nombreViaje
     }
-    if (newViaje.descripcionViaje != "") {
-      this.viaje.description = newViaje.descripcionViaje
+    if (modViaje.descripcionViaje != "") {
+      this.viaje.description = modViaje.descripcionViaje
     }
-    if (newViaje.fotoViaje != "") {
-      this.viaje.main_img = newViaje.fotoViaje
+    if (modViaje.fotoViaje != "") {
+      this.viaje.main_img = modViaje.fotoViaje
     }
+  }
+
+  public eliminate(day_id: number) {
+    this.viaje.days.splice(day_id, 1)
   }
 }

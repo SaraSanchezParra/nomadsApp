@@ -6,6 +6,7 @@
   border-radius: 12px;
   overflow: hidden;
   justify-content: space-between;
+  width: 350px;
 }
 
 .day-card-title {
@@ -18,7 +19,20 @@
   font-family: var(--ff-titles);
 }
 
-.day-card-title button {
+.btn-area{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.options-btns button{
+  border: none;
+  background: none;
+}
+
+.show {
   border: none;
   padding: 0.4rem;
   border-radius: 6px;
@@ -33,7 +47,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.6rem;
+  margin-bottom: 1rem;
 }
+
+
 
 .content * {
   width: 100%;
