@@ -1,20 +1,10 @@
-<!-- <div class="contenedor-imagen">
-    <img src="assets/menuHamburguesa.png" height="35" width="35">
-    <ul class="menu">
-        <li><a href="/quienesSomos">¿Quiénes somos?</a></li>
-        <li><a href="/contactanos">Contáctanos</a></li>
-        <li><a href="/onBoarding">Onboard</a></li>
-        <li id="ultimo"><a href="/sobreLaApp">Sobre la app</a></li>
-    </ul>
-</div> -->
-
-
-<div class="menu-container" [class.visible]="menuVisible">
+<div class="overlay" *ngIf="menuVisible" (click)="ocultarMenu()"></div>
+<div class="menu-container" [class.visible]="menuVisible" >
     <li><a href="/quienesSomos">¿Quiénes somos?</a></li>
     <li><a href="/contactanos">Contáctanos</a></li>
     <li><a href="/onBoarding">Onboard</a></li>
     <li id="ultimo"><a href="/sobreLaApp">Sobre la app</a></li>
 </div>
 <div class="imagen-container">
-    <img src="assets/menuHamburguesa.png" height="35" width="35" (click)="mostrarMenu()" />
+    <img src="assets/menuHamburguesa.png" height="30" width="30" (click)="mostrarMenu()" />
 </div>

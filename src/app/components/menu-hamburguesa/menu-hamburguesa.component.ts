@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-menu-hamburguesa',
@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class MenuHamburguesaComponent {
 
     menuVisible = false;
+
+    constructor(){}
 
   mostrarMenu() {
     this.menuVisible = !this.menuVisible; // Invertir el valor actual
@@ -20,4 +22,8 @@ export class MenuHamburguesaComponent {
       }
     }
   }
+
+    ocultarMenu() {
+        this.menuVisible = false;
+    }
 }
