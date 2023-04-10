@@ -22,7 +22,7 @@ export class PerfilComponent {
   
   
   constructor(private router:Router, public userService: DatosUsuarioService) {
-    this.loged = false;
+    this.loged = true;
 
     
   }
@@ -52,7 +52,7 @@ export class PerfilComponent {
     this.router.navigate(['/chatPrivado'])
   }
   iraUser():void{
-    this.router.navigate(['/modificarPerfil'])
+    this.router.navigate(['/perfil'])
   }
   
 

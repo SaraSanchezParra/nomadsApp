@@ -10,6 +10,8 @@ export class User {
   public photo: string;
   public favs: Viaje[];
   public misviajes: Viaje[];
+  public password: string;
+  public password2: string;
 
 
 constructor(name: string, surname:string, email:string, username:string, descripcion:string, photo:string, favs:Viaje[], misviajes:Viaje[]) {
@@ -21,6 +23,11 @@ constructor(name: string, surname:string, email:string, username:string, descrip
     this.photo = photo;
     this.favs = favs;
     this.misviajes = misviajes;
+    
+  }
+  setPassword (password:string){
+    this.password = password;
+    this.password2 = password;
   }
 }
 

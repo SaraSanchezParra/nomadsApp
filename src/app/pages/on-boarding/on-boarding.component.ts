@@ -32,21 +32,14 @@ export class OnBoardingComponent {
     }
   }
 
-  goToHome() {
    
-    if (this.isLogged === true) {
-      this.showButtons = false;
-      this.router.navigate(['/home-loged']);
-    } else {
-      this.router.navigate(['/login']);
-    }
-  // goToHome() {
-  //   const isLogged = sessionStorage.getItem('isLogged');
-  //   if (isLogged === 'false') {
-  //     this.router.navigate(['/home-logged']);
-  //   } else {
-  //     this.router.navigate(['/login']);
-  //   }
+    goToHome() {
+      if (this.isLogged) {
+        this.router.navigate(['/home-loged']);
+      } else {
+        this.router.navigate(['/home-no-loged']);
+      }
+  
    }
   
   
