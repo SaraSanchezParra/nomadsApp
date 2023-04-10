@@ -22,8 +22,8 @@
     flex-direction: column;
 }
 
-.buscador {
-    /* border: 2px solid brown; */
+/* .buscador {
+    border: 2px solid brown;
     height: 20%;
     margin-left: 20px;
     margin-right: 20px;
@@ -32,7 +32,7 @@
 }
 
 .caja1 {
-    /* border: 2px solid rgb(0, 0, 0); */
+    border: 2px solid rgb(0, 0, 0);
     height: 80%;
     width: 100%;
     display: flex;
@@ -76,11 +76,11 @@
     align-items: center;
     font-size: 14px;
     box-shadow: 0px 3px 6px 0px rgba(84, 83, 83, 0.466);
-}
+} */
 
 .caja2 {
     /* border: 2px solid rgb(25, 0, 255); */
-    height: 80%;
+    height: 63vh;
     margin-left: 20px;
     margin-right: 20px;
     display: flex;
@@ -90,203 +90,29 @@
 .top-viajes {
     /* border: 2px solid black; */
     color: #1F8989;
-    height: 20%;
+    height: 28vh;
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items:center;
     font-size: 40px;
     font-family: 'Mulish', sans-serif;
- 
-    padding-block-end: 20px;
+
+    /* padding-block-end: 20px; */
 }
 
 .cards {
     /* border: 2px solid rgb(255, 0, 0); */
-    height: 80%;
+    height: 21%;
     display: flex;
     flex-direction: column;
     justify-content: space-between
 }
 
-/* 
-.cards1 {
-    border: 2px solid #1F8989;
-    border-radius: 6px;
-    height: 30%;
-    display: flex;
-    flex-direction: row;
-    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
-}
-
-.cards2 {
-    border: 2px solid #1F8989;
-    border-radius: 6px;
-    height: 30%;
-    display: flex;
-    flex-direction: row;
-    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
-}
-
-.cards3 {
-    border: 2px solid #1F8989;
-    border-radius: 6px;
-    height: 30%;
-    display: flex;
-    flex-direction: row;
-    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.5);
-}
-
-.foto1 {
-    border: 1px solid gray;
-    border-radius: 4.8px 0px 0px 4.8px;
-    background-size: cover;
-    height: 100%;
-    width: 30%;
-}
-
-.foto1 img {
-    border-radius: 4px 0px 0px 4px;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-.foto2 {
-    border: 1px solid gray;
-    border-radius: 4.8px 0px 0px 4.8px;
-    background-size: cover;
-    height: 100%;
-    width: 30%;
-}
-
-.foto2 img {
-    border-radius: 4px 0px 0px 4px;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-.foto3 {
-    border: 1px solid gray;
-    border-radius: 4.8px 0px 0px 4.8px;
-    background-size: cover;
-    height: 100%;
-    width: 30%;
-}
-
-.foto3 img {
-    border-radius: 4px 0px 0px 4px;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-.texto {
-    border: 2px solid black;
-    height: 100%;
-    width: 50%;
-}
-
-.titulo {
-    border: 2px solid black;
-    height: 45%;
-    font-size: 20px;
-    font-family: 'Courgette', cursive;
-    font-family: 'Mulish', sans-serif;
-    display: flex;
-    align-items: center;
-    margin-left: 8px;
-}
-
-.descripcion {
-    border: 2px solid black;
-    height: 55%;
-    font-size: 16px;
-    font-family: 'Quicksand', sans-serif;
-    display: flex;
-    align-items: start;
-    margin-left: 8px;
-}
-
-.like {
-    border: 2px solid black;
-    width: 20%;
-}
-
-.user {
-    border: 2px solid black;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-.likes {
-    border: 2px solid black;
-    height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.texto2 {
-    border: 2px solid black;
-    height: 100%;
-    width: 50%;
-}
-
-.titulo2 {
-    border: 2px solid black;
-    height: 45%;
-    font-size: 20px;
-    font-family: 'Courgette', cursive;
-    font-family: 'Mulish', sans-serif;
-    display: flex;
-    align-items: center;
-    margin-left: 8px;
-}
-
-.descripcion2 {
-    border: 2px solid black;
-    height: 55%;
-    font-size: 16px;
-    font-family: 'Quicksand', sans-serif;
-    display: flex;
-    align-items: start;
-    margin-left: 8px;
-}
-
-.texto3 {
-    border: 2px solid black;
-    height: 100%;
-    width: 50%;
-}
-
-.titulo3 {
-    border: 2px solid black;
-    height: 45%;
-    font-size: 20px;
-    font-family: 'Courgette', cursive;
-    font-family: 'Mulish', sans-serif;
-    display: flex;
-    align-items: center;
-    margin-left: 8px;
-}
-
-.descripcion3 {
-    border: 2px solid black;
-    height: 55%;
-    font-size: 16px;
-    font-family: 'Quicksand', sans-serif;
-    display: flex;
-    align-items: start;
-    margin-left: 8px;
-} */
-
 .users {
     /* border: 2px solid black; */
-    height: 30%;
+    height: 28vh;
     margin-left: 20px;
+    margin-right: 20px;
 }
 
 .top {
@@ -308,21 +134,16 @@
     align-items: center;
 }
 
-/* .lupa{
-    border: 2px solid black;
-    height: 100%;
-    width: 35%;
-    margin-right: 20px;
-} */
 .topUsers {
     /* border: 2px solid rgb(255, 0, 0); */
-    height: 50%;
+
+    height: 11vh;
     display: flex;
     justify-content: space-between;
 }
 
 .nomads {
-    border: 2px solid rgb(0, 0, 0);
+    border: 2px solid #1F8989;
     border-radius: 50px;
     height: 65%;
     width: 17%;
@@ -338,6 +159,6 @@
 
 
 .footer {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     height: 9vh;
 }
