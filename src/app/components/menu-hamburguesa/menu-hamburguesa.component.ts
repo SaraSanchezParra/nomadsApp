@@ -9,7 +9,7 @@ export class MenuHamburguesaComponent {
 
     menuVisible = false;
 
-    constructor(private el: ElementRef){}
+    constructor(){}
 
   mostrarMenu() {
     this.menuVisible = !this.menuVisible; // Invertir el valor actual
@@ -26,6 +26,4 @@ export class MenuHamburguesaComponent {
     ocultarMenu() {
         this.menuVisible = false;
     }
-
-
 }

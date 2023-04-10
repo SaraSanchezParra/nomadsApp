@@ -1,4 +1,5 @@
-<div class="menu-container" [class.visible]="menuVisible">
+<div class="overlay" *ngIf="menuVisible" (click)="ocultarMenu()"></div>
+<div class="menu-container" [class.visible]="menuVisible" >
     <li><a href="/quienesSomos">¿Quiénes somos?</a></li>
     <li><a href="/contactanos">Contáctanos</a></li>
     <li><a href="/onBoarding">Onboard</a></li>
@@ -7,4 +8,3 @@
 <div class="imagen-container">
     <img src="assets/menuHamburguesa.png" height="30" width="30" (click)="mostrarMenu()" />
 </div>
-<div class="overlay" *ngIf="menuVisible" (click)="ocultarMenu()"></div>

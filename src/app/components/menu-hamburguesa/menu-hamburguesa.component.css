@@ -5,7 +5,7 @@
     right: -250px;
     /* Inicialmente oculto fuera del viewport */
     width: 200px;
-    height: 40%;
+    height: 38%;
     background-color: #F5F5F5;
     transition: right 0.3s ease-out;
     list-style: none;
