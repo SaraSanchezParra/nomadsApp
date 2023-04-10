@@ -1,6 +1,6 @@
     <h1>Modificar Perfil</h1>
     <div class="fotoPerfil">
-        <img id="perfilImg" src="assets/perfil.png" alt="foto de perfil" width="100" height="100">
+        <img id="perfilImg" src={{this.userService.user.photo}} alt="foto de perfil" width="100" height="100">
     </div>
     
 
@@ -37,7 +37,7 @@
         
           <input type="text" placeholder="Foto" formControlName ="foto" class="form-control" />
         
-          <input type="text" placeholder="Contraseña" formControlName="password" class="form-control" 
+          <input type="password" placeholder="Contraseña" formControlName="password" class="form-control" 
             [ngClass]="{'is-invalid': (myForm.get('password').dirty || myForm.get('password').touched) && !myForm.get('password').valid}"/>
           <div *ngIf="!myForm.get('password').valid" class="invalid-feedback">
             <div *ngIf="myForm.get('password').errors.required">La clave es obligatoria</div>
@@ -45,14 +45,14 @@
           </div>
         
 
-          <input type="text" placeholder="Repetir contraseña" formControlName="password2" class="form-control" 
+          <input type="password" placeholder="Repetir contraseña" formControlName="password2" class="form-control" 
           [ngClass]="{'is-invalid': (myForm.get('password2').dirty || myForm.get('password2').touched) && !myForm.get('password2').valid}" />
           <div *ngIf="!myForm.get('password2').valid" class="invalid-feedback">
             <div *ngIf="myForm.get('password2').errors.required">La clave es obligatoria</div>
             <div *ngIf="!myForm.get('password2').errors.required && myForm.get('password2').errors.matchPassword">las claves no coinciden</div>
           </div>
 
-          <button type="button" (click)="modificar()" [disabled]="myForm.invalid">Modificar</button>
+          <button type="button" (click)="modificar()" [disabled]="!myForm.valid">Modificar</button>
          
         </form>
     </div>  

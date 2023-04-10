@@ -4,6 +4,22 @@
     display: flex;
     flex-direction: column;
 }
+.searchbars {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+button {
+    width: 140px;
+    color: #fff;
+    font-size: 150%;
+    border-radius: 6px;
+    background-color: var(--yellow);
+    border: none;
+    font-family: var(--ff-main);
+}
 
 .inputs {
     display: flex;
