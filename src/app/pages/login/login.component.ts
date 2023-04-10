@@ -19,6 +19,12 @@ export class LoginComponent {
     this.user = new User()
   }
 
+  entrar(){
+
+    this.router.navigate(['/perfil'])
+
+  }
+
   onSubmit(form:NgForm){
     console.log(form.value)
     console.log(this.user)

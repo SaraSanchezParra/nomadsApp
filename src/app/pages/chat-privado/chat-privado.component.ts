@@ -39,19 +39,19 @@ export class ChatPrivadoComponent {
   }
   
 
-  toggleMenu() {
-    this.mostrarBloquear = !this.mostrarBloquear;
-  }
-  bloquearChat() {
-    const chat = this.elementRef.nativeElement.querySelector('.chat');
-    if (this.chatBloqueado) {
-      chat.classList.remove('chat-bloqueado');
-      this.habilitarBotonBloquear = true;
-    } else {
-      chat.classList.add('chat-bloqueado');
-      this.habilitarBotonBloquear = true;
-    }
-    this.chatBloqueado = !this.chatBloqueado;
-    this.mostrarBloquear = false;
-  }
+  // toggleMenu() {
+  //   this.mostrarBloquear = !this.mostrarBloquear;
+  // }
+  // bloquearChat() {
+  //   const chat = this.elementRef.nativeElement.querySelector('.chat');
+  //   if (this.chatBloqueado) {
+  //     chat.classList.remove('chat-bloqueado');
+  //     this.habilitarBotonBloquear = true;
+  //   } else {
+  //     chat.classList.add('chat-bloqueado');
+  //     this.habilitarBotonBloquear = true;
+  //   }
+  //   this.chatBloqueado = !this.chatBloqueado;
+  //   this.mostrarBloquear = false;
+  // }
 }
