@@ -11,7 +11,7 @@ export class HeaderComponent {
 
   public loged: boolean;
   public showHeader: boolean;
-  menuActive=false;
+  menuVisible=false;
 
   constructor(private router: Router, public location: Location) {
     this.loged = true;
@@ -24,11 +24,19 @@ export class HeaderComponent {
   }
   
   }
-  toggleMenu() {
-    this.menuActive = !this.menuActive;
+  mostrarMenu() {
+    this.menuVisible = !this.menuVisible; // Invertir el valor actual
+    const menuContainer = document.querySelector('.menu-container');
+    if (menuContainer) {
+      if (this.menuVisible) {
+        menuContainer.classList.add('visible');
+      } else {
+        menuContainer.classList.remove('visible');
+      }
+    }
   }
 
-  activateMenu() {
-    this.menuActive = true;
-  }
+    ocultarMenu() {
+        this.menuVisible = false;
+    }
 }

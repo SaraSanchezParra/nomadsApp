@@ -3,20 +3,23 @@
     <div class="brand">
       <img src="../../../assets/mundo amarillo.png" alt="favicon">
       <p class="name">Nomads</p>
-      <div class="contenedor-imagen">
-        <img class="menuHamburguesa" src="assets/menuHamburguesa.png" height="35" width="35" (click)="toggleMenu()">
-        <ul class="menu" [ngClass]="{'show': menuActive}">
-          <li><a href="/quienesSomos" (click)="activateMenu()">¿Quiénes somos?</a></li>
-          <li><a href="/contactanos" (click)="activateMenu()">Contáctanos</a></li>
-          <li><a href="/onBoarding" (click)="activateMenu()">Onboard</a></li>
-          <li id="ultimo"><a href="/sobreLaApp" (click)="activateMenu()">Sobre la app</a></li>
-        </ul>
+      <div class="overlay" *ngIf="menuVisible" (click)="ocultarMenu()"></div>
+      <div class="menu-container" [class.visible]="menuVisible">
+        <li><a href="/quienesSomos">¿Quiénes somos?</a></li>
+        <li><a href="/contactanos">Contáctanos</a></li>
+        <li><a href="/onBoarding">Onboard</a></li>
+        <li id="ultimo"><a href="/sobreLaApp">Sobre la app</a></li>
       </div>
+      <div class="imagen-container">
+        <img class="imagenMenu" src="assets/menuHamburguesa.png" (click)="mostrarMenu()" />
+      </div>
+
     </div>
   </header>
 
   <header *ngIf="!loged">
-   <app-header-verde></app-header-verde> 
+    <app-header-verde></app-header-verde>
+
   </header>
 </div>
 
