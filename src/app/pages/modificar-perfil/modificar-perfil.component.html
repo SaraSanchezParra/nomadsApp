@@ -36,7 +36,9 @@
           </div>
         
           <input type="text" placeholder="Foto" formControlName ="foto" class="form-control" />
-        
+      
+          <textarea name="descripcion" id="descripcion" cols="30" rows="5" formControlName ="descripcion" class="form-control" placeholder="Escribe lo que quieras..."></textarea>
+
           <input type="password" placeholder="Contraseña" formControlName="password" class="form-control" 
             [ngClass]="{'is-invalid': (myForm.get('password').dirty || myForm.get('password').touched) && !myForm.get('password').valid}"/>
           <div *ngIf="!myForm.get('password').valid" class="invalid-feedback">

@@ -6,7 +6,7 @@
 
 }
 h1{
-    margin-top: 12vh;
+    margin-top: 14vh;
     display: flex;
     justify-content: center;
     color: #1f8989;
@@ -24,18 +24,27 @@ h1{
     padding-left: 20px;
     padding-right: 20px;
     justify-content: center;
+    border-radius: 60px;
+    height: 150px;
 
+  }
+  #perfilImg{
+    border-radius: 100px;
+    width:35%;
+    object-fit: cover;
+    height: 80%;
+    margin-top: 3%;
   }
 
   form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     background-color: white;
     padding: 20px;
     border-radius: 6px;
     font-family: 'Quicksand', sans-serif;
-    height: 80vh;
+    height: 100vh;
 
     
   }

@@ -21,8 +21,9 @@ export class ModificarPerfilComponent implements OnInit {
       nombre: [this.userService.user.name, [Validators.required]],
       apellido: [this.userService.user.surname, [Validators.required]],
       foto: [this.userService.user.photo],
-      // password: ['', [Validators.required, Validators.minLength(8)]],
-      // password2: ['', [Validators.required, this.matchPassword.bind(this)]]
+      password: ['', [Validators.minLength(8)]],
+      password2: ['', [this.matchPassword.bind(this)]],
+      descripcion: [this.userService.user.descripcion]
     });
   }
 
@@ -44,6 +45,8 @@ export class ModificarPerfilComponent implements OnInit {
     return null;
   }
 
+
+
   modificar() {
     if (this.myForm.valid) {
       this.router.navigate(['/perfil']);
@@ -53,12 +56,18 @@ export class ModificarPerfilComponent implements OnInit {
 
       console.log("data error")
     }
-    // const nombre = this.myForm.value.nombre;
-    // const apellido = this.myForm.value.apellido;
-    // const email = this.myForm.value.email;
-    // const username = this.myForm.value.nombreUsuario;
-    // const descripcion = this.myForm.value.descripcion;
-    // const foto = this.myForm.value.foto;
+    const nombre = this.myForm.value.nombre;
+    const apellido = this.myForm.value.apellido;
+    const email = this.myForm.value.email;
+    const username = this.myForm.value.nombreUsuario;
+    const descripcion = this.myForm.value.descripcion;
+    const foto = this.myForm.value.foto;
+    this.userService.user.name = nombre;
+    this.userService.user.surname = apellido;
+    this.userService.user.email = email;
+    this.userService.user.username = username;
+    this.userService.user.descripcion = descripcion;
+    this.userService.user.photo = foto;
   }
 
 }

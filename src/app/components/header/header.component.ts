@@ -15,12 +15,14 @@ export class HeaderComponent {
 
   constructor(private router: Router, public location: Location) {
     this.loged = true;
-    console.log(this.loged);
+    
     this.showHeader = true;
     if(this.location.path() === `/landin-page` || this.location.path() === `/login` ||
     this.location.path() === `/register`){
      this.showHeader = false
+     this.loged = false
   }
+  
   }
   toggleMenu() {
     this.menuActive = !this.menuActive;

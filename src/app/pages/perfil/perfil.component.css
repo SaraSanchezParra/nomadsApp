@@ -102,7 +102,6 @@ section div{
     font-size: 12pt;
     font-weight: 400;
     font-family: 'Quicksand', sans-serif;
-
     padding: 3%;
 }
 
@@ -117,6 +116,8 @@ section div{
     font-size: 12pt;
     font-weight: 400;
     font-family: 'Quicksand', sans-serif;
+    text-align: justify;
+    padding: 3%;
 
 } 
 
