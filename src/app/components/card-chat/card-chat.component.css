@@ -20,6 +20,7 @@
   border-radius: 60px;
   display: flex;
   margin-top: 1.2%;
+  object-fit: cover;
   
 }
 
@@ -62,5 +63,5 @@ button{
 }
 
 img{
-  height: 70%;
+  height: 60%;
 }

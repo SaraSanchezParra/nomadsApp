@@ -27,50 +27,50 @@
           <form [formGroup]="myForm">
             <input type="text" placeholder="Nombre de usuario" formControlName="nombreUsuario" class="form-control" 
               [ngClass]="{'is-invalid': myForm.get('nombreUsuario').invalid && (myForm.get('nombreUsuario').dirty || myForm.get('nombreUsuario').touched) }">
-            <div *ngIf="myForm.get('nombreUsuario').invalid && (myForm.get('nombreUsuario').dirty || myForm.get('nombreUsuario').touched)" class="invalid-feedback">
-              El nombre de usuario debe comenzar con '@'
+            <div  *ngIf="myForm.get('nombreUsuario').invalid && (myForm.get('nombreUsuario').dirty || myForm.get('nombreUsuario').touched)" class="invalid-feedback">
+              <p class ="validacion">El nombre de usuario debe comenzar con '@'</p> 
             </div>
           
             <input type="email" placeholder="Correo electrónico" formControlName="email" class="form-control" 
               [ngClass]="{'is-invalid': (myForm.get('email').dirty || myForm.get('email').touched) && !myForm.get('email').valid}" />
             <div *ngIf="!myForm.get('email').valid" class="invalid-feedback">
-              <div *ngIf="myForm.get('email').errors.required">La direccion de email es obligatoria</div>
-              <div *ngIf="myForm.get('email').errors.email">
-                Direccion de email incorrecta
+              <div class ="validacion" *ngIf="myForm.get('email').errors.required">La direccion de email es obligatoria</div>
+              <div  *ngIf="myForm.get('email').errors.email">
+               <p class ="validacion">Direccion de email incorrecta</p> 
               </div>
             </div>
           
             <input type="text" placeholder="Nombre" formControlName="nombre" class="form-control" 
               [ngClass]="{'is-invalid': (myForm.get('nombre').dirty || myForm.get('nombre').touched) && !myForm.get('nombre').valid}" />
-            <div *ngIf="!myForm.get('nombre').valid" class="invalid-feedback" >
-              El nombre es necesario
+            <div  *ngIf="!myForm.get('nombre').valid" class="invalid-feedback" >
+              <p class ="validacion">El nombre es necesario</p> 
             </div> 
           
-            <input type="text" placeholder="apellidos" formControlName="apellido" class="form-control" 
+            <input type="text" placeholder="Apellidos" formControlName="apellido" class="form-control" 
               [ngClass]="{'is-invalid': (myForm.get('apellido').dirty || myForm.get('apellido').touched) && !myForm.get('apellido').valid}"/>
-            <div *ngIf="!myForm.get('apellido').valid" class="invalid-feedback" >
-              El apellido es necesario
+            <div  *ngIf="!myForm.get('apellido').valid" class="invalid-feedback" >
+              <p class ="validacion">El apellido es necesario</p> 
             </div>
           
             <input type="text" placeholder="Foto" formControlName ="foto" class="form-control"
               [ngClass]="{'is-invalid': myForm.get('foto').invalid && (myForm.get('foto').dirty || myForm.get('foto').touched)}"/>
-            <div *ngIf="myForm.get('foto').invalid && (myForm.get('foto').dirty || myForm.get('foto').touched)" class="invalid-feedback">
-              La foto es requerida
+            <div  *ngIf="myForm.get('foto').invalid && (myForm.get('foto').dirty || myForm.get('foto').touched)" class="invalid-feedback">
+              <p class ="validacion">La foto es requerida</p> 
             </div>
           
             <input type="text" placeholder="Contraseña" formControlName="password" class="form-control" 
               [ngClass]="{'is-invalid': (myForm.get('password').dirty || myForm.get('password').touched) && !myForm.get('password').valid}"/>
             <div *ngIf="!myForm.get('password').valid" class="invalid-feedback">
-              <div *ngIf="myForm.get('password').errors.required">La clave es obligatoria</div>
-              <div *ngIf="myForm.get('password').errors.minlength">Debe contener al menos 8 caracteres</div> 
+              <div class ="validacion" *ngIf="myForm.get('password').errors.required">La clave es obligatoria</div>
+              <div class ="validacion" *ngIf="myForm.get('password').errors.minlength">Debe contener al menos 8 caracteres</div> 
             </div>
           
 
             <input type="text" placeholder="Repetir contraseña" formControlName="password2" class="form-control" 
             [ngClass]="{'is-invalid': (myForm.get('password2').dirty || myForm.get('password2').touched) && !myForm.get('password2').valid}" />
             <div *ngIf="!myForm.get('password2').valid" class="invalid-feedback">
-              <div *ngIf="myForm.get('password2').errors.required">La clave es obligatoria</div>
-              <div *ngIf="!myForm.get('password2').errors.required && myForm.get('password2').errors.matchPassword">las claves no coinciden</div>
+              <div class ="validacion" *ngIf="myForm.get('password2').errors.required">La clave es obligatoria</div>
+              <div class ="validacion" *ngIf="!myForm.get('password2').errors.required && myForm.get('password2').errors.matchPassword">las claves no coinciden</div>
             </div>
 
             
@@ -81,7 +81,7 @@
         </div>
         <div class="boton">
 
-              <button type="submit" (click)="register()" [disabled]="myForm.invalid">Regístrate</button>
+              <button type="submit" (click)="register()">Regístrate</button>
            
             </div>
       </div>
