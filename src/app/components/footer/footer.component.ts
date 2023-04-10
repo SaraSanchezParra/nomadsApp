@@ -17,7 +17,7 @@ export class FooterComponent {
  
   constructor(private router: Router,public location: Location ){
     
-    this.loged = true;
+    this.loged =true;
     this.showFooter = true;
     if(this.location.path() === `/landin-page` || this.location.path() === `/login` ||
        this.location.path() === `/register`){
