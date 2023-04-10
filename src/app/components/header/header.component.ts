@@ -14,7 +14,7 @@ export class HeaderComponent {
   menuActive=false;
 
   constructor(private router: Router, public location: Location) {
-    this.loged = true;
+    this.loged = false;
     
     this.showHeader = true;
     if(this.location.path() === `/landin-page` || this.location.path() === `/login` ||
