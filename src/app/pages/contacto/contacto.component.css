@@ -4,7 +4,7 @@
 .cuerpo {
     /* border: 2px solid black; */
     margin-top: 9vh;
-    height: 95vh;
+    height: 85vh;
     z-index: 8;
     gap: 6%;
 }
@@ -27,7 +27,7 @@
 
 .caja {
     /* border: 2px solid black; */
-    height: 50vh;
+    height: 45vh;
     display: flex;
     flex-direction: column;
 
@@ -41,6 +41,7 @@ form {
     flex-direction: column;
     gap: 4%;
     justify-content: flex-start;
+    overflow: hidden;
 }
 
 input {
@@ -58,7 +59,7 @@ input {
     background-color: #F5F5F5;
     border: none;
     border-radius: 6px;
-    height: 25%;
+    height: 46%;
     font-family: 'Quicksand', sans-serif;
     font-size: 16px;
     vertical-align: top;
