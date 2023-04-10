@@ -7,6 +7,17 @@ import { Component } from '@angular/core';
 })
 export class MenuHamburguesaComponent {
 
+    menuVisible = false;
 
-  
+  mostrarMenu() {
+    this.menuVisible = !this.menuVisible; // Invertir el valor actual
+    const menuContainer = document.querySelector('.menu-container');
+    if (menuContainer) {
+      if (this.menuVisible) {
+        menuContainer.classList.add('visible');
+      } else {
+        menuContainer.classList.remove('visible');
+      }
+    }
+  }
 }
