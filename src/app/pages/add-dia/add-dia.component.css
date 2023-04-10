@@ -1,0 +1,59 @@
+.add-dia {
+    margin-top: 12vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 1rem;
+    justify-content: space-between;
+}
+
+h3 {
+    font-family: var(--ff-titles);
+    color: var(--green);
+    margin-bottom: 2rem;
+}
+
+h4 {
+    font-family: var(--ff-titles);
+    color: var(--green);
+    margin-bottom: 0.6rem;
+}
+
+.form-area {
+    width: 100%;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.PI {
+    margin-bottom: 2rem;
+}
+
+label {
+    font-family: var(--ff-main);
+}
+
+.btn-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    width: 170px;
+    padding: 0;
+    padding-block: 0.4rem;
+    color: #fff;
+    font-size: 120%;
+    border-radius: 6px;
+    background-color: var(--yellow);
+    border: none;
+    font-family: var(--ff-main);
+    margin-bottom: 13vh;
+}
