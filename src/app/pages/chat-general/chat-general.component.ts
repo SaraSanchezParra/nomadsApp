@@ -68,17 +68,17 @@ export class ChatGeneralComponent {
     this.usuarioNoEncontrado= false;
   }
 
-  mostrarBotonBusqueda() {
-    let searchInput = document.getElementById("search") as HTMLInputElement;
-    let searchButton = document.getElementById("search-button");
+  // mostrarBotonBusqueda() {
+  //   let searchInput = document.getElementById("search") as HTMLInputElement;
+  //   let searchButton = document.getElementById("search-button");
 
-    if (searchInput.value.trim().length > 0) {
-      searchButton.style.display = "inline-block";
-    } else {
-      searchButton.style.display = "none";
-    }
+  //   if (searchInput.value.trim().length > 0) {
+  //     searchButton.style.display = "inline-block";
+  //   } else {
+  //     searchButton.style.display = "none";
+  //   }
   
-  }
+  // }
   eliminarTarjeta(chat: Chats) {
     const index = this.chats.indexOf(chat);
     if (index !== -1) {

@@ -41,7 +41,7 @@
           </div>
 
           <div class="submit">
-            <button class="entrar" type="submit" [disabled]="userForm.invalid">Entrar</button>
+            <button class="entrar" type="submit" (click)="entrar()">Entrar</button>
             <div class="frase"> ¿No estás registrado? Regístrate <span style="margin: 0 5px;"><button class="aqui" type="submit" (click)="registrateAqui()" style="color: rgba(255, 184, 0, 1);">aquí</button></span></div>
           </div>
           
