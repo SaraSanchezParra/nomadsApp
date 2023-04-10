@@ -13,16 +13,16 @@ export class RegisterComponent {
 
   public user = new User;
   public myForm: FormGroup;
-  public router: Router
+  public route: Router
 
-  constructor(private formBuilder:FormBuilder){
+  constructor(private formBuilder:FormBuilder,private router: Router){
     this.buildForm()
   }
 
   public register(){
     const user = this.myForm.value;
     console.log(user);
-    this.router.navigateByUrl('/login')
+    this.router.navigate(['/login'])
   }
 
   private buildForm(){
