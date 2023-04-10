@@ -1,7 +1,7 @@
 <div class="home">
     <div class="header"> </div>
     <div class="caja">
-        <div class="buscador">
+        <!-- <div class="buscador">
             <div class="caja1">
                 <input class="buscar" [(ngModel)]="inputValue" type="text" placeholder="¿Adónde vas?">
                 <select class="dias" name="myFirstSelect" id="selectExample" placeholder="Nº de Dias">
@@ -14,67 +14,13 @@
 
                 <button class="boton" type="button" [disabled]="!inputValue" [ngClass]="{ 'disabled': !inputValue }">Mostrar</button>
             </div>
-        </div>
+        </div> -->
         <div class="caja2">
             <div class="top-viajes">
                 Top viajes
             </div>
             <div class="cards" *ngFor="let viaje of viajes" routerLink="/paginaViaje">
                 <app-card-viaje [viaje]="viaje"></app-card-viaje>
-                <!-- <div class="cards1">
-                    <div class="foto1">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTci4UfjBX-FCF6YQw349r_fyAaBd6Of0j4vw&usqp=CAU"
-                            alt="" width="100" height="100">
-                    </div>
-                    <div class="texto">
-                        <div class="titulo">Madrid Centro</div>
-                        <div class="descripcion">Descubre Gran Vía y todas sus calles.</div>
-                    </div>
-                    <div class="like">
-                        <div class="user">
-                            <img src="assets/Diseño_sin_título-removebg-preview (1).png" width="45" height="45">
-                        </div>
-                        <div class="likes">
-                            <img src="assets/corazon.png" width="20" height="20">544
-                        </div>
-                    </div>
-                </div>
-                <div class="cards2">
-                    <div class="foto2">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa63MfSCB-n_i-qPtiWK5j0Ex6e1QcykUUoA&usqp=CAU"
-                            alt="" width="100" height="100">
-                    </div>
-                    <div class="texto2">
-                        <div class="titulo2">Málaga Costa</div>
-                        <div class="descripcion2">Visita la costa del sol y nunca querrás irte.</div>
-                    </div>
-                    <div class="like">
-                        <div class="user">
-                            <img src="assets/Diseño_sin_título-removebg-preview (1).png" width="45" height="45">
-                        </div>
-                        <div class="likes">
-                            <img src="assets/corazon.png" width="20" height="20">428
-                        </div>
-                    </div>
-                </div>
-                <div class="cards3">
-                    <div class="foto3">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkzvBJpeAqcdCMyQdKNom38AgaR_mUHiW8og&usqp=CAU"
-                            alt="" width="100" height="100">
-                    </div>
-                    <div class="texto3">
-                        <div class="titulo3">Sevilla</div>
-                        <div class="descripcion3">Disfruta de su color y su encanto.</div>
-                    </div>
-                    <div class="like">
-                        <div class="user">
-                            <img src="assets/Diseño_sin_título-removebg-preview (1).png" width="45" height="45">
-                        </div>
-                        <div class="likes">
-                            <img src="assets/corazon.png" width="20" height="20">152
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
         <div class="users">
@@ -86,19 +32,16 @@
             </div>
             <div class="topUsers">
                 <div class="nomads">
-                    <a routerLink="/perfil"><img src="assets/d33f54ca-a0fe-4f44-9060-ab87e3f36ea7.jpeg" width="55" height="55"></a>
+                    <a routerLink="/perfil"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeCsPZIpm52I6alznXfXFH87jOvCte_bB3lQ&usqp=CAU" width="55" height="55"></a>
                 </div>
                 <div class="nomads">
-                  <a routerLink="/perfil"><img src="assets/b020a6bf-3585-4b0a-88ea-e5a6d2f71132.jpeg" width="55" height="55"></a>
+                  <a routerLink="/perfil"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpLt_LcVUfSHHjUrkKZYJS3U-QnGTDAQ1tjw&usqp=CAU" width="55" height="55"></a>
                 </div>
                 <div class="nomads">
-                  <a routerLink="/perfil"><img src="assets/1122fa5f-bb73-40ec-9ed0-c755411c3973.jpeg" width="55" height="55"></a>
+                  <a routerLink="/perfil"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeMbhNKww6n1J3XGfcp0U6kPveholuR34k5w&usqp=CAU" width="55" height="55"></a>
                 </div>
                 <div class="nomads">
-                   <a routerLink="/perfil"><img src="assets/6468c6a8-02eb-4a3e-9f1a-7969992c6975.jpeg" width="55" height="55"></a>
-                </div>
-                <div class="nomads">
-                   <a routerLink="/perfil"><img src="assets/416c4ac3-f660-466d-a5e1-9fcaaac432b1.jpeg" width="55" height="55"></a>
+                   <a routerLink="/perfil"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ60LPForjoLdSw740ItfIKV8RVvi5yqLy3Kw&usqp=CAU" width="55" height="55"></a>
                 </div>
             </div>
         </div>
