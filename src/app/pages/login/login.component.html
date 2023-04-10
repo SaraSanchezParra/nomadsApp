@@ -41,9 +41,9 @@
           </div>
 
           <div class="submit">
-            <button type="submit" [disabled]="userForm.invalid">Entrar</button>
+            <button class="entrar" type="submit" [disabled]="userForm.invalid">Entrar</button>
           </div>
-          <div class="frase"> ¿No estás registrado? Regístrate <span style="margin: 0 5px;"><a href="pagina-de-registro.html" style="color: rgba(255, 184, 0, 1);">aquí</a></span></div>
+          <div class="frase"> ¿No estás registrado? Regístrate <span style="margin: 0 5px;"><button class="aqui" type="submit" (click)="registrateAqui()" style="color: rgba(255, 184, 0, 1);">aquí</button></span></div>
 
 
          

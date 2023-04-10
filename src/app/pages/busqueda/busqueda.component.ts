@@ -11,13 +11,16 @@ import { NgForm } from '@angular/forms';
 export class BusquedaComponent {
 
   public loged:Boolean
+  public redirectToPerfil:Boolean
 
  
   
 
   constructor(private router: Router) { 
 
-    this.loged = true
+    this.loged = true;
+    this.redirectToPerfil =false;
+   
    
     
   }
@@ -29,9 +32,21 @@ export class BusquedaComponent {
     this.router.navigate(['/paginaViaje']);
   }
 
+   navigateToPagPerfil() {
+    this.router.navigate(['/perfil']);
+  }
+
+
+
   onSubmit(form:NgForm) {
-    console.log(form.value)
+    // console.log(form.value)
+    if (form.controls.usuario.valid) {
+    this.redirectToPerfil = true;
+  }
     
   }
 
+
+  
 }
+

@@ -11,6 +11,7 @@ export class HeaderComponent {
 
   public loged: boolean;
   public showHeader: boolean;
+  menuActive=false;
 
   constructor(private router: Router, public location: Location) {
     this.loged = true;
@@ -21,8 +22,11 @@ export class HeaderComponent {
      this.showHeader = false
   }
   }
-//   private showHeader(): boolean {
-//     const currentUrl = this.router.url;
-//     return !currentUrl.includes('/perfil') && !currentUrl.includes('/register') && !currentUrl.includes('/landin-page');
-//   }
+  toggleMenu() {
+    this.menuActive = !this.menuActive;
+  }
+
+  activateMenu() {
+    this.menuActive = true;
+  }
 }

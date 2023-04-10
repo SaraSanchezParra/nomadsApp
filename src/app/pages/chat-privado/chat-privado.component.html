@@ -21,7 +21,7 @@
       <div class="chat">
         <div class="barra">
           <div class="botonAtras">
-            <button (click)="navegarAChats()" class="atras" type="button" [disabled]="false"><</button>
+            <button (click)="navegarAChats()" class="atras" type="button"><</button>
           </div>
 
           <div class="puntos">
@@ -56,10 +56,11 @@
             
         </div>
 
-        <div class="mensaje" [style.height]="bocadilloHeight">
-          <textarea [(ngModel)]="mensajeActual" placeholder="Escribe tu mensaje..."></textarea>
-          <button (click)="enviarMensaje()" class="enviar"><img class="enviar2" src="../../../assets/Diseño_sin_título__9_-removebg-preview.png" alt=""></button>
+        <div class="mensaje" [style.pointer-events]="chatBloqueado ? 'none' : 'all'">
+          <textarea [style.pointer-events]="chatBloqueado ? 'none' : 'all'" [(ngModel)]="mensajeActual" placeholder="Escribe tu mensaje..."></textarea>
+          <button [style.pointer-events]="chatBloqueado ? 'none' : 'all'" (click)="enviarMensaje()" class="enviar"><img class="enviar2" src="../../../assets/Diseño_sin_título__9_-removebg-preview.png" alt=""></button>
         </div>
+        
         
       </div>
     </main>

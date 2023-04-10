@@ -20,9 +20,9 @@ export class ModificarPerfilComponent implements OnInit {
       email: [this.userService.user.email, [Validators.required, Validators.email]],
       nombre: [this.userService.user.name, [Validators.required]],
       apellido: [this.userService.user.surname, [Validators.required]],
-      foto: [this.userService.user.photo, [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      password2: ['', [Validators.required, this.matchPassword.bind(this)]]
+      foto: [this.userService.user.photo],
+      // password: ['', [Validators.required, Validators.minLength(8)]],
+      // password2: ['', [Validators.required, this.matchPassword.bind(this)]]
     });
   }
 
@@ -47,8 +47,18 @@ export class ModificarPerfilComponent implements OnInit {
   modificar() {
     if (this.myForm.valid) {
       this.router.navigate(['/perfil']);
-      // Aquí iría la lógica para modificar el perfil del usuario
+      
     }
+    else{
+
+      console.log("data error")
+    }
+    // const nombre = this.myForm.value.nombre;
+    // const apellido = this.myForm.value.apellido;
+    // const email = this.myForm.value.email;
+    // const username = this.myForm.value.nombreUsuario;
+    // const descripcion = this.myForm.value.descripcion;
+    // const foto = this.myForm.value.foto;
   }
 
 }

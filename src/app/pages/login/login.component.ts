@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/models/user';
+
 
 
 @Component({
@@ -13,7 +15,7 @@ export class LoginComponent {
   public user: User
   
 
-  constructor(){
+  constructor(private router: Router){
     this.user = new User()
   }
 
@@ -21,5 +23,7 @@ export class LoginComponent {
     console.log(form.value)
     console.log(this.user)
   }
-
+  registrateAqui() {
+    this.router.navigate(['/register']);
+  }
 }
