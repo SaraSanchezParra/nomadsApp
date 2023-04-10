@@ -1,8 +1,15 @@
 <div class="day-card">
   <div class="day-card-title">
-      <h3>Dia {{i+1}}</h3>
-  <button type="button" (click)="onClick()">{{ReadMore?"Ampliar":"Colapsar"}}</button>
+    <h3>Dia {{i+1}}</h3>
+    <div class="btn-area">
+      <div class="options-btns" >
+      <button type="button" class="icono" (click)="borrarDia()"><img src="assets/borrar.png" width="20" height="20" alt="borrar"></button>
+            <button type="button" class="icono" (click)="editarDia()"><img src="assets/lapiz.png" width="20" height="20" alt="editar"></button>
+    </div>
+    <button class="show" type="button" (click)="onClick()">{{ReadMore?"Ampliar":"Colapsar"}}</button>
   </div>
+    </div>
+    
   <ng-container *ngIf="visible">
     <div class="content">
       <ng-container *ngFor="let puntoDeInteres of dia.puntosDeInteres">
@@ -10,4 +17,4 @@
       </ng-container>
     </div>
   </ng-container>
-  </div>
+</div>

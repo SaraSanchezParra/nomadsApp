@@ -19,6 +19,7 @@ import { ViajesDestinoComponent } from './pages/viajes-destino/viajes-destino.co
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { PaginaViajeComponent } from './pages/pagina-viaje/pagina-viaje.component';
 import { AddDiaComponent } from './pages/add-dia/add-dia.component';
+import { ModificarDiaComponent } from './pages/modificar-dia/modificar-dia.component';
 
 const routes: Routes = [
   { path: "home-loged", component: HomeLogedComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "modificarPerfil", component: ModificarPerfilComponent },
   { path: "modificarViaje", component: ModificarViajeComponent },
+  { path: "modificarDia", component: ModificarDiaComponent},
   { path: "onBoarding", component: OnBoardingComponent },
   { path: "paginaViaje", component: PaginaViajeComponent },
   { path: "quienesSomos", component: QuienesSomosComponent },

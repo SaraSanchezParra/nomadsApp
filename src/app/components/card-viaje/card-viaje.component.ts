@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { Viaje } from 'src/app/models/viaje';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
+import { ModifyViajeService } from 'src/app/services/modify-viaje.service';
 
 @Component({
   selector: 'app-card-viaje',
@@ -18,7 +19,7 @@ userLogged = {username: 'Amber'}
 @Input() viaje!: Viaje;
 @Input() i:number
 
-constructor(public userService: DatosUsuarioService, public router: Router) {
+constructor(public userService: DatosUsuarioService, public router: Router, modifyViajeService: ModifyViajeService) {
   this.user = userService.user
 }
 
@@ -43,6 +44,7 @@ borrarViaje(){
 editarViaje(){
   let ref = this.i;
   this.cardEvent.emit(ref)
+  this.router.navigate(['/modificarViaje'])
   //esto debería de mandar el id de viaje
 }
 
