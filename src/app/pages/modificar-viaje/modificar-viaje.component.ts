@@ -40,4 +40,8 @@ export class ModificarViajeComponent {
       this.viaje.main_img = modViaje.fotoViaje
     }
   }
+
+  public eliminate(day_id: number) {
+    this.viaje.days.splice(day_id, 1)
+  }
 }

@@ -43,10 +43,12 @@
 
 .like {
     width: 20%;
+    height: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 
 }
 
@@ -62,7 +64,6 @@
 }
 
 .likes {
-    height: 35%;
     font-size: 11pt;
     color: grey;
 
@@ -76,10 +77,13 @@
 .user-options {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+
+    gap: 0.2rem;
 }
 
 .user-options button {
+    padding: 0;
     border: none;
     background: none;
 }

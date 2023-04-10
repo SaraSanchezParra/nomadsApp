@@ -29,11 +29,11 @@
 
 label {
     font-family: var(--ff-main);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.6rem;
 }
 
 input {
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.6rem;
     background-color: #F5F5F5;
     border-radius: 12px;
     min-height: 40px;

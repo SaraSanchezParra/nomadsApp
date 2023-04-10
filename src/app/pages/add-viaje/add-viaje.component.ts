@@ -64,4 +64,9 @@ export class AddViajeComponent {
     console.log(this.user);
     
   }
+
+  public eliminate(day_id: number) {
+    this.viaje.days.splice(day_id, 1)
+    // should actually work with index of day id not day id
+  }
 }
