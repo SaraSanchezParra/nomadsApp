@@ -10,7 +10,7 @@
         <div class="desc">{{viaje.description}}</div>
     </div>
     <div class="like">
-        <div class="user-options" *ngIf="userLogged.username == 'Amber'; else profileView">
+        <div class="user-options" *ngIf="areMisViajes(); else profileView">
             <!-- Compare against viaje.user.username -->
             <button type="button" class="icono" (click)="borrarViaje()"><img src="assets/borrar.png" width="20" height="20" alt="borrar"></button>
             <button type="button" class="icono" (click)="editarViaje()"><img src="assets/lapiz.png" width="20" height="20" alt="editar"></button>
