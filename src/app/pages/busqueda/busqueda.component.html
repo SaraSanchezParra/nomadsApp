@@ -50,15 +50,14 @@
         </div>
 
      <div class="btn" *ngIf="this.loged;else esFalso"> 
-          <button class="botonLogado" type="button" (click)="navigateToPagViaje()"
+          <!-- <button class="botonLogado" type="button" (click)="navigateToPagViaje()"
+                [disabled]="(!form.controls.destino.valid || !form.controls.dias.valid) && !form.controls.usuario.valid">Búsqueda</button> -->
+                <button class="botonLogado" type="button" (click)="redirectToPerfil ? navigateToPagPerfil() : navigateToPagViaje()"
                 [disabled]="(!form.controls.destino.valid || !form.controls.dias.valid) && !form.controls.usuario.valid">Búsqueda</button>
-        </div> 
+              
+            </div> 
 
   
-
-
-
-
         <ng-template #esFalso>
             <div class="btn">
                 <button class="botonNoLogado" type="button" (click)="navigateToRegister()"
