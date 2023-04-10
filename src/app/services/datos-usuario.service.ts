@@ -15,7 +15,7 @@ export class DatosUsuarioService {
       "juanperez@gmail.com",
       "@juanperez",
       "Me encanta viajar por España y descubrir nuevos rincones",
-      "https://tntsports.com.ar/__export/1626718957884/sites/tntsports/img/2021/07/18/juan-ramirez-san-lorenzo.jpg_1319027079.jpg",
+      "https://maxilodexeus.com/wp-content/uploads/2020/03/foto-stories-1-scaled.jpg",
       [
         new Viaje("Malaga Costa", "https://www.costacruceros.es/content/dam/costa/costa-magazine/article-images/things-to-do-in-malaga/malaga1.jpg.image.694.390.low.jpg", "Visita la costa del Sol y nunca querrás irte", [], 120), 
         new Viaje('Sevilla', 'https://www.lavanguardia.com/files/content_image_mobile_filter/files/fp/uploads/2019/09/30/5fa52ff369941.r_d.328-221.jpeg', 'Disfruta de su color y su encanto',[], 120), 
