@@ -12,7 +12,7 @@ export class ChatGeneralComponent {
   usuarioNoEncontrado = false;
   chats: Chats[] = [
     {
-      photo: 'https://img.freepik.com/foto-gratis/mujer-hermosa-joven-mirando-camara-chica-moda-verano-casual-camiseta-blanca-pantalones-cortos-hembra-positiva-muestra-emociones-faciales-modelo-divertido-aislado-amarillo_158538-15796.jpg',
+      photo: 'https://img.freepik.com/foto-gratis/mujerHermosaJoven.jpg',
       nameUser: '@Maria',
       hour: "12:00"
     },
