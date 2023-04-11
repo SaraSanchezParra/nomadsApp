@@ -16,7 +16,7 @@ export class DatosUsuarioService {
       "Juan",
       "Pérez",
       "juanperez@gmail.com",
-      "@loggedUser",
+      "@juanperez",
       "Me encanta viajar por España y descubrir nuevos rincones",
       "https://maxilodexeus.com/wp-content/uploads/2020/03/foto-stories-1-scaled.jpg",
       [

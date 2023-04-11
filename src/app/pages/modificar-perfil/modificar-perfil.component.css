@@ -6,13 +6,13 @@
 
 }
 h1{
-    margin-top: 14vh;
-    display: flex;
-    justify-content: center;
-    color: #1f8989;
-    font-family: 'Mulish', sans-serif;  
-    font-weight: 500;  
-    font-size: 36px;
+  text-align: center;
+  width: 100%;
+  color: #1f8989;
+  font-family: 'Mulish', sans-serif;  
+  font-weight: 500;  
+  font-size: 36px;
+  
 }
 .fotoPerfil {
     
@@ -87,3 +87,24 @@ textarea,
 button[type="button"] {
   box-shadow: 0 0 5px rgba(3, 0, 0, 0.1);
 }
+
+.backButton{
+  margin-top: 13vh;
+  background-color: none;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.atras{
+border: none;
+width: 2rem;
+color:rgba(255, 184, 0, 1);
+font-size: 200%;
+font-weight: bolder;
+background-color: white;
+
+
+} 
