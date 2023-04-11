@@ -80,12 +80,12 @@ p{
 } */
 
 input{
-  height: 120%;
-  border-radius: px;
+  height: 50%;
   border-bottom: 2px solid rgb(209, 205, 205);
   border-top: 2px solid rgb(209, 205, 205);
   border-left: 2px solid rgb(209, 205, 205);
   border-right: none;
+  border-radius: 7px;
   border-top-right-radius: 0%;
   border-bottom-right-radius:0% ;
 }
@@ -94,7 +94,7 @@ input{
    background-color: #1F8989;
    border-radius: 5%;
    width: 10%;
-   height: 120%;
+   height: 61%;
    margin-bottom: 2%;
    border-radius: 7px;
    border-top-left-radius: 0%;
@@ -116,4 +116,11 @@ span{
   display: flex;
   justify-content: center;
   
+}
+
+.noEncontrado{
+ font-family: var(--ff-main) ;
+ color: var(--green);
+ font-size: 200%;
+ text-align: center;
 }
