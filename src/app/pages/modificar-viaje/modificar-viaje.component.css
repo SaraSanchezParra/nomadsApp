@@ -49,9 +49,7 @@ input {
     text-align: left;
 }
 
-input:focus::placeholder {
-    color: transparent;
-}
+
 
 .btn-area {
     margin-top: 1rem;
