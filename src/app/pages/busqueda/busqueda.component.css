@@ -98,6 +98,7 @@
 
 
 button:disabled {
-    opacity: 0.5; /* Cambia la opacidad para que el botón tenga un aspecto más claro */
+    opacity: 0.5; 
   }
   
+ 

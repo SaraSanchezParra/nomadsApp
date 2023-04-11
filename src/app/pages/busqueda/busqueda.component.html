@@ -11,8 +11,9 @@
                     <input type="text" class="inputs" name="destino" ngModel required minlength="3">
     
                     <div *ngIf="form.controls['destino']?.invalid && (form.controls['destino']?.dirty || form.controls['destino']?.touched)">
+                        <br>
                         <small class="text-danger" *ngIf="form.controls['destino']?.errors?.required">
-                            El destino es obligatorio.
+                            &nbsp;&nbsp;El destino es obligatorio.
                         </small>
     
                     </div>
@@ -22,7 +23,7 @@
                         <p class="texto">¿Cuántos días?</p>
                     </div>
                     <select class="dias" name="dias" id="selectExample" ngModel required>
-                        <option style="width: 50px; font-size: 15px;" value="">Selecciona una opción</option>
+                        <option style="width: 50px; font-size: 15px; " value="">&nbsp;&nbsp;Selecciona una opción</option>
                         <option style="font-size: 15px;" value="1">1 Dia</option>
                         <option style="font-size: 15px;" value="2">2 Dias</option>
                         <option style="font-size: 15px;" value="3">3 Dias</option>
@@ -30,8 +31,9 @@
                         <option style="font-size: 15px;" value="5">5 Dias</option>
                     </select>
                     <div *ngIf="form.controls['dias']?.invalid && (form.controls['dias']?.dirty || form.controls['dias']?.touched)">
+                        <br>
                         <small class="text-danger">
-                            La duración del viaje es obligatoria.
+                            &nbsp;&nbsp;La duración del viaje es obligatoria.
                         </small>
                     </div>
                 </div>
@@ -40,8 +42,9 @@
                     <p class="texto">¿Búsqueda de un usuario?</p>
                     <input type="text" class="inputs" name="usuario" pattern="^@.+" ngModel required>
                     <div *ngIf="form.controls['usuario']?.invalid && form.controls['usuario']?.touched">
+                        <br>
                         <small class="text-danger">
-                            El usuario debe tener el siguiente formato: @usuario.
+                            &nbsp;&nbsp;&nbsp;Debe tener el siguiente formato: @usuario.
                         </small>
                     </div>
                 </div>
