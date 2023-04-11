@@ -55,6 +55,7 @@ input {
     text-align: center;
     font-family: var(--ff-main);
     overflow-y: auto;
+    text-align: left;
 }
 
 button {

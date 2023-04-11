@@ -9,6 +9,11 @@
     margin-top: 1rem;
     font-family: var(--ff-titles);
     color: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90%;
+    gap: 2.8rem;
 }
 
 .title h3 {
@@ -35,12 +40,13 @@ label {
 input {
     margin-bottom: 1.6rem;
     background-color: #F5F5F5;
-    border-radius: 12px;
+    border-radius: 6px;
     min-height: 40px;
     border: none;
     text-align: center;
     font-family: var(--ff-main);
     overflow-y: auto;
+    text-align: left;
 }
 
 .btn-area {

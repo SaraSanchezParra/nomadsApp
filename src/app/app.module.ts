@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -35,6 +41,8 @@ import { PuntoDeInteresCardComponent } from './components/punto-de-interes-card/
 import { CardChatComponent } from './components/card-chat/card-chat.component';
 import { AddDiaComponent } from './pages/add-dia/add-dia.component';
 import { ModificarDiaComponent } from './pages/modificar-dia/modificar-dia.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ConfirmComponent } from './dialogs/confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +76,8 @@ import { ModificarDiaComponent } from './pages/modificar-dia/modificar-dia.compo
     PuntoDeInteresCardComponent,
     CardChatComponent,
     AddDiaComponent,
-    ModificarDiaComponent
+    ModificarDiaComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +85,12 @@ import { ModificarDiaComponent } from './pages/modificar-dia/modificar-dia.compo
     FormsModule, 
     ReactiveFormsModule,
     CommonModule,
-
+    NoopAnimationsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

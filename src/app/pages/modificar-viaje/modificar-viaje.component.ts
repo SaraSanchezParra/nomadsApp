@@ -39,6 +39,7 @@ export class ModificarViajeComponent {
     if (modViaje.fotoViaje != "") {
       this.viaje.main_img = modViaje.fotoViaje
     }
+    this.router.navigate(['/paginaViaje'])
   }
 
   public eliminate(day_id: number) {

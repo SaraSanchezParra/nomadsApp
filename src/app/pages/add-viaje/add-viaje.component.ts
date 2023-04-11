@@ -62,7 +62,7 @@ export class AddViajeComponent {
     viajeToAdd.days = this.viaje.days
     this.user.misviajes.push(viajeToAdd)
     console.log(this.user);
-    
+    this.router.navigate(['/paginaViaje'])
   }
 
   public eliminate(day_id: number) {

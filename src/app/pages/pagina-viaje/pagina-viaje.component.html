@@ -1,19 +1,23 @@
 <div class="viaje_body">
-    <div class="viaje_top" style="background-image: url({{viaje.main_img}});">
-        <div class="viaje_top_button_area">
-            <span class="material-symbols-outlined">
+    <div class="viaje-sticky">
+        <div class="viaje_tittle_area">
+        <span class="material-symbols-outlined">
                 arrow_back_ios
-                </span>
-            <span id="fav-btn" ng-clicked="liked='liked" ngclass="liked" class="material-symbols-outlined">
-                favorite
-                </span>
-        </div>
-    </div>
-    <div class="viaje_tittle_area">
+         </span>
         <h2>{{viaje.title}}</h2>
+        <div class="user-area">
+            <img src="assets/perfil.png" width="45" height="45">
+            <div class="likes">
+            <img src="assets/corazon.png" width="20" height="20">
+            <p>{{viaje.likes}}</p>
+        </div>
+        </div>
+        
     </div>
     <div class="map_area">
     </div>
+    </div>
+    
     <div class="days-area">
         <ng-contianer *ngFor="let dia of viaje.days; index as i">
             <app-day-card [dia]="dia" [i]="i"></app-day-card>
