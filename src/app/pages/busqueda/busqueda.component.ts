@@ -18,31 +18,22 @@ export class BusquedaComponent {
 
   constructor(private router: Router) { 
 
-    this.loged = true;
-    this.redirectToPerfil =false;
-   
-   
-    
   }
 
-  navigateToRegister() {
-    this.router.navigate(['/login']);
-  }
-  navigateToPagViaje() {
-    this.router.navigate(['/paginaViaje']);
-  }
 
-   navigateToPagPerfil() {
-    this.router.navigate(['/perfil']);
-  }
+
 
 
 
   onSubmit(form:NgForm) {
     // console.log(form.value)
     if (form.controls.usuario.valid) {
-    this.redirectToPerfil = true;
-  }
+      this.router.navigate(['/perfil']);
+    }
+    else
+    {
+      this.router.navigate(['/viajesDestino']);
+    }
     
   }
 
