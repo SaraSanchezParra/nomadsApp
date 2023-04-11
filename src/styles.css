@@ -47,7 +47,6 @@ input {
   text-align: left;
 }
 
-
 input:focus::placeholder {
   color: transparent;
 }
