@@ -1,7 +1,11 @@
 
     
     <main>
-        <h1>Perfil</h1>
+        <div class="backButton"  (click)="irHome()">
+            <button class="atras"><</button>
+            <h1>Perfil</h1>
+        </div>
+        
         
         <div class="userInfo">
 
@@ -9,7 +13,7 @@
                  <!-- <div class="profile_photo"> -->
                     <img class="photoBorde" src={{this.userService.user.photo}} alt="perfil">
                 <!-- </div> -->
-                <div class="ajustesymensaje" *ngIf ="loged; else esFalso">
+                <div class="ajustesymensaje" *ngIf ="isMe(); else esFalso">
                     <button type="button" class="icono" (click)="ajustesPerfil()"> Editar
                     </button>
                 </div>
