@@ -4,6 +4,7 @@
 :root {
     --yellow: #FFB800;
     --green: #1F8989;
+    --grey: #fafafa;
     --ff-titles: 'Mulish', sans-serif;
     --ff-main: 'Quicksand', sans-serif;
     --ff-nomads: 'Shadows Into Light Two', cursive;
@@ -41,11 +42,7 @@ select {
   font: inherit;
 }
 
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
 input {
+  padding: 1rem;
   text-align: left;
 }

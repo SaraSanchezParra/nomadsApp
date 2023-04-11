@@ -27,6 +27,14 @@ export class PerfilComponent {
     
   }
   
+  isMe() {
+    let res: boolean = false;
+    if (this.userService.user.username == this.userService.user_logged.username){
+      res = true
+    }
+    return res
+  }
+
    mostrarFavoritas(): void {
     this.showFavs = true;
     this.showIcons = false;
@@ -54,7 +62,14 @@ export class PerfilComponent {
   iraUser():void{
     this.router.navigate(['/perfil'])
   }
-  
+  irHome()
+  { if (this.loged==false)
+    {this.router.navigateByUrl("/home-no-loged")}
+    else{
+      this.router.navigateByUrl("/home-loged")
+    }
+  }
+
 
 }
 
