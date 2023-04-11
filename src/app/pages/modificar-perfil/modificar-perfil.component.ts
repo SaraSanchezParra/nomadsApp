@@ -69,8 +69,14 @@ export class ModificarPerfilComponent implements OnInit {
     this.userService.user.descripcion = descripcion;
     this.userService.user.photo = foto;
   }
+  irPerfil(){
+    this.router.navigateByUrl("/perfil")}
+    
+      
+   
+  }
 
-}
+
 
 //JS para mostrar la imagen en modificar perfil
 //function mostrarImagen() {
