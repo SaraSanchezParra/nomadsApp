@@ -14,7 +14,7 @@
                 </select>
 
                 <button class="boton" type="button" [disabled]="!inputValue"
-                    [ngClass]="{ 'disabled': !inputValue }">Mostrar</button>
+                    [ngClass]="{ 'disabled': !inputValue }" (click)="destino()">Mostrar</button>
             </div>
 
         </div>
