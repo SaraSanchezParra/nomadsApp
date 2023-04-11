@@ -45,7 +45,25 @@ mostrarMenu() {
     this.userService.showHeaderFooter = false;
     this.router.navigateByUrl("/login");
   }
-  
+  irAQuienesSomos() {
+    this.ocultarMenu();
+    this.router.navigate(['/quienesSomos']);
+  }
+
+  irAContactanos() {
+    this.ocultarMenu();
+    this.router.navigate(['/contactanos']);
+  }
+
+  irAOnBoarding() {
+    this.ocultarMenu();
+    this.router.navigate(['/onBoarding']);
+  }
+
+  irASobreLaApp() {
+    this.ocultarMenu();
+    this.router.navigate(['/sobreLaApp']);
+  }
 
 }
 

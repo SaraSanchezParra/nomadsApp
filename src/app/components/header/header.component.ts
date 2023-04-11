@@ -10,22 +10,14 @@ import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 })
 export class HeaderComponent {
 
-  menuVisible=false;
+  menuVisible = false;
 
   constructor(private router: Router, public location: Location, public userService: DatosUsuarioService) {
-    // this.loged = true;
     
-    // this.showHeader = true;
-    // console.log(this.location.path())
-    // if(this.location.path() === `/landin-page` || this.location.path() === `/login` ||
-    // this.location.path() === `/register`){
-    //  this.showHeader = false
-    //  this.loged = false
-  // }
-  
   }
+
   mostrarMenu() {
-    this.menuVisible = !this.menuVisible; // Invertir el valor actual
+    this.menuVisible = !this.menuVisible;
     const menuContainer = document.querySelector('.menu-container');
     if (menuContainer) {
       if (this.menuVisible) {
@@ -36,7 +28,29 @@ export class HeaderComponent {
     }
   }
 
-    ocultarMenu() {
-        this.menuVisible = false;
-    }
+  ocultarMenu() {
+    this.menuVisible = false;
+  }
+
+  irAQuienesSomos() {
+    this.ocultarMenu();
+    this.router.navigate(['/quienesSomos']);
+  }
+
+  irAContactanos() {
+    this.ocultarMenu();
+    this.router.navigate(['/contactanos']);
+  }
+
+  irAOnBoarding() {
+    this.ocultarMenu();
+    this.router.navigate(['/onBoarding']);
+  }
+
+  irASobreLaApp() {
+    this.ocultarMenu();
+    this.router.navigate(['/sobreLaApp']);
+  }
+
 }
+

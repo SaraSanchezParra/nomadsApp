@@ -7,10 +7,10 @@
       <p class="name">Nomads</p>
       <div class="overlay" *ngIf="menuVisible" (click)="ocultarMenu()"></div>
       <div class="menu-container" [class.visible]="menuVisible">
-        <li><img src="/assets/Diseño_sin_título-removebg-preview (6).png" alt="" height="25" width="25"><a href="/quienesSomos">¿Quiénes somos?</a></li>
-        <li><img src="/assets/Diseño_sin_título-removebg-preview (5).png" alt="" height="25" width="25"><a href="/contactanos"> Contáctanos</a></li>
-        <li><img src="/assets/Diseño_sin_título-removebg-preview (8).png" alt="" height="25" width="25"><a href="/onBoarding">Onboard</a></li>
-        <li id="ultimo"><img src="/assets/Diseño_sin_título-removebg-preview (10).png" alt="" height="25" width="25"><a href="/sobreLaApp">Sobre la app</a></li>
+        <li><img src="/assets/Diseño_sin_título-removebg-preview (6).png" alt="" height="25" width="25"><a (click)="irAQuienesSomos()">¿Quiénes somos?</a></li>
+        <li><img src="/assets/Diseño_sin_título-removebg-preview (5).png" alt="" height="25" width="25"><a (click)="irAContactanos()"> Contáctanos</a></li>
+        <li><img src="/assets/Diseño_sin_título-removebg-preview (8).png" alt="" height="25" width="25"><a (click)="irAOnBoarding()">Onboard</a></li>
+        <li id="ultimo"><img src="/assets/Diseño_sin_título-removebg-preview (10).png" alt="" height="25" width="25"><a (click)="irASobreLaApp()">Sobre la app</a></li>
       </div>
       <div class="imagen-container">
         <img class="imagenMenu" src="assets/menuHamburguesa.png" (click)="mostrarMenu()" />
@@ -24,6 +24,7 @@
 
   </header>
 </div>
+
 
 <!-- <div *ngIf="showHeader">
   <header [ngClass]="{'amarillo': loged, 'verde': !loged}">
