@@ -95,8 +95,8 @@ form{
 input{
   height: 7.5vh;
   border-radius: 12px;
-  border: none;
-  text-align: left;
+ 
+  padding-left: 16px;
   font-family: 'Quicksand', sans-serif;
  
   
