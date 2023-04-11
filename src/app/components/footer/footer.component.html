@@ -4,8 +4,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />  -->
 </head>
 
-<div *ngIf="this.showFooter">
-    <div *ngIf="this.loged;else esFalso" class="footer_container">
+<div *ngIf="userService.showHeaderFooter">
+    <div *ngIf="userService.loged;else esFalso" class="footer_container">
         <footer class="footer_loged">
 
             <div routerLink="/home-loged" class="home">

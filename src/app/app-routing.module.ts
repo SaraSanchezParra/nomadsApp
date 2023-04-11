@@ -22,6 +22,7 @@ import { AddDiaComponent } from './pages/add-dia/add-dia.component';
 import { ModificarDiaComponent } from './pages/modificar-dia/modificar-dia.component';
 
 const routes: Routes = [
+  { path: "", component:LandingPageComponent },
   { path: "home-loged", component: HomeLogedComponent },
   { path: "home-no-loged", component: HomeNoLogedComponent },
   { path: "perfil", component: PerfilComponent },

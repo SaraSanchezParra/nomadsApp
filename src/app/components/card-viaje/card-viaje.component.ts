@@ -25,7 +25,13 @@ constructor(public userService: DatosUsuarioService, public router: Router, modi
 
 goToViaje(){
   console.log("take to viaje");
-  this.router.navigate(['/paginaViaje'])
+  if (this.userService.loged)
+    this.router.navigate(['/paginaViaje'])
+  else
+  {
+    this.userService.showHeaderFooter = false;
+    this.router.navigate(['/login']);
+  }
 }
 
 areMisViajes():boolean{

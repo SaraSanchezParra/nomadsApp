@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
 @Component({
   selector: 'app-header',
@@ -9,19 +10,18 @@ import { Location } from '@angular/common';
 })
 export class HeaderComponent {
 
-  public loged: boolean;
-  public showHeader: boolean;
   menuVisible=false;
 
-  constructor(private router: Router, public location: Location) {
-    this.loged = true;
+  constructor(private router: Router, public location: Location, public userService: DatosUsuarioService) {
+    // this.loged = true;
     
-    this.showHeader = true;
-    if(this.location.path() === `/landin-page` || this.location.path() === `/login` ||
-    this.location.path() === `/register`){
-     this.showHeader = false
-     this.loged = false
-  }
+    // this.showHeader = true;
+    // console.log(this.location.path())
+    // if(this.location.path() === `/landin-page` || this.location.path() === `/login` ||
+    // this.location.path() === `/register`){
+    //  this.showHeader = false
+    //  this.loged = false
+  // }
   
   }
   mostrarMenu() {

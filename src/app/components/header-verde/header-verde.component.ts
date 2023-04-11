@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
 @Component({
   selector: 'app-header-verde',
@@ -12,7 +13,7 @@ export class HeaderVerdeComponent {
   public showHeader: boolean;
   menuVisible=false;
 
-  constructor(private router: Router, public location: Location) {
+  constructor(private router: Router, public location: Location, private userService:DatosUsuarioService) {
     this.loged = true;
     
     this.showHeader = true;
@@ -36,6 +37,13 @@ mostrarMenu() {
 
   ocultarMenu() {
       this.menuVisible = false;
+  }
+
+  irLogin()
+  {
+    this.userService.loged = false;
+    this.userService.showHeaderFooter = false;
+    this.router.navigateByUrl("/login");
   }
 
 }

@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -9,12 +10,21 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
 })
 export class LandingPageComponent {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: DatosUsuarioService) { 
+    
+
+    setTimeout(() => {
+    this.router.navigateByUrl('/home-no-loged');
+    this.userService.showHeaderFooter = true;
+    this.userService.loged = false;
+  }, 3000);
+ 
+
+
+}
 
   ngOnInit() {
-    setTimeout(() => {
-      this.router.navigateByUrl('/home-no-loged');
-    }, 3000); // redirige después de 3 segundos
+     // redirige después de 3 segundos
   }
 
 

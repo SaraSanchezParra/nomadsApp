@@ -6,7 +6,9 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class DatosUsuarioService {
-  user: User;
+ public user: User;
+ public loged: boolean;
+ public showHeaderFooter: boolean;
 
   constructor() { 
     this.user = new User(
@@ -25,7 +27,12 @@ export class DatosUsuarioService {
                    new Viaje ('Segovia', 'https://interrailero.com/wp-content/uploads/2022/07/que-ver-en-segovia-en-un-dia.jpg', 'Visita la ciudad con restos romanos.',[], 20),
                    new Viaje ('Zaragoza', 'https://a.cdn-hotels.com/gdcs/production10/d1442/77b32160-68ce-11e8-8a0f-0242ac11000c.jpg?impolicy=fcrop&w=800&h=533&q=medium', 'De noche o de día, Zaragoza es alegría.',[], 400),
                    new Viaje ('Asturias', 'https://images.squarespace-cdn.com/content/v1/5a86b05bcf81e0af04936cc7/1647207085851-BRMECNXZTR3JTF2XWV74/que-ver-en-espana-picos.jpg?format=1500w', 'Verde que te quiero verde: los mejores paisajes.',[], 800)])
-    }
+  
+      this.loged=false;
+      this.showHeaderFooter=false;
+    };
+
+  
   
   }
 

@@ -1,5 +1,5 @@
-<div *ngIf="showHeader">
-  <header *ngIf="loged">
+<div *ngIf="userService.showHeaderFooter">
+  <header *ngIf="userService.loged">
     <div class="brand">
       <img src="../../../assets/mundo amarillo.png" alt="favicon">
       <p class="name">Nomads</p>
@@ -17,7 +17,7 @@
     </div>
   </header>
 
-  <header *ngIf="!loged">
+  <header *ngIf="!userService.loged">
     <app-header-verde></app-header-verde>
 
   </header>
