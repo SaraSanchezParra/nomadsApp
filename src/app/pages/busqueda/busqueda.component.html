@@ -1,67 +1,69 @@
-    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
-        <div class="body">
-            <div class="foto">
-                <img src="assets\Busqueda\img_viaje.jpg" alt="fotoBusqueda">
-            </div>
-            <div class="in">
-                <div>
-                    <div>
-                        <p class="texto">¿A dónde vas?</p>
-                    </div>
-                    <input type="text" class="inputs" name="destino" ngModel required minlength="3">
-    
-                    <div *ngIf="form.controls['destino']?.invalid && (form.controls['destino']?.dirty || form.controls['destino']?.touched)">
-                        <br>
-                        <small class="text-danger" *ngIf="form.controls['destino']?.errors?.required">
-                            &nbsp;&nbsp;El destino es obligatorio.
-                        </small>
-    
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <p class="texto">¿Cuántos días?</p>
-                    </div>
-                    <select class="dias" name="dias" id="selectExample" ngModel required>
-                        <option style="width: 50px; font-size: 15px; " value="">&nbsp;&nbsp;Selecciona una opción</option>
-                        <option style="font-size: 15px;" value="1">1 Dia</option>
-                        <option style="font-size: 15px;" value="2">2 Dias</option>
-                        <option style="font-size: 15px;" value="3">3 Dias</option>
-                        <option style="font-size: 15px;" value="4">4 Dias</option>
-                        <option style="font-size: 15px;" value="5">5 Dias</option>
-                    </select>
-                    <div *ngIf="form.controls['dias']?.invalid && (form.controls['dias']?.dirty || form.controls['dias']?.touched)">
-                        <br>
-                        <small class="text-danger">
-                            &nbsp;&nbsp;La duración del viaje es obligatoria.
-                        </small>
-                    </div>
-                </div>
-    
-                <div>
-                    <p class="texto">¿Búsqueda de un usuario?</p>
-                    <input type="text" class="inputs" name="usuario" pattern="^@.+" ngModel required>
-                    <div *ngIf="form.controls['usuario']?.invalid && form.controls['usuario']?.touched">
-                        <br>
-                        <small class="text-danger">
-                            &nbsp;&nbsp;&nbsp;Debe tener el siguiente formato: @usuario.
-                        </small>
-                    </div>
-                </div>
-    
-            </div>
-    
-            <div class="btn" *ngIf="this.loged;else esFalso">
-                <button class="botonLogado" type="button" (click)=" redirectToPerfil ? navigateToPagPerfil() : navigateToPagViaje()"
-                    [disabled]="(!form.controls['destino']?.valid || !form.controls['dias']?.valid) && !form.controls['usuario']?.valid">Búsqueda</button>
-            </div>
-    
-            <ng-template #esFalso>
-                <div class="btn">
-                    <button class="botonNoLogado" type="button" (click)="navigateToRegister()"
-                        [disabled]="(!form.controls['destino']?.valid || !form.controls['dias']?.valid) && !form.controls['usuario']?.valid">Búsqueda</button>
-                </div>
-            </ng-template>
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <div class="body">
+        <div class="foto">
+            <img src="assets\Busqueda\img_viaje.jpg" alt="fotoBusqueda">
         </div>
-    </form>
-    
+        <div class="in">
+            <div>
+                <div>
+                    <p class="texto">¿A dónde vas?</p>
+                </div>
+                <input type="text" class="inputs" name="destino" ngModel required minlength="3"
+                    [disabled]="(form.controls['usuario']?.valid && form.controls['usuario']?.touched)">
+
+                <div style="margin-top:3%;"
+                    *ngIf="form.controls['destino']?.invalid && (form.controls['destino']?.dirty || form.controls['destino']?.touched)">
+
+                    <small class="text-danger" *ngIf="form.controls['destino']?.errors?.required">
+                        &nbsp;&nbsp;El destino es obligatorio.
+                    </small>
+
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p class="texto">¿Cuántos días?</p>
+                </div>
+                <select class="dias" name="dias" id="selectExample" ngModel required
+                    [disabled]="(form.controls['usuario']?.valid && form.controls['usuario']?.touched)">
+                    <option style="width: 50px; font-size: 18px; " value="">&nbsp;&nbsp;Selecciona una opción</option>
+                    <option style="font-size: 15px;" value="1">1 Dia</option>
+                    <option style="font-size: 15px;" value="2">2 Dias</option>
+                    <option style="font-size: 15px;" value="3">3 Dias</option>
+                    <option style="font-size: 15px;" value="4">4 Dias</option>
+                    <option style="font-size: 15px;" value="5">5 Dias</option>
+                </select>
+                <div style="margin-top:3%"
+                    *ngIf="form.controls['dias']?.invalid && (form.controls['dias']?.dirty || form.controls['dias']?.touched)">
+
+                    <small class="text-danger">
+                        &nbsp;&nbsp;La duración del viaje es obligatoria.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <p class="texto">¿Búsqueda de un usuario?</p>
+                <input type="text" class="inputs" name="usuario" pattern="^@.+" ngModel required
+                    [disabled]="((form.controls['destino']?.valid && form.controls['destino']?.touched &&
+                     form.controls['dias']?.valid && form.controls['dias']?.touched) || (form.controls['destino']?.valid && 
+                     form.controls['destino']?.touched) || (form.controls['dias']?.valid && form.controls['dias']?.touched))">
+
+                <div style="margin-top:3%"
+                    *ngIf="form.controls['usuario']?.invalid && form.controls['usuario']?.touched">
+
+                    <small class="text-danger">
+                        &nbsp;&nbsp;&nbsp;Debe tener el siguiente formato: @usuario.
+                    </small>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="btn" style="margin-bottom: 4%;">
+            <button class="botonLogado" type="submit"
+                [disabled]="(!form.controls['destino']?.valid || !form.controls['dias']?.valid) && !form.controls['usuario']?.valid">Búsqueda</button>
+        </div>
+
+    </div>
+</form>
