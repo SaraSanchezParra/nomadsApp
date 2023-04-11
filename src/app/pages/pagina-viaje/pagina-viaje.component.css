@@ -6,53 +6,39 @@
     height: 200vh;
 }
 
-.viaje_top{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 160px;
-    background-size: cover;
-}
-
-.viaje_top_button_area {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 14rem;
-    width: 100%;
-    max-width: 100%;
-    color: #fff;
-    padding-top: 1rem;
+.viaje-sticky {
+    position: sticky;
+    top: 9vh;
+    z-index: 9;
 }
 
 .viaje_tittle_area {
-    background-color: rgba(31, 137, 137, 0.8);
-    width: 100%;
+    background-color: var(--green);
+    color: white;
+    min-height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.user-area {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-block: 0.2rem;
-    transform: translateY(-2.2rem);
-    position: sticky;
-    top: calc(9vh + 2.2rem);
+    gap: 0.6rem;
 }
 
-.viaje_tittle_area h2 {
-    font-family: var(--ff-titles);
-    color: white;
-    z-index: 19;
+.likes{
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
 }
 
 .map_area {
-    position: sticky;
-    top: calc(9vh + 4.4rem);
     background-image: url(https://i.pinimg.com/originals/54/ff/a7/54ffa7490b53149c3b0335e0fdad8a68.jpg);
     height: 250px;
     background-size: cover;
     margin-bottom: 1rem;
-    z-index: 19;
-    transform: translateY(-2.2rem);
 }
 
 .days-area {

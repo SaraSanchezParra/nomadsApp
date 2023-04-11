@@ -7,6 +7,7 @@
   overflow: hidden;
   justify-content: space-between;
   width: 350px;
+  border: 2px solid var(--green);
 }
 
 .day-card-title {
@@ -24,21 +25,30 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 50%;
+  gap: 2rem;
 }
 
 .options-btns button{
   border: none;
   background: none;
+  transform: translateY(0.2rem);
+  z-index: 1;
 }
 
 .show {
   border: none;
   padding: 0.4rem;
-  border-radius: 6px;
+  padding-top: 0.2rem;
+  border-radius: 50%;
   background-color: var(--green);
   color: white;
   font-family: var(--ff-titles);
+  font-size: 150%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .content {

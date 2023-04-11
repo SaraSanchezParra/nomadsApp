@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Day } from 'src/app/models/day';
 import { User } from 'src/app/models/user';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
+import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
   selector: 'app-day-card',
@@ -19,7 +20,7 @@ export class DayCardComponent {
   ReadMore: boolean = true
   visible: boolean = false
 
-  constructor(public userService: DatosUsuarioService, private router: Router) {
+  constructor(public userService: DatosUsuarioService, private router: Router, private dialogService: DialogService) {
     this.user=this.userService.user
   }
 
@@ -36,6 +37,11 @@ export class DayCardComponent {
       }
     }
     return ismine
+  }
+
+  openDialog() {
+    this.dialogService.confirmDialog();
+    console.log('open dialog');
   }
 
   borrarDia() {

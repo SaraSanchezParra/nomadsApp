@@ -1,17 +1,7 @@
 <div class="viajes">
     <div class="searchbars">
-        <div class="inputs">
-            <input class="buscar" type="text" placeholder="Viajes en">
-            <select class="dias" name="myFirstSelect" id="selectExample" placeholder="Nº de Dias">
-                <option value="1">1 Dia</option>
-                <option value="2">2 Dias</option>
-                <option value="3">3 Dias</option>
-                <option value="4">4 Dias</option>
-                <option value="5">5 Dias</option>
-            </select>
-        </div>
-        <button type="button">Buscar</button>
-        <!-- implementar que busce popr viaje.location -->
+        <h1>Viajes en Madrid</h1>
+        <!-- {{viajes.destination}} -->
     </div>
     <div class="area-viajes">
         <div class="noViajes" *ngIf="viajesADestino.length == 0; else showViajes">

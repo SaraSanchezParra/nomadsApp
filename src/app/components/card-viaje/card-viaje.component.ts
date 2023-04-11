@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { Viaje } from 'src/app/models/viaje';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
+import { DialogService } from 'src/app/services/dialog.service';
 import { ModifyViajeService } from 'src/app/services/modify-viaje.service';
 
 @Component({
@@ -19,7 +20,7 @@ userLogged = {username: 'Amber'}
 @Input() viaje!: Viaje;
 @Input() i:number
 
-constructor(public userService: DatosUsuarioService, public router: Router, modifyViajeService: ModifyViajeService) {
+constructor(public userService: DatosUsuarioService, public router: Router, modifyViajeService: ModifyViajeService, private dialogService: DialogService) {
   this.user = userService.user
 }
 
@@ -53,5 +54,11 @@ editarViaje(){
   this.router.navigate(['/modificarViaje'])
   //esto debería de mandar el id de viaje
 }
+
+openDialog() {
+  this.dialogService.confirmDialog();
+  console.log('open dialog');
+}
+
 
 }

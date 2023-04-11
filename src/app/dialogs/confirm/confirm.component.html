@@ -1,0 +1,16 @@
+
+<div class="header">
+    <h2 mat-dialog-title>Title</h2>
+    <button mat-icon-button [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<div mat-dialog-content>
+    Estas segure de que quieres borrar?
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button [mat-dialog-close]="false">No</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true">Si</button>
+</div>
