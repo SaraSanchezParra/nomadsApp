@@ -82,7 +82,7 @@ input {
   min-height: 50px;
   width: 90%;
   border: none;
-  text-align: center;
+  text-align: left;
   font-family: 'Quicksand', sans-serif;
   overflow-y: auto;
 }
@@ -119,3 +119,4 @@ button{
   color: white;
  
 }
+

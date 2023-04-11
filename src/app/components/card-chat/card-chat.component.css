@@ -14,12 +14,13 @@
 }
 
 .photo{
-  border: 3px solid slateblue;
+  border:3px solid var(--green);
   width:20%;
-  height: 90%;
+  height: 85%;
   border-radius: 60px;
   display: flex;
-  margin-top: 1.2%;
+  margin-top: 2%;
+  margin-left: 1.8%;
   object-fit: cover;
   
 }
@@ -50,6 +51,7 @@
 .hora{
   width: 25%;
   height: 30%;
+  margin-right: 2%;
  
 }
 

@@ -30,9 +30,26 @@
 
 }
 
-h1{
+p{
   font-size: 36px;
+  
+  margin-top: 7%;
+  margin-bottom: 4%;
+ 
 }
+
+.modificar{
+
+  width: 40%;
+  padding-left: 2rem;
+  display: flex;
+  gap: 70%;
+  justify-content: flex-end;
+  margin-right: 9%;
+  
+  
+}
+
 
 /* form{
    height: 5%;
@@ -43,21 +60,6 @@ h1{
   font: 1em/1.5 var(--ff-main);
 }
 
-form, .input, .caret {
-  margin: auto;
-}
-
-form {
-  position: relative;
-  width: 100%;
-  max-width: 17em;
-}
-
-.input, .caret {
-  display: block;
-  transition: all calc(1s * 0.3) linear;
-  
-}
 
 .container {
   height: 500px; /* ajusta la altura a lo que necesites */
@@ -66,7 +68,7 @@ form {
 
 .atras{
   border: none;
-  width: 0.01%;
+  width: 2rem;
   color:rgba(255, 184, 0, 1);
   font-size: 200%;
   font-weight: bolder;
@@ -79,11 +81,13 @@ form {
 
 input{
   height: 120%;
-  
+  border-radius: px;
   border-bottom: 2px solid rgb(209, 205, 205);
   border-top: 2px solid rgb(209, 205, 205);
   border-left: 2px solid rgb(209, 205, 205);
   border-right: none;
+  border-top-right-radius: 0%;
+  border-bottom-right-radius:0% ;
 }
 .buscar{
    border: none;
@@ -92,7 +96,9 @@ input{
    width: 10%;
    height: 120%;
    margin-bottom: 2%;
-   
+   border-radius: 7px;
+   border-top-left-radius: 0%;
+   border-bottom-left-radius:0% ;
    border-bottom: 2px solid rgb(209, 205, 205);
    border-top: 2px solid rgb(209, 205, 205);
    border-right: 2px solid rgb(209, 205, 205);
@@ -109,4 +115,5 @@ span{
 
   display: flex;
   justify-content: center;
+  
 }
