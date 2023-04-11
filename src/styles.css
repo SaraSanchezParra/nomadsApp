@@ -46,3 +46,8 @@ input {
   padding: 1rem;
   text-align: left;
 }
+
+
+input:focus::placeholder {
+  color: transparent;
+}
