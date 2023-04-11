@@ -1,9 +1,13 @@
 <div class="fondo">
  
   <div class="titulo"> 
-     
-    <h1>CHATS</h1>
-    
+    <div class="modificar">
+    <button *ngIf="chatPrincipal" class="atras"  (click)="resetearBusqueda()"><</button>
+      <div>
+        <p>CHATS</p>
+      </div> 
+       
+    </div>
     <span>
       <input type="text" [(ngModel)]="textoBusqueda">
       <button class="buscar" id="search-button" type="submit" (click)="buscarUsuario()"><img  src="../../../assets/Lupa/Lupa_Sin_Background.png" alt=""></button>
@@ -16,13 +20,13 @@
  
   <div class="container">
     <div *ngIf="chatBuscado">
-      <button class="atras"  (click)="resetearBusqueda()"><</button>
+      <!-- <button class="atras"  (click)="resetearBusqueda()"><</button> -->
       <app-card-chat [cardGeneral]="chatBuscado"></app-card-chat>
 
     </div>
 
-    <div *ngIf="usuarioNoEncontrado">
-      <button class="atras"  (click)="resetearBusqueda()"><</button>
+    <div *ngIf="usuarioNoEncontrado ">
+      <!-- <button class="atras"  (click)="resetearBusqueda()"><</button> -->
       <p>Usuario no encontrado</p>
     </div>
     <div *ngIf="!chatBuscado && !usuarioNoEncontrado">

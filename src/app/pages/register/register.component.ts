@@ -14,10 +14,14 @@ export class RegisterComponent {
   public user = new User;
   public myForm: FormGroup;
   public route: Router
+  isFormValid: boolean = false;
 
   constructor(private formBuilder:FormBuilder,private router: Router){
     this.buildForm()
   }
+
+
+
 
   public register(){
     const user = this.myForm.value;
@@ -36,6 +40,10 @@ export class RegisterComponent {
       foto: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(minPassLength)]],
       password2: ['', [Validators.required, this.checkPasswords]]
+    });
+
+    this.myForm.valueChanges.subscribe((data) => {
+      this.isFormValid = this.myForm.valid;
     });
   }
   

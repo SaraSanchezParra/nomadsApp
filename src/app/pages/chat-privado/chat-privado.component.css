@@ -52,25 +52,29 @@ body {
   gap: 6%;
   margin-top: 6%;
   margin-bottom: 2%;
-  /* margin-right: 10%; */
+   /* margin-right: 10%;  */
   
 }
 
 p{
   margin-top: 5%;
+  margin-bottom: 3%;
+  font-family: var(--ff-main);
+  font-size: 14pt;
+  font-weight: bold;
   
 }
 
 img{
   
-  width: 14%;
+  width: 17%;
   margin-left: 5%;
 }
 
 .bocadillos{
   border-top: 2px solid rgb(137, 137, 134);
   border-bottom: 2px solid rgb(137, 137, 134);
-  height: 70%;
+  height: 73%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -141,7 +145,7 @@ img{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 3%;
+  margin-top: 5%;
   
 }
 
@@ -153,6 +157,8 @@ img{
   color:rgba(255, 184, 0, 1);
   font-size: 200%;
   font-weight: bolder;
+  margin-bottom: 2%;
+
 } 
 
 /* .bloquear{
@@ -170,7 +176,7 @@ img{
   border-left: none; 
   color: white;
   width: 40%;
-  height: 36%;
+  height: 35.5%;
   margin-top: 2%;
   padding: 1%;
   display: flex;
@@ -181,6 +187,7 @@ img{
   width: 40%;
   height: 70%;
   margin-bottom: 4% ;
+  margin-left: 45%;
  }
 
 

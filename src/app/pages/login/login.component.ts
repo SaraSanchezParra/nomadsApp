@@ -14,6 +14,7 @@ import { User } from 'src/models/user';
 export class LoginComponent {
 
   public user: User
+  isFormValid: boolean = false;
   
 
   constructor(private router: Router, private userService:DatosUsuarioService){
@@ -23,6 +24,7 @@ export class LoginComponent {
   entrar(){
     this.userService.loged = true;
     this.userService.showHeaderFooter = true;
+
     this.router.navigate(['/home-loged'])
 
   }
@@ -30,6 +32,13 @@ export class LoginComponent {
   onSubmit(form:NgForm){
     console.log(form.value)
     console.log(this.user)
+    if(form.valid){
+      this.isFormValid = true;
+    }
+    else{
+      this.isFormValid = false;
+    }
+    
   }
   registrateAqui() {
     this.router.navigate(['/register']);

@@ -10,6 +10,7 @@ import { Chats } from 'src/models/chat';
 export class ChatGeneralComponent {
   public formattedTime: string;
   usuarioNoEncontrado = false;
+  chatPrincipal=false;
   chats: Chats[] = [
     {
       photo: 'assets/mujerHermosa.jpg',
@@ -54,10 +55,13 @@ export class ChatGeneralComponent {
   textoBusqueda = '';
 
   buscarUsuario() {
-    this.chatBuscado = this.chats.find(chat => chat.nameUser === this.textoBusqueda);
+    const nombreBusqueda = this.textoBusqueda.trim().toLowerCase();
+    this.chatBuscado = this.chats.find(chat => chat.nameUser.toLowerCase().includes(nombreBusqueda));
     if (!this.chatBuscado) {
+      this.chatPrincipal =true
       this.usuarioNoEncontrado = true;
     } else {
+      this.chatPrincipal =true
       this.usuarioNoEncontrado = false;
     }
   }
@@ -66,7 +70,8 @@ export class ChatGeneralComponent {
     this.chatBuscado = undefined;
     this.textoBusqueda = '';
     this.usuarioNoEncontrado= false;
-  }
+    this.chatPrincipal=false;
+  }  
 
   // mostrarBotonBusqueda() {
   //   let searchInput = document.getElementById("search") as HTMLInputElement;
