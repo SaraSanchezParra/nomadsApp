@@ -46,9 +46,14 @@
     font-size: 18px;
     font-family: 'Quicksand', sans-serif;
 }
+
 .buscar:invalid {
     border: 2px solid red;
-  }  
+}
+
+.buscar::placeholder {
+    padding-left: 10px;
+}
 
 .dias {
     border: none;
@@ -60,6 +65,7 @@
     align-items: center;
     font-size: 18px;
     font-family: 'Quicksand', sans-serif;
+    text-align: center;
 }
 
 .boton {
@@ -72,9 +78,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
+    font-size: 17px;
     box-shadow: 0px 3px 6px 0px rgba(84, 83, 83, 0.466);
 }
+
 .caja2 {
     /* border: 2px solid rgb(25, 0, 255); */
     height: 80%;
@@ -275,4 +282,3 @@
     margin-left: 8px;
 }
  */
-
