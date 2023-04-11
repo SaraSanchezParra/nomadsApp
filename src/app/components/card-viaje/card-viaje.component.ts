@@ -60,5 +60,9 @@ openDialog() {
   console.log('open dialog');
 }
 
+goProfile() {
+  // this.userService.user.user_Id = this.viaje.user_Id
+  this.router.navigate(['/profile'])
+}
 
 }
