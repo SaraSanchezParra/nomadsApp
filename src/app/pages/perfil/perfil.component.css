@@ -76,7 +76,7 @@ h1 {
     height: 132px;
     object-fit: cover;
     margin-bottom: 36px;
-    transform: translateY(1.2rem);
+    transform: translateY(1.8em);
 }
 
 .profile_photo img {
