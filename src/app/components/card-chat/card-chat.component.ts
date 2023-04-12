@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Chats } from 'src/models/chat';
+import { Chats } from 'src/app/models/chat';
 import { Router } from '@angular/router';
 
 

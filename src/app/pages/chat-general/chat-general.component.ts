@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CardChatComponent } from 'src/app/components/card-chat/card-chat.component';
-import { Chats } from 'src/models/chat';
+import { Chats } from 'src/app/models/chat';
 
 @Component({
   selector: 'app-chat-general',
