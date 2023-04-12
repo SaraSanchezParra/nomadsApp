@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-confirm',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class ConfirmComponent {
 
+  constructor(
+    public dialogRef: MatDialogRef<ConfirmComponent>, 
+    @Inject(MAT_DIALOG_DATA) public message: string) {
+    
+  }
+
+  onClickNO(): void{
+    this.dialogRef.close()
+  }
 }
