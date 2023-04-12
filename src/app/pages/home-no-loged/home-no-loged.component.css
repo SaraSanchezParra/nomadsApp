@@ -45,15 +45,16 @@
     display: flex;
     font-size: 18px;
     font-family: 'Quicksand', sans-serif;
+    justify-content: center;
 }
 
 .buscar:invalid {
     border: 2px solid red;
 }
 
-.buscar::placeholder {
-    padding-left: 10px;
-}
+/* .buscar::placeholder {
+    padding-left: 8px;
+} */
 
 .dias {
     border: none;
