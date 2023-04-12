@@ -62,7 +62,14 @@ openDialog() {
 
 goProfile() {
   // this.userService.user.user_Id = this.viaje.user_Id
-  this.router.navigate(['/profile'])
+  if(this.userService.loged){
+    this.router.navigate(['/perfil'])
+   
+  }
+  else{this.router.navigate(['/login'])
+  this.userService.showHeaderFooter= false}
+ 
+  
 }
 
 }

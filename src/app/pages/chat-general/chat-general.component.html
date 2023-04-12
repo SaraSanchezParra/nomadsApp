@@ -2,7 +2,9 @@
  
   <div class="titulo"> 
     <div class="modificar">
-    <button *ngIf="chatPrincipal" class="atras"  (click)="resetearBusqueda()"><</button>
+      <ng-container *ngIf="!chatPrincipal" >
+        <button class="atras"  (click)="resetearBusqueda()"> < </button>
+      </ng-container>
       <div>
         <p>CHATS</p>
       </div> 
@@ -15,27 +17,21 @@
       
     
   </div>
-
- 
  
   <div class="container">
-    <div *ngIf="chatBuscado">
-
-      <app-card-chat [cardGeneral]="chatBuscado"></app-card-chat>
-
+    <div *ngIf="chatsMostrados.length > 0 && (!buscandoUsuario || usuarioEncontrado)">
+      <div *ngFor="let chat of chatsMostrados; let i = index">
+        <app-card-chat [cardGeneral]="chat" (eliminarTarjeta)="eliminarTarjeta(i)"></app-card-chat>
+      </div>
     </div>
 
-    <div *ngIf="usuarioNoEncontrado ">
-     
+    <div *ngIf="!usuarioEncontrado && buscandoUsuario">
       <p class="noEncontrado">Usuario No Encontrado</p>
     </div>
-    <!-- <div *ngIf="!chatBuscado && !usuarioNoEncontrado"> -->
-      <div class="NoChats" *ngIf="chats.length === 0">
+
+    <div *ngIf="chatsMostrados.length == 0  && !buscandoUsuario">
+      <div class="NoChats" *ngIf="chatsMostrados.length === 0">
         <p class="noChats">No Hay Chats Disponibles</p>
-      </div>
-    <div *ngIf="!chatBuscado">
-      <div *ngFor="let chat of chats">
-        <app-card-chat [cardGeneral]="chat" (eliminarTarjeta)="eliminarTarjeta(chat)"></app-card-chat>
       </div>
     </div>
   </div>

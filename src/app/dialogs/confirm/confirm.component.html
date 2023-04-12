@@ -1,6 +1,6 @@
 
 <div class="header">
-    <h2 mat-dialog-title>Title</h2>
+    <h2 mat-dialog-title>Por favor confirma</h2>
     <button mat-icon-button [mat-dialog-close]="false">
         <mat-icon>close</mat-icon>
     </button>
@@ -10,7 +10,7 @@
     {{message}}
 </div>
 
-<div mat-dialog-actions [align]="'end'">
+<div mat-dialog-actions [align]="'end'" >
     <button mat-raised-button [mat-dialog-close]="false">No</button>
-    <button mat-raised-button color="primary" [mat-dialog-close]="true">Si</button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="true">Si</button>
 </div>

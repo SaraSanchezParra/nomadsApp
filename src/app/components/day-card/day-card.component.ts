@@ -49,7 +49,7 @@ export class DayCardComponent {
     // this.dialogService.confirmDialog();
     // console.log('open dialog');
     const dialogRef = this.dialog.open(ConfirmComponent, {
-      data: 'Estas seguro de que quieres borrarlo?'
+      data: ' ¿Estás seguro de que quieres eliminarlo?'
     }); 
     dialogRef.afterClosed().subscribe( res => {
       console.log(res);
