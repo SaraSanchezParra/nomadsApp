@@ -29,6 +29,7 @@
             [ngClass]="{'is-invalid':(nameId.dirty || nameId.touched) && nameId.invalid}"required/>
             <div *ngIf="(nameId.dirty || nameId.touched) && nameId.invalid" class="invalid-feedback">
               <p class ="validacion"*ngIf="nameId.errors.required">El nombre de @usuario es obligatorio</p>
+              <p class="validacion" *ngIf="nameId.errors.pattern">El nombre de usuario debe comenzar con @</p>
             </div>
           
             <input type="password" name ="password" class = "form-control" placeholder=" Contraseña" [(ngModel)]="user.password" #passwordId="ngModel" 

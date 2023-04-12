@@ -124,3 +124,10 @@ span{
  font-size: 200%;
  text-align: center;
 }
+
+.noChats{
+  font-family: var(--ff-main) ;
+  color: var(--green);
+  font-size: 150%;
+  text-align: center;
+}
