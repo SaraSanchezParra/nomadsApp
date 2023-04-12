@@ -43,6 +43,8 @@ import { AddDiaComponent } from './pages/add-dia/add-dia.component';
 import { ModificarDiaComponent } from './pages/modificar-dia/modificar-dia.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmComponent } from './dialogs/confirm/confirm.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ViajesService } from './services/viajes.service';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,7 @@ import { ConfirmComponent } from './dialogs/confirm/confirm.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     CommonModule,
     NoopAnimationsModule,
@@ -91,8 +93,9 @@ import { ConfirmComponent } from './dialogs/confirm/confirm.component';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [ViajesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
