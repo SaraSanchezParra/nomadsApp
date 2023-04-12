@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -43,6 +44,7 @@ import { AddDiaComponent } from './pages/add-dia/add-dia.component';
 import { ModificarDiaComponent } from './pages/modificar-dia/modificar-dia.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmComponent } from './dialogs/confirm/confirm.component';
+import { RegisterService } from './services/register.service';
 
 @NgModule({
   declarations: [
@@ -82,6 +84,7 @@ import { ConfirmComponent } from './dialogs/confirm/confirm.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule, 
     ReactiveFormsModule,
     CommonModule,
@@ -92,7 +95,7 @@ import { ConfirmComponent } from './dialogs/confirm/confirm.component';
     MatButtonModule,
     MatToolbarModule,
   ],
-  providers: [],
+  providers: [RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -25,9 +25,9 @@
 
         <div class="formulario">
           <form [formGroup]="myForm">
-            <input type="text" placeholder=" Nombre de usuario" formControlName="nombreUsuario" class="form-control" 
-              [ngClass]="{'is-invalid': myForm.get('nombreUsuario').invalid && (myForm.get('nombreUsuario').dirty || myForm.get('nombreUsuario').touched) }">
-            <div  *ngIf="myForm.get('nombreUsuario').invalid && (myForm.get('nombreUsuario').dirty || myForm.get('nombreUsuario').touched)" class="invalid-feedback">
+            <input type="text" placeholder=" Nombre de usuario" formControlName="username" class="form-control" 
+              [ngClass]="{'is-invalid': myForm.get('username').invalid && (myForm.get('username').dirty || myForm.get('username').touched) }">
+            <div  *ngIf="myForm.get('username').invalid && (myForm.get('username').dirty || myForm.get('username').touched)" class="invalid-feedback">
               <p class ="validacion">El nombre de usuario debe comenzar con '@'</p> 
             </div>
           
@@ -40,15 +40,15 @@
               </div>
             </div>
           
-            <input type="text" placeholder=" Nombre" formControlName="nombre" class="form-control" 
-              [ngClass]="{'is-invalid': (myForm.get('nombre').dirty || myForm.get('nombre').touched) && !myForm.get('nombre').valid}" />
-            <div  *ngIf="!myForm.get('nombre').valid" class="invalid-feedback" >
+            <input type="text" placeholder=" Nombre" formControlName="name" class="form-control" 
+              [ngClass]="{'is-invalid': (myForm.get('name').dirty || myForm.get('name').touched) && !myForm.get('name').valid}" />
+            <div  *ngIf="!myForm.get('name').valid" class="invalid-feedback" >
               <p class ="validacion">El nombre es necesario</p> 
             </div> 
           
-            <input type="text" placeholder=" Apellidos" formControlName="apellido" class="form-control" 
-              [ngClass]="{'is-invalid': (myForm.get('apellido').dirty || myForm.get('apellido').touched) && !myForm.get('apellido').valid}"/>
-            <div  *ngIf="!myForm.get('apellido').valid" class="invalid-feedback" >
+            <input type="text" placeholder=" Apellidos" formControlName="surname" class="form-control" 
+              [ngClass]="{'is-invalid': (myForm.get('surname').dirty || myForm.get('surname').touched) && !myForm.get('surname').valid}"/>
+            <div  *ngIf="!myForm.get('surname').valid" class="invalid-feedback" >
               <p class ="validacion">El apellido es necesario</p> 
             </div>
           
