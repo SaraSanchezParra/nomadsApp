@@ -5,6 +5,7 @@
     <div class="form-area">
         <form [formGroup]="modDiaForm" class="form">
             <div class="PI">
+                <h4>Punto de interes 1</h4>
                 <label for="nombrePuntoDeInteres1">Nombre del punto de interes</label>
             <input id="nombrePuntoDeInteres1" type="text" formControlName="nombrePuntoDeInteres1" class="form-control" placeholder="{{dia.puntosDeInteres[0].title}}"
                 [ngClass]="{'is-invalid': modDiaForm.get('nombrePuntoDeInteres1').invalid && (modDiaForm.get('nombrePuntoDeInteres1').dirty || modDiaForm.get('nombrePuntoDeInteres1').touched)}">
