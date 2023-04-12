@@ -19,9 +19,10 @@ user: User
 userLogged = {username: 'Amber'}
 @Input() viaje!: Viaje;
 @Input() i:number
-  usuarioService: any;
+usuarioService: any;
 
 constructor(public userService: DatosUsuarioService, public router: Router, modifyViajeService: ModifyViajeService, private dialogService: DialogService) {
+  
   this.user = userService.user
 }
 
@@ -65,10 +66,11 @@ goProfile() {
   // this.userService.user.user_Id = this.viaje.user_Id
   if(this.userService.loged){
     this.router.navigate(['/perfil'])
-   
   }
-  else{this.router.navigate(['/login'])
-  this.userService.showHeaderFooter=false}
+  else{
+    this.userService.showHeaderFooter = false;
+    this.router.navigate(['/login'])
+  }
  
   
 }

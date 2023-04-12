@@ -43,6 +43,9 @@ import { AddDiaComponent } from './pages/add-dia/add-dia.component';
 import { ModificarDiaComponent } from './pages/modificar-dia/modificar-dia.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmComponent } from './dialogs/confirm/confirm.component';
+import { ToastNoAnimationModule } from 'ngx-toastr';
+
+
 
 @NgModule({
   declarations: [
@@ -91,6 +94,8 @@ import { ConfirmComponent } from './dialogs/confirm/confirm.component';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
+    ToastNoAnimationModule.forRoot(),
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

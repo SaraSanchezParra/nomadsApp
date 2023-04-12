@@ -103,4 +103,6 @@ button:disabled {
     opacity: 0.5; 
   }
   
- 
+  .toast-container {
+    z-index: 9999;
+  }
