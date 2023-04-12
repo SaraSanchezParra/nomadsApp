@@ -10,6 +10,8 @@
     --ff-nomads: 'Shadows Into Light Two', cursive;
 }
 
+@import url("https://unpkg.com/leaflet@1.9.3/dist/leaflet.css");
+
 *,
 *::before,
 *::after {
