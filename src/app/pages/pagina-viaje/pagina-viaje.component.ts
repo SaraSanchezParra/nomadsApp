@@ -39,4 +39,8 @@ checkfav():boolean {
   }
   return this.fav
 }
+
+eliminar(i:number) {
+  this.viaje.days.splice(i, 1)
+}
 }

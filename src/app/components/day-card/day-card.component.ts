@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ConfirmComponent } from 'src/app/dialogs/confirm/confirm.component';
 import { Day } from 'src/app/models/day';
 import { User } from 'src/app/models/user';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
@@ -13,6 +15,8 @@ import { DialogService } from 'src/app/services/dialog.service';
 export class DayCardComponent {
 
   @Output() cardEvent = new EventEmitter<number>
+  @Output() dayName = new EventEmitter<string>
+  @Output() isOpen = new EventEmitter<boolean>
 
   user: User
   @Input() dia!:Day
@@ -20,13 +24,15 @@ export class DayCardComponent {
   ReadMore: boolean = true
   visible: boolean = false
 
-  constructor(public userService: DatosUsuarioService, private router: Router, private dialogService: DialogService) {
+  constructor(public userService: DatosUsuarioService, private router: Router, private dialogService: DialogService, public dialog: MatDialog) {
     this.user=this.userService.user
   }
 
   onClick() {
     this.ReadMore = !this.ReadMore;
     this.visible = !this.visible
+    this.isOpen.emit(this.ReadMore)
+    this.dayName.emit(String(this.dia.day_id))
   }
 
   areMisViajes():boolean{
@@ -40,8 +46,17 @@ export class DayCardComponent {
   }
 
   openDialog() {
-    this.dialogService.confirmDialog();
-    console.log('open dialog');
+    // this.dialogService.confirmDialog();
+    // console.log('open dialog');
+    const dialogRef = this.dialog.open(ConfirmComponent, {
+      data: 'Estas seguro de que quieres borrarlo?'
+    }); 
+    dialogRef.afterClosed().subscribe( res => {
+      console.log(res);
+      if (res) {
+        this.borrarDia()
+      }
+    })
   }
 
   borrarDia() {
