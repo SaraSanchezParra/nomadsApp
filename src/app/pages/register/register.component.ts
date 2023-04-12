@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+<<<<<<< HEAD
 import { User } from 'src/app/models/user';
+=======
+import { User } from '../../models/user';
+>>>>>>> a12a051 (modificaciones)
 import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/services/register.service';
 
@@ -12,7 +16,11 @@ import { RegisterService } from 'src/app/services/register.service';
 })
 export class RegisterComponent {
 
+<<<<<<< HEAD
   public user = new User ("","","","","","",[],[]);
+=======
+  // public user = new User();
+>>>>>>> a12a051 (modificaciones)
   public myForm: FormGroup;
   public route: Router
   isFormValid: boolean = false;
