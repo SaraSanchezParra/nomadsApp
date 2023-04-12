@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
-import { User } from 'src/models/user';
 
 
 
@@ -18,7 +18,7 @@ export class LoginComponent {
   
 
   constructor(private router: Router, private userService:DatosUsuarioService){
-    this.user = new User()
+    
   }
 
   entrar(){

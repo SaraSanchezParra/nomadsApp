@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from 'src/models/user';
+
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
 
-  public user = new User;
+  public user: User
   public myForm: FormGroup;
   public route: Router
   isFormValid: boolean = false;
