@@ -1,5 +1,6 @@
-import { User } from "src/models/user";
+import { User } from "./user";
 import { Day } from "./day";
+
 
 export class Viaje {
     public viaje_Id: number
