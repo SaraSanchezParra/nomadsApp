@@ -1,4 +1,4 @@
-import { User } from "src/models/user";
+import { User } from "src/app/models/user";
 import { Day } from "./day";
 
 export class Viaje {

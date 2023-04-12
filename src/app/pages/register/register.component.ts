@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from 'src/models/user';
+import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
+import { RegisterService } from 'src/app/services/register.service';
 
 
 @Component({
@@ -11,32 +12,46 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
 
-  public user = new User;
+  public user = new User ("","","","","","",[],[]);
   public myForm: FormGroup;
   public route: Router
   isFormValid: boolean = false;
 
-  constructor(private formBuilder:FormBuilder,private router: Router){
-    this.buildForm()
+  constructor(private formBuilder:FormBuilder,private router: Router,public apiService:RegisterService){
+    this.buildForm();
+    this.route = router;
   }
 
 
 
 
-  public register(){
+  public register() {
     const user = this.myForm.value;
     console.log(user);
-    this.router.navigate(['/login'])
+    this.apiService.postRegister(user).subscribe(
+      (resp: string) => {
+        this.apiService.user = user;
+        this.apiService.user.user_Id = Number(resp);
+
+        this.router.navigate(['/login']);
+
+
+      },
+      (error) => {
+        console.log(error);
+      
+      }
+    );
   }
 
-  private buildForm(){
+    private buildForm(){
     const minPassLength = 8;
   
     this.myForm = this.formBuilder.group({
-      nombreUsuario: ['', [Validators.required, Validators.pattern(/^@/)]],
+      username: ['', [Validators.required, Validators.pattern(/^@/)]],
       email: ['', [Validators.required, Validators.email]],
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
       foto: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(minPassLength)]],
       password2: ['', [Validators.required, this.checkPasswords]]
