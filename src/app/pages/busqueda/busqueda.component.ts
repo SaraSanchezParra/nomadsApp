@@ -34,22 +34,23 @@ export class BusquedaComponent {
 
   onSubmit(form:NgForm): void {
     // console.log(form.value)
-    if (form.controls.usuario.valid) {
-      this.router.navigate(['/perfil']);
-    }
-    else
-    {
-      this.router.navigate(['/viajesDestino']);
-    }
+    this.toastr.success("Rebelicious");
+  //   if (form.controls.usuario.valid) {
+  //     this.router.navigate(['/perfil']);
+  //   }
+  //   else
+  //   {
+  //     this.router.navigate(['/viajesDestino']);
+  //   }
 
-    if (this.destinoEncontrado) {
-      this.toastr.warning('No se encontró el destino');
-      return;
-  }
-    if (this.usuarioEncontrado) {
-      this.toastr.warning('No se encontró el usuario');
-      return;
-  }
+  //   if (this.destinoEncontrado) {
+  //     this.toastr.warning('No se encontró el destino');
+  //     return;
+  // }
+  //   if (this.usuarioEncontrado) {
+  //     this.toastr.warning('No se encontró el usuario');
+  //     return;
+  // }
     
   }
 
