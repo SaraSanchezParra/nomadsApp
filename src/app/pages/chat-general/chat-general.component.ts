@@ -110,8 +110,10 @@ export class ChatGeneralComponent {
   //   }
   
   // }
-  eliminarTarjeta(index: number) {
-    console.log(index);
+  eliminarTarjeta(chat: Chats) {
+    console.log(chat);
+
+    let index = this.chats.findIndex(data => data == chat);
     if (index !== -1) {
       this.chats.splice(index, 1);
     }

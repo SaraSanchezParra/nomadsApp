@@ -1,62 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="login.component.css" />
+<main class="fondo">
+  <div class="padre">
+    <div class="title">
+      <img src="../../../assets/logo_verde.png" alt="img">
+      <h1>Nomads</h1>
+    </div>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300&family=Shadows+Into+Light&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300&family=Quicksand:wght@500&family=Shadows+Into+Light&display=swap" rel="stylesheet">
-
-    <title>Login</title>
-  </head>
-  <body>
-    <main class="fondo">
-      <div class="padre">
-        <div class="title">
-          <img src="../../../assets/logo_verde.png" alt="img">
-          <h1>Nomads</h1>
+    <form #userForm ="ngForm" (ngSubmit)="onSubmit(userForm)">
+      <div class="nombre">
+        <input type="text" name = "name" class="form-control" placeholder=" Nombre de usuario" pattern="^@.+" required [(ngModel)]="user.name"  #nameId="ngModel"
+        [ngClass]="{'is-invalid':(nameId.dirty || nameId.touched) && nameId.invalid}"required/>
+        <div *ngIf="(nameId.dirty || nameId.touched) && nameId.invalid" class="invalid-feedback">
+          <p class ="validacion"*ngIf="nameId.errors.required">El nombre de @usuario es obligatorio</p>
+          <p class="validacion" *ngIf="nameId.errors.pattern">El nombre de usuario debe comenzar con @</p>
         </div>
+      
+        <input type="password" name ="password" class = "form-control" placeholder=" Contraseña" [(ngModel)]="user.password" #passwordId="ngModel" 
+        [ngClass]="{'is-invalid':(passwordId.dirty || passwordId.touched)&& passwordId.invalid}" minlength="8" required/>
+        <div  style="margin-bottom: 4%;" *ngIf="(passwordId.dirty || passwordId.touched)&& passwordId.invalid" class="invalid-feedback">
+          <div class ="validacion"*ngIf="passwordId.errors.required">La clave es obligatoria</div>
+          <div class ="validacion" *ngIf="passwordId.errors.minlength">La clave debe tener al menos 8 caracteres</div>
 
-        <form #userForm ="ngForm" (ngSubmit)="onSubmit(userForm)">
-          <div class="nombre">
-            <input type="text" name = "name" class="form-control" placeholder=" Nombre de usuario" pattern="^@.+" required [(ngModel)]="user.name"  #nameId="ngModel"
-            [ngClass]="{'is-invalid':(nameId.dirty || nameId.touched) && nameId.invalid}"required/>
-            <div *ngIf="(nameId.dirty || nameId.touched) && nameId.invalid" class="invalid-feedback">
-              <p class ="validacion"*ngIf="nameId.errors.required">El nombre de @usuario es obligatorio</p>
-              <p class="validacion" *ngIf="nameId.errors.pattern">El nombre de usuario debe comenzar con @</p>
-            </div>
-          
-            <input type="password" name ="password" class = "form-control" placeholder=" Contraseña" [(ngModel)]="user.password" #passwordId="ngModel" 
-            [ngClass]="{'is-invalid':(passwordId.dirty || passwordId.touched)&& passwordId.invalid}" minlength="8" required/>
-            <div  style="margin-bottom: 4%;" *ngIf="(passwordId.dirty || passwordId.touched)&& passwordId.invalid" class="invalid-feedback">
-              <div class ="validacion"*ngIf="passwordId.errors.required">La clave es obligatoria</div>
-              <div class ="validacion" *ngIf="passwordId.errors.minlength">La clave debe tener al menos 8 caracteres</div>
-
-            </div>
-          </div>
-
-          <div class="submit">
-            <button class="entrar" type="submit" (click)="entrar()" [disabled]="!(userForm.valid)"
-            >Entrar</button>
-            <div class="frase"> ¿No estás registrado? Regístrate <span style="margin: 0 5px;"><button class="aqui" type="submit" (click)="registrateAqui()" style="color: rgba(255, 184, 0, 1);">aquí</button></span></div>
-          </div>
-          
-
-
-         
-        </form>
-
-        
+        </div>
       </div>
-     
-    </main>
 
-    <script src="login.component.ts"></script>
-  </body>
-</html>
+      <div class="submit">
+        <button class="entrar" type="submit" [disabled]="!(userForm.valid)"
+        >Entrar</button>
+        <div class="frase"> ¿No estás registrado? Regístrate <span style="margin: 0 5px;"><button class="aqui" type="button" (click)="registrateAqui()" style="color: rgba(255, 184, 0, 1);">aquí</button></span></div>
+      </div>
+    </form>
+  </div> 
+</main> 

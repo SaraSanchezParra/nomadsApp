@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+
+
 
 
 @Component({
@@ -12,12 +15,17 @@ export class BusquedaComponent {
 
   public loged:Boolean
   public redirectToPerfil:Boolean
+  public destinoEncontrado:Boolean
+  public usuarioEncontrado:Boolean
 
  
   
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, private toastr: ToastrService) { 
 
+    this.destinoEncontrado =false;
+    this.usuarioEncontrado =false;
+    
   }
 
 
@@ -25,8 +33,9 @@ export class BusquedaComponent {
 
 
 
-  onSubmit(form:NgForm) {
+  onSubmit(form:NgForm): void {
     // console.log(form.value)
+    
     if (form.controls.usuario.valid) {
       this.router.navigate(['/perfil']);
     }
@@ -34,10 +43,15 @@ export class BusquedaComponent {
     {
       this.router.navigate(['/viajesDestino']);
     }
+
+    if (this.destinoEncontrado) {
+      this.toastr.warning('No se encontró el destino')};
+
+
+    if (this.usuarioEncontrado) 
+      {this.toastr.warning('No se encontró el usuario')}
+  
     
   }
 
-
-  
 }
-

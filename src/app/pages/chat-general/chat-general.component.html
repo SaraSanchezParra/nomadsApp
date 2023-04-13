@@ -21,7 +21,7 @@
   <div class="container">
     <div *ngIf="chatsMostrados.length > 0 && (!buscandoUsuario || usuarioEncontrado)">
       <div *ngFor="let chat of chatsMostrados; let i = index">
-        <app-card-chat [cardGeneral]="chat" (eliminarTarjeta)="eliminarTarjeta(i)"></app-card-chat>
+        <app-card-chat [cardGeneral]="chat" (eliminarTarjeta)="eliminarTarjeta(chat)"></app-card-chat>
       </div>
     </div>
 

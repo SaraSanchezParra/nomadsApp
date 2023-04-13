@@ -42,8 +42,15 @@ import { AddDiaComponent } from './pages/add-dia/add-dia.component';
 import { ModificarDiaComponent } from './pages/modificar-dia/modificar-dia.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmComponent } from './dialogs/confirm/confirm.component';
+<<<<<<< HEAD
 import { DatosUsuarioService } from './services/datos-usuario.service';
 import { ViajesService } from './services/viajes.service';
+=======
+import { ToastNoAnimationModule } from 'ngx-toastr';
+
+
+
+>>>>>>> rebeFront
 
 @NgModule({
   declarations: [
@@ -92,7 +99,12 @@ import { ViajesService } from './services/viajes.service';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
+<<<<<<< HEAD
     HttpClientModule,
+=======
+    ToastNoAnimationModule.forRoot(),
+    
+>>>>>>> rebeFront
   ],
   providers: [DatosUsuarioService, ViajesService],
   bootstrap: [AppComponent]
