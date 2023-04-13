@@ -13,9 +13,10 @@ export class DatosUsuarioService {
  public user: User;
  public user_logged: User;
  public loged: boolean;
- public showHeaderFooter: boolean;  
-
+ public showHeaderFooter: boolean; 
+ public usuarioBuscado: boolean
   constructor(private http:HttpClient) { 
+    
     this.user = new User(
       "Juan",
       "Pérez",
@@ -36,7 +37,7 @@ export class DatosUsuarioService {
       this.loged=false;
       this.showHeaderFooter=false;
       this.user_logged = new User(
-        "Juan",
+      "Juan",
       "Pérez",
       "juanperez@gmail.com",
       "@other",
@@ -58,6 +59,10 @@ export class DatosUsuarioService {
 
     postRegister (user:User){
       return this.http.post(this.url + "registrar",user)
+    }
+
+    modificarUser(user:User){
+      return this.http.put(this.url + "modificarPerfil", user)
     }
 
 };
