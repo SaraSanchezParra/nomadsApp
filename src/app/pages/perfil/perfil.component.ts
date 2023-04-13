@@ -23,7 +23,7 @@ export class PerfilComponent {
   
   constructor(private router:Router, public userService: DatosUsuarioService) {
     this.loged = true;
-    localStorage.setItem("user_id", "1");
+    localStorage.setItem("user_id", "1");    
 
     
   }
