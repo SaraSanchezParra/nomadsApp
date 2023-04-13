@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-<<<<<<< HEAD
 import { User } from 'src/app/models/user';
-=======
-import { User } from '../../models/user';
->>>>>>> a12a051 (modificaciones)
 import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/services/register.service';
+import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
 
 @Component({
@@ -16,16 +13,12 @@ import { RegisterService } from 'src/app/services/register.service';
 })
 export class RegisterComponent {
 
-<<<<<<< HEAD
   public user = new User ("","","","","","",[],[]);
-=======
-  // public user = new User();
->>>>>>> a12a051 (modificaciones)
   public myForm: FormGroup;
   public route: Router
   isFormValid: boolean = false;
 
-  constructor(private formBuilder:FormBuilder,private router: Router,public apiService:RegisterService){
+  constructor(private formBuilder:FormBuilder,private router: Router,public userService:DatosUsuarioService){
     this.buildForm();
     this.route = router;
   }
@@ -36,18 +29,14 @@ export class RegisterComponent {
   public register() {
     const user = this.myForm.value;
     console.log(user);
-    this.apiService.postRegister(user).subscribe(
-      (resp: string) => {
-        this.apiService.user = user;
-        this.apiService.user.user_Id = Number(resp);
+    this.userService.postRegister(user).subscribe(
+            (resp: string) => {
+        this.userService.user = user;
+        this.userService.user.user_Id = Number(resp);
 
         this.router.navigate(['/login']);
 
 
-      },
-      (error) => {
-        console.log(error);
-      
       }
     );
   }
@@ -60,7 +49,7 @@ export class RegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       name: ['', Validators.required],
       surname: ['', Validators.required],
-      foto: ['', Validators.required],
+      photo: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(minPassLength)]],
       password2: ['', [Validators.required, this.checkPasswords]]
     });

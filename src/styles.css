@@ -8,6 +8,7 @@
     --ff-titles: 'Mulish', sans-serif;
     --ff-main: 'Quicksand', sans-serif;
     --ff-nomads: 'Shadows Into Light Two', cursive;
+    --border: '6px';
 }
 
 @import url("https://unpkg.com/leaflet@1.9.3/dist/leaflet.css");
@@ -42,7 +43,7 @@ button,
 textarea,
 select {
   font: inherit;
-  border-radius: 6px;
+  
 }
 
 input {
