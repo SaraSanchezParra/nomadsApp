@@ -52,9 +52,9 @@
               <p class ="validacion">El apellido es necesario</p> 
             </div>
           
-            <input type="text" placeholder=" Foto" formControlName ="foto" class="form-control"
-              [ngClass]="{'is-invalid': myForm.get('foto').invalid && (myForm.get('foto').dirty || myForm.get('foto').touched)}"/>
-            <div  *ngIf="myForm.get('foto').invalid && (myForm.get('foto').dirty || myForm.get('foto').touched)" class="invalid-feedback">
+            <input type="text" placeholder=" Foto" formControlName ="photo" class="form-control"
+              [ngClass]="{'is-invalid': myForm.get('photo').invalid && (myForm.get('photo').dirty || myForm.get('photo').touched)}"/>
+            <div  *ngIf="myForm.get('photo').invalid && (myForm.get('photo').dirty || myForm.get('photo').touched)" class="invalid-feedback">
               <p class ="validacion">La foto es requerida</p> 
             </div>
           

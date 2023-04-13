@@ -49,7 +49,7 @@ export class RegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       name: ['', Validators.required],
       surname: ['', Validators.required],
-      foto: ['', Validators.required],
+      photo: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(minPassLength)]],
       password2: ['', [Validators.required, this.checkPasswords]]
     });
