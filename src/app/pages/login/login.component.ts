@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,22 +11,15 @@ import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 })
 export class LoginComponent {
 
-  public user: User
-  isFormValid: boolean = false;
+  public user: User;
+  public isFormValid: boolean = false;
   
 
   constructor(private router: Router, private userService:DatosUsuarioService){
-    
-    
+
+    this.user = new User("", "", "", "", "", "", [], []);
   }
 
-  entrar(){
-    this.userService.loged = true;
-    this.userService.showHeaderFooter = true;
-
-    this.router.navigate(['/home-loged'])
-
-  }
 
   onSubmit(form:NgForm){
     console.log(form.value)
@@ -39,9 +30,14 @@ export class LoginComponent {
     else{
       this.isFormValid = false;
     }
+
+    this.userService.loged = true;
+    this.userService.showHeaderFooter = true;
+
+    this.router.navigate(['/home-loged'])
     
   }
   registrateAqui() {
     this.router.navigate(['/register']);
-  }
+   }
 }
