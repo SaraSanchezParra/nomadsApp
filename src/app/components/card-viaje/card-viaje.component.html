@@ -2,12 +2,12 @@
 <div class="card" >
   
     <div class="img"(click)="goToViaje()">
-        <img src={{viaje.main_img}}>
+        <img src='{{cardviaje.foto}}'>
 
     </div>
     <div class="info"(click)="goToViaje()">
-        <div class="title">{{viaje.title}}</div>
-        <div class="desc">{{viaje.description}}</div>
+        <div class="title">{{cardviaje.titulo}}</div>
+        <div class="desc">{{cardviaje.descripcion}}</div>
     </div>
     <div class="like">
         <div class="user-options" *ngIf="areMisViajes(); else profileView">
@@ -21,7 +21,7 @@
         </ng-template>
         <div class="likes">
             <img src="assets/corazon.png" width="20" height="20">
-            <p>{{viaje.likes}}</p>
+            <p>{{cardviaje.likes}}</p>
         </div>
     </div>
 

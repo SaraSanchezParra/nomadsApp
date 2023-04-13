@@ -32,13 +32,13 @@ export class ModificarViajeComponent {
     let modViaje = this.modifyForm.value;
     console.log(modViaje);
     if (modViaje.nombreViaje != "") {
-      this.viaje.title = modViaje.nombreViaje
+      this.viaje.titulo = modViaje.nombreViaje
     }
     if (modViaje.descripcionViaje != "") {
-      this.viaje.description = modViaje.descripcionViaje
+      this.viaje.descripcion = modViaje.descripcionViaje
     }
     if (modViaje.fotoViaje != "") {
-      this.viaje.main_img = modViaje.fotoViaje
+      this.viaje.foto = modViaje.fotoViaje
     }
     this.router.navigate(['/paginaViaje'])
   }

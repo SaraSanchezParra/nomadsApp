@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -45,6 +43,7 @@ import { ModificarDiaComponent } from './pages/modificar-dia/modificar-dia.compo
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmComponent } from './dialogs/confirm/confirm.component';
 import { DatosUsuarioService } from './services/datos-usuario.service';
+import { ViajesService } from './services/viajes.service';
 
 @NgModule({
   declarations: [
@@ -84,8 +83,7 @@ import { DatosUsuarioService } from './services/datos-usuario.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     CommonModule,
     NoopAnimationsModule,
@@ -94,8 +92,9 @@ import { DatosUsuarioService } from './services/datos-usuario.service';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
+    HttpClientModule,
   ],
-  providers: [DatosUsuarioService],
+  providers: [DatosUsuarioService, ViajesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
