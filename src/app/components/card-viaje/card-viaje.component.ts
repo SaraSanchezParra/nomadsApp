@@ -17,7 +17,8 @@ export class CardViajeComponent {
 
 user: User
 userLogged = {username: 'Amber'}
-@Input() viaje!: Viaje;
+// @Input() viaje!: Viaje;
+@Input() cardviaje: Viaje;
 @Input() i:number
 
 constructor(public userService: DatosUsuarioService, public router: Router, modifyViajeService: ModifyViajeService, private dialogService: DialogService) {
@@ -37,7 +38,7 @@ goToViaje(){
 
 areMisViajes():boolean{
   let ismine: boolean = false
-  if (this.user.misviajes.includes(this.viaje)){
+  if (this.user.misviajes.includes(this.cardviaje)){
     ismine = true
   }
   return ismine

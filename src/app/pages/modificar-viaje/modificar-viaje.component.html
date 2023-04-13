@@ -9,7 +9,7 @@
         <form [formGroup]="modifyForm" class="form">
             <!-- Nombre de Viaje -->
             <label for="nombreViaje">Nombre del Viaje</label>
-            <input id="nombreViaje" placeholder={{viaje.title}} type="text" formControlName="nombreViaje"
+            <input id="nombreViaje" placeholder={{viaje.titulo}} type="text" formControlName="nombreViaje"
                 class="form-control"
                 [ngClass]="{'is-invalid': modifyForm.get('nombreViaje').invalid && (modifyForm.get('nombreViaje').dirty || modifyForm.get('nombreViaje').touched)}">
             <div *ngIf="modifyForm.get('nombreViaje').invalid && (modifyForm.get('nombreViaje').dirty || modifyForm.get('nombreViaje').touched)"
@@ -19,7 +19,7 @@
             <!-- Descripcion Viaje -->
             <label for="descripcionViaje">Descripcion del Viaje</label>
             <input id="descripcionViaje" type="text" formControlName="descripcionViaje" class="form-control"
-            placeholder="{{viaje.description}}"
+            placeholder="{{viaje.descripcion}}"
                 [ngClass]="{'is-invalid': modifyForm.get('descripcionViaje').invalid && (modifyForm.get('descripcionViaje').dirty || modifyForm.get('descripcionViaje').touched)}">
             <div *ngIf="modifyForm.get('descripcionViaje').invalid && (modifyForm.get('descripcionViaje').dirty || modifyForm.get('descripcionViaje').touched)"
                 class="invalid-feedback">
@@ -32,7 +32,7 @@
             <!-- Foto -->
             <label for="fotoViaje">Foto</label>
             <input id="fotoViaje" type="text" formControlName="fotoViaje" class="form-control"
-            placeholder="{{viaje.main_img}}"
+            placeholder="{{viaje.foto}}"
                 [ngClass]="{'is-invalid': modifyForm.get('fotoViaje').invalid && (modifyForm.get('fotoViaje').dirty || modifyForm.get('fotoViaje').touched)}">
             <div *ngIf="modifyForm.get('fotoViaje').invalid && (modifyForm.get('fotoViaje').dirty || modifyForm.get('fotoViaje').touched)"
                 class="invalid-feedback">

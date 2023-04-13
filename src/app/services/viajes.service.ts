@@ -14,6 +14,7 @@ export class ViajesService {
 
  getViajes(): Observable<Viaje[]> {
    return this.http.get<Viaje[]>(this.apiUrl);
+   
  }
 }
 
