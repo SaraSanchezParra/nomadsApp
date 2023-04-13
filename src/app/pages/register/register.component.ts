@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/services/register.service';
+import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class RegisterComponent {
   public route: Router
   isFormValid: boolean = false;
 
-  constructor(private formBuilder:FormBuilder,private router: Router,public apiService:RegisterService){
+  constructor(private formBuilder:FormBuilder,private router: Router,public userService:DatosUsuarioService){
     this.buildForm();
     this.route = router;
   }
@@ -28,18 +29,14 @@ export class RegisterComponent {
   public register() {
     const user = this.myForm.value;
     console.log(user);
-    this.apiService.postRegister(user).subscribe(
-      (resp: string) => {
-        this.apiService.user = user;
-        this.apiService.user.user_Id = Number(resp);
+    this.userService.postRegister(user).subscribe(
+            (resp: string) => {
+        this.userService.user = user;
+        this.userService.user.user_Id = Number(resp);
 
         this.router.navigate(['/login']);
 
 
-      },
-      (error) => {
-        console.log(error);
-      
       }
     );
   }

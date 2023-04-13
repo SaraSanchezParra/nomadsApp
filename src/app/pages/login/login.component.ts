@@ -3,10 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
-<<<<<<< HEAD
-=======
-import { User } from 'src/app/models/user';
->>>>>>> estefiModelo
+
 
 
 
