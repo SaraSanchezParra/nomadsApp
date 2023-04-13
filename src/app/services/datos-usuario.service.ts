@@ -60,6 +60,10 @@ export class DatosUsuarioService {
       return this.http.post(this.url + "registrar",user)
     }
 
+    postLogin(user:User){
+      return this.http.post(this.url + "login",user)
+    }
+
 };
 
     
