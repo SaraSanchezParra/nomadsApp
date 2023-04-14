@@ -13,9 +13,10 @@ private url: string = "https://nomads-api.vercel.app/"
  public user: User;
  public user_logged: User;
  public loged: boolean;
- public showHeaderFooter: boolean;  
-
+ public showHeaderFooter: boolean; 
+ public usuarioBuscado: boolean
   constructor(private http:HttpClient) { 
+    
     this.user = new User(
       "Juan",
       "Pérez",
@@ -36,7 +37,7 @@ private url: string = "https://nomads-api.vercel.app/"
       this.loged=false;
       this.showHeaderFooter=false;
       this.user_logged = new User(
-        "Juan",
+      "Juan",
       "Pérez",
       "juanperez@gmail.com",
       "@other",
@@ -63,6 +64,10 @@ private url: string = "https://nomads-api.vercel.app/"
 
     postLogin(user:User){
       return this.http.post(this.url + "login",user)
+    }
+    
+    modificarUser(user:User){
+      return this.http.put(this.url + "modificarPerfil", user)
     }
 
 };
