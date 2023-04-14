@@ -30,7 +30,10 @@
             </div>
             <div class="topUsers">
                 <div *ngFor="let user of users" class="nomads">
-                    <a routerLink="/perfil"><img src="{{user.photo}}" width="55" height="55"></a>
+                    <a (click)="userPerfil(user.username)">
+                        <img src="{{user.photo}}" width="55" height="55">
+                    </a>
+
                 </div>
 
             </div>

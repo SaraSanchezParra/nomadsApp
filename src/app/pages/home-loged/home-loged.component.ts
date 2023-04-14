@@ -3,6 +3,7 @@ import { User } from 'src/app/models/user';
 import { Viaje } from 'src/app/models/viaje';
 import { TopUserService } from 'src/app/services/topUser.service';
 import { ViajesService } from 'src/app/services/viajes.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-loged',
@@ -16,7 +17,7 @@ export class HomeLogedComponent implements OnInit {
   public viajes: Viaje[];
   public users: User[];
 
-  constructor(private viajesService: ViajesService, private topUserServie: TopUserService) {
+  constructor(private viajesService: ViajesService, private topUserServie: TopUserService, private router: Router) {
     this.viajesService.getTopViajesLog().subscribe(viajes => {
       console.log(viajes);
       this.viajes = viajes
@@ -24,7 +25,7 @@ export class HomeLogedComponent implements OnInit {
       this.topUserServie.getTopNomads().subscribe(users => {
         console.log(users);
         this.users = users
-  
+
         // console.log(this.users[0].photo);
       });
     }
@@ -44,14 +45,17 @@ export class HomeLogedComponent implements OnInit {
       // console.log(this.viajes);
     });
   }
-         
+
   getTopNomads(): void {
     this.topUserServie.getTopNomads().subscribe(users => {
       console.log(users);
       this.users = users
 
-      console.log(this.users[0].photo);
     });
   }
+  userPerfil(username: string) {
+    this.router.navigate(['/perfil', username]);
+  }
+
 
 }
