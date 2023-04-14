@@ -40,6 +40,16 @@ checkfav():boolean {
   return this.fav
 }
 
+showOnMap(cardMessage) {
+  if (cardMessage.isOpen) {
+    console.log(cardMessage.isOpen);
+  }
+  else {
+    console.log("is closed" + cardMessage.isOpen);
+    
+  }
+}
+
 eliminar(i:number) {
   this.viaje.days.splice(i, 1)
 }
