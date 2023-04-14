@@ -31,7 +31,7 @@ export class LoginComponent {
       this.userService.postLogin(this.user).subscribe((res: Respuesta) => {
         if (res.mensaje === "logeado") {
           this.userService.loged = true;
-          this.userService.user = res.data_user;
+          this.userService.user_logged = res.data_user;
           console.log(res.data_user);
     
           this.userService.loged = true;

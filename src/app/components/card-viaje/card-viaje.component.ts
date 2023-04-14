@@ -24,7 +24,7 @@ usuarioService: any;
 
 constructor(public userService: DatosUsuarioService, public router: Router, modifyViajeService: ModifyViajeService, private dialogService: DialogService) {
   
-  this.user = userService.user
+  this.user = this.userService.user_logged;
 }
 
 goToViaje(){

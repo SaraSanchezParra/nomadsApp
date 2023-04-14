@@ -38,13 +38,13 @@
         </div>
         
         <div class="cards" *ngIf="showFavs ; else misviajes">
-            <ng-container *ngFor="let viaje of this.userService.user.favs; let i = index">
-                <app-card-viaje [viaje]="viaje"></app-card-viaje>
+            <ng-container *ngFor="let viaje of this.usuarioMostrado.favs; let i = index">
+                <app-card-viaje [cardviaje]="viaje"></app-card-viaje>
             </ng-container>
         </div>
         <div  class="cards"><ng-template #misviajes>
-            <ng-container *ngFor="let viaje of this.userService.user.misviajes; let i = index">
-                <app-card-viaje [viaje]="viaje" (cardEvent)="borrarViaje($event)"></app-card-viaje>
+            <ng-container *ngFor="let viaje of this.usuarioMostrado.misViajes; let i = index">
+                <app-card-viaje [cardviaje]="viaje" (cardEvent)="borrarViaje($event)"></app-card-viaje>
             </ng-container>
 
         </ng-template>

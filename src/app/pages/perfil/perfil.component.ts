@@ -15,9 +15,6 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent {
-  
-  public user = { name: '', surname: '', email: '', username: '', descripcion:"",photo:'', favs: [], misviajes: [] };
-
   public showFavs = true;
   public showIcons = false;
   public loged:boolean;
@@ -38,13 +35,13 @@ export class PerfilComponent {
     
   }
   
-  isMe() {
-    let res: boolean = false;
-    if (this.userService.user.username == this.userService.user_logged.username){
-      res = true
-    }
-    return res
-  }
+  // isMe() {
+  //   let res: boolean = false;
+  //   if (this.userService.user.username == this.userService.user_logged.username){
+  //     res = true
+  //   }
+  
+  // }
 
    mostrarFavoritas(): void {
     this.showFavs = true;
@@ -60,7 +57,7 @@ export class PerfilComponent {
   }
   
    borrarViaje(i: number): void {
-    this.user.misviajes.splice(i, 1);
+    // this.user.misviajes.splice(i, 1);
   }
 
    ajustesPerfil():void{
