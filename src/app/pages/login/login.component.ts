@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Respuesta } from 'src/app/models/respuesta';
 import { User } from 'src/app/models/user';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
@@ -30,14 +31,23 @@ export class LoginComponent {
     else{
       this.isFormValid = false;
     }
-
-    this.userService.loged = true;
-    this.userService.showHeaderFooter = true;
-
-    this.router.navigate(['/home-loged'])
-    
+    this.userService.postLogin(this.user).subscribe((res: Respuesta) => {
+      if (res.mensaje === "logueado") {
+        this.userService.loged = true;
+        // this.userService.user = res.data_user;
+        console.log(res.data_user);
+  
+        this.userService.loged = true;
+        this.userService.showHeaderFooter = true;
+  
+        this.router.navigate(['/home-loged']);
+      } else {
+        this.userService.loged = false;
+      }
+    });
   }
+  
   registrateAqui() {
     this.router.navigate(['/register']);
-   }
+  }
 }
