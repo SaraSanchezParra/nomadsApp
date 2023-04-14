@@ -28,14 +28,12 @@
                 <div class="top-nomads">Top Nomads</div>
 
             </div>
-
             <div class="topUsers">
-                <div *ngFor="let users of user" class="nomads">
-                    <a routerLink="/perfil"><img src="{{users.photo}}" width="55" height="55"></a>
+                <div *ngFor="let user of users" class="nomads">
+                    <a routerLink="/perfil"><img src="{{user.photo}}" width="55" height="55"></a>
                 </div>
 
             </div>
-
         </div>
     </div>
     <div class="footer"></div>

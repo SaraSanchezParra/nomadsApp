@@ -14,20 +14,31 @@ export class HomeLogedComponent implements OnInit {
   inputValue: string = '';
 
   public viajes: Viaje[];
-  public user: User[];
+  public users: User[];
 
   constructor(private viajesService: ViajesService, private topUserServie: TopUserService) {
-    this.getTopNomads();
+    this.viajesService.getTopViajesLog().subscribe(viajes => {
+      console.log(viajes);
+      this.viajes = viajes
+
+      this.topUserServie.getTopNomads().subscribe(users => {
+        console.log(users);
+        this.users = users
+  
+        // console.log(this.users[0].photo);
+      });
+    }
+
+      // console.log(this.viajes);
+    );
   }
 
   ngOnInit() {
-    this.getTopViajesLog();
-    // this.getTopNomads();
   }
 
   getTopViajesLog(): void {
     this.viajesService.getTopViajesLog().subscribe(viajes => {
-      // console.log(viajes);
+      console.log(viajes);
       this.viajes = viajes
 
       // console.log(this.viajes);
@@ -35,11 +46,11 @@ export class HomeLogedComponent implements OnInit {
   }
          
   getTopNomads(): void {
-    this.topUserServie.getTopNomads().subscribe(user => {
-      console.log(user);
-      this.user = user
+    this.topUserServie.getTopNomads().subscribe(users => {
+      console.log(users);
+      this.users = users
 
-      console.log(this.user[0].photo);
+      console.log(this.users[0].photo);
     });
   }
 
