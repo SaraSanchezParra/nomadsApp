@@ -27,24 +27,28 @@ export class LoginComponent {
     console.log(this.user)
     if(form.valid){
       this.isFormValid = true;
+
+      this.userService.postLogin(this.user).subscribe((res: Respuesta) => {
+        if (res.mensaje === "logeado") {
+          this.userService.loged = true;
+          this.userService.user = res.data_user;
+          console.log(res.data_user);
+    
+          this.userService.loged = true;
+          this.userService.showHeaderFooter = true;
+    
+          this.router.navigate(['/home-loged']);
+        } else {
+          this.userService.loged = false;
+        }
+      });
+
+
     }
     else{
       this.isFormValid = false;
     }
-    this.userService.postLogin(this.user).subscribe((res: Respuesta) => {
-      if (res.mensaje === "logueado") {
-        this.userService.loged = true;
-        // this.userService.user = res.data_user;
-        console.log(res.data_user);
-  
-        this.userService.loged = true;
-        this.userService.showHeaderFooter = true;
-  
-        this.router.navigate(['/home-loged']);
-      } else {
-        this.userService.loged = false;
-      }
-    });
+   
   }
   
   registrateAqui() {
