@@ -9,18 +9,18 @@ import { Viaje } from 'src/app/models/viaje';
 })
 export class ViajesService {
 
-  private apiUrl = "http://localhost:3000/viajes";
-  private apiUrl2 = "http://localhost:3000/viajesLog";
+  private apiUrl = "http://localhost:3000/topViajes";
+  private apiUrl2 = "http://localhost:3000/topViajesLog";
 
 
   constructor(private http: HttpClient) { }
 
-  getViajes(): Observable<Viaje[]> {
+  getTopViajes(): Observable<Viaje[]> {
     return this.http.get<Viaje[]>(this.apiUrl);
   }
 
 
-  getViajesLog(): Observable<Viaje[]> {
+  getTopViajesLog(): Observable<Viaje[]> {
     return this.http.get<Viaje[]>(this.apiUrl2);
   }
 

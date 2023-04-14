@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { Viaje } from 'src/app/models/viaje';
-import { TopUserService } from 'src/app/services/topuser.service';
+import { TopUserService } from 'src/app/services/topUser.service';
 import { ViajesService } from 'src/app/services/viajes.service';
 
 @Component({
@@ -17,19 +17,20 @@ export class HomeLogedComponent implements OnInit {
   public user: User[];
 
   constructor(private viajesService: ViajesService, private topUserServie: TopUserService) {
-
+    this.getTopNomads();
   }
 
   ngOnInit() {
-    this.getViajesLog();
+    this.getTopViajesLog();
+    // this.getTopNomads();
   }
 
-  getViajesLog(): void {
-    this.viajesService.getViajesLog().subscribe(viajes => {
-      console.log(viajes);
+  getTopViajesLog(): void {
+    this.viajesService.getTopViajesLog().subscribe(viajes => {
+      // console.log(viajes);
       this.viajes = viajes
 
-      console.log(this.viajes);
+      // console.log(this.viajes);
     });
   }
 
@@ -38,7 +39,7 @@ export class HomeLogedComponent implements OnInit {
       console.log(user);
       this.user = user
 
-      console.log(this.user);
+      console.log(this.user[0].photo);
     });
   }
 
