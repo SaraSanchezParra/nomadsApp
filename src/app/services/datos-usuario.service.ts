@@ -56,6 +56,7 @@ private url: string = "https://nomads-api.vercel.app/"
       this.showHeaderFooter=false;
     }
 
+          
     postRegister (user:User){
       return this.http.post(this.url + "registrar",user)
     }
