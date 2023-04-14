@@ -8,10 +8,8 @@ export class Viaje {
     public descripcion: string
     public ubicacion: string
     public foto: string
-
     public days: Day[]
     public likes: number
-  
     public user_Id: number
 
     constructor(titulo: string, foto:string, descripcion: string, days: Day[], likes: number){

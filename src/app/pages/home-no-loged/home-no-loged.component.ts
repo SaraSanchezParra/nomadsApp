@@ -20,11 +20,11 @@ export class HomeNoLogedComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getViajes();
+    this.getTopViajes();
   }
 
-  getViajes(): void {
-    this.viajesService.getViajes().subscribe(viajes => {
+  getTopViajes(): void {
+    this.viajesService.getTopViajes().subscribe(viajes => {
       console.log(viajes);
       this.viajes = viajes
     
