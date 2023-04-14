@@ -38,7 +38,7 @@ export class DayCardComponent {
 
   areMisViajes():boolean{
     let ismine: boolean = false
-    for (let viaje of this.user.misviajes){
+    for (let viaje of this.user.misViajes){
       if (viaje.days.includes(this.dia)) {
         ismine = true
       }

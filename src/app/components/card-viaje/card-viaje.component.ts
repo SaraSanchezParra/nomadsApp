@@ -40,7 +40,7 @@ goToViaje(){
 
 areMisViajes():boolean{
   let ismine: boolean = false
-  if (this.user.misviajes.includes(this.cardviaje)){
+  if (this.user.misViajes.includes(this.cardviaje)){
     ismine = true
   }
   return ismine
