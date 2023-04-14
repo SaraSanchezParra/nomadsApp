@@ -23,7 +23,7 @@ constructor() {
 }
 
 ngAfterViewInit(): void {
-  const map = new Map('map').setView([51.505, -0.09], 13);
+  const map = new Map('map').setView([40.4167047, -3.7035825], 13);
   tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
