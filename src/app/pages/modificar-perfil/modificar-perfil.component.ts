@@ -55,10 +55,9 @@ export class ModificarPerfilComponent implements OnInit {
 
     this.userService.modificarUser(this.userService.user).subscribe(
       () => {
+        this.toastr.success('El usuario se ha modificado correctamente')
         this.router.navigate(['/perfil']);
-      },
-      error => {
-        console.log(error);
+      
       }
     );
   }
