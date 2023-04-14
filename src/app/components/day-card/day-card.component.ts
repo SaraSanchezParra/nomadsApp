@@ -33,6 +33,7 @@ export class DayCardComponent {
     this.visible = !this.visible
     this.isOpen.emit(this.ReadMore)
     this.dayName.emit(String(this.dia.day_id))
+    // create an object with index and boolean and send that to the father
   }
 
   areMisViajes():boolean{
