@@ -33,7 +33,7 @@ export class HomeLogedComponent implements OnInit {
       // console.log(this.viajes);
     });
   }
-
+         
   getTopNomads(): void {
     this.topUserServie.getTopNomads().subscribe(user => {
       console.log(user);
