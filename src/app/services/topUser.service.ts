@@ -8,7 +8,7 @@ import { User } from 'src/app/models/user';
 })
 export class TopUserService {
 
-  private apiUrl = "http://localhost:3000/topNomads";
+   private apiUrl = "http://localhost:3000/topNomads";
   // private apiUrl = "https://nomads-api.vercel.app/topNomads";
 
 

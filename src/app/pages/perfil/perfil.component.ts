@@ -43,7 +43,7 @@ export class PerfilComponent {
   
   // }
 
-   mostrarFavoritas(): void {
+  mostrarFavoritas(): void {
     this.showFavs = true;
     this.showIcons = false;
   }

@@ -36,6 +36,14 @@ export class DatosUsuarioService {
       return this.http.put(this.url + "modificarPerfil", user)
     }
 
+
+    usuarioEncontrado(username:string){
+
+      let url =`http://localhost:3000/userFound?username=${username}`
+      return this.http.get(url)
+    }
+
+
 };
 
     
