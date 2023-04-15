@@ -10,11 +10,15 @@ import { Viaje } from 'src/app/models/viaje';
 export class ViajesService {
 
 //  private apiUrl = "http://localhost:3000/viajes";
+<<<<<<< HEAD
 //  private apiUrl: string = "https://nomads-api.vercel.app/viajes";
 //  private apiUrl1 = "http://localhost:3000/topViajes";
 //  private apiUrl2 = "http://localhost:3000/topViajesLog";
  private apiUrl1 = "https://nomads-api.vercel.app/topViajes";
  private apiUrl2 = "https://nomads-api.vercel.app/topViajesLog";
+=======
+ private apiUrl = "https://nomads-api.vercel.app/viajes"
+>>>>>>> dayCardFunA
 
 
 

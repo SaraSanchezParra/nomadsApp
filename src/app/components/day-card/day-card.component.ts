@@ -15,8 +15,7 @@ import { DialogService } from 'src/app/services/dialog.service';
 export class DayCardComponent {
 
   @Output() cardEvent = new EventEmitter<number>
-  @Output() dayName = new EventEmitter<string>
-  @Output() isOpen = new EventEmitter<boolean>
+  @Output() isOpen = new EventEmitter<object>
 
   user: User
   @Input() dia!:Day
@@ -31,8 +30,7 @@ export class DayCardComponent {
   onClick() {
     this.ReadMore = !this.ReadMore;
     this.visible = !this.visible
-    this.isOpen.emit(this.ReadMore)
-    this.dayName.emit(String(this.dia.day_id))
+    this.isOpen.emit({isOpen: this.ReadMore, index: this.i})
     // create an object with index and boolean and send that to the father
   }
 
