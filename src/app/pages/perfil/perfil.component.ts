@@ -57,7 +57,7 @@ export class PerfilComponent {
   }
   
    borrarViaje(i: number): void {
-    // this.user.misviajes.splice(i, 1);
+    // this.viaj.splice(day_id, 1)
   }
 
    ajustesPerfil():void{
