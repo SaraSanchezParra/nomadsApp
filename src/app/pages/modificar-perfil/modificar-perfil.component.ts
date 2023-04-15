@@ -61,18 +61,7 @@ export class ModificarPerfilComponent implements OnInit {
       }
     );
   }
-    const nombre = this.myForm.value.nombre;
-    const apellido = this.myForm.value.apellido;
-    const email1 = this.myForm.value.email;
-    const username = this.myForm.value.nombreUsuario;
-    const descripcion1 = this.myForm.value.descripcion;
-    const foto1 = this.myForm.value.foto;
-    this.userService.user.name = nombre;
-    this.userService.user.surname = apellido;
-    this.userService.user.email = email1;
-    this.userService.user.username = username;
-    this.userService.user.descripcion = descripcion1;
-    this.userService.user.photo = foto1;
+    
   }
   irPerfil(){
     this.router.navigateByUrl("/perfil")}
