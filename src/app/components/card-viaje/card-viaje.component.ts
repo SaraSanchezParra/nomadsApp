@@ -15,16 +15,14 @@ export class CardViajeComponent {
 
 @Output() cardEvent = new EventEmitter<number>
 
-user: User
-userLogged = {username: 'Amber'}
 // @Input() viaje!: Viaje;
 @Input() cardviaje: Viaje;
 @Input() i:number
+@Input() estaEnMisViajes: boolean;
 usuarioService: any;
 
 constructor(public userService: DatosUsuarioService, public router: Router, modifyViajeService: ModifyViajeService, private dialogService: DialogService) {
   
-  this.user = this.userService.user_logged;
 }
 
 goToViaje(){
@@ -40,7 +38,7 @@ goToViaje(){
 
 areMisViajes():boolean{
   let ismine: boolean = false
-  if (this.user.misViajes.includes(this.cardviaje)){
+  if (this.estaEnMisViajes){
     ismine = true
   }
   return ismine
