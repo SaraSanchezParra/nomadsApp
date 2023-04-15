@@ -60,6 +60,7 @@ export class AddViajeComponent {
     let formValue = this.addForm.value
     let viajeToAdd = new Viaje(formValue.nombreViaje, formValue.fotoViaje, formValue.descripcionViaje, [], 0)
     viajeToAdd.days = this.viaje.days
+    console.log(viajeToAdd)
     this.user.misViajes.push(viajeToAdd)
     console.log(this.user);
     this.router.navigate(['/paginaViaje'])
