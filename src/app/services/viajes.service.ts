@@ -11,10 +11,10 @@ export class ViajesService {
 
 //  private apiUrl = "http://localhost:3000/viajes";
 //  private apiUrl: string = "https://nomads-api.vercel.app/viajes";
-//  private apiUrl1 = "http://localhost:3000/topViajes";
-//  private apiUrl2 = "http://localhost:3000/topViajesLog";
- private apiUrl1 = "https://nomads-api.vercel.app/topViajes";
- private apiUrl2 = "https://nomads-api.vercel.app/topViajesLog";
+ private apiUrl1 = "http://localhost:3000/topViajes";
+ private apiUrl2 = "http://localhost:3000/topViajesLog";
+//  private apiUrl1 = "https://nomads-api.vercel.app/topViajes";
+//  private apiUrl2 = "https://nomads-api.vercel.app/topViajesLog";
 
 
 

@@ -1,12 +1,12 @@
 
-import { Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Viaje } from 'src/app/models/viaje';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user';
-import { ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -14,15 +14,15 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.css']
 })
-export class PerfilComponent implements OnInit{
+export class PerfilComponent {
   public showFavs = true;
   public showIcons = false;
   public loged:boolean;
   public usuarioMostrado:User;
   public usuarioBuscado:User;
-  username: string;
   
-  constructor(private router:Router, public userService: DatosUsuarioService, private http: HttpClient, private route: ActivatedRoute) {
+  
+  constructor(private router:Router, public userService: DatosUsuarioService, private http: HttpClient) {
     this.loged = true;
     if(this.userService.usuarioBuscado){
       this.usuarioMostrado = this.userService.user;
@@ -30,14 +30,9 @@ export class PerfilComponent implements OnInit{
     else{
       this.usuarioMostrado = this.userService.user_logged
     }
- 
-  }
+      
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.username = params.username;
-      console.log(this.username);
-    });
+    
   }
   
   // isMe() {
