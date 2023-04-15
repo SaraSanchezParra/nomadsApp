@@ -24,7 +24,7 @@ usuarioService: any;
 
 constructor(public userService: DatosUsuarioService, public router: Router, modifyViajeService: ModifyViajeService, private dialogService: DialogService) {
   
-  this.user = userService.user
+  this.user = this.userService.user_logged;
 }
 
 goToViaje(){
@@ -40,7 +40,7 @@ goToViaje(){
 
 areMisViajes():boolean{
   let ismine: boolean = false
-  if (this.user.misviajes.includes(this.cardviaje)){
+  if (this.user.misViajes.includes(this.cardviaje)){
     ismine = true
   }
   return ismine

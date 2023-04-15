@@ -20,29 +20,19 @@
                 Top viajes
             </div>
             <div class="cards" *ngFor="let viaje of viajes" routerLink="/paginaViaje">
-                <app-card-viaje [viaje]="viaje"></app-card-viaje>
+                <app-card-viaje [cardviaje]="viaje"></app-card-viaje>
             </div>
         </div>
         <div class="users">
             <div class="top">
                 <div class="top-nomads">Top Nomads</div>
-                <div class="lupa">
 
-                </div>
             </div>
             <div class="topUsers">
-                <div class="nomads">
-                    <a routerLink="/perfil"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeCsPZIpm52I6alznXfXFH87jOvCte_bB3lQ&usqp=CAU" width="55" height="55"></a>
+                <div *ngFor="let user of users" class="nomads">
+                    <a routerLink="/perfil"><img src="{{user.photo}}" width="55" height="55"></a>
                 </div>
-                <div class="nomads">
-                  <a routerLink="/perfil"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpLt_LcVUfSHHjUrkKZYJS3U-QnGTDAQ1tjw&usqp=CAU" width="55" height="55"></a>
-                </div>
-                <div class="nomads">
-                  <a routerLink="/perfil"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeMbhNKww6n1J3XGfcp0U6kPveholuR34k5w&usqp=CAU" width="55" height="55"></a>
-                </div>
-                <div class="nomads">
-                   <a routerLink="/perfil"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ60LPForjoLdSw740ItfIKV8RVvi5yqLy3Kw&usqp=CAU" width="55" height="55"></a>
-                </div>
+
             </div>
         </div>
     </div>

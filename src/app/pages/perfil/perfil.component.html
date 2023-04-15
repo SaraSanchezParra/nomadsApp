@@ -9,15 +9,15 @@
 
             <div class="ajustesProfile"> 
                  <!-- <div class="profile_photo"> -->
-                    <img class="photoBorde" src={{this.userService.user.photo}} alt="perfil">
+                    <img class="photoBorde" src={{this.usuarioMostrado.photo}} alt="perfil">
                 <!-- </div> -->
-                <div class="ajustesymensaje" *ngIf ="isMe(); else esFalso">
+                <div class="ajustesymensaje" *ngIf ="!usuarioBuscado">
                     <button type="button" class="icono" (click)="ajustesPerfil()"> Editar
                     </button>
                 </div>
                 <!-- cambio de boton cuando loged -->
                 <ng-template #esFalso>
-                    <div class="ajustesymensaje" >
+                    <div class="ajustesymensaje" *ngIf ="usuarioBuscado">
                         <button type="button" class="icono" (click)="enviarMensaje()"> Mensaje
                         </button>
                     </div>
@@ -25,26 +25,26 @@
                 
             </div>
             <section>
-                <div name="nombre">{{this.userService.user.name}}</div>
-                <div name="apellido">{{this.userService.user.surname}}</div>
-                <div name="email">{{this.userService.user.email}}</div>
-                <div name="nombre">{{this.userService.user.username}}</div>
+                <div name="nombre">{{this.usuarioMostrado.name}}</div>
+                <div name="apellido">{{this.usuarioMostrado.surname}}</div>
+                <div name="email">{{this.usuarioMostrado.email}}</div>
+                <div name="nombre">{{this.usuarioMostrado.username}}</div>
             </section>
         </div>
-        <div id="descripcion" name="descripcion">{{this.userService.user.descripcion}}</div>
+        <div id="descripcion" name="descripcion">{{this.usuarioMostrado.descripcion}}</div>
         <div class="botones">
            <button [ngClass]="{'active': showFavs}" class="button1" type="button" (click)="mostrarFavoritas()">Favoritas</button>
            <button [ngClass]="{'active': !showFavs}" class="button2" type="button" (click)="mostrarMisViajes()">Mis viajes</button>
         </div>
         
         <div class="cards" *ngIf="showFavs ; else misviajes">
-            <ng-container *ngFor="let viaje of this.userService.user.favs; let i = index">
-                <app-card-viaje [viaje]="viaje"></app-card-viaje>
+            <ng-container *ngFor="let viaje of this.usuarioMostrado.favs; let i = index">
+                <app-card-viaje [cardviaje]="viaje"></app-card-viaje>
             </ng-container>
         </div>
         <div  class="cards"><ng-template #misviajes>
-            <ng-container *ngFor="let viaje of this.userService.user.misviajes; let i = index">
-                <app-card-viaje [viaje]="viaje" (cardEvent)="borrarViaje($event)"></app-card-viaje>
+            <ng-container *ngFor="let viaje of this.usuarioMostrado.misViajes; let i = index">
+                <app-card-viaje [cardviaje]="viaje" (cardEvent)="borrarViaje($event)"></app-card-viaje>
             </ng-container>
 
         </ng-template>

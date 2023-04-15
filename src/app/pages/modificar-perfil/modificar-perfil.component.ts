@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-modificar-perfil',
@@ -12,7 +14,7 @@ export class ModificarPerfilComponent implements OnInit {
 
   myForm: FormGroup;
 
-  constructor(private router:Router, private fb: FormBuilder, public userService: DatosUsuarioService) { }
+  constructor(private router:Router, private fb: FormBuilder, public userService: DatosUsuarioService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
@@ -48,26 +50,29 @@ export class ModificarPerfilComponent implements OnInit {
 
 
   modificar() {
-    if (this.myForm.valid) {
-      this.router.navigate(['/perfil']);
-      
-    }
-    else{
+  if (this.myForm.valid) {
+    const { user_name, email, name, surname, foto, descripcion, password } = this.myForm.value;
 
-      console.log("data error")
-    }
+    this.userService.modificarUser(this.userService.user).subscribe(
+      () => {
+        this.toastr.success('El usuario se ha modificado correctamente')
+        this.router.navigate(['/perfil']);
+      
+      }
+    );
+  }
     const nombre = this.myForm.value.nombre;
     const apellido = this.myForm.value.apellido;
-    const email = this.myForm.value.email;
+    const email1 = this.myForm.value.email;
     const username = this.myForm.value.nombreUsuario;
-    const descripcion = this.myForm.value.descripcion;
-    const foto = this.myForm.value.foto;
+    const descripcion1 = this.myForm.value.descripcion;
+    const foto1 = this.myForm.value.foto;
     this.userService.user.name = nombre;
     this.userService.user.surname = apellido;
-    this.userService.user.email = email;
+    this.userService.user.email = email1;
     this.userService.user.username = username;
-    this.userService.user.descripcion = descripcion;
-    this.userService.user.photo = foto;
+    this.userService.user.descripcion = descripcion1;
+    this.userService.user.photo = foto1;
   }
   irPerfil(){
     this.router.navigateByUrl("/perfil")}
@@ -75,11 +80,3 @@ export class ModificarPerfilComponent implements OnInit {
       
    
   }
-
-
-
-//JS para mostrar la imagen en modificar perfil
-//function mostrarImagen() {
-//   let imagen = document.getElementById("imagenInput").value;
-//   document.getElementById("perfilImg").src = imagen;
-// }

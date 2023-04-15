@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Viaje } from 'src/app/models/viaje';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
+import { HttpClient } from '@angular/common/http';
+import { User } from 'src/app/models/user';
 
 
 
@@ -13,28 +15,33 @@ import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent {
-  
-  public user = { name: '', surname: '', email: '', username: '', descripcion:"",photo:'', favs: [], misviajes: [] };
-
   public showFavs = true;
   public showIcons = false;
-  public loged:Boolean;
+  public loged:boolean;
+  public usuarioMostrado:User;
+  public usuarioBuscado:User;
   
   
-  constructor(private router:Router, public userService: DatosUsuarioService) {
+  constructor(private router:Router, public userService: DatosUsuarioService, private http: HttpClient) {
     this.loged = true;
-    localStorage.setItem("user_id", "1");    
+    if(this.userService.usuarioBuscado){
+      this.usuarioMostrado = this.userService.user;
+    }
+    else{
+      this.usuarioMostrado = this.userService.user_logged
+    }
+      
 
     
   }
   
-  isMe() {
-    let res: boolean = false;
-    if (this.userService.user.username == this.userService.user_logged.username){
-      res = true
-    }
-    return res
-  }
+  // isMe() {
+  //   let res: boolean = false;
+  //   if (this.userService.user.username == this.userService.user_logged.username){
+  //     res = true
+  //   }
+  
+  // }
 
    mostrarFavoritas(): void {
     this.showFavs = true;
@@ -50,7 +57,7 @@ export class PerfilComponent {
   }
   
    borrarViaje(i: number): void {
-    this.user.misviajes.splice(i, 1);
+    // this.user.misviajes.splice(i, 1);
   }
 
    ajustesPerfil():void{
