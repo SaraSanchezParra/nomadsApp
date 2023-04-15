@@ -3,11 +3,16 @@ export class PuntoDeInteres {
     // set up properties
     
     public pI_id: number
-    public img_url: string
-    public title: string
+    public foto: string
+    public nombre: string
+    public corLong: string
+    public corLat: string
 
-    constructor(img_url: string, title: string) {
-        this.img_url = img_url
-        this.title = title
+
+    constructor(foto: string, nombre: string, corLong: string, corLat: string) {
+        this.foto = foto
+        this.nombre = nombre
+        this.corLong = corLong
+        this.corLat = corLat
     }
 }

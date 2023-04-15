@@ -17,12 +17,16 @@ export class ViajeService {
   }
 
   public getViaje(viaje_id: number) {
-    let newUrl = `${this.url}?viaje_id=${viaje_id}`;
+    let newUrl = `${this.url}viaje?viaje_id=${viaje_id}`;
     return this.http.get(newUrl);
   }
 
   public getDay(day_id: number) {
-    let newUrl = `${this.url}?day_id=${day_id}`
+    let newUrl = `${this.url}getPI?dia_id=${day_id}`
     return this.http.get(newUrl)
+  }
+
+  public addViaje(viaje: Viaje) {
+    return this.http.post(`${this.url}addViaje`, viaje)
   }
 }

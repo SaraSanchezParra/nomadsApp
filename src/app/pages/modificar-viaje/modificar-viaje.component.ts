@@ -19,7 +19,6 @@ export class ModificarViajeComponent {
 
 
   constructor(private fb: FormBuilder, public modifyViajeService: ModifyViajeService, private router: Router, private location: Location) {
-    this.viaje = new Viaje('Aruba', 'http://blog.gogo-vacations.com/wp-content/uploads/2016/01/XAN_14_001-1.jpg', 'Las playas del Caribe', [new Day([new PuntoDeInteres('https://i0.wp.com/residencialvistaalegre.com/wp-content/uploads/2019/03/playa-tortugas.jpg?fit=1200%2C831','Playa de las Tortugas')])], 2)
 
     this.modifyForm = this.fb.group({
       nombreViaje: ['', Validators.required],

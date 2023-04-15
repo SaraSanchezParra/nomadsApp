@@ -20,11 +20,12 @@ export class DayCardComponent {
   user: User
   @Input() dia!:Day
   @Input() i!:number
+  @Input() own!: boolean
   ReadMore: boolean = true
   visible: boolean = false
 
   constructor(public userService: DatosUsuarioService, private router: Router, private dialogService: DialogService, public dialog: MatDialog) {
-    this.user=this.userService.user
+    this.user=this.userService.user_logged
   }
 
   onClick() {
@@ -36,11 +37,9 @@ export class DayCardComponent {
 
   areMisViajes():boolean{
     let ismine: boolean = false
-    for (let viaje of this.user.misViajes){
-      if (viaje.days.includes(this.dia)) {
+      if (this.own) {
         ismine = true
       }
-    }
     return ismine
   }
 

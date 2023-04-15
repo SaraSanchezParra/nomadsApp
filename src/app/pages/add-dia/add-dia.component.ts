@@ -42,16 +42,16 @@ export class AddDiaComponent {
 
   public addDay() {
     let formValue = this.addDiaForm.value;
-    let PI1 = new PuntoDeInteres(formValue.fotoPuntoDeInteres1, formValue.nombrePuntoDeInteres1)
-    let PI2 = new PuntoDeInteres(formValue.fotoPuntoDeInteres2, formValue.nombrePuntoDeInteres2)
-    let PI3 = new PuntoDeInteres(formValue.fotoPuntoDeInteres3, formValue.nombrePuntoDeInteres3)
-    let PI4 = new PuntoDeInteres(formValue.fotoPuntoDeInteres4, formValue.nombrePuntoDeInteres4)
-    let PI5 = new PuntoDeInteres(formValue.fotoPuntoDeInteres5, formValue.nombrePuntoDeInteres5)
+    let PI1 = new PuntoDeInteres(formValue.fotoPuntoDeInteres1, formValue.nombrePuntoDeInteres1, null, null)
+    let PI2 = new PuntoDeInteres(formValue.fotoPuntoDeInteres2, formValue.nombrePuntoDeInteres2, null, null)
+    let PI3 = new PuntoDeInteres(formValue.fotoPuntoDeInteres3, formValue.nombrePuntoDeInteres3, null, null)
+    let PI4 = new PuntoDeInteres(formValue.fotoPuntoDeInteres4, formValue.nombrePuntoDeInteres4, null, null)
+    let PI5 = new PuntoDeInteres(formValue.fotoPuntoDeInteres5, formValue.nombrePuntoDeInteres5, null, null)
 
     let PIs = [PI1, PI2, PI3, PI4, PI5]
     let dayToAdd: Day = new Day([])
     for (let PI of PIs){
-      if (PI.img_url != null && PI.title != null){
+      if (PI.foto != null && PI.nombre != null){
         dayToAdd.puntosDeInteres.push(PI)
       }
     }

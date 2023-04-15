@@ -7,14 +7,14 @@
             <div class="PI">
                 <h4>Punto de interes 1</h4>
                 <label for="nombrePuntoDeInteres1">Nombre del punto de interes</label>
-            <input id="nombrePuntoDeInteres1" type="text" formControlName="nombrePuntoDeInteres1" class="form-control" placeholder="{{dia.puntosDeInteres[0].title}}"
+            <input id="nombrePuntoDeInteres1" type="text" formControlName="nombrePuntoDeInteres1" class="form-control" placeholder="{{dia.puntosDeInteres[0].nombre}}"
                 [ngClass]="{'is-invalid': modDiaForm.get('nombrePuntoDeInteres1').invalid && (modDiaForm.get('nombrePuntoDeInteres1').dirty || modDiaForm.get('nombrePuntoDeInteres1').touched)}">
             <div *ngIf="modDiaForm.get('nombrePuntoDeInteres1').invalid && (modDiaForm.get('nombrePuntoDeInteres1').dirty || modDiaForm.get('nombrePuntoDeInteres1').touched)"
                 class="invalid-feedback">
                 El nombre del punto de interes es necesario
             </div>
             <label for="fotoPuntoDeInteres1">Foto del punto de interes</label>
-            <input id="fotoPuntoDeInteres1" type="text" formControlName="fotoPuntoDeInteres1" class="form-control" placeholder="{{dia.puntosDeInteres[0].img_url}}"
+            <input id="fotoPuntoDeInteres1" type="text" formControlName="fotoPuntoDeInteres1" class="form-control" placeholder="{{dia.puntosDeInteres[0].foto}}"
                 [ngClass]="{'is-invalid': modDiaForm.get('fotoPuntoDeInteres1').invalid && (modDiaForm.get('fotoPuntoDeInteres1').dirty || modDiaForm.get('fotoPuntoDeInteres1').touched)}">
             <div *ngIf="modDiaForm.get('fotoPuntoDeInteres1').invalid && (modDiaForm.get('fotoPuntoDeInteres1').dirty || modDiaForm.get('fotoPuntoDeInteres1').touched)"
                 class="invalid-feedback">

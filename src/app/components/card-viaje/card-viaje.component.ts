@@ -5,6 +5,8 @@ import { Viaje } from 'src/app/models/viaje';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 import { DialogService } from 'src/app/services/dialog.service';
 import { ModifyViajeService } from 'src/app/services/modify-viaje.service';
+import { ViajesService } from 'src/app/services/viajes.service';
+import { ViajeService } from 'src/app/shared/viaje.service';
 
 @Component({
   selector: 'app-card-viaje',
@@ -22,15 +24,17 @@ userLogged = {username: 'Amber'}
 @Input() i:number
 usuarioService: any;
 
-constructor(public userService: DatosUsuarioService, public router: Router, modifyViajeService: ModifyViajeService, private dialogService: DialogService) {
+constructor(public userService: DatosUsuarioService, public router: Router, modifyViajeService: ModifyViajeService, private dialogService: DialogService, public viajeService: ViajesService) {
   
   this.user = this.userService.user_logged;
 }
 
 goToViaje(){
   console.log("take to viaje");
-  if (this.userService.loged)
+  if (this.userService.loged) {
     this.router.navigate(['/paginaViaje'])
+    this.viajeService.selectedViaje = this.cardviaje
+  }
   else
   {
     this.userService.showHeaderFooter = false;

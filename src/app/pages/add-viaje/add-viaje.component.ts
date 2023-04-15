@@ -6,6 +6,8 @@ import { Viaje } from 'src/app/models/viaje';
 import { AddViajeService } from 'src/app/services/add-viaje.service';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 import { User } from '../../models/user';
+import { ViajeService } from 'src/app/shared/viaje.service';
+import { Respuesta } from 'src/app/models/respuesta';
 
 @Component({
   selector: 'app-add-viaje',
@@ -22,10 +24,10 @@ export class AddViajeComponent {
     return this.addForm.get('days') as FormArray;
   }
   
-  constructor(private formBuilder: FormBuilder, public viajeToAddService: AddViajeService, private router: Router, public userService: DatosUsuarioService) {
+  constructor(private formBuilder: FormBuilder, public viajeToAddService: AddViajeService, private router: Router, public viajeService: ViajeService, public userService: DatosUsuarioService) {
     this.buildForm()
-    this.viaje = this.viajeToAddService.viajeToAdd
-    this.user =this.userService.user
+    // this.viaje = this.viajeToAddService.viajeToAdd
+    // this.user =this.userService.user
   }
 
   private buildForm() {
@@ -42,8 +44,15 @@ export class AddViajeComponent {
 
   public addViaje() {
     let formValue = this.addForm.value
-    let viajeToAdd = new Viaje(formValue.nombreViaje, formValue.fotoViaje, formValue.descripcionViaje, [], 0)
-    this.viajeToAddService.viajeToAdd = viajeToAdd
+    let viajeToAdd = new Viaje(null, formValue.nombreViaje, formValue.fotoViaje, formValue.descripcionViaje, [], 0, this.userService.user_logged.user_id)
+    console.log(viajeToAdd);
+    
+    this.viajeService.addViaje(viajeToAdd).subscribe((answer: Respuesta) => {
+      if (answer.mensaje != "0") {
+        console.log("Viaje creado");
+        this.router.navigate(["/paginaViaje"])
+      }
+    })
   }
 
   public addDays() {
@@ -56,14 +65,15 @@ export class AddViajeComponent {
     }
   }
 
-  public submitViaje(){
-    let formValue = this.addForm.value
-    let viajeToAdd = new Viaje(formValue.nombreViaje, formValue.fotoViaje, formValue.descripcionViaje, [], 0)
-    viajeToAdd.days = this.viaje.days
-    this.user.misViajes.push(viajeToAdd)
-    console.log(this.user);
-    this.router.navigate(['/paginaViaje'])
-  }
+  // public submitViaje(){
+  //   let formValue = this.addForm.value
+  //   let viajeToAdd = new Viaje(formValue.nombreViaje, formValue.fotoViaje, formValue.descripcionViaje, [], 0)
+
+  //   viajeToAdd.days = this.viaje.days
+  //   this.user.misViajes.push(viajeToAdd)
+  //   console.log(this.user);
+  //   this.router.navigate(['/paginaViaje'])
+  // }
 
   public eliminate(day_id: number) {
     this.viaje.days.splice(day_id, 1)

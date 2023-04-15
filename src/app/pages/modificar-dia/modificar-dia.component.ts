@@ -21,7 +21,7 @@ export class ModificarDiaComponent {
   constructor(private fb: FormBuilder, public modViajeService: ModifyViajeService, private router: Router, public userService: DatosUsuarioService) {
     this.buildForm();
     this.counter=0;
-    this.dia = new Day([new PuntoDeInteres('https://i0.wp.com/residencialvistaalegre.com/wp-content/uploads/2019/03/playa-tortugas.jpg?fit=1200%2C831', 'Playa de las Tortugas')])
+    // this.dia = new Day([new PuntoDeInteres('https://i0.wp.com/residencialvistaalegre.com/wp-content/uploads/2019/03/playa-tortugas.jpg?fit=1200%2C831', 'Playa de las Tortugas')])
   }
 
 
