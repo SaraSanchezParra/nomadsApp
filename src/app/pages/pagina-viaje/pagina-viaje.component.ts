@@ -13,15 +13,18 @@ import { ViajeService } from 'src/app/shared/viaje.service';
 })
 export class PaginaViajeComponent {
 
-  viaje_id: number
+viaje_id: number
 viaje: Viaje
+userFoto: string
 dia: Day
 dia2: Day
 fav: boolean
+openDay ;
 
 constructor(public ViajeService: ViajeService) {
   this.ViajeService.getViaje(1).subscribe((answer: Respuesta) => {
-    this.viaje = answer.data_viaje[0];
+    // this.viaje = answer.data_viaje[0];
+    this.userFoto = answer.data_viaje.user_foto
     console.log(answer);
     
   })
@@ -30,13 +33,13 @@ constructor(public ViajeService: ViajeService) {
   this.fav=false
 }
 
-ngAfterViewInit(): void {
-  const map = new Map('map').setView([40.4167047, -3.7035825], 13);
-  tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-}
+// ngAfterViewInit(): void {
+//   const map = new Map('map').setView([40.4167047, -3.7035825], 13);
+//   tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//     maxZoom: 19,
+//     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+// }).addTo(map);
+// }
 
 checkfav():boolean {
   if (!this.fav) {
@@ -52,7 +55,7 @@ showOnMap(cardMessage) {
   if (cardMessage.isOpen) {
     console.log(cardMessage.isOpen);
     this.ViajeService.getDay(cardMessage.index).subscribe((answer: Respuesta) => {
-      let openday = answer.data_dia;
+    this.openDay = answer.data_dia;
     })
   }
   else {

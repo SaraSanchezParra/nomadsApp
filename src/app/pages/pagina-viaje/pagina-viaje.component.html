@@ -18,7 +18,7 @@
     </div>
     
     <div class="days-area">
-        <ng-contianer *ngFor="let dia of viaje.days; index as i">
+        <ng-contianer *ngFor="let dia of openDay; index as i">
             <app-day-card [dia]="dia" [i]="i" (cardEvent)="showOnMap($event)" (cardEvent)="eliminar($event)"></app-day-card>
         </ng-contianer>
     </div>

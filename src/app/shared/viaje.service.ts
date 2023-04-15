@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Viaje } from '../models/viaje';
 import { User } from '../models/user';
 import { HttpClient } from '@angular/common/http';
+import { Respuesta } from '../models/respuesta';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class ViajeService {
   }
 
   public getViaje(viaje_id: number) {
-    let newUrl = `${this.url}?viaje_id=${viaje_id}`;
+    let newUrl = `${this.url}viaje?viaje_id=${viaje_id}`;
     return this.http.get(newUrl);
   }
 
