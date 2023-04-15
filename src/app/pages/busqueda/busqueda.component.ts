@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { ViajesService } from 'src/app/services/viajes.service';
+import { Respuesta } from 'src/app/models/respuesta';
 
 
 
@@ -13,19 +15,19 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class BusquedaComponent {
 
-  public loged:Boolean
-  public redirectToPerfil:Boolean
-  public destinoEncontrado:Boolean
-  public usuarioEncontrado:Boolean
+  public loged: Boolean
+  public redirectToPerfil: Boolean
+  public destinoEncontrado: Boolean
+  public usuarioEncontrado: Boolean
 
- 
-  
 
-  constructor(private router: Router, private toastr: ToastrService) { 
 
-    this.destinoEncontrado =false;
-    this.usuarioEncontrado =false;
-    
+
+  constructor(private router: Router, private toastr: ToastrService, public viajesService: ViajesService) {
+
+    this.destinoEncontrado = false;
+    this.usuarioEncontrado = false;
+
   }
 
 
@@ -33,25 +35,33 @@ export class BusquedaComponent {
 
 
 
-  onSubmit(form:NgForm): void {
+  onSubmit(form: NgForm): void {
     // console.log(form.value)
-    
+
     if (form.controls.usuario.valid) {
       this.router.navigate(['/perfil']);
     }
-    else
-    {
-      this.router.navigate(['/viajesDestino']);
+    else {
+      this.viajesService.viajesBusqueda(String(form.controls['destino'].value), Number(form.controls['dias'].value)).subscribe((respuesta: Respuesta) => {
+
+
+        console.log(respuesta);
+        this.viajesService.viajesBuscados = respuesta.data_viaje;
+        console.log(this.viajesService.viajesBuscados);
+        
+        if (respuesta.data_viaje.length === 0) {
+          this.toastr.warning('No se encontró el destino');
+        }
+        else {
+          this.router.navigate(['/viajesDestino']);
+        }
+      }) 
     }
 
-    if (this.destinoEncontrado) {
-      this.toastr.warning('No se encontró el destino')};
+
+    if (this.usuarioEncontrado) { this.toastr.warning('No se encontró el usuario') }
 
 
-    if (this.usuarioEncontrado) 
-      {this.toastr.warning('No se encontró el usuario')}
-  
-    
   }
 
 }

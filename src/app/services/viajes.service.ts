@@ -8,7 +8,10 @@ import { Viaje } from 'src/app/models/viaje';
 })
 export class ViajesService {
 
- private apiUrl = "http://localhost:3000/viajes";
+ public viajesBuscados: Viaje []
+//  private apiUrl = "http://localhost:3000/viajesDestino";
+private apiUrl = "https://nomads-api.vercel.app/"
+
 
  constructor(private http: HttpClient) { }
 
@@ -16,5 +19,14 @@ export class ViajesService {
    return this.http.get<Viaje[]>(this.apiUrl);
    
  }
+
+
+
+viajesBusqueda(ubicacion:string, dias:number){
+  
+  let url = `https://nomads-api.vercel.app/viajesDestino?ubicacion=${ubicacion}&ndiasViaje=${dias}`
+
+  return this.http.get(url)
+}
 }
 
