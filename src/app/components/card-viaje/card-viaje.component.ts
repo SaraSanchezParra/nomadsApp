@@ -15,69 +15,68 @@ import { ViajeService } from 'src/app/shared/viaje.service';
 })
 export class CardViajeComponent {
 
-@Output() cardEvent = new EventEmitter<number>
+  @Output() cardEvent = new EventEmitter<number>
 
-user: User
-userLogged = {username: 'Amber'}
-// @Input() viaje!: Viaje;
-@Input() cardviaje: Viaje;
-@Input() i:number
-usuarioService: any;
+  user: User
+  userLogged = { username: 'Amber' }
+  // @Input() viaje!: Viaje;
+  @Input() cardviaje: Viaje;
+  @Input() i: number
+  usuarioService: any;
+  viaje: Viaje;
 
-constructor(public userService: DatosUsuarioService, public router: Router, modifyViajeService: ModifyViajeService, private dialogService: DialogService, public viajeService: ViajesService) {
-  
-  this.user = this.userService.user_logged;
-}
+  constructor(public userService: DatosUsuarioService, public router: Router, modifyViajeService: ModifyViajeService, private dialogService: DialogService) {
 
-goToViaje(){
-  console.log("take to viaje");
-  if (this.userService.loged) {
-    this.router.navigate(['/paginaViaje'])
-    this.viajeService.selectedViaje = this.cardviaje
+    this.user = this.userService.user_logged;
   }
-  else
-  {
-    this.userService.showHeaderFooter = false;
-    this.router.navigate(['/login']);
+
+  goToViaje() {
+    console.log("take to viaje");
+    if (this.userService.loged)
+      this.router.navigate(['/paginaViaje'])
+    else {
+      this.userService.showHeaderFooter = false;
+      this.router.navigate(['/login']);
+    }
   }
-}
 
-areMisViajes():boolean{
-  let ismine: boolean = false
-  if (this.user.misViajes.includes(this.cardviaje)){
-    ismine = true
+  areMisViajes(): boolean {
+    let ismine: boolean = false
+    if (this.user.misViajes.includes(this.cardviaje)) {
+      ismine = true
+    }
+    return ismine
   }
-  return ismine
-}
 
-borrarViaje(){
-  let ref = this.i;
-  this.cardEvent.emit(ref)
-}
-
-editarViaje(){
-  let ref = this.i;
-  this.cardEvent.emit(ref)
-  this.router.navigate(['/modificarViaje'])
-  //esto debería de mandar el id de viaje
-}
-
-openDialog() {
-  this.dialogService.confirmDialog();
-  console.log('open dialog');
-}
-
-goProfile() {
-  // this.userService.user.user_Id = this.viaje.user_Id
-  if(this.userService.loged){
-    this.router.navigate(['/perfil'])
+  borrarViaje() {
+    let ref = this.i;
+    this.cardEvent.emit(ref)
   }
-  else{
-    this.userService.showHeaderFooter = false;
-    this.router.navigate(['/login'])
+
+  editarViaje() {
+    let ref = this.i;
+    this.cardEvent.emit(ref)
+    this.router.navigate(['/modificarViaje'])
+    //esto debería de mandar el id de viaje
   }
- 
-  
-}
+
+  openDialog() {
+    this.dialogService.confirmDialog();
+    console.log('open dialog');
+  }
+
+  goProfile() {
+    // this.userService.user.user_Id = this.viaje.user_Id
+    if (this.userService.loged) {
+      this.userService.user = this.viaje.users;
+      this.router.navigate(['/perfil'])
+    }
+    else {
+      this.userService.showHeaderFooter = false;
+      this.router.navigate(['/login'])
+    }
+
+
+  }
 
 }

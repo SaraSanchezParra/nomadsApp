@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: "", component:LandingPageComponent },
   { path: "home-loged", component: HomeLogedComponent },
   { path: "home-no-loged", component: HomeNoLogedComponent },
-  { path: "perfil", component: PerfilComponent },
+  { path: 'perfil/:username', component: PerfilComponent },
   { path: "busqueda", component: BusquedaComponent },
   { path: "chatGeneral", component: ChatGeneralComponent },
   { path: "chatPrivado", component: ChatPrivadoComponent },

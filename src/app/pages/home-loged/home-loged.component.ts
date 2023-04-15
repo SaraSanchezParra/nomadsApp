@@ -3,6 +3,8 @@ import { User } from 'src/app/models/user';
 import { Viaje } from 'src/app/models/viaje';
 import { TopUserService } from 'src/app/services/topUser.service';
 import { ViajesService } from 'src/app/services/viajes.service';
+import { Router } from '@angular/router';
+import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
 @Component({
   selector: 'app-home-loged',
@@ -15,22 +17,24 @@ export class HomeLogedComponent implements OnInit {
 
   public viajes: Viaje[];
   public users: User[];
+  public usuarioBuscado: boolean = false;
 
-  constructor(private viajesService: ViajesService, private topUserServie: TopUserService) {
+  constructor(private viajesService: ViajesService, private topUserService: TopUserService, private router: Router, private datosUsuarioService: DatosUsuarioService) {
     this.viajesService.getTopViajesLog().subscribe(viajes => {
       console.log(viajes);
       this.viajes = viajes
 
-      this.topUserServie.getTopNomads().subscribe(users => {
+      this.topUserService.getTopNomads().subscribe(users => {
         console.log(users);
         this.users = users
-  
+
         // console.log(this.users[0].photo);
       });
     }
 
       // console.log(this.viajes);
     );
+  
   }
 
   ngOnInit() {
@@ -44,14 +48,25 @@ export class HomeLogedComponent implements OnInit {
       // console.log(this.viajes);
     });
   }
-         
+
   getTopNomads(): void {
-    this.topUserServie.getTopNomads().subscribe(users => {
+    this.topUserService.getTopNomads().subscribe(users => {
       console.log(users);
       this.users = users
 
-      console.log(this.users[0].photo);
     });
   }
+  userPerfil(username: User): void {
+    this.datosUsuarioService.usuarioBuscado = false;
+    this.datosUsuarioService.user = username;
+    this.router.navigate(['/perfil', username]);
+    console.log(username);
+  }
 
+  getUserById(user_id: number): User {
+
+    console.log(user_id);
+    return this.users.find(user => user.user_id === user_id);
+  }
+  
 }
