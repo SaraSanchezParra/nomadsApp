@@ -8,7 +8,8 @@ import { Viaje } from 'src/app/models/viaje';
 })
 export class ViajesService {
 
- private apiUrl = "http://localhost:3000/viajes";
+//  private apiUrl = "http://localhost:3000/viajes";
+ private apiUrl = "https://nomads-api.vercel.app/viajes"
 
  constructor(private http: HttpClient) { }
 
