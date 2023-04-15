@@ -6,6 +6,7 @@ import { Viaje } from 'src/app/models/viaje';
 import { AddViajeService } from 'src/app/services/add-viaje.service';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 import { User } from '../../models/user';
+import { ViajeService } from 'src/app/shared/viaje.service';
 
 @Component({
   selector: 'app-add-viaje',
@@ -22,9 +23,8 @@ export class AddViajeComponent {
     return this.addForm.get('days') as FormArray;
   }
   
-  constructor(private formBuilder: FormBuilder, public viajeToAddService: AddViajeService, private router: Router, public userService: DatosUsuarioService) {
+  constructor(private formBuilder: FormBuilder, public viajeService: ViajeService, private router: Router, public userService: DatosUsuarioService) {
     this.buildForm()
-    this.viaje = this.viajeToAddService.viajeToAdd
     this.user =this.userService.user
   }
 
@@ -43,7 +43,7 @@ export class AddViajeComponent {
   public addViaje() {
     let formValue = this.addForm.value
     let viajeToAdd = new Viaje(formValue.nombreViaje, formValue.fotoViaje, formValue.descripcionViaje, [], 0)
-    this.viajeToAddService.viajeToAdd = viajeToAdd
+    // this.viajeService.postViaje
   }
 
   public addDays() {
