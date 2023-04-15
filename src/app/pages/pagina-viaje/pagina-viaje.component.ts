@@ -51,6 +51,10 @@ checkfav():boolean {
 showOnMap(cardMessage) {
   if (cardMessage.isOpen) {
     console.log(cardMessage.isOpen);
+    this.ViajeService.getDay(cardMessage.index).subscribe((answer: Respuesta) => {
+      let openday: Day = answer.data_dia;
+      this.viaje.days.splice(cardMessage.index, 1, openday)
+    })
   }
   else {
     console.log("is closed" + cardMessage.isOpen);
