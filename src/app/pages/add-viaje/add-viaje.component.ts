@@ -38,7 +38,7 @@ export class AddViajeComponent {
     })
   }
 
-  ngOn
+
 
   public addViaje() {
     let formValue = this.addForm.value
