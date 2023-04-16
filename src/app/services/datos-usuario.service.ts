@@ -33,7 +33,9 @@ export class DatosUsuarioService {
     }
 
     modificarUser(user:User){
-      return this.http.put(this.url + "modificarPerfil", user)
+      console.log(user.descripcion)
+      return this.http.put(this.url + "user?user_id=" + user.user_id, user)
+      
     }
 
 
