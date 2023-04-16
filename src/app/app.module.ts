@@ -45,6 +45,7 @@ import { ConfirmComponent } from './dialogs/confirm/confirm.component';
 import { DatosUsuarioService } from './services/datos-usuario.service';
 import { ViajesService } from './services/viajes.service';
 import { ToastNoAnimationModule } from 'ngx-toastr';
+import { ChatsService } from './services/chats.service';
 
 
 
@@ -100,7 +101,7 @@ import { ToastNoAnimationModule } from 'ngx-toastr';
     ToastNoAnimationModule.forRoot(),
     
   ],
-  providers: [DatosUsuarioService, ViajesService],
+  providers: [DatosUsuarioService, ViajesService,ChatsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { CardChatComponent } from 'src/app/components/card-chat/card-chat.component';
 import { Chats } from 'src/app/models/chat';
+import { RespuestaChat } from 'src/app/models/respuestaChat';
+import { User } from 'src/app/models/user';
+import { ChatsService } from 'src/app/services/chats.service';
 
 @Component({
   selector: 'app-chat-general',
@@ -18,50 +21,19 @@ export class ChatGeneralComponent {
   public chatsMostrados: Chats[];
   public buscandoUsuario: boolean;
 
-  constructor ()
+  constructor (private chatsService: ChatsService)
   {
-    this.chats = [
-      {
-        photo: 'assets/mujerHermosa.jpg',
-        nameUser: '@Maria',
-        hour: "12:00"
-      },
-      {
-        photo: 'https://img.freepik.com/foto-gratis/chico-worldface-espanol-fondo-blanco_53876-137665.jpg?w=2000',
-        nameUser: '@pablo',
-        hour: "01:20"
-      },
-  
-      {
-        photo: 'https://i0.wp.com/codigoespagueti.com/wp-content/uploads/2022/09/Resena-La-chica-salvaje-El-misterio-es-el-nuevo-lenguaje-del-amor.jpg?fit=1280%2C720&quality=80&ssl=1',
-        nameUser: '@Ana',
-        hour: "14:15"
-      },
-      {
-        photo: 'https://img.freepik.com/foto-gratis/chico-worldface-espanol-fondo-blanco_53876-137665.jpg?w=2000',
-        nameUser: '@Ruben',
-        hour: "01:20"
-      },
-      {
-        photo: 'https://d1bvpoagx8hqbg.cloudfront.net/259/69f3b9690c1ff04fb18b212b5b3aec28.jpg',
-        nameUser: '@juan',
-        hour: "01:20"
-      },
-      {
-        photo: 'https://d1bvpoagx8hqbg.cloudfront.net/259/58c26f1727af2a4080a282cfb893d7ee.jpg',
-        nameUser: '@David',
-        hour: "01:20"
-      },
-      {
-        photo: 'https://static-cdn.jtvnw.net/jtv_user_pictures/8794d08c-6f89-4353-a6ac-f0492d9dc731-profile_image-300x300.png',
-        nameUser: '@Violeta',
-        hour: "01:20"
-      },
-  
-    ]
+    this.chats = []
     this.chatsMostrados = this.chats;
     this.buscandoUsuario = false;
-    this.chatPrincipal = true;
+    this.chatPrincipal = true; 
+    
+    this.chatsService.getChatsAll().subscribe((res: RespuestaChat) => {
+    console.log(res);
+    this.chats = res.data;
+    this.chatsMostrados = this.chats;
+  });
+  
   }
 
   buscarUsuario() {
@@ -71,12 +43,17 @@ export class ChatGeneralComponent {
     this.chatPrincipal = false;
     this.indexEncontrado = -1;
   
-    if (nombreBusqueda!="")
-      this.indexEncontrado = this.chats.findIndex(chat => chat.nameUser.toLowerCase().includes(nombreBusqueda));
+    // if (nombreBusqueda!="")
+    //   this.indexEncontrado = this.chats.findIndex(chat => chat.username.toLowerCase().includes(nombreBusqueda));
 
-    console.log(this.indexEncontrado);
+    // console.log(this.indexEncontrado);
     
-    this.usuarioEncontrado = (this.indexEncontrado != -1);
+    // this.usuarioEncontrado = (this.indexEncontrado != -1);
+    this.chatsService.getChat(nombreBusqueda).subscribe((res: RespuestaChat) => {
+      console.log(res);
+      this.chats = res.data;
+      this.chatsMostrados = this.chats;
+    });
     
     if (this.usuarioEncontrado)
     {
@@ -141,3 +118,41 @@ export class ChatGeneralComponent {
   // }
  
 }
+
+
+// {
+      //   photo: 'assets/mujerHermosa.jpg',
+      //   nameUser: '@Maria',
+      //   hour: "12:00"
+      // },
+      // {
+      //   photo: 'https://img.freepik.com/foto-gratis/chico-worldface-espanol-fondo-blanco_53876-137665.jpg?w=2000',
+      //   nameUser: '@pablo',
+      //   hour: "01:20"
+      // },
+  
+      // {
+      //   photo: 'https://i0.wp.com/codigoespagueti.com/wp-content/uploads/2022/09/Resena-La-chica-salvaje-El-misterio-es-el-nuevo-lenguaje-del-amor.jpg?fit=1280%2C720&quality=80&ssl=1',
+      //   nameUser: '@Ana',
+      //   hour: "14:15"
+      // },
+      // {
+      //   photo: 'https://img.freepik.com/foto-gratis/chico-worldface-espanol-fondo-blanco_53876-137665.jpg?w=2000',
+      //   nameUser: '@Ruben',
+      //   hour: "01:20"
+      // },
+      // {
+      //   photo: 'https://d1bvpoagx8hqbg.cloudfront.net/259/69f3b9690c1ff04fb18b212b5b3aec28.jpg',
+      //   nameUser: '@juan',
+      //   hour: "01:20"
+      // },
+      // {
+      //   photo: 'https://d1bvpoagx8hqbg.cloudfront.net/259/58c26f1727af2a4080a282cfb893d7ee.jpg',
+      //   nameUser: '@David',
+      //   hour: "01:20"
+      // },
+      // {
+      //   photo: 'https://static-cdn.jtvnw.net/jtv_user_pictures/8794d08c-6f89-4353-a6ac-f0492d9dc731-profile_image-300x300.png',
+      //   nameUser: '@Violeta',
+      //   hour: "01:20"
+      // },

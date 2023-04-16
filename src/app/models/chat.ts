@@ -3,14 +3,13 @@ import { PathLocationStrategy } from "@angular/common";
 export class Chats {
 
   public photo: string;
-  public nameUser:string;
-  public hour:String
+  public username: string;
+  public hora: String
 
-  constructor(photo:string,nameUser:string,hour:string){
+  constructor(photo:string, username:string, hora:string){
     this.photo=photo,
-    this.nameUser=nameUser,
-    this.hour=hour
+    this.username=username,
+    this.hora=hora
   };
-
 
 }

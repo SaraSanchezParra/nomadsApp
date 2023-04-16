@@ -25,3 +25,20 @@ export class Respuesta {
 
 
 }
+
+// error: false,
+// codigo: 200,
+// mensaje: 'chats encontrados',
+// data: [
+//   {
+//     photo: 'https://estaticos-cdn.prensaiberica.es/clip/958630c2-98d1-4b52-bbc1-79f84d8a07ca_16-9-aspect-ratio_default_0.jpg',
+//     username: '@laura',
+//     hora: '13:00:00'
+//   },
+//   {
+//     photo: 'https://img.freepik.com/foto-gratis/concepto-emociones-personas-foto-cabeza-hombre-guapo-aspecto-serio-barba-confiado-decidido_1258-26730.jpg',
+//     username: '@juan',
+//     hora: '12:30:00'
+//   }
+// ]
+// }
