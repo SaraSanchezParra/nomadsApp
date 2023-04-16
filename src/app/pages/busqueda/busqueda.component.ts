@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ViajesService } from 'src/app/services/viajes.service';
 import { Respuesta } from 'src/app/models/respuesta';
+import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
 
 
@@ -23,10 +24,11 @@ export class BusquedaComponent {
 
 
 
-  constructor(private router: Router, private toastr: ToastrService, public viajesService: ViajesService) {
+  constructor(private router: Router, private toastr: ToastrService, 
+              public viajesService: ViajesService, public userService:DatosUsuarioService) {
 
-    this.destinoEncontrado = false;
-    this.usuarioEncontrado = false;
+    // this.destinoEncontrado = false;
+    // this.usuarioEncontrado = false;
 
   }
 
@@ -39,7 +41,28 @@ export class BusquedaComponent {
     // console.log(form.value)
 
     if (form.controls.usuario.valid) {
-      this.router.navigate(['/perfil']);
+      this.userService.usuarioEncontrado(String(form.controls['usuario'].value)).subscribe((respuesta:Respuesta)=>{
+      
+        console.log(respuesta);
+        this.userService.user = respuesta.data_users[0];
+        console.log(this.userService.user);
+        
+      if(respuesta.data_users.length === 0){
+        this.toastr.warning('No se encontró el usuario') 
+      }
+      else {
+        this.router.navigate(['/perfil:username']);
+      }
+    
+      })
+  
+
+
+
+
+
+
+
     }
     else {
       this.viajesService.viajesBusqueda(String(form.controls['destino'].value), Number(form.controls['dias'].value)).subscribe((respuesta: Respuesta) => {
@@ -50,18 +73,15 @@ export class BusquedaComponent {
         console.log(this.viajesService.viajesBuscados);
         
         if (respuesta.data_viaje.length === 0) {
-          this.toastr.warning('No se encontró el destino');
+          this.toastr.warning('No se encontraron coincidencias para esa búsqueda');
         }
         else {
           this.router.navigate(['/viajesDestino']);
         }
       }) 
     }
+ }
 
 
-    if (this.usuarioEncontrado) { this.toastr.warning('No se encontró el usuario') }
-
-
-  }
-
+  
 }

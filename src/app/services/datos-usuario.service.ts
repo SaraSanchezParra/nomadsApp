@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DatosUsuarioService {
+  usuarioMostrado: User;
   setUsuarioBuscado(selectedUser: User) {
     throw new Error('Method not implemented.');
   }
