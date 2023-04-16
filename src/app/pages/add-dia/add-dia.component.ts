@@ -5,9 +5,6 @@ import { AddViajeService } from 'src/app/services/add-viaje.service';
 import { PuntoDeInteres } from 'src/app/models/punto-de-interes';
 import { Day } from 'src/app/models/day';
 import { Route, Router } from '@angular/router';
-import { AddDiaService } from 'src/app/services/add-dia.service';
-
-
 
 @Component({
   selector: 'app-add-dia',
@@ -19,7 +16,7 @@ export class AddDiaComponent {
   addDiaForm: FormGroup;
   counter: number;
 
-  constructor(private fb: FormBuilder, public dayToAddService: AddViajeService, private router: Router, public addDiaService: AddDiaService) {
+  constructor(private fb: FormBuilder, public dayToAddService: AddViajeService, private router: Router) {
     this.buildForm();
     this.counter=0;
   }
@@ -63,3 +60,8 @@ export class AddDiaComponent {
     this.router.navigate(['/add-viaje'])
   }
 }
+// this.addDiaService.postDia(dayToAdd).subscribe((response) => {
+//   console.log(response);
+//   this.dayToAddService.viajeToAdd.days.push(dayToAdd);
+//   console.log(this.dayToAddService.viajeToAdd);
+//   this.router.navigate(['/add-viaje'])

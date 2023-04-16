@@ -13,7 +13,7 @@ export class AddDiaService {
   diaToAdd: Viaje
   
   constructor(private http: HttpClient) {
-    this.diaToAdd = new Viaje(0,'', '', '', [], 0, 0)
+    // this.diaToAdd = new Viaje(0,'', '', '', [], 0)
    }
 
    postDia(newDay :Viaje){
