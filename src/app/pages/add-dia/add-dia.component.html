@@ -1,62 +1,62 @@
 <div class="add-dia">
     <div class="title">
-        <h3>Añadir dia</h3>
+        <h3>Añadir día</h3>
     </div>
     <div class="form-area">
         <form [formGroup]="addDiaForm" class="form">
             <div class="PI">
-                <h4>Punto de interes 1</h4>
-                <label for="nombrePuntoDeInteres1">Nombre del punto de interes</label>
+                <h4>Punto de interés 1</h4>
+                <label for="nombrePuntoDeInteres1">Nombre del punto de interés</label>
             <input id="nombrePuntoDeInteres1" type="text" formControlName="nombrePuntoDeInteres1" class="form-control"
                 [ngClass]="{'is-invalid': addDiaForm.get('nombrePuntoDeInteres1').invalid && (addDiaForm.get('nombrePuntoDeInteres1').dirty || addDiaForm.get('nombrePuntoDeInteres1').touched)}">
             <div *ngIf="addDiaForm.get('nombrePuntoDeInteres1').invalid && (addDiaForm.get('nombrePuntoDeInteres1').dirty || addDiaForm.get('nombrePuntoDeInteres1').touched)"
                 class="invalid-feedback">
-                El nombre del punto de interes es necesario
+                El nombre del punto de interés es necesario
             </div>
-            <label for="fotoPuntoDeInteres1">Foto del punto de interes</label>
+            <label for="fotoPuntoDeInteres1">Foto del punto de interés</label>
             <input id="fotoPuntoDeInteres1" type="text" formControlName="fotoPuntoDeInteres1" class="form-control"
                 [ngClass]="{'is-invalid': addDiaForm.get('fotoPuntoDeInteres1').invalid && (addDiaForm.get('fotoPuntoDeInteres1').dirty || addDiaForm.get('fotoPuntoDeInteres1').touched)}">
             <div *ngIf="addDiaForm.get('fotoPuntoDeInteres1').invalid && (addDiaForm.get('fotoPuntoDeInteres1').dirty || addDiaForm.get('fotoPuntoDeInteres1').touched)"
                 class="invalid-feedback">
-                Una foto del punto de interes es necesario
+                Una foto del punto de interés es necesario
             </div>
             </div>
             
 
             <div class="PI" *ngIf="counter > 0;">
                 <h4>Punto de interes 2</h4>
-                <label for="nombrePuntoDeInteres2">Nombre del punto de interes</label>
+                <label for="nombrePuntoDeInteres2">Nombre del punto de interés</label>
                 <input id="nombrePuntoDeInteres2" type="text" formControlName="nombrePuntoDeInteres2" class="form-control">
-                <label for="fotoPuntoDeInteres2">Foto del punto de interes</label>
+                <label for="fotoPuntoDeInteres2">Foto del punto de interés</label>
                 <input id="fotoPuntoDeInteres2" type="text" formControlName="fotoPuntoDeInteres2" class="form-control">
             </div>
             
             <div class="PI" *ngIf="counter > 1;">
-                <h4>Punto de interes 3</h4>
-                <label for="nombrePuntoDeInteres3">Nombre del punto de interes</label>
+                <h4>Punto de interés 3</h4>
+                <label for="nombrePuntoDeInteres3">Nombre del punto de interés</label>
                 <input id="nombrePuntoDeInteres3" type="text" formControlName="nombrePuntoDeInteres3" class="form-control">
-                <label for="fotoPuntoDeInteres3">Foto del punto de interes</label>
+                <label for="fotoPuntoDeInteres3">Foto del punto de interés</label>
                 <input id="fotoPuntoDeInteres3" type="text" formControlName="fotoPuntoDeInteres3" class="form-control">
             </div>
 
             <div class="PI" *ngIf="counter > 2;">
-                <h4>Punto de interes 4</h4>
-                <label for="nombrePuntoDeInteres4">Nombre del punto de interes</label>
+                <h4>Punto de interés 4</h4>
+                <label for="nombrePuntoDeInteres4">Nombre del punto de interés</label>
                 <input id="nombrePuntoDeInteres4" type="text" formControlName="nombrePuntoDeInteres4" class="form-control">
-                <label for="fotoPuntoDeInteres4">Foto del punto de interes</label>
+                <label for="fotoPuntoDeInteres4">Foto del punto de interés</label>
                 <input id="fotoPuntoDeInteres4" type="text" formControlName="fotoPuntoDeInteres4" class="form-control">
             </div>
 
             <div class="PI" *ngIf="counter > 3;">
-                <h4>Punto de interes 5</h4>
-                <label for="nombrePuntoDeInteres5">Nombre del punto de interes</label>
+                <h4>Punto de interés 5</h4>
+                <label for="nombrePuntoDeInteres5">Nombre del punto de interés</label>
                 <input id="nombrePuntoDeInteres5" type="text" formControlName="nombrePuntoDeInteres5" class="form-control">
-                <label for="fotoPuntoDeInteres5">Foto del punto de interes</label>
+                <label for="fotoPuntoDeInteres5">Foto del punto de interés</label>
                 <input id="fotoPuntoDeInteres5" type="text" formControlName="fotoPuntoDeInteres5" class="form-control">
             </div>
 
             <div class="PI" *ngIf="counter > 4;">
-                <h4>No es posible anadir mas puntos de interes</h4>
+                <h4>No es posible añadir más puntos de interés</h4>
             </div>
         </form>
         <div class="btn-area">
