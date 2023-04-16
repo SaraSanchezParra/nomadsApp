@@ -29,4 +29,12 @@ export class ViajeService {
   public addViaje(viaje: Viaje) {
     return this.http.post(`${this.url}addViaje`, viaje)
   }
+
+  public addLike(user_id: number, viaje_id: number) {
+    return this.http.post(`${this.url}viaje`, {user_id: user_id, viaje_id: viaje_id})
+  }
+
+  public unLike(viaje_id: number, user_id: number) {
+    // return this.http.delete(`${this.url}viaje`, {viaje_id_fav: viaje_id, user_id_fav: user_id})
+  }
 }

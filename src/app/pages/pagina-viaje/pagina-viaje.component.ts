@@ -24,14 +24,22 @@ dia2: Day
 fav: boolean
 map: Map
 own: boolean
+isLiked: boolean
 
 constructor(public ViajeService: ViajeService, public userService: DatosUsuarioService) {
   this.userToCheck = this.userService.user_logged
   this.ViajeService.getViaje(1).subscribe((answer: Respuesta) => {
     this.viaje = answer.data_viaje[0];
+    //  check own
   this.userToCheck.misViajes.forEach((viajeDePersona) => {
     if (viajeDePersona.viaje_Id === this.viaje.viaje_Id) {
       this.own = true
+    }
+  })
+  //  check liked
+  this.userService.user_logged.favs.forEach((viajeFav) => {
+    if (viajeFav.viaje_Id === this.viaje.viaje_Id) {
+      this.isLiked = true
     }
   })
   })
@@ -49,14 +57,15 @@ ngAfterViewInit(): void {
 this.map = map
 }
 
-checkfav():boolean {
-  if (!this.fav) {
-    this.fav=true;
+likeFunc() {
+  if (this.isLiked) {
+    this.ViajeService.unLike(this.viaje.viaje_Id, this.userService.user_logged.user_id)
+    this.isLiked = false
   }
   else {
-    this.fav=false
+    this.ViajeService.addLike(this.userService.user_logged.user_id, this.viaje.viaje_Id)
+    this.isLiked=true
   }
-  return this.fav
 }
 
 showOnMap(cardMessage) {
