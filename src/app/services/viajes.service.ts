@@ -21,6 +21,7 @@ private apiUrl2 = "http://localhost:3000/topViajesLog";
 
 
  constructor(private http: HttpClient) { }
+ 
  getViajes(): Observable<Viaje[]> {
    return this.http.get<Viaje[]>(this.apiUrl);
    

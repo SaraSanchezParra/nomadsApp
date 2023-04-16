@@ -2,7 +2,7 @@
     <div class="titulo">Contáctanos</div>
 
     <div class="caja">
-        <form [formGroup]="myForm">
+        <form [formGroup]="myForm" ngModelOptions="{updateOn: 'submit'}">
             <div class="nombreYapellidos">
                 <input type="text" placeholder="Nombre y Apellidos" formControlName="nombre" class="form-control"
                     [ngClass]="{'is-invalid': (myForm.get('nombre').dirty || myForm.get('nombre').touched) && !myForm.get('nombre').valid}" />
@@ -27,14 +27,23 @@
                     </div>
                 </div>
             </div>
-            <textarea name="" id="" cols="1" rows="50" class="mensaje" type="text"
-                placeholder="Escribe tu mensaje..."></textarea>
+            <textarea name="" id="" cols="1" rows="50" class="mensaje" type="textarea"
+                placeholder="Escribe tu mensaje..." formControlName="mensaje"   [ngClass]="{'is-invalid': (myForm.get('mensaje').dirty || myForm.get('mensaje').touched) && !myForm.get('mensaje').valid}"></textarea>
+            <div *ngIf="myForm.get('mensaje').invalid && (myForm.get('mensaje').dirty || myForm.get('mensaje').touched)"
+                class="invalid-feedback">
+                Campo obligatorio.
+            </div>
+            <div *ngIf="enviado" class="alert alert-success" role="alert">
+                El correo electrónico se envió con éxito.
+              </div>
         </form>
     </div>
-
+  
     <div class="caja2">
         <div class="boton">
-            <button class="enviar" type="button">Enviar</button>
+            <button class="enviar" type="button" [disabled]="!myForm.valid" (click)="enviarCorreo()">Enviar</button>
+          
+              
         </div>
         <div class="paginas">
             <div class="donde">Puedes encontrarnos en:</div>
