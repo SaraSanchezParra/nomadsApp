@@ -23,6 +23,7 @@ export class DayCardComponent {
   @Input() own!: boolean
   ReadMore: boolean = true
   visible: boolean = false
+  ismine: boolean = false
 
   constructor(public userService: DatosUsuarioService, private router: Router, private dialogService: DialogService, public dialog: MatDialog) {
     this.user=this.userService.user_logged
@@ -36,11 +37,10 @@ export class DayCardComponent {
   }
 
   areMisViajes():boolean{
-    let ismine: boolean = false
       if (this.own) {
-        ismine = true
+        this.ismine = true
       }
-    return ismine
+    return this.ismine
   }
 
   openDialog() {
