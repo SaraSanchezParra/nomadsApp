@@ -14,7 +14,8 @@ export class ViajesService {
  public viajesBuscados: Viaje []
 private apiUrl = "http://localhost:3000/viajesDestino";
 // private apiUrl = "https://nomads-api.vercel.app/"
-
+private apiUrl1 = "http://localhost:3000/topViajes";
+private apiUrl2 = "http://localhost:3000/topViajesLog";
 //  private apiUrl1 = "https://nomads-api.vercel.app/topViajes";
 //  private apiUrl2 = "https://nomads-api.vercel.app/topViajesLog";
 
@@ -25,6 +26,14 @@ private apiUrl = "http://localhost:3000/viajesDestino";
    
  }
 
+ getTopViajes(): Observable<Viaje[]> {
+  return this.http.get<Viaje[]>(this.apiUrl1);
+}
+
+
+getTopViajesLog(): Observable<Viaje[]> {
+  return this.http.get<Viaje[]>(this.apiUrl2);
+}
 
 
 
