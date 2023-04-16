@@ -16,7 +16,8 @@ export class Respuesta {
     public data_dia: PuntoDeInteres[],
     public data_user: User, //En caso de que solo se vaya a usar un suaurio, especificar data_user[0] para acceder solo al primero.
     public data_chat: Chats,
-    public chatPrivado: ChatPrivado[]
+    public chatPrivado: ChatPrivado[],
+    public data_users:User[]
     
 
 

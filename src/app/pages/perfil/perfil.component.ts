@@ -6,6 +6,7 @@ import { Viaje } from 'src/app/models/viaje';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user';
+import { Respuesta } from 'src/app/models/respuesta';
 
 
 
@@ -77,6 +78,8 @@ export class PerfilComponent {
       this.router.navigateByUrl("/home-loged")
     }
   }
+
+
 
 
 }
