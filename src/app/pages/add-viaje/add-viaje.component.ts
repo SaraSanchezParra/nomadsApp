@@ -40,7 +40,7 @@ export class AddViajeComponent {
     })
   }
 
-  ngOn
+
 
   public addViaje() {
     let formValue = this.addForm.value
@@ -65,6 +65,7 @@ export class AddViajeComponent {
     }
   }
 
+<<<<<<< HEAD
   // public submitViaje(){
   //   let formValue = this.addForm.value
   //   let viajeToAdd = new Viaje(formValue.nombreViaje, formValue.fotoViaje, formValue.descripcionViaje, [], 0)
@@ -74,6 +75,17 @@ export class AddViajeComponent {
   //   console.log(this.user);
   //   this.router.navigate(['/paginaViaje'])
   // }
+=======
+  public submitViaje(){
+    let formValue = this.addForm.value
+    let viajeToAdd = new Viaje(formValue.nombreViaje, formValue.fotoViaje, formValue.descripcionViaje, [], 0)
+    viajeToAdd.days = this.viaje.days
+    console.log(viajeToAdd)
+    this.user.misViajes.push(viajeToAdd)
+    console.log(this.user);
+    this.router.navigate(['/paginaViaje'])
+  }
+>>>>>>> modificarPerfil15
 
   public eliminate(day_id: number) {
     this.viaje.days.splice(day_id, 1)
