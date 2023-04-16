@@ -2,7 +2,7 @@
   <div class="day-card-title">
     <h3>Dia {{ i + 1 }}</h3>
     <div class="btn-area">
-      <div class="options-btns">
+      <div class="options-btns" *ngIf="ismine">
         <button type="button" class="icono" (click)="openDialog()">
           <img src="assets/borrar.png" width="20" height="20" alt="borrar" />
         </button>
