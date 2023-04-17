@@ -74,6 +74,7 @@ export class AddViajeComponent {
   //   console.log(this.user);
   //   this.router.navigate(['/paginaViaje'])
   // }
+  
 
   public eliminate(day_id: number) {
     this.viaje.days.splice(day_id, 1)
