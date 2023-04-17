@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Map, polyline, tileLayer } from 'leaflet';
+import { Map, marker, polyline, tileLayer } from 'leaflet';
 import { map } from 'rxjs';
 import { Day } from 'src/app/models/day';
 import { PuntoDeInteres } from 'src/app/models/punto-de-interes';
@@ -12,84 +12,99 @@ import { ViajeService } from 'src/app/shared/viaje.service';
 @Component({
   selector: 'app-pagina-viaje',
   templateUrl: './pagina-viaje.component.html',
-  styleUrls: ['./pagina-viaje.component.css']
+  styleUrls: ['./pagina-viaje.component.css'],
 })
 export class PaginaViajeComponent {
+  userToCheck: User;
+  viaje_id: number;
+  viaje: Viaje;
+  dia: Day;
+  dia2: Day;
+  fav: boolean;
+  map: Map;
+  own: boolean;
+  isLiked: boolean;
 
-userToCheck: User
-viaje_id: number
-viaje: Viaje
-dia: Day
-dia2: Day
-fav: boolean
-map: Map
-own: boolean
-isLiked: boolean
-
-constructor(public ViajeService: ViajeService, public userService: DatosUsuarioService) {
-  this.userToCheck = this.userService.user_logged
-  this.ViajeService.getViaje(1).subscribe((answer: Respuesta) => {
-    this.viaje = answer.data_viaje[0];
-    //  check own
-  this.userToCheck.misViajes.forEach((viajeDePersona) => {
-    if (viajeDePersona.viaje_Id === this.viaje.viaje_Id) {
-      this.own = true
-    }
-  })
-  //  check liked
-  this.userService.user_logged.favs.forEach((viajeFav) => {
-    if (viajeFav.viaje_Id === this.viaje.viaje_Id) {
-      this.isLiked = true
-    }
-  })
-  })
-  // this.dia = new Day([new PuntoDeInteres('https://d1bvpoagx8hqbg.cloudfront.net/originals/nature-madrid-480758233de4362f5443491d3b2e55d9.jpg', 'parque del Retiro'), new PuntoDeInteres('https://lonelyplanetimages.imgix.net/a/g/hi/t/fed1a2b677245627be71a1a62f48fbbc-museo-del-prado.jpg', 'El Prado')])
-  // this.viaje = new Viaje('Madrid de los Austrias', 'https://depaseo.eu/wp-content/uploads/2018/09/visita-austrias-A.jpg', 'madrid del siglo de oro', [this.dia, new Day([new PuntoDeInteres('https://www.taquilla.com/data/images/t/27/jardin-botanico.jpg', 'Jardin Botanico')])], 13)
-  this.fav=false
-}
-
-ngAfterViewInit(): void {
-  const map = new Map('map').setView([40.4167047, -3.7035825], 13);
-  tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-this.map = map
-}
-
-likeFunc() {
-  if (this.isLiked) {
-    this.ViajeService.unLike(this.viaje.viaje_Id, this.userService.user_logged.user_id)
-    this.isLiked = false
-  }
-  else {
-    this.ViajeService.addLike(this.userService.user_logged.user_id, this.viaje.viaje_Id)
-    this.isLiked=true
-  }
-}
-
-showOnMap(cardMessage) {
-  if (cardMessage.isOpen) {
-    console.log(cardMessage.isOpen);
-  }
-  else {
-    console.log("is closed" + cardMessage.isOpen);
-    console.log(cardMessage);
-    this.ViajeService.getDay(cardMessage.index +1).subscribe((answer: Respuesta) => {
-      console.log(answer);
-      this.viaje.days[cardMessage.index].puntosDeInteres = answer.data_dia;
-      console.log(this.viaje);
+  constructor(
+    public ViajeService: ViajeService,
+    public userService: DatosUsuarioService
+  ) {
+    this.userToCheck = this.userService.user_logged;
+    this.ViajeService.getViaje(1).subscribe((answer: Respuesta) => {
+      this.viaje = answer.data_viaje[0];
+      //  check own
+      this.userToCheck.misViajes.forEach((viajeDePersona) => {
+        if (viajeDePersona.viaje_Id === this.viaje.viaje_Id) {
+          this.own = true;
+        }
+      });
+      //  check liked
+      this.userService.user_logged.favs.forEach((viajeFav) => {
+        if (viajeFav.viaje_Id === this.viaje.viaje_Id) {
+          this.isLiked = true;
+        }
+      });
     });
-    let coordinatesList = [];
-    this.viaje.days[cardMessage.index].puntosDeInteres.forEach(PI => {
-      coordinatesList.push([PI.corLat, PI.corLong])
-    });
-    // polyline(coordinatesList, {color: '#1F8989'}).addTo(map)
-    // como sacar el map de nginitview ?
+    this.fav = false;
   }
-}
 
-eliminar(i:number) {
-  this.viaje.days.splice(i, 1)
-}
+  ngAfterViewInit(): void {
+    this.map = new Map('map').setView([40.4167047, -3.7035825], 13);
+    tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution:
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(this.map);
+  }
+
+  likeFunc() {
+    if (this.isLiked) {
+      this.ViajeService.unLike(
+        this.viaje.viaje_Id,
+        this.userService.user_logged.user_id
+      );
+      this.isLiked = false;
+    } else {
+      this.ViajeService.addLike(
+        this.userService.user_logged.user_id,
+        this.viaje.viaje_Id
+      );
+      this.isLiked = true;
+    }
+  }
+
+  showOnMap(cardMessage) {
+    if (cardMessage.isOpen) {
+      console.log(cardMessage.isOpen);
+    } else {
+      console.log('is closed' + cardMessage.isOpen);
+      console.log(cardMessage);
+      this.ViajeService.getDay(cardMessage.index + 1).subscribe(
+        (answer: Respuesta) => {
+          console.log(answer);
+          this.viaje.days[cardMessage.index].puntosDeInteres = answer.data_dia;
+          console.log(this.viaje);
+          let coordinatesList = [];
+          let popUpList = []
+          let iPopUp = 0
+          this.viaje.days[cardMessage.index].puntosDeInteres.forEach((PI) => {
+            coordinatesList.push([PI.corLong, PI.corLat]);
+            popUpList.push(PI.nombre)
+          });
+          coordinatesList.forEach((pair) => {
+            marker(pair, {opacity: 0.8}).addTo(this.map).bindPopup(popUpList[iPopUp])
+            iPopUp += 1
+          })
+          polyline(coordinatesList, { color: '#1F8989' }).addTo(this.map);
+
+        }
+      );
+
+      // como sacar el map de nginitview ?
+    }
+  }
+
+  eliminar(i: number) {
+    this.viaje.days.splice(i, 1);
+  }
 }

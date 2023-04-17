@@ -6,7 +6,7 @@
          </span>
         <h2>{{viaje.titulo}}</h2>
         <div class="user-area">
-            <img src="assets/perfil.png" width="45" height="45">
+            <img id="user_foto" src="{{viaje.user_foto}}" width="45" height="45">
             <div class="likes">
             <img src="assets/corazon.png" width="20" height="20" (click)="likeFunc()">
             <p>{{viaje.likes}}</p>
