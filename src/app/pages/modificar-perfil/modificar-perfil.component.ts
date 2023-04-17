@@ -58,7 +58,7 @@ export class ModificarPerfilComponent implements OnInit {
     this.userService.user_logged.photo= this.myForm.get('foto')?.value;
     this.userService.modificarUser(this.userService.user_logged).subscribe(
       () => {
-        this.toastr.success('El usuario modificado correctamente')
+        this.toastr.success('Usuario modificado correctamente')
         this.router.navigate(['/perfil']);
       
       }
