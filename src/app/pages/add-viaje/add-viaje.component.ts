@@ -76,7 +76,6 @@ export class AddViajeComponent {
             }
             else if (answer.data_dia != null) {
               console.log("success");
-              
             }
           })
         })
