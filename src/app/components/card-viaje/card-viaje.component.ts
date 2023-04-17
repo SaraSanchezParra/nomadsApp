@@ -68,7 +68,6 @@ export class CardViajeComponent {
   goProfile() {
     // this.userService.user.user_Id = this.viaje.user_Id
     if (this.userService.loged) {
-      this.userService.user = this.viaje.users;
       this.router.navigate(['/perfil'])
     }
     else {

@@ -14,7 +14,7 @@ export class DatosUsuarioService {
  private url: string = "http://localhost:3000/"
 // private url: string = "https://nomads-api.vercel.app/"
  
- public user: User;
+ public user_noLoged: User;
  public user_logged: User;
  public loged: boolean;
  public showHeaderFooter: boolean; 

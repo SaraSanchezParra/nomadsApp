@@ -8,6 +8,7 @@ import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 import { User } from '../../models/user';
 import { ViajeService } from 'src/app/shared/viaje.service';
 import { Respuesta } from 'src/app/models/respuesta';
+import { AddDiaService } from 'src/app/services/add-dia.service';
 
 @Component({
   selector: 'app-add-viaje',
@@ -24,18 +25,36 @@ export class AddViajeComponent {
     return this.addForm.get('days') as FormArray;
   }
   
-  constructor(private formBuilder: FormBuilder, public viajeToAddService: AddViajeService, private router: Router, public viajeService: ViajeService, public userService: DatosUsuarioService) {
+  constructor(private formBuilder: FormBuilder, public viajeToAddService: AddViajeService, private router: Router, public viajeService: ViajeService, public userService: DatosUsuarioService, public diaService: AddDiaService) {
     this.buildForm()
+    this.viaje = this.viajeToAddService.viajeToAdd
+    this.diaService.getViajeID().subscribe((answer: Respuesta) => {
+      if (!answer.error) {
+        console.log(answer);
+        this.viaje.viaje_Id = Number(answer.mensaje) + 1
+        console.log(this.viaje.viaje_Id);
+        this.diaService.viajeAInsertar_id = this.viaje.viaje_Id
+      }
+    })
+    
+    
+    if (this.diaService.dias != undefined) {
+      this.viaje.days = this.diaService.dias
+    }
+    else {
+      this.viaje.days = []
+    }
+    
     // this.viaje = this.viajeToAddService.viajeToAdd
     // this.user =this.userService.user
   }
 
   private buildForm() {
     this.addForm = this.formBuilder.group({
-      nombreViaje: ['', Validators.required],
-      lugarViaje: ['', Validators.required],
-      descripcionViaje: ['', Validators.required],
-      fotoViaje: ['', Validators.required],
+      nombreViaje: [this.viajeToAddService.viajeToAdd.titulo, Validators.required],
+      lugarViaje: [this.viajeToAddService.viajeToAdd.ubicacion, Validators.required],
+      descripcionViaje: [this.viajeToAddService.viajeToAdd.descripcion, Validators.required],
+      fotoViaje: [this.viajeToAddService.viajeToAdd.foto, Validators.required],
       days: this.formBuilder.array([])
     })
   }
@@ -56,13 +75,17 @@ export class AddViajeComponent {
   }
 
   public addDays() {
-    if (this.viaje.days.length != 0){
+    if (this.viajeToAddService.viajeToAdd.titulo != '') {
       this.router.navigate(['/add-dia'])
     }
     else {
-      this.addViaje();
+      let formValue = this.addForm.value
+      this.viajeToAddService.viajeToAdd.titulo = formValue.nombreViaje
+      this.viajeToAddService.viajeToAdd.ubicacion = formValue.lugarViaje
+      this.viajeToAddService.viajeToAdd.descripcion = formValue.descripcionViaje
+      this.viajeToAddService.viajeToAdd.foto = formValue.fotoViaje
       this.router.navigate(['/add-dia'])
-    }
+    }    
   }
 
   // public submitViaje(){
