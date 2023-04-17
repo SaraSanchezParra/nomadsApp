@@ -12,6 +12,10 @@
     z-index: 9;
 }
 
+#user_foto {
+    border-radius: 50%;
+}
+
 .viaje_tittle_area {
     background-color: var(--green);
     color: white;

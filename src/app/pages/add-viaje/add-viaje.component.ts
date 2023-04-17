@@ -44,7 +44,7 @@ export class AddViajeComponent {
 
   public addViaje() {
     let formValue = this.addForm.value
-    let viajeToAdd = new Viaje(null, formValue.nombreViaje, formValue.fotoViaje, formValue.descripcionViaje, [], 0, this.userService.user_logged.user_id)
+    let viajeToAdd = new Viaje(null, formValue.nombreViaje, formValue.lugarViaje, formValue.fotoViaje, formValue.descripcionViaje, [], 0, this.userService.user_logged.user_id, this.userService.user_logged, this.userService.user_logged.photo)
     console.log(viajeToAdd);
     
     this.viajeService.addViaje(viajeToAdd).subscribe((answer: Respuesta) => {

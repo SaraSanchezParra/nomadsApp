@@ -18,7 +18,6 @@ export class CardViajeComponent {
   @Output() cardEvent = new EventEmitter<number>
 
   user: User
-  userLogged = { username: 'Amber' }
   // @Input() viaje!: Viaje;
   @Input() cardviaje: Viaje;
   @Input() i: number
@@ -42,9 +41,10 @@ export class CardViajeComponent {
 
   areMisViajes(): boolean {
     let ismine: boolean = false
-    if (this.user.misViajes.includes(this.cardviaje)) {
+    if (this.user != undefined) {
+       if (this.user.misViajes.includes(this.cardviaje)) {
       ismine = true
-    }
+    }} 
     return ismine
   }
 
