@@ -18,8 +18,7 @@ export class BusquedaComponent {
 
   public loged: Boolean
   public redirectToPerfil: Boolean
-  public destinoEncontrado: Boolean
-  public usuarioEncontrado: Boolean
+
 
 
 
@@ -27,14 +26,9 @@ export class BusquedaComponent {
   constructor(private router: Router, private toastr: ToastrService, 
               public viajesService: ViajesService, public userService:DatosUsuarioService) {
 
-    // this.destinoEncontrado = false;
-    // this.usuarioEncontrado = false;
+  
 
   }
-
-
-
-
 
 
   onSubmit(form: NgForm): void {
@@ -44,24 +38,19 @@ export class BusquedaComponent {
       this.userService.usuarioEncontrado(String(form.controls['usuario'].value)).subscribe((respuesta:Respuesta)=>{
       
         console.log(respuesta);
-        this.userService.user = respuesta.data_users[0];
-        console.log(this.userService.user);
-        
-      if(respuesta.data_users.length === 0){
-        this.toastr.warning('No se encontró el usuario') 
+        this.userService.users = respuesta.data_users;
+     
+      if(respuesta.error){
+        this.toastr.warning(`No se ha encontrado a ${form.controls['usuario'].value}`)
+        console.log("Rebe le informo que no se ha encontrado ningún usuario, que tenga un buen día");
       }
       else {
-        this.router.navigate(['/perfil:username']);
+        this.router.navigate(['perfil']);
+
       }
     
       })
   
-
-
-
-
-
-
 
     }
     else {
@@ -73,7 +62,7 @@ export class BusquedaComponent {
         console.log(this.viajesService.viajesBuscados);
         
         if (respuesta.data_viaje.length === 0) {
-          this.toastr.warning('No se encontraron coincidencias para esa búsqueda');
+          this.toastr.warning('No hay coincidencias');
         }
         else {
           this.router.navigate(['/viajesDestino']);
@@ -85,3 +74,4 @@ export class BusquedaComponent {
 
   
 }
+
