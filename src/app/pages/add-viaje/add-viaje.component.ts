@@ -69,7 +69,18 @@ export class AddViajeComponent {
     this.viajeService.addViaje(viajeToAdd).subscribe((answer: Respuesta) => {
       if (answer.mensaje != "0") {
         console.log("Viaje creado");
-        this.router.navigate(["/paginaViaje"])
+        this.diaService.dias.forEach((diaToAdd) => {
+          this.diaService.postDia(diaToAdd).subscribe((answer: Respuesta) => {
+            if (answer.error) {
+              console.log(answer.error);
+            }
+            else if (answer.data_dia != null) {
+              console.log("success");
+              
+            }
+          })
+        })
+        // this.router.navigate(["/paginaViaje"])
       }
     })
   }

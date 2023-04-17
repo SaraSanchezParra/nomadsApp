@@ -18,16 +18,16 @@ export class AddDiaComponent {
 
   addDiaForm: FormGroup;
   counter: number;
-  viaje_id: number;
+  viaje_id :number;
   dia_index: number
 
   constructor(private fb: FormBuilder, public dayToAddService: AddViajeService, private router: Router, public servicioDia: AddDiaService, public toastr: ToastrService) {
     this.buildForm();
-    this.counter = 0;
+    this.counter=0;
     this.viaje_id = this.servicioDia.viajeAInsertar_id
     console.log(this.viaje_id);
     this.dia_index = this.dayToAddService.viajeToAdd.days.length + 1
-
+    
   }
 
   private buildForm() {
@@ -59,36 +59,36 @@ export class AddDiaComponent {
 
     let PIs = [PI1, PI2, PI3, PI4, PI5]
     let dayToAdd: Day = new Day(null, `Dia ${this.dia_index}`, [])
-    for (let PI of PIs) {
-      if (PI.foto != null && PI.nombre != null) {
+    for (let PI of PIs){
+      if (PI.foto != null && PI.nombre != null){
         dayToAdd.puntosDeInteres.push(PI)
       }
     }
 
     // add day subscribe
-    dayToAdd.viaje_id = this.viaje_id
-    this.servicioDia.dias.push(dayToAdd)
-    this.servicioDia.postDia(dayToAdd).subscribe((answer: Respuesta) => {
-      if (answer.error) {
-        this.toastr.warning("Día no añadido")
-      }
-      else if (answer.data_dia != null) {
-        dayToAdd.puntosDeInteres.forEach((punto) => {
-          this.servicioDia.postPI(punto).subscribe((answer: Respuesta) => {
-            if (answer.error) {
-              this.toastr.warning("Punto de interés no añadido")
-            }
-            else {
-              if (answer.mensaje != "-1") {
-                this.toastr.success("Punto de interés añadido")
-              }
-            }
-          })
-        })
-      }
+    // dayToAdd.viaje_id = this.viaje_id
+    // this.servicioDia.dias.push(dayToAdd)
+    // this.servicioDia.postDia(dayToAdd).subscribe((answer: Respuesta) => {
+    //   if (answer.error) {
+    //     this.toastr.warning("Día no añadido")
+    //   }
+    //   else if (answer.data_dia != null) {
+        
+    //   }
+    // })
+
+    dayToAdd.puntosDeInteres.forEach((punto) => {
+      this.servicioDia.postPI(punto).subscribe((answer: Respuesta) => {
+        if (answer.error) {
+          this.toastr.warning("Punto de interés no añadido")
+        }
+        else {
+          if (answer.mensaje != "-1") {
+            this.toastr.success("Punto de interés añadido")
+          }
+        }
+      })
     })
-
-
     this.router.navigate(["/add-viaje"])
-  }
+}
 }
