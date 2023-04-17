@@ -67,7 +67,7 @@ export class ModificarPerfilComponent implements OnInit {
     
   }
   irPerfil(){
-    this.router.navigateByUrl("/perfil/:username")}
+    this.router.navigateByUrl("/perfil")}
     
       
    
