@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Chats } from 'src/app/models/chat';
 import { RespuestaChat } from 'src/app/models/respuestaChat';
+import { User } from 'src/app/models/user';
 import { ChatsService } from 'src/app/services/chats.service';
+import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
 @Component({
   selector: 'app-chat-general',
@@ -16,15 +18,18 @@ export class ChatGeneralComponent {
   public textoBusqueda = '';
   public chatsMostrados: Chats[];
   public buscandoUsuario: boolean;
+  public user_id_creador: number;
+  public user_id_participante: number;
 
-  constructor (private chatsService: ChatsService)
+  constructor (private chatsService: ChatsService,private userService: DatosUsuarioService)
   {
     this.chats = []
     this.chatsMostrados = this.chats;
     this.buscandoUsuario = false;
     this.chatPrincipal = true; 
+    console.log()
     
-    this.chatsService.getChatsAll().subscribe((res: RespuestaChat) => {
+    this.chatsService.getChatsAll(this.userService.user_logged.user_id).subscribe((res: RespuestaChat) => {
     console.log(res);
     this.chats = res.data;
     this.chatsMostrados = this.chats;
@@ -60,7 +65,7 @@ export class ChatGeneralComponent {
     this.chatPrincipal=true;
     this.buscandoUsuario = false; 
     this.chatsMostrados = this.chats;
-    this.chatsService.getChatsAll().subscribe((res: RespuestaChat) => {
+    this.chatsService.getChatsAll(this.userService.user_logged.user_id).subscribe((res: RespuestaChat) => {
       console.log(res);
       this.chats = res.data;
       this.chatsMostrados = this.chats;
@@ -78,10 +83,11 @@ export class ChatGeneralComponent {
   //   }
   
   // }
-  eliminarTarjeta(username: string) {
-    this.chatsService.deleteChat(this.chats[0].username).subscribe((res: any) => {
-      const index = this.chats.findIndex((data) => data.username === username);
-      console.log(index);
+  eliminarTarjeta(chat:Chats) {
+  
+    this.chatsService.deleteChat(chat.username).subscribe((res: RespuestaChat) => {
+       const index = this.chats.findIndex((data) => data.username === chat.username); 
+       console.log(index);
       if (index !== -1) {
         this.chats.splice(index, 1);
       }

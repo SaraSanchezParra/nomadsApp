@@ -1,7 +1,7 @@
 import { Viaje } from "./viaje";
 
 export class User {
-  public user_id: number
+  public user_id: number;
   public name: string;
   public surname: string;
   public email: string;
@@ -23,7 +23,6 @@ constructor(name: string, surname:string, email:string, username:string, descrip
     this.photo = photo;
     this.favs = favs;
     this.misViajes = misViajes;
-    
   }
   setPassword (password:string){
     this.password = password;

@@ -10,13 +10,13 @@ import { User } from '../models/user';
 export class ChatsService {
  private url: string = "http://localhost:3000/"
     // private url: string = "https://nomads-api.vercel.app/"
- 
   constructor(private http:HttpClient) { }
 
 
-getChatsAll(){
+getChatsAll(user_id:number){
 
-  return this.http.get(this.url + "chats")
+  let url=(this.url + `chats?user_id=${user_id}`)
+  return this.http.get(url)
 }  
 
 getChat(username:string){

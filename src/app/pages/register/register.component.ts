@@ -31,8 +31,6 @@ export class RegisterComponent {
     console.log(user);
     this.userService.postRegister(user).subscribe(
             (resp: string) => {
-        this.userService.user = user;
-        this.userService.user.user_id = Number(resp);
 
         this.router.navigate(['/login']);
 

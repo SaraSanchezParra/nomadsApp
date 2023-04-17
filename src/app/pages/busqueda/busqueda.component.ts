@@ -44,8 +44,8 @@ export class BusquedaComponent {
       this.userService.usuarioEncontrado(String(form.controls['usuario'].value)).subscribe((respuesta:Respuesta)=>{
       
         console.log(respuesta);
-        this.userService.user = respuesta.data_users[0];
-        console.log(this.userService.user);
+        this.userService.user_noLoged = respuesta.data_users[0];
+        console.log(this.userService.user_noLoged);
         
       if(respuesta.data_users.length === 0){
         this.toastr.warning('No se encontró el usuario') 
