@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { CardChatComponent } from 'src/app/components/card-chat/card-chat.component';
 import { Chats } from 'src/app/models/chat';
 import { RespuestaChat } from 'src/app/models/respuestaChat';
-import { User } from 'src/app/models/user';
 import { ChatsService } from 'src/app/services/chats.service';
 
 @Component({
@@ -11,8 +9,6 @@ import { ChatsService } from 'src/app/services/chats.service';
   styleUrls: ['./chat-general.component.css']
 })
 export class ChatGeneralComponent {
-  public formattedTime: string;
-  public indexEncontrado: number;
   public usuarioEncontrado = false;
   public chatPrincipal= true;
   public chats: Chats[];
@@ -41,31 +37,21 @@ export class ChatGeneralComponent {
     console.log(nombreBusqueda);
     this.buscandoUsuario = true;
     this.chatPrincipal = false;
-    this.indexEncontrado = -1;
-  
-    // if (nombreBusqueda!="")
-    //   this.indexEncontrado = this.chats.findIndex(chat => chat.username.toLowerCase().includes(nombreBusqueda));
 
-    // console.log(this.indexEncontrado);
-    
-    // this.usuarioEncontrado = (this.indexEncontrado != -1);
-    this.chatsService.getChat(nombreBusqueda).subscribe((res: RespuestaChat) => {
-      console.log(res);
-      this.chats = res.data;
-      this.chatsMostrados = this.chats;
-    });
-    
-    if (this.usuarioEncontrado)
-    {
-      this.chatsMostrados = [this.chats[this.indexEncontrado]];
+    if (nombreBusqueda != "") {
+        this.chatsService.getChat(nombreBusqueda).subscribe((res: RespuestaChat) => {
+            console.log(res);
+            this.chats = res.data;
+            this.chatsMostrados = this.chats;
+            this.buscandoUsuario = false;
+            
+        });
+    } else {
+        this.chatsMostrados = [];
+        this.buscandoUsuario = false;
     }
-    else
-    {
-      this.chatsMostrados = [];
-    }
+}
 
-    console.log (this.chatsMostrados);
-  }
 
   resetearBusqueda() {
     this.chatBuscado = undefined;
@@ -74,6 +60,11 @@ export class ChatGeneralComponent {
     this.chatPrincipal=true;
     this.buscandoUsuario = false; 
     this.chatsMostrados = this.chats;
+    this.chatsService.getChatsAll().subscribe((res: RespuestaChat) => {
+      console.log(res);
+      this.chats = res.data;
+      this.chatsMostrados = this.chats;
+    });
   }  
 
   // mostrarBotonBusqueda() {
@@ -87,28 +78,41 @@ export class ChatGeneralComponent {
   //   }
   
   // }
-  eliminarTarjeta(chat: Chats) {
-    console.log(chat);
-
-    let index = this.chats.findIndex(data => data == chat);
-    if (index !== -1) {
-      this.chats.splice(index, 1);
-    }
-
-    if (this.chatsMostrados.length == 1)
-    {
-      this.chatsMostrados = [];
-    }
-    else
-    {
-      {
+  eliminarTarjeta(username: string) {
+    this.chatsService.deleteChat(this.chats[0].username).subscribe((res: any) => {
+      const index = this.chats.findIndex((data) => data.username === username);
+      console.log(index);
+      if (index !== -1) {
+        this.chats.splice(index, 1);
+      }
+      if (this.chatsMostrados.length === 1) {
+        this.chatsMostrados = [];
+      } else {
         this.chatsMostrados = this.chats;
       }
-    }
-
-    console.log("Hola que tal");
-    console.log(this.chats);
+      console.log(this.chats);
+    });
   }
+  
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // constructor() {
   //   const now: Date = new Date();
   //   const hours: number = now.getHours();
@@ -116,9 +120,6 @@ export class ChatGeneralComponent {
   //   this.formattedTime = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}`;
   //   this.chats.push(new Chats('https://img.freepik.com/foto-gratis/mujer-hermosa-joven-mirando-camara-chica-moda-verano-casual-camiseta-blanca-pantalones-cortos-hembra-positiva-muestra-emociones-faciales-modelo-divertido-aislado-amarillo_158538-15796.jpg', 'Contacto4', this.formattedTime));
   // }
- 
-}
-
 
 // {
       //   photo: 'assets/mujerHermosa.jpg',
@@ -156,3 +157,18 @@ export class ChatGeneralComponent {
       //   nameUser: '@Violeta',
       //   hour: "01:20"
       // },
+      
+      // this.indexEncontrado = this.chats.findIndex(chat => chat.username.toLowerCase().includes(nombreBusqueda));
+
+            // console.log(this.indexEncontrado);
+
+            // this.usuarioEncontrado = (this.indexEncontrado != -1);
+
+            // if (this.usuarioEncontrado) {
+            //     this.chatsMostrados = [this.chats[this.indexEncontrado]];
+            // } else {
+            //     this.chatsMostrados = [];
+            // }
+
+            // console.log(this.chatsMostrados); 
+            
