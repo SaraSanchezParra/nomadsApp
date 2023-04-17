@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DatosUsuarioService {
   usuarioMostrado: User;
+  public users: User[];
   setUsuarioBuscado(selectedUser: User) {
     throw new Error('Method not implemented.');
   }
@@ -19,6 +20,8 @@ export class DatosUsuarioService {
  public loged: boolean;
  public showHeaderFooter: boolean; 
  public usuarioBuscado: boolean
+
+
  
   constructor(private http:HttpClient) { 
       this.showHeaderFooter=false;
