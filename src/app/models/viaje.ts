@@ -12,7 +12,7 @@ export class Viaje {
     public likes: number
     public user_Id: number
     public users: User
-
+    public user_foto: string
 
     constructor(viaje_id: number, titulo: string, foto:string, descripcion: string, days: Day[], likes: number, user_id: number){
         this.viaje_Id = viaje_id

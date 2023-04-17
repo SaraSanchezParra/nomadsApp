@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { Viaje } from 'src/app/models/viaje';
@@ -13,7 +13,7 @@ import { ViajeService } from 'src/app/shared/viaje.service';
   templateUrl: './card-viaje.component.html',
   styleUrls: ['./card-viaje.component.css']
 })
-export class CardViajeComponent {
+export class CardViajeComponent implements OnInit{
 
   @Output() cardEvent = new EventEmitter<number>
 
@@ -21,6 +21,7 @@ export class CardViajeComponent {
   userLogged = { username: 'Amber' }
   // @Input() viaje!: Viaje;
   @Input() cardviaje: Viaje;
+  @Input() usuario: User;
   @Input() i: number
   usuarioService: any;
   viaje: Viaje;
@@ -28,6 +29,9 @@ export class CardViajeComponent {
   constructor(public userService: DatosUsuarioService, public router: Router, modifyViajeService: ModifyViajeService, private dialogService: DialogService) {
 
     this.user = this.userService.user_logged;
+  }
+
+  ngOnInit(): void {
   }
 
   goToViaje() {
@@ -68,7 +72,7 @@ export class CardViajeComponent {
   goProfile() {
     // this.userService.user.user_Id = this.viaje.user_Id
     if (this.userService.loged) {
-      this.userService.user = this.viaje.users;
+      this.userService.user_noLoged = this.viaje.users;
       this.router.navigate(['/perfil'])
     }
     else {
