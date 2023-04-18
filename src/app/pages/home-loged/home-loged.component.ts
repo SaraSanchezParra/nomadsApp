@@ -5,6 +5,7 @@ import { TopUserService } from 'src/app/services/topUser.service';
 import { ViajesService } from 'src/app/services/viajes.service';
 import { Router } from '@angular/router';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
+import { Respuesta } from 'src/app/models/respuesta';
 
 @Component({
   selector: 'app-home-loged',
@@ -56,10 +57,16 @@ export class HomeLogedComponent implements OnInit {
 
     });
   }
-  userPerfil(username: User): void {
-    this.datosUsuarioService.usuarioBuscado = false;
-    this.datosUsuarioService.user_noLoged = username;
-    this.router.navigate(['/perfil', username]);
+  userPerfil(username: string): void {
     console.log(username);
+    this.datosUsuarioService.usuarioEncontrado(username).subscribe((respuesta:Respuesta)=>{
+
+      console.log(respuesta.data_user);
+          this.datosUsuarioService.usuarioBuscado = true;
+          this.datosUsuarioService.user_noLoged = respuesta.data_user[0];
+          this.router.navigate(['/perfil']);
+
+    })
+   
   }
 }
