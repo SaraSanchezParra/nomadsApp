@@ -16,7 +16,11 @@ export class FooterComponent {
   constructor(private router: Router, public location : Location, public userService:DatosUsuarioService ){
   
   }
-   
+  
+  resetPerfil(){
+    this.userService.usuarioBuscado = false
+  }
+
   ngOnInit(): void {
   }
 

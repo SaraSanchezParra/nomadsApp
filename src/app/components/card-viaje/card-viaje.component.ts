@@ -2,11 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { Viaje } from 'src/app/models/viaje';
-import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 import { DialogService } from 'src/app/services/dialog.service';
-import { ModifyViajeService } from 'src/app/services/modify-viaje.service';
-import { ViajesService } from 'src/app/services/viajes.service';
-import { ViajeService } from 'src/app/shared/viaje.service';
 
 @Component({
   selector: 'app-card-viaje',
@@ -16,17 +12,18 @@ import { ViajeService } from 'src/app/shared/viaje.service';
 export class CardViajeComponent implements OnInit{
 
   @Output() cardEvent = new EventEmitter<number>
+  @Output() modifyEvent = new EventEmitter<number>
+  @Output() profileEvent = new EventEmitter<number>
+  @Output() viajeEvent = new EventEmitter<number>
 
   user: User
   // @Input() viaje!: Viaje;
-  @Input() cardviaje: Viaje;
-  @Input() i: number
-  usuarioService: any;
-  viaje: Viaje;
+  @Input() cardviaje!: Viaje;
+  @Input() i: number;
+  @Input() isLoged: boolean;
+  @Input() viajesMios!: boolean;
 
-  constructor(public userService: DatosUsuarioService, public router: Router, modifyViajeService: ModifyViajeService, private dialogService: DialogService) {
-
-    this.user = this.userService.user_logged;
+  constructor(public router: Router, private dialogService: DialogService) {
   }
 
   ngOnInit(): void {
@@ -34,21 +31,13 @@ export class CardViajeComponent implements OnInit{
 
   goToViaje() {
     console.log("take to viaje");
-    if (this.userService.loged)
-      this.router.navigate(['/paginaViaje'])
+    if (this.isLoged){
+      let ref = this.cardviaje.viaje_Id;
+      this.viajeEvent.emit(ref)
+    }
     else {
-      this.userService.showHeaderFooter = false;
       this.router.navigate(['/login']);
     }
-  }
-
-  areMisViajes(): boolean {
-    let ismine: boolean = false
-    if (this.user != undefined) {
-       if (this.user.misViajes.includes(this.cardviaje)) {
-      ismine = true
-    }} 
-    return ismine
   }
 
   borrarViaje() {
@@ -57,9 +46,9 @@ export class CardViajeComponent implements OnInit{
   }
 
   editarViaje() {
-    let ref = this.i;
-    this.cardEvent.emit(ref)
-    this.router.navigate(['/modificarViaje'])
+    let ref = this.cardviaje.viaje_Id
+    this.modifyEvent.emit(ref)
+    // this.router.navigate(['/modificarViaje'])
     //esto debería de mandar el id de viaje
   }
 
@@ -69,17 +58,10 @@ export class CardViajeComponent implements OnInit{
   }
 
   goProfile() {
-    // this.userService.user.user_Id = this.viaje.user_Id
-    if (this.userService.loged) {
-      this.userService.user_noLoged = this.viaje.users;
-      this.router.navigate(['/perfil'])
-    }
-    else {
-      this.userService.showHeaderFooter = false;
-      this.router.navigate(['/login'])
-    }
-
-
+    let ref = this.cardviaje.user_Id
+    this.profileEvent.emit(ref)
   }
+
+  
 
 }

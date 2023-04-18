@@ -10,13 +10,13 @@
         <div class="desc">{{cardviaje.descripcion}}</div>
     </div>
     <div class="like">
-        <div class="user-options" *ngIf="areMisViajes(); else profileView">
+        <div class="user-options" *ngIf="viajesMios; else profileView">
             <!-- Compare against viaje.user.username -->
             <button type="button" class="icono" (click)="openDialog()"><img src="assets/borrar.png" width="20" height="20" alt="borrar"></button>
             <button type="button" class="icono" (click)="editarViaje()"><img src="assets/lapiz.png" width="20" height="20" alt="editar"></button>
         </div>
         <ng-template class="user" #profileView>
-            <img src="{{cardviaje.user_foto}}" width="45" height="45" (click)="goProfile()">
+            <img class="pf_pic" src="{{cardviaje.user_foto}}" (click)="goProfile()">
             <!-- src: {{viaje.user.photo}} -->
         </ng-template>
         <div class="likes">
