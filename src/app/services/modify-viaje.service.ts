@@ -6,7 +6,7 @@ import { Viaje } from '../models/viaje';
 })
 export class ModifyViajeService {
 
-  public index:number;
+  public viaje_id:number;
   public viajeAModificar: Viaje
   
   constructor() { }

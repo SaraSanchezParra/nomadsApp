@@ -7,6 +7,8 @@ import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user';
 import { Respuesta } from 'src/app/models/respuesta';
+import { ModifyViajeService } from 'src/app/services/modify-viaje.service';
+import { ViajeService } from 'src/app/shared/viaje.service';
 
 
 
@@ -23,13 +25,17 @@ export class PerfilComponent {
   public usuarioBuscado:User;
   
   
-  constructor(private router:Router, public userService: DatosUsuarioService, private http: HttpClient) {
+  constructor(private router:Router, public userService: DatosUsuarioService, private http: HttpClient, public servicioModify: ModifyViajeService, public viajeService: ViajeService) {
     this.loged = true;
     if(this.userService.usuarioBuscado){
       this.usuarioMostrado = this.userService.user_noLoged;
     }
     else{
       this.usuarioMostrado = this.userService.user_logged
+      console.log("Perfil user:");
+      
+      console.log(this.usuarioMostrado);
+      
     }
       
 
@@ -53,12 +59,34 @@ export class PerfilComponent {
    this.showFavs = false;
    this.showIcons = true;
   }
-  editarViaje(): void {
+  goToModify(viaje_idCard): void {
+    let selectedViaje;
+    this.usuarioMostrado.misViajes.forEach((viajeMio) => {
+      if (viajeMio.viaje_Id === viaje_idCard) {
+        selectedViaje = viajeMio
+      }
+    })
+    this.servicioModify.viajeAModificar = selectedViaje
     this.router.navigate(['/modificarViaje'])
   }
   
    borrarViaje(i: number): void {
     // this.viaj.splice(day_id, 1)
+  }
+
+  goToProfile(user_idCard: number) {
+    this.userService.getUserByID(user_idCard).subscribe((answer: Respuesta)=>{
+      this.userService.user_noLoged = answer.data_user[0];
+      this.userService.usuarioBuscado = true;
+      this.router.navigate["/perfil"]
+    })
+  }
+
+  goToViaje(viaje_idCard: number) {
+    this.viajeService.getViaje(viaje_idCard).subscribe((answer: Respuesta) => {
+      this.viajeService.viajes = answer.data_viaje
+      this.router.navigate(["/paginaViaje"])
+    })
   }
 
    ajustesPerfil():void{

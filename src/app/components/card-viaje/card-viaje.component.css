@@ -86,3 +86,11 @@
     border: none;
     background: none;
 }
+
+.pf_pic {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #1f8989;
+}

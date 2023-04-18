@@ -41,8 +41,12 @@ export class DatosUsuarioService {
 
 
     usuarioEncontrado(username:string){
-
       let url =`http://localhost:3000/userFound?username=${username}`
+      return this.http.get(url)
+    }
+
+    getUserByID(user_id: number) {
+      let url = "http://localhost:3000/user"
       return this.http.get(url)
     }
 

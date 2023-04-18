@@ -32,6 +32,7 @@ export class LoginComponent {
         if (res.mensaje === "logeado") {
           this.userService.loged = true;
           this.userService.user_logged = res.data_user;
+          console.log("logged user data:");
           console.log(res.data_user);
     
           this.userService.loged = true;
