@@ -56,34 +56,29 @@ h1 {
 }
 
 .ajustesProfile {
+    /* border: 2px solid blue; */
     display: flex;
     flex-direction: column;
     gap: 3%;
     width: 40%;
-    height: 38vh;
+    height: 22vh;
+    margin-top: 4%;
 }
 
 .profile_photo {
+    /* border: 2px solid orangered; */
     width: 100%;
-    height: 60%;
-    border-radius: 150px;
-
+    height: 75%;  
 }
 
 .photoBorde {
+    /* border: 2px solid red; */
+    height: 118px;
     border-radius: 50%;
-    width: 112px;
-    height: 132px;
-    object-fit: cover;
-    margin-bottom: 36px;
-    transform: translateY(1.8em);
+    width: 122px;
 }
 
-.profile_photo img {
-    border-radius: 6px;
-    width: 100%;
-    max-height: 100%;
-}
+
 
 .ajustesymensaje {
     width: 100%;
@@ -92,14 +87,10 @@ h1 {
     display: flex;
     flex-direction: column;
     /* justify-content: space-around ; */
+    position: relative;
 }
 
-/* .ajustesymensaje button{
-            border: none;
-            background-color:white;
-            width: 100%;
-            
-        } */
+
 .ajustesymensaje button {
     border: none;
     background-color: #ffb800;
@@ -108,6 +99,9 @@ h1 {
     border-radius: 6px;
     color: white;
     transform: translateY(0.4rem);
+
+    position: absolute;
+    bottom: 0;
 }
 
 section {
@@ -125,7 +119,6 @@ section {
 section div {
     border-radius: 6px;
     background-color: rgba(232, 229, 229, 0.577);
-    /* border: 1px solid grey; */
     width: 100%;
     height: 20%;
     font-size: 12pt;
@@ -290,6 +283,3 @@ section div {
     gap: 3%;
 }
 
-.ajustesymensaje button {
-    margin-bottom: 12%;
-}

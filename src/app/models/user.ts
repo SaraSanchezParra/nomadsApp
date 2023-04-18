@@ -12,6 +12,7 @@ export class User {
   public misViajes: Viaje[];
   public password: string;
   public password2: string;
+  length: any;
 
 
 constructor(name: string, surname:string, email:string, username:string, descripcion:string, photo:string, favs:Viaje[], misViajes:Viaje[]) {

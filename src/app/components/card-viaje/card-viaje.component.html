@@ -2,7 +2,18 @@
 <div class="card" >
   
     <div class="img"(click)="goToViaje()">
-        <img src='{{cardviaje.foto}}'>
+        <!-- <img src='{{cardviaje.foto}}'> -->
+
+         
+              <img class ="photoBorde" *ngIf="this.viaje.foto; else defaultImage" [src]="this.viaje.foto" alt="Foto de perfil">
+
+              <ng-template #defaultImage>
+               <img  class ="photoBorde" src="/assets/Usuario/noPhoto.png" alt="Imagen predeterminada">
+             </ng-template>                  
+
+
+
+
 
     </div>
     <div class="info"(click)="goToViaje()">

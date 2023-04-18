@@ -15,7 +15,7 @@ export class DatosUsuarioService {
  private url: string = "http://localhost:3000/"
 // private url: string = "https://nomads-api.vercel.app/"
  
- public user: User;
+ public user_noLoged: User;
  public user_logged: User;
  public loged: boolean;
  public showHeaderFooter: boolean; 
@@ -28,17 +28,17 @@ export class DatosUsuarioService {
     }
 
           
-    postRegister (user:User){
-      return this.http.post(this.url + "registrar",user)
+    postRegister (user_noLoged:User){
+      return this.http.post(this.url + "registrar",user_noLoged)
     }
 
-    postLogin(user:User){
-      return this.http.post(this.url + "login",user)
+    postLogin(user_noLoged:User){
+      return this.http.post(this.url + "login",user_noLoged)
     }
 
-    modificarUser(user:User){
-      console.log(user.descripcion)
-      return this.http.put(this.url + "user?user_id=" + user.user_id, user)
+    modificarUser(user_noLoged:User){
+      console.log(user_noLoged.descripcion)
+      return this.http.put(this.url + "user?user_id=" + user_noLoged.user_id, user_noLoged)
       
     }
 

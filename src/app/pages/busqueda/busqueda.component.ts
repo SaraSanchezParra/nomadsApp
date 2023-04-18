@@ -35,17 +35,21 @@ export class BusquedaComponent {
     // console.log(form.value)
 
     if (form.controls.usuario.valid) {
-      this.userService.usuarioEncontrado(String(form.controls['usuario'].value)).subscribe((respuesta:Respuesta)=>{
+      this.userService.usuarioEncontrado(String(form.controls['usuario'].value)).subscribe
+                                        ((respuesta:Respuesta)=>{
       
         console.log(respuesta);
         this.userService.users = respuesta.data_users;
      
       if(respuesta.error){
-        this.toastr.warning(`No se ha encontrado a ${form.controls['usuario'].value}`)
-        console.log("Rebe le informo que no se ha encontrado ningún usuario, que tenga un buen día");
+        this.toastr.warning(`No se ha encontrado a ${form.controls['usuario'].value}`);
       }
       else {
-        this.router.navigate(['perfil']);
+
+      this.userService.user_noLoged = respuesta.data_user[0]
+      this.userService.usuarioBuscado = true;
+        this.router.navigate(['/perfil']);
+       
 
       }
     
@@ -55,7 +59,6 @@ export class BusquedaComponent {
     }
     else {
       this.viajesService.viajesBusqueda(String(form.controls['destino'].value), Number(form.controls['dias'].value)).subscribe((respuesta: Respuesta) => {
-
 
         console.log(respuesta);
         this.viajesService.viajesBuscados = respuesta.data_viaje;

@@ -21,18 +21,20 @@ export class PerfilComponent {
   public loged:boolean;
   public usuarioMostrado:User;
   public usuarioBuscado:User;
+
   
   
   constructor(private router:Router, public userService: DatosUsuarioService, private http: HttpClient) {
     this.loged = true;
     if(this.userService.usuarioBuscado){
-      this.usuarioMostrado = this.userService.user;
+      this.usuarioMostrado = this.userService.user_noLoged;
+     
     }
     else{
       this.usuarioMostrado = this.userService.user_logged
     }
       
-
+  
     
   }
   
