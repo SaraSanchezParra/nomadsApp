@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Email } from 'src/app/models/email';
 import { ContactanosService } from 'src/app/services/contactanos.service';
 
@@ -14,7 +15,7 @@ export class ContactoComponent {
   public emails: Email;
   public enviado: Boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private contactanosService: ContactanosService) {
+  constructor(private formBuilder: FormBuilder, private contactanosService: ContactanosService, private toastr: ToastrService) {
     this.buildForm()
   }
 
@@ -41,7 +42,12 @@ export class ContactoComponent {
       this.emails = emails;
       this.enviado = true;
       this.myForm.reset();
+      this.toastr.success('Mensaje enviado con éxito.');
+    }, error => {
+      console.log(error);
+      this.toastr.error('Error al enviar el mensaje.');
     });
+
   }
 
 }

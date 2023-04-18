@@ -33,17 +33,12 @@
                 class="invalid-feedback">
                 Campo obligatorio.
             </div>
-            <div *ngIf="enviado" class="alert alert-success" role="alert">
-                El correo electrónico se envió con éxito.
-              </div>
         </form>
     </div>
   
     <div class="caja2">
         <div class="boton">
-            <button class="enviar" type="button" [disabled]="!myForm.valid" (click)="enviarCorreo()">Enviar</button>
-          
-              
+            <button class="enviar" type="button" [disabled]="!myForm.valid" (click)="enviarCorreo()">Enviar</button>   
         </div>
         <div class="paginas">
             <div class="donde">Puedes encontrarnos en:</div>
