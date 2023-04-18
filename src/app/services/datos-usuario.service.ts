@@ -28,17 +28,17 @@ export class DatosUsuarioService {
     }
 
           
-    postRegister (user:User){
-      return this.http.post(this.url + "registrar",user)
+    postRegister (user_noLoged:User){
+      return this.http.post(this.url + "registrar",user_noLoged)
     }
 
-    postLogin(user:User){
-      return this.http.post(this.url + "login",user)
+    postLogin(user_noLoged:User){
+      return this.http.post(this.url + "login",user_noLoged)
     }
 
-    modificarUser(user:User){
-      console.log(user.descripcion)
-      return this.http.put(this.url + "user?user_id=" + user.user_id, user)
+    modificarUser(user_noLoged:User){
+      console.log(user_noLoged.descripcion)
+      return this.http.put(this.url + "user?user_id=" + user_noLoged.user_id, user_noLoged)
       
     }
 

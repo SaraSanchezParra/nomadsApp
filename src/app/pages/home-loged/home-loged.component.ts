@@ -57,7 +57,14 @@ export class HomeLogedComponent implements OnInit {
 
     });
   }
+<<<<<<< HEAD
   userPerfil(username: string): void {
+=======
+  userPerfil(username: User): void {
+    this.datosUsuarioService.usuarioBuscado = false;
+    this.datosUsuarioService.user_noLoged = username;
+    this.router.navigate(['/perfil', username]);
+>>>>>>> rebeFotoPorDefecto
     console.log(username);
     this.datosUsuarioService.usuarioEncontrado(username).subscribe((respuesta:Respuesta)=>{
 

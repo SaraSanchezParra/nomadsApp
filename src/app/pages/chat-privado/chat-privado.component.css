@@ -218,7 +218,7 @@ textarea {
   border-top-left-radius:6px;
   border-bottom-left-radius: 6px;
   border-right: none;
-  resize: none;
+  resize: vertical;
   overflow: hidden;
   width: 100%;
   min-height: 50px; /* altura mínima del textarea */
