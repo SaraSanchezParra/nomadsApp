@@ -62,11 +62,4 @@ export class HomeLogedComponent implements OnInit {
     this.router.navigate(['/perfil', username]);
     console.log(username);
   }
-
-  getUserById(user_id: number): User {
-
-    console.log(user_id);
-    return this.users.find(user => user.user_id === user_id);
-  }
-  
 }

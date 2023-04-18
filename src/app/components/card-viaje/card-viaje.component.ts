@@ -21,7 +21,6 @@ export class CardViajeComponent implements OnInit{
   userLogged = { username: 'Amber' }
   // @Input() viaje!: Viaje;
   @Input() cardviaje: Viaje;
-  @Input() usuario: User;
   @Input() i: number
   usuarioService: any;
   viaje: Viaje;

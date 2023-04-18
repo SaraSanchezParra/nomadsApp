@@ -25,7 +25,7 @@ export class HomeNoLogedComponent implements OnInit {
 
   getTopViajes(): void {
     this.viajesService.getTopViajes().subscribe(viajes => {
-      console.log(viajes);
+    
       this.viajes = viajes
     
       console.log(this.viajes);
