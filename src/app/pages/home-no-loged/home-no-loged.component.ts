@@ -12,11 +12,13 @@ import { Respuesta } from 'src/app/models/respuesta';
 })
 export class HomeNoLogedComponent implements OnInit {
 
-  inputValue: string = '';
+  public inputValue: string = '';
+  public diasSeleccionados: number = 1;
 
   public viajes: Viaje[];
   public ubicacion: Viaje;
   public dias: Viaje;
+ 
 
   constructor(private viajesService: ViajesService, private router: Router) {
     this.getTopViajes();
@@ -36,20 +38,20 @@ export class HomeNoLogedComponent implements OnInit {
     });
   }
 
-  
+
   buscarViajes(ubicacion: string, dias: number) {
     console.log(ubicacion);
     console.log(dias);
-    
 
-    if (ubicacion!== '') {
+
+    if (ubicacion !== '') {
       this.viajesService.viajesBusqueda(ubicacion, dias).subscribe((respuesta: Respuesta) => {
 
         console.log(respuesta);
         this.viajesService.viajesBuscados = respuesta.data_viaje;
-   
 
-        this.router.navigate(['/viajesDestino'], { queryParams: { ubicacion: ubicacion} });
+
+        this.router.navigate(['/viajesDestino'], { queryParams: { ubicacion: ubicacion } });
       })
     }
   }
