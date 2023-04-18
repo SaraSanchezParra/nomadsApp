@@ -11,13 +11,13 @@
                  <!-- <div class="profile_photo"> -->
                     <img class="photoBorde" src={{this.usuarioMostrado.photo}} alt="perfil">
                 <!-- </div> -->
-                <div class="ajustesymensaje" *ngIf ="!this.userService.usuarioBuscado">
+                <div class="ajustesymensaje" *ngIf="this.soyYo; else esFalso">
                     <button type="button" class="icono" (click)="ajustesPerfil()"> Editar
                     </button>
                 </div>
                 <!-- cambio de boton cuando loged -->
                 <ng-template #esFalso>
-                    <div class="ajustesymensaje" *ngIf ="this.userService.usuarioBuscado">
+                    <div class="ajustesymensaje">
                         <button type="button" class="icono" (click)="enviarMensaje()"> Mensaje
                         </button>
                     </div>

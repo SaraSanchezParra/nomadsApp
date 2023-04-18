@@ -22,17 +22,20 @@ export class PerfilComponent {
   public showIcons = false;
   public loged:boolean;
   public usuarioMostrado:User;
+  public soyYo: boolean
+  
   
   
   constructor(private router:Router, public userService: DatosUsuarioService, private http: HttpClient, public servicioModify: ModifyViajeService, public viajeService: ViajeService) {
     this.loged = true;
     if(this.userService.usuarioBuscado){
       this.usuarioMostrado = this.userService.user_noLoged;
+      this.soyYo = false
     }
     else{
       this.usuarioMostrado = this.userService.user_logged
       console.log("Perfil user:");
-      
+      this.soyYo = true
       console.log(this.usuarioMostrado);
       
     }
