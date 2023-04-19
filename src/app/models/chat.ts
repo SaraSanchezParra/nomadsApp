@@ -1,4 +1,5 @@
 import { PathLocationStrategy } from "@angular/common";
+import { Mensajes } from "./mensajes";
 
 export class Chats {
 
@@ -8,14 +9,12 @@ export class Chats {
   public hora: String
   public user_id_creador:number;
   public user_id_participante:number
+  public mensajes:Mensajes[]
 
   constructor(photo:string, username:string, hora:string){
     this.photo=photo,
     this.username=username,
-    this.hora=hora,
-    this.chat_id
-    this.user_id_creador
-    this.user_id_participante
+    this.hora=hora
   };
 
 }
