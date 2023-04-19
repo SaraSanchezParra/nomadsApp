@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -87,8 +86,11 @@ export class PerfilComponent {
     })
   }
 
-  clickCard(viaje_id: number) {
-    this.viajeService.goToViaje(viaje_id)
+  goToViaje(viaje_idCard: number) {
+    this.viajeService.getViaje(viaje_idCard).subscribe((answer: Respuesta) => {
+      this.viajeService.viajes = answer.data_viaje
+      this.router.navigate(["/paginaViaje"])
+    })
   }
 
    ajustesPerfil():void{
@@ -96,6 +98,7 @@ export class PerfilComponent {
   }
   enviarMensaje(){
     this.chatService.getChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id).subscribe((answerGet: any)=>{
+      console.log(answerGet);
       if(answerGet.data.length == 0){
         this.chatService.postChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id, "10:00").subscribe((answerPost: any)=>{
           if(answerPost.error ){
@@ -105,9 +108,10 @@ export class PerfilComponent {
             this.chatService.chat = new Chats(this.usuarioMostrado.photo, 
                                               this.usuarioMostrado.name,
                                               "10:00");
-            this.chatService.chat.chat_id = answerGet.insertId;
+            this.chatService.chat.chat_id = answerPost.data.insertId;
             this.chatService.chat.mensajes = [];
-            console.log(answerGet);
+            console.log(answerPost);
+            console.log(this.chatService.chat);
             
             this.router.navigate(['/chatPrivado'])
             
@@ -117,16 +121,17 @@ export class PerfilComponent {
       else{
         this.chatService.chat = new Chats(this.usuarioMostrado.photo, 
                                           this.usuarioMostrado.name,
-                                          answerGet.hora);
+                                          answerGet.data[0].hora);
 
-        this.chatService.chat.chat_id = answerGet.chat_id;
+        this.chatService.chat.chat_id = answerGet.data[0].chat_id;
 
-        this.chatService.getMessages(answerGet.chat_id).subscribe((answerMessages: any)=>{
+        this.chatService.getMessages(answerGet.data[0].chat_id).subscribe((answerMessages: any)=>{
           if(answerMessages.error ){
             console.log(answerMessages.error)//meter toastr
           }
           else{
             this.chatService.chat.mensajes = answerMessages.data;
+            console.log(this.chatService.chat);
           }
 
         })
@@ -153,4 +158,3 @@ export class PerfilComponent {
 
 
 }
-

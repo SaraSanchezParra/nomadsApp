@@ -1,6 +1,4 @@
-import { PathLocationStrategy } from "@angular/common";
 import { Mensajes } from "./mensajes";
-
 export class Chats {
 
   public chat_id:number;

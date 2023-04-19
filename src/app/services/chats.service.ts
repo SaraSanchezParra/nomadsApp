@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Chats } from '../models/chat';
-import { Mensajes } from '../models/mensajes';
 import { User } from '../models/user';
 
 @Injectable({
@@ -12,7 +11,7 @@ export class ChatsService {
 public chat_id: number;
  private url: string = "http://localhost:3000/chats"
  private url2:string = "http://localhost:3000/chat"
- private url3: string = "http://localhost:3000/mensajes"
+ private url3:string = "http://localhost:3000/mensajes"
  public chat : Chats;
     // private url: string = "https://nomads-api.vercel.app/"
   constructor(private http:HttpClient) { }
@@ -30,12 +29,12 @@ deleteChat(chat_id: number) {
 }
 
 getChat(user_id_loged:number, user_id_buscado:number){
-  let url2=(this.url2 + `?user_id_loged=${user_id_loged}&user_id_buscado=${user_id_buscado}`)
-  return this.http.get(this.url2)
+  let url2=(this.url2 + `?user_id1=${user_id_loged}&user_id2=${user_id_buscado}`)
+  return this.http.get(url2)
 }
 
 postChat(user_id_creador:number, user_id_participante:number, user_hora:string){
-  let url=(this.url);
+  let url=(this.url2);
   let body = {user_id_creador: user_id_creador,
               user_id_participante: user_id_participante,
               user_hora: user_hora}
@@ -47,11 +46,8 @@ getMessages(chat_id:number){
   return this.http.get(url)
 }
 
-
-postMessages(newMessage:Mensajes){
-  return this.http.post(this.url3,newMessage)
-  }
 }  
+
 
 
 
