@@ -64,12 +64,14 @@ export class PaginaViajeComponent {
         this.userService.user_logged.user_id
       );
       this.isLiked = false;
+      this.fav = true;
     } else {
       this.ViajeService.addLike(
         this.userService.user_logged.user_id,
         this.viaje.viaje_id
       );
       this.isLiked = true;
+      this.fav = false;
     }
   }
 
