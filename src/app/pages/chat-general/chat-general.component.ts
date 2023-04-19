@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Chats } from 'src/app/models/chat';
 import { RespuestaChat } from 'src/app/models/respuestaChat';
+import { User } from 'src/app/models/user';
 import { ChatsService } from 'src/app/services/chats.service';
+import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
 @Component({
   selector: 'app-chat-general',
@@ -16,15 +18,19 @@ export class ChatGeneralComponent {
   public textoBusqueda = '';
   public chatsMostrados: Chats[];
   public buscandoUsuario: boolean;
+  public user_id_creador: number;
+  public user_id_participante: number;
+  public indexEncontrado:number;
 
-  constructor (private chatsService: ChatsService)
+  constructor (private chatsService: ChatsService,private userService: DatosUsuarioService)
   {
     this.chats = []
     this.chatsMostrados = this.chats;
     this.buscandoUsuario = false;
     this.chatPrincipal = true; 
+    console.log()
     
-    this.chatsService.getChatsAll().subscribe((res: RespuestaChat) => {
+    this.chatsService.getChats(this.userService.user_logged.user_id).subscribe((res: RespuestaChat) => {
     console.log(res);
     this.chats = res.data;
     this.chatsMostrados = this.chats;
@@ -37,19 +43,23 @@ export class ChatGeneralComponent {
     console.log(nombreBusqueda);
     this.buscandoUsuario = true;
     this.chatPrincipal = false;
-
-    if (nombreBusqueda != "") {
-        this.chatsService.getChat(nombreBusqueda).subscribe((res: RespuestaChat) => {
-            console.log(res);
-            this.chats = res.data;
-            this.chatsMostrados = this.chats;
-            this.buscandoUsuario = false;
-            
-        });
-    } else {
-        this.chatsMostrados = [];
-        this.buscandoUsuario = false;
+    this.indexEncontrado = -1;
+  
+    if (nombreBusqueda!="")
+      this.indexEncontrado = this.chats.findIndex(chat => chat.username.toLowerCase().includes(nombreBusqueda));
+    console.log(this.indexEncontrado);
+    
+    this.usuarioEncontrado = (this.indexEncontrado != -1);
+    
+    if (this.usuarioEncontrado)
+    {
+      this.chatsMostrados = [this.chats[this.indexEncontrado]];
     }
+    else
+    {
+      this.chatsMostrados = [];
+    }
+    console.log (this.chatsMostrados);
 }
 
 
@@ -60,42 +70,31 @@ export class ChatGeneralComponent {
     this.chatPrincipal=true;
     this.buscandoUsuario = false; 
     this.chatsMostrados = this.chats;
-    this.chatsService.getChatsAll().subscribe((res: RespuestaChat) => {
-      console.log(res);
-      this.chats = res.data;
-      this.chatsMostrados = this.chats;
-    });
   }  
 
-  // mostrarBotonBusqueda() {
-  //   let searchInput = document.getElementById("search") as HTMLInputElement;
-  //   let searchButton = document.getElementById("search-button");
+  eliminarTarjeta(chat:Chats) {
 
-  //   if (searchInput.value.trim().length > 0) {
-  //     searchButton.style.display = "inline-block";
-  //   } else {
-  //     searchButton.style.display = "none";
-  //   }
+
+    let index = this.chats.findIndex(data => data == chat);
+    if (index !== -1) {
+      this.chats.splice(index, 1);
+    }
+
+    if (this.chatsMostrados.length == 1)
+    {
+      this.chatsMostrados = [];
+    }
+    else
+    {
+      this.chatsMostrados = this.chats;
+    }
+    
   
-  // }
-  eliminarTarjeta(username: string) {
-    this.chatsService.deleteChat(this.chats[0].username).subscribe((res: any) => {
-      const index = this.chats.findIndex((data) => data.username === username);
-      console.log(index);
-      if (index !== -1) {
-        this.chats.splice(index, 1);
-      }
-      if (this.chatsMostrados.length === 1) {
-        this.chatsMostrados = [];
-      } else {
-        this.chatsMostrados = this.chats;
-      }
-      console.log(this.chats);
+    this.chatsService.deleteChat(chat.chat_id).subscribe((res: RespuestaChat) => {
+
+      console.log(res);
     });
   }
-  
-  
-
 }
 
 
