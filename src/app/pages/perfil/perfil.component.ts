@@ -9,6 +9,8 @@ import { User } from 'src/app/models/user';
 import { Respuesta } from 'src/app/models/respuesta';
 import { ModifyViajeService } from 'src/app/services/modify-viaje.service';
 import { ViajeService } from 'src/app/shared/viaje.service';
+import { ChatsService } from 'src/app/services/chats.service';
+import { Chats } from 'src/app/models/chat';
 
 
 
@@ -26,7 +28,7 @@ export class PerfilComponent {
   
   
   
-  constructor(private router:Router, public userService: DatosUsuarioService, private http: HttpClient, public servicioModify: ModifyViajeService, public viajeService: ViajeService) {
+  constructor(private router:Router, public userService: DatosUsuarioService, private http: HttpClient, public servicioModify: ModifyViajeService, public viajeService: ViajeService, public chatService: ChatsService) {
     this.loged = true;
     if(this.userService.usuarioBuscado){
       this.usuarioMostrado = this.userService.user_noLoged;
@@ -39,6 +41,7 @@ export class PerfilComponent {
       console.log(this.usuarioMostrado);
       
     }
+
       
   
     
@@ -94,10 +97,50 @@ export class PerfilComponent {
    ajustesPerfil():void{
     this.router.navigate(['/modificarPerfil'])
   }
-  enviarMensaje():void{
+  enviarMensaje(){
+    this.chatService.getChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id).subscribe((answerGet: any)=>{
+      if(answerGet.data.length == 0){
+        this.chatService.postChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id, "10:00").subscribe((answerPost: any)=>{
+          if(answerPost.error ){
+            console.log(answerPost.error)//meter toastr
+          }
+          else{
+            this.chatService.chat = new Chats(this.usuarioMostrado.photo, 
+                                              this.usuarioMostrado.name,
+                                              "10:00");
+            this.chatService.chat.chat_id = answerGet.insertId;
+            this.chatService.chat.mensajes = [];
+            console.log(answerGet);
+            
+            this.router.navigate(['/chatPrivado'])
+            
+          }
+        })
+      }
+      else{
+        this.chatService.chat = new Chats(this.usuarioMostrado.photo, 
+                                          this.usuarioMostrado.name,
+                                          answerGet.hora);
 
+        this.chatService.chat.chat_id = answerGet.chat_id;
+
+        this.chatService.getMessages(answerGet.chat_id).subscribe((answerMessages: any)=>{
+          if(answerMessages.error ){
+            console.log(answerMessages.error)//meter toastr
+          }
+          else{
+            this.chatService.chat.mensajes = answerMessages.data;
+          }
+
+        })
+        // this.chatService.chat.mensajes = [];
+        this.router.navigate(['/chatPrivado'])
+      }
+
+    })
     this.router.navigate(['/chatPrivado'])
   }
+  
   iraUser():void{
     this.router.navigate(['/perfil'])
   }
