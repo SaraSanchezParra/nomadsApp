@@ -11,7 +11,6 @@ export class ChatPrivadoComponent {
   mensajeActual: string = '';
   mensajes: string[] = [];
   mensajePredefinido = 'Hola, ¿cómo estás?';
-  mensajePredefinido2 = 'Hola, bien y tu como estas';
   haRespondidoPredefinido: boolean = false;
   bocadilloHeight = '25%';
   mostrarBloquear = false;
@@ -28,8 +27,8 @@ export class ChatPrivadoComponent {
   }
 
   enviarMensaje() {
-    if (this.mensajeActual.includes(this.mensajePredefinido2) && !this.haRespondidoPredefinido) {
-      this.mensajes.push('Estoy bien, gracias.');
+    if (this.mensajeActual.includes(this.mensajePredefinido) && !this.haRespondidoPredefinido) {
+      
       this.haRespondidoPredefinido = true; // establecer haRespondidoPredefinido a true
     } else {
       this.mensajes.push(this.mensajeActual);

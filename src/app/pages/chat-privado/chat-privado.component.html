@@ -36,22 +36,25 @@
 
         <div class="bocadillos">
           <div class="bocadilloVerde">
-            <div class="bocadillo1">{{ mensajePredefinido }}</div>
-          </div>
-
-          <div class="bocadilloMorado">
-            <div *ngIf="haRespondidoPredefinido" class="bocadillo2">
-              {{ mensajePredefinido2 }}
+            <div class="bocadillo1" [ngClass]="{'izquierda': true}" >
+              {{ mensajePredefinido }}
             </div>
-            <div *ngFor="let mensaje of mensajes" class="bocadillo1">
+          </div>
+        
+          <div class="bocadilloMorado">
+          
+            <div *ngFor="let mensaje of mensajes" class="bocadillo2" [ngClass]="{'derecha': true}">
               {{ mensaje }}
             </div>
           </div>
         </div>
+        
 
         <div class="mensaje">
           <textarea class="text"
+            
             [(ngModel)]="mensajeActual"
+          
             placeholder="Escribe tu mensaje..."
           ></textarea>
           <button (click)="enviarMensaje()" class="enviar">
