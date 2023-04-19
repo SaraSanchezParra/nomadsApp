@@ -33,11 +33,10 @@ export class CardViajeComponent implements OnInit{
     console.log("take to viaje");
     if (this.isLoged){
       let ref = this.cardviaje.viaje_id;
-      
       this.viajeEvent.emit(ref)
     }
     else {
-      this.router.navigate(['/login']);
+      this.viajeEvent.emit(-1)
     }
   }
 

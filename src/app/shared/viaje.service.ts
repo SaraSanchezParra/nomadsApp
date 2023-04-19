@@ -25,6 +25,8 @@ export class ViajeService {
 
   public getDay(day_id: number) {
     let newUrl = `${this.url}getPI?dia_id=${day_id}`
+    console.log(this.http.get(newUrl));
+    
     return this.http.get(newUrl)
   }
 

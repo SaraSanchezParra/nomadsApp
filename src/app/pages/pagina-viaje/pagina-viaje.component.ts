@@ -22,7 +22,7 @@ export class PaginaViajeComponent {
   dia2: Day;
   fav: boolean;
   map: Map;
-  own: boolean;
+
   isLiked: boolean;
 
   constructor(
@@ -32,12 +32,6 @@ export class PaginaViajeComponent {
     this.userToCheck = this.userService.user_logged;
     this.ViajeService.getViaje(this.ViajeService.viajeDetalle_id).subscribe((answer: Respuesta) => {
       this.viaje = answer.data_viaje[0];
-      //  check own
-      this.userToCheck.misViajes.forEach((viajeDePersona) => {
-        if (viajeDePersona.viaje_id === this.viaje.viaje_id) {
-          this.own = true;
-        }
-      });
       //  check liked
       this.userService.user_logged.favs.forEach((viajeFav) => {
         if (viajeFav.viaje_id === this.viaje.viaje_id) {
@@ -79,7 +73,7 @@ export class PaginaViajeComponent {
     } else {
       console.log('is closed' + cardMessage.isOpen);
       console.log(cardMessage);
-      this.ViajeService.getDay(cardMessage.index + 1).subscribe(
+      this.ViajeService.getDay(cardMessage.dia_id).subscribe(
         (answer: Respuesta) => {
           console.log(answer);
           this.viaje.days[cardMessage.index].puntosDeInteres = answer.data_dia;

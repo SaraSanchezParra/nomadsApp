@@ -8,7 +8,7 @@
                 <div>
                     <p class="texto">¿A dónde vas?</p>
                 </div>
-                <input type="text" class="inputs" name="destino" ngModel required minlength="3"
+                <input type="text" class="inputs" name="destino" ngModel required minlength="2" 
                     [disabled]="(form.controls['usuario']?.valid && form.controls['usuario']?.touched)">
 
                 <div style="margin-top:3%;"

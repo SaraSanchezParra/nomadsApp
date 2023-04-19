@@ -18,6 +18,7 @@ export class BusquedaComponent {
 
   public loged: Boolean
   public redirectToPerfil: Boolean
+  
 
 
 
