@@ -47,7 +47,7 @@ import { ViajesService } from './services/viajes.service';
 import { ToastNoAnimationModule } from 'ngx-toastr';
 import { ChatsService } from './services/chats.service';
 import { ToastrModule } from 'ngx-toastr';
-import { ChatPrivadoService } from './services/chatPrivado.service';
+
 
 
 
@@ -102,7 +102,7 @@ import { ChatPrivadoService } from './services/chatPrivado.service';
     ToastNoAnimationModule.forRoot(),
     ToastrModule.forRoot(),
   ],
-  providers: [DatosUsuarioService, ViajesService,ChatsService,ChatPrivadoService],
+  providers: [DatosUsuarioService, ViajesService,ChatsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
