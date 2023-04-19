@@ -4,8 +4,8 @@
         <div class="buscador">
             <div class="caja1">
                 <input class="buscar" [(ngModel)]="inputValue" type="text" name="destino" placeholder="¿Adónde vas?">
-                <select class="dias" name="dias" id="selectExample" placeholder="Nº de Dias" required
-                    title="Debes introducir un destino">
+                <select class="dias" name="dias" [(ngModel)]="diasSeleccionados" id="selectExample"
+                    placeholder="Nº de Dias" required title="Debes introducir un destino">
                     <option value="1">1 Dia</option>
                     <option value="2">2 Dias</option>
                     <option value="3">3 Dias</option>
@@ -14,7 +14,8 @@
                 </select>
 
                 <button class="boton" type="button" [disabled]="!inputValue"
-                    [ngClass]="{ 'disabled': !inputValue }" (click)="buscarViajes(inputValue, [dias].value)">Mostrar</button>
+                    [ngClass]="{ 'disabled': !inputValue }"
+                    (click)="buscarViajes(inputValue, diasSeleccionados)">Mostrar</button>
             </div>
 
         </div>
