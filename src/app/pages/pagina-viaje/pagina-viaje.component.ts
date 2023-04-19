@@ -30,17 +30,17 @@ export class PaginaViajeComponent {
     public userService: DatosUsuarioService
   ) {
     this.userToCheck = this.userService.user_logged;
-    this.ViajeService.getViaje(1).subscribe((answer: Respuesta) => {
+    this.ViajeService.getViaje(this.ViajeService.viajeDetalle_id).subscribe((answer: Respuesta) => {
       this.viaje = answer.data_viaje[0];
       //  check own
       this.userToCheck.misViajes.forEach((viajeDePersona) => {
-        if (viajeDePersona.viaje_Id === this.viaje.viaje_Id) {
+        if (viajeDePersona.viaje_id === this.viaje.viaje_id) {
           this.own = true;
         }
       });
       //  check liked
       this.userService.user_logged.favs.forEach((viajeFav) => {
-        if (viajeFav.viaje_Id === this.viaje.viaje_Id) {
+        if (viajeFav.viaje_id === this.viaje.viaje_id) {
           this.isLiked = true;
         }
       });
@@ -60,14 +60,14 @@ export class PaginaViajeComponent {
   likeFunc() {
     if (this.isLiked) {
       this.ViajeService.unLike(
-        this.viaje.viaje_Id,
+        this.viaje.viaje_id,
         this.userService.user_logged.user_id
       );
       this.isLiked = false;
     } else {
       this.ViajeService.addLike(
         this.userService.user_logged.user_id,
-        this.viaje.viaje_Id
+        this.viaje.viaje_id
       );
       this.isLiked = true;
     }

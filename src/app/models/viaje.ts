@@ -3,7 +3,7 @@ import { Day } from "./day";
 
 
 export class Viaje {
-    public viaje_Id: number
+    public viaje_id: number
     public titulo: string
     public descripcion: string
     public ubicacion: string
@@ -15,7 +15,7 @@ export class Viaje {
     public user_foto: string
 
     constructor(viaje_id: number, titulo: string, ubicacion: string, foto:string, descripcion: string, days: Day[], likes: number, user_id: number, users: User, user_foto: string){
-        this.viaje_Id = viaje_id
+        this.viaje_id = viaje_id
         this.titulo = titulo
         this.foto = foto
         this.descripcion = descripcion

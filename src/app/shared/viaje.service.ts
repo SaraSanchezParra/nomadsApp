@@ -10,6 +10,7 @@ export class ViajeService {
 
   public viajes: Viaje[]
   public user: User;
+  viajeDetalle_id: number;
 
   private url = "http://localhost:3000/"
 
@@ -18,6 +19,7 @@ export class ViajeService {
 
   public getViaje(viaje_id: number) {
     let newUrl = `${this.url}viaje?viaje_id=${viaje_id}`;
+    console.log(newUrl);
     return this.http.get(newUrl);
   }
 

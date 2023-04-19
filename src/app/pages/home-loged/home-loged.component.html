@@ -7,7 +7,7 @@
                 Top viajes
             </div>
             <div class="cards" *ngFor="let viaje of viajes" routerLink="/paginaViaje">
-                <app-card-viaje [cardviaje]="viaje" [isLoged]="true"></app-card-viaje>
+                <app-card-viaje [cardviaje]="viaje" [isLoged]="true" (viajeEvent)="goToViaje($event)"></app-card-viaje>
             </div>
         </div>
         <div class="users">
