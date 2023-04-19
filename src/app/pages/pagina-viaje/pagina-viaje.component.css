@@ -10,6 +10,7 @@
     position: sticky;
     top: 9vh;
     z-index: 9;
+    margin-bottom: 2rem;
 }
 
 #user_foto {
@@ -40,13 +41,6 @@
 
 #map {
     height: 250px;
-}
-
-.map_area {
-    background-image: url(https://i.pinimg.com/originals/54/ff/a7/54ffa7490b53149c3b0335e0fdad8a68.jpg);
-    height: 250px;
-    background-size: cover;
-    margin-bottom: 1rem;
 }
 
 .days-area {

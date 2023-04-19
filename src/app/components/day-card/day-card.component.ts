@@ -32,7 +32,7 @@ export class DayCardComponent {
   onClick() {
     this.ReadMore = !this.ReadMore;
     this.visible = !this.visible
-    this.isOpen.emit({isOpen: this.ReadMore, index: this.i})
+    this.isOpen.emit({isOpen: this.ReadMore, dia_id: this.dia.dia_id, index: this.i})
     // create an object with index and boolean and send that to the father
   }
 
@@ -58,13 +58,13 @@ export class DayCardComponent {
   }
 
   borrarDia() {
-    let ref = this.i;
+    let ref = this.dia.dia_id;
     this.cardEvent.emit(ref)
     
   }
 
   editarDia() {
-    let ref = this.i;
+    let ref = this.dia.dia_id;
     this.cardEvent.emit(ref)
     this.router.navigate(['/modificarDia'])
   }

@@ -58,7 +58,7 @@ export class AddDiaComponent {
     let PI5 = new PuntoDeInteres(null, formValue.fotoPuntoDeInteres5, formValue.nombrePuntoDeInteres5, null, null)
 
     let PIs = [PI1, PI2, PI3, PI4, PI5]
-    let dayToAdd: Day = new Day(null, `Dia ${this.dia_index}`, [])
+    let dayToAdd: Day = new Day(null, null, `Dia ${this.dia_index}`, [])
     for (let PI of PIs){
       if (PI.foto != null && PI.nombre != null){
         dayToAdd.puntosDeInteres.push(PI)

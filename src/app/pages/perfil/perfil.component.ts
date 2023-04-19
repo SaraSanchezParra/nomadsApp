@@ -87,11 +87,8 @@ export class PerfilComponent {
     })
   }
 
-  goToViaje(viaje_idCard: number) {
-    this.viajeService.getViaje(viaje_idCard).subscribe((answer: Respuesta) => {
-      this.viajeService.viajes = answer.data_viaje
-      this.router.navigate(["/paginaViaje"])
-    })
+  clickCard(viaje_id: number) {
+    this.viajeService.goToViaje(viaje_id)
   }
 
    ajustesPerfil():void{

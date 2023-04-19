@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { ViajesService } from 'src/app/services/viajes.service';
 import { Respuesta } from 'src/app/models/respuesta';
+import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
 @Component({
   selector: 'app-home-no-loged',
@@ -20,7 +21,7 @@ export class HomeNoLogedComponent implements OnInit {
   public dias: Viaje;
  
 
-  constructor(private viajesService: ViajesService, private router: Router) {
+  constructor(private viajesService: ViajesService, private router: Router, public userService: DatosUsuarioService) {
     this.getTopViajes();
 
   }
@@ -54,6 +55,12 @@ export class HomeNoLogedComponent implements OnInit {
         this.router.navigate(['/viajesDestino'], { queryParams: { ubicacion: ubicacion } });
       })
     }
+  }
+
+  goToLogin(viaje_id:number) {
+    this.userService.loged = false;
+    this.userService.showHeaderFooter= false
+    this.router.navigate(["/login"])
   }
 }
 

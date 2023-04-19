@@ -9,7 +9,7 @@ import { DialogService } from 'src/app/services/dialog.service';
   templateUrl: './card-viaje.component.html',
   styleUrls: ['./card-viaje.component.css']
 })
-export class CardViajeComponent implements OnInit{
+export class CardViajeComponent implements OnInit {
 
   @Output() cardEvent = new EventEmitter<number>
   @Output() modifyEvent = new EventEmitter<number>
@@ -20,7 +20,6 @@ export class CardViajeComponent implements OnInit{
   // @Input() viaje!: Viaje;
   @Input() cardviaje!: Viaje;
   @Input() i: number;
-  @Input() isLoged: boolean;
   @Input() viajesMios!: boolean;
 
   constructor(public router: Router, private dialogService: DialogService) {
@@ -31,14 +30,11 @@ export class CardViajeComponent implements OnInit{
 
   goToViaje() {
     console.log("take to viaje");
-    if (this.isLoged){
-      let ref = this.cardviaje.viaje_id;
-      
-      this.viajeEvent.emit(ref)
-    }
-    else {
-      this.router.navigate(['/login']);
-    }
+
+    let ref = this.cardviaje.viaje_id;
+    this.viajeEvent.emit(ref)
+
+
   }
 
   borrarViaje() {
@@ -63,6 +59,6 @@ export class CardViajeComponent implements OnInit{
     this.profileEvent.emit(ref)
   }
 
-  
+
 
 }

@@ -72,6 +72,6 @@ export class HomeLogedComponent implements OnInit {
   }
   
   goToViaje(viaje_id: number) {
-    this.viajeService.viajeDetalle_id = viaje_id
+    this.viajeService.goToViaje(viaje_id)
   }
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Viaje } from '../models/viaje';
 import { User } from '../models/user';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,12 @@ export class ViajeService {
 
   private url = "http://localhost:3000/"
 
-  constructor( private http: HttpClient) {
+  constructor( private http: HttpClient, public router: Router) {
+  }
+
+  public goToViaje(viaje_idCard: number) {
+    this.viajeDetalle_id = viaje_idCard;
+    this.router.navigate(["/paginaViaje"])
   }
 
   public getViaje(viaje_id: number) {
@@ -25,6 +31,8 @@ export class ViajeService {
 
   public getDay(day_id: number) {
     let newUrl = `${this.url}getPI?dia_id=${day_id}`
+    console.log(this.http.get(newUrl));
+    
     return this.http.get(newUrl)
   }
 
