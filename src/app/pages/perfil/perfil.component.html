@@ -38,7 +38,7 @@
     
     <div class="cards" *ngIf="showFavs ; else misviajes">
         <ng-container *ngFor="let viaje of this.usuarioMostrado.favs; let i = index">
-            <app-card-viaje [cardviaje]="viaje" [isLoged]="true" (profileEvent)="goToProfile($event)"></app-card-viaje>
+            <app-card-viaje [cardviaje]="viaje" [isLoged]="true" (viajeEvent)="clickCard($event)" (profileEvent)="goToProfile($event)"></app-card-viaje>
         </ng-container>
     </div>
     <div  class="cards"><ng-template #misviajes>

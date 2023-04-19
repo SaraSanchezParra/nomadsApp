@@ -11,7 +11,7 @@
         </div>
         <ng-template #showViajes>
             <ng-container *ngFor="let viaje of viajesADestino">
-                <app-card-viaje [cardviaje]="viaje" (viajeEvent)="goToViaje($event)"></app-card-viaje>
+                <app-card-viaje [cardviaje]="viaje" (viajeEvent)="clickCard($event)"></app-card-viaje>
             </ng-container>
         </ng-template>
     </div>

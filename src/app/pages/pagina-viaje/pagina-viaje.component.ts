@@ -32,6 +32,8 @@ export class PaginaViajeComponent {
     this.userToCheck = this.userService.user_logged;
     this.ViajeService.getViaje(this.ViajeService.viajeDetalle_id).subscribe((answer: Respuesta) => {
       this.viaje = answer.data_viaje[0];
+      console.log(this.viaje);
+      
       //  check liked
       this.userService.user_logged.favs.forEach((viajeFav) => {
         if (viajeFav.viaje_id === this.viaje.viaje_id) {

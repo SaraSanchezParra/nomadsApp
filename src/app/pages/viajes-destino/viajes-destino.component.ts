@@ -19,10 +19,8 @@ export class ViajesDestinoComponent {
     this.viajesADestino = this.viajesService.viajesBuscados
    
   }
- 
-  goToViaje(viaje_idCard: number) {
-    this.viajeService.viajeDetalle_id = viaje_idCard;
-    this.router.navigate(["/paginaViaje"])
-  }
 
+  clickCard(viaje_id: number) {
+    this.viajeService.goToViaje(viaje_id);
+  }
 }
