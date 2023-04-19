@@ -6,6 +6,7 @@ import { ViajesService } from 'src/app/services/viajes.service';
 import { Router } from '@angular/router';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 import { Respuesta } from 'src/app/models/respuesta';
+import { ViajeService } from 'src/app/shared/viaje.service';
 
 @Component({
   selector: 'app-home-loged',
@@ -20,7 +21,7 @@ export class HomeLogedComponent implements OnInit {
   public users: User[];
   public usuarioBuscado: boolean = false;
 
-  constructor(private viajesService: ViajesService, private topUserService: TopUserService, private router: Router, private datosUsuarioService: DatosUsuarioService) {
+  constructor(private viajesService: ViajesService, private topUserService: TopUserService, private router: Router, private datosUsuarioService: DatosUsuarioService, public viajeService: ViajeService) {
     this.viajesService.getTopViajesLog().subscribe(viajes => {
       console.log(viajes);
       this.viajes = viajes
@@ -68,5 +69,9 @@ export class HomeLogedComponent implements OnInit {
 
     })
    
+  }
+  
+  goToViaje(viaje_id: number) {
+    this.viajeService.viajeDetalle_id = viaje_id
   }
 }

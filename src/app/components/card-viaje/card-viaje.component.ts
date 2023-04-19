@@ -32,7 +32,8 @@ export class CardViajeComponent implements OnInit{
   goToViaje() {
     console.log("take to viaje");
     if (this.isLoged){
-      let ref = this.cardviaje.viaje_Id;
+      let ref = this.cardviaje.viaje_id;
+      
       this.viajeEvent.emit(ref)
     }
     else {
@@ -46,7 +47,7 @@ export class CardViajeComponent implements OnInit{
   }
 
   editarViaje() {
-    let ref = this.cardviaje.viaje_Id
+    let ref = this.cardviaje.viaje_id
     this.modifyEvent.emit(ref)
     // this.router.navigate(['/modificarViaje'])
     //esto debería de mandar el id de viaje

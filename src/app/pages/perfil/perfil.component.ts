@@ -64,7 +64,7 @@ export class PerfilComponent {
   goToModify(viaje_idCard): void {
     let selectedViaje;
     this.usuarioMostrado.misViajes.forEach((viajeMio) => {
-      if (viajeMio.viaje_Id === viaje_idCard) {
+      if (viajeMio.viaje_id === viaje_idCard) {
         selectedViaje = viajeMio
       }
     })

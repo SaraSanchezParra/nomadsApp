@@ -31,9 +31,9 @@ export class AddViajeComponent {
     this.diaService.getViajeID().subscribe((answer: Respuesta) => {
       if (!answer.error) {
         console.log(answer);
-        this.viaje.viaje_Id = Number(answer.mensaje) + 1
-        console.log(this.viaje.viaje_Id);
-        this.diaService.viajeAInsertar_id = this.viaje.viaje_Id
+        this.viaje.viaje_id = Number(answer.mensaje) + 1
+        console.log(this.viaje.viaje_id);
+        this.diaService.viajeAInsertar_id = this.viaje.viaje_id
       }
     })
     
