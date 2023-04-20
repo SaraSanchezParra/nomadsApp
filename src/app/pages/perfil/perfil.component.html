@@ -39,26 +39,55 @@
     </div>
     
 
-        
- 
-    
 
 
-  
-    <div class="cards" *ngIf="showFavs ; else misviajes">
+<div class="cards" *ngIf="showFavs ; else misviajes">
+    <ng-container *ngIf="this.usuarioMostrado.favs.length == [0]; else mostrarFavs">
+        <p class="viajesFavs">No hay viajes para mostrar</p>
+    </ng-container>
+    <ng-template #mostrarFavs>
         <ng-container *ngFor="let viaje of this.usuarioMostrado.favs; let i = index">
             <app-card-viaje [cardviaje]="viaje" [isLoged]="true" (viajeEvent)="clickCard($event)" (profileEvent)="goToProfile($event)"></app-card-viaje>
         </ng-container>
-    </div>
-    <div  class="cards">
+    </ng-template>
+    
+</div>
+<div class="cards">
+<ng-template #misviajes>
+    <ng-container *ngIf="this.usuarioMostrado.misViajes.length == [0]; else viajes">
+          <p class="viajesFavs">No hay viajes para mostrar</p>
+    </ng-container>
+    <ng-template #viajes>
+        <ng-container *ngFor="let viaje of this.usuarioMostrado.misViajes; let i = index">
+            <app-card-viaje [cardviaje]="viaje" [viajesMios]="this.soyYo" [isLoged]="true" (viajeEvent)="clickCard($event)" (modifyEvent)="goToModify($event)" (cardEvent)="borrarViaje($event)"></app-card-viaje>
+        </ng-container>
+    </ng-template>
+    </ng-template> 
+</div>
+
+
+
+
+
+
+
+  
+    <!-- <div class="cards" *ngIf="showFavs ; else misviajes">
+        <ng-container *ngFor="let viaje of this.usuarioMostrado.favs; let i = index">
+            <app-card-viaje [cardviaje]="viaje" [isLoged]="true" (viajeEvent)="clickCard($event)" (profileEvent)="goToProfile($event)"></app-card-viaje>
+        </ng-container>
+    </div> -->
+    <!-- <div  class="cards">
     <ng-template #misviajes>
         <ng-container *ngFor="let viaje of this.usuarioMostrado.misViajes; let i = index">
             <app-card-viaje [cardviaje]="viaje" [viajesMios]="this.soyYo" [isLoged]="true" (viajeEvent)="clickCard($event)" (modifyEvent)="goToModify($event)" (cardEvent)="borrarViaje($event)"></app-card-viaje>
         </ng-container>
 
     </ng-template>
-    </div>  
- 
+    </div>  -->
+
+
+
 
 
   

@@ -40,7 +40,7 @@
 }
 
 .imagen-container {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     position: absolute;
     top: 0;
     right: 0;
