@@ -101,6 +101,7 @@ img{
   overflow-wrap: break-word;
   margin-top: 5%;
   padding: 5px;
+  float: left;
   /* align-self: flex-start; */
   
 }
@@ -139,6 +140,7 @@ img{
   font-size: 1.2em;
   font-family: var(--ff-main);
   align-self: flex-end;
+  float: right;
   
   /* box-shadow: 3px 3px 2px #948f8f; */
   overflow-wrap: break-word;
@@ -240,12 +242,4 @@ textarea {
   align-items: flex-end;
   margin-bottom: 2%;
   
-}
-
-.izquierda {
-  float: left;
-}
-
-.derecha {
-  float: right;
 }

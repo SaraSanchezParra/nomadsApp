@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Chats } from 'src/app/models/chat';
 import { RespuestaChat } from 'src/app/models/respuestaChat';
 import { User } from 'src/app/models/user';
@@ -22,7 +24,7 @@ export class ChatGeneralComponent {
   public user_id_participante: number;
   public indexEncontrado:number;
 
-  constructor (private chatsService: ChatsService,private userService: DatosUsuarioService)
+  constructor (private chatService: ChatsService,private userService: DatosUsuarioService,public router: Router)
   {
     this.chats = []
     this.chatsMostrados = this.chats;
@@ -30,7 +32,7 @@ export class ChatGeneralComponent {
     this.chatPrincipal = true; 
     console.log()
     
-    this.chatsService.getChats(this.userService.user_logged.user_id).subscribe((res: RespuestaChat) => {
+    this.chatService.getChats(this.userService.user_logged.user_id).subscribe((res: RespuestaChat) => {
     console.log(res);
     this.chats = res.data;
     this.chatsMostrados = this.chats;
@@ -90,11 +92,31 @@ export class ChatGeneralComponent {
     }
     
   
-    this.chatsService.deleteChat(chat.chat_id).subscribe((res: RespuestaChat) => {
+    this.chatService.deleteChat(chat.chat_id).subscribe((res: RespuestaChat) => {
 
       console.log(res);
     });
   }
+
+  irMensajes(chat_id:number){ 
+
+    this.chatService.chat = this.chatsMostrados.find((chatMostrado) => chatMostrado.chat_id == chat_id );
+    this.chatService.chat.mensajes = [];
+    this.chatService.chat.chat_id = chat_id;
+
+    this.chatService.getMessages(chat_id).subscribe((answerMessages: any)=>{
+      if(answerMessages.error ){
+        console.log(answerMessages.error)//meter toastr
+      }
+      else{
+        this.chatService.chat.mensajes = answerMessages.data;
+        console.log(this.chatService.chat);
+      }
+
+    })
+    // this.chatService.chat.mensajes = [];
+    this.router.navigate(['/chatPrivado'])
+    }
 }
 
 
