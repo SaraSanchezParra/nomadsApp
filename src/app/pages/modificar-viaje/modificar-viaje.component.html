@@ -39,9 +39,9 @@
                 Una foto del viaje es necesaria
             </div>
             </form>
-            <div class="day-area">
-                <ng-container *ngFor="let dia of viaje.days; let i = index">
-                    <app-day-card [dia]="dia" [i]="i" (cardEvent)="eliminate($event)"></app-day-card>
+            <div class="days-area">
+                <ng-container *ngFor="let dia of viaje.days; let i = index; let own = true">
+                    <app-day-card [dia]="dia" [i]="i" [own]="own" (isOpen)="showOnMap($event)" (cardEvent)="eliminate($event)"></app-day-card>
                 </ng-container>
             </div>
             <div class="btn-area">

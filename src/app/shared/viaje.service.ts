@@ -37,7 +37,12 @@ export class ViajeService {
   }
 
   public addViaje(viaje: Viaje) {
+    console.log(viaje);
     return this.http.post(`${this.url}addViaje`, viaje)
+  }
+
+  public modViaje(viaje: Viaje) {
+    return this.http.put(this.url+"modificarViaje", viaje)
   }
 
   public addLike(user_id: number, viaje_id: number) {

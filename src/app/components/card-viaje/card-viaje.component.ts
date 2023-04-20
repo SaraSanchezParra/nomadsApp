@@ -55,7 +55,7 @@ export class CardViajeComponent implements OnInit {
   }
 
   goProfile() {
-    let ref = this.cardviaje.user_Id
+    let ref = this.cardviaje.user_id_propietario
     this.profileEvent.emit(ref)
   }
 

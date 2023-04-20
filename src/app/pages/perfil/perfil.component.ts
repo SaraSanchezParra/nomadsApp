@@ -63,15 +63,14 @@ export class PerfilComponent {
    this.showFavs = false;
    this.showIcons = true;
   }
-  goToModify(viaje_idCard): void {
-    let selectedViaje;
-    this.usuarioMostrado.misViajes.forEach((viajeMio) => {
-      if (viajeMio.viaje_id === viaje_idCard) {
-        selectedViaje = viajeMio
-      }
+  goToModify(viaje_idCard: number): void {
+    this.viajeService.viajeDetalle_id = viaje_idCard
+    
+    this.viajeService.getViaje(viaje_idCard).subscribe((answer: Respuesta) => {
+      this.viajeService.viajes = answer.data_viaje
+    
+      this.router.navigate(["/modificarViaje"])
     })
-    this.servicioModify.viajeAModificar = selectedViaje
-    this.router.navigate(['/modificarViaje'])
   }
   
    borrarViaje(i: number): void {
