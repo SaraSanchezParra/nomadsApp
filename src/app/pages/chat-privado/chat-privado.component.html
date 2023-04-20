@@ -42,19 +42,17 @@
           </div>
         
           <div class="bocadilloMorado">
-          
-            <div *ngFor="let mensaje of mensajes" class="bocadillo2" [ngClass]="{'derecha': true}">
-              {{ mensaje }}
+            <div *ngFor="let mensaje of mensajes" >
+              <div [ngClass]="mensaje.emisor === user_logged.user_id ? 'bocadilloAmarillo' :'bocadilloVerde'">
+                {{ mensaje.mensaje_body }}
+              </div>
             </div>
           </div>
         </div>
-        
 
         <div class="mensaje">
           <textarea class="text"
-            
             [(ngModel)]="mensajeActual"
-          
             placeholder="Escribe tu mensaje..."
           ></textarea>
           <button (click)="enviarMensaje()" class="enviar">
