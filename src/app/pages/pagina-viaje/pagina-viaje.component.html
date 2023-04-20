@@ -8,7 +8,7 @@
         <div class="user-area">
             <img id="user_foto" src="{{viaje.user_foto}}" width="45" height="45">
             <div class="likes">
-            <img src="assets/corazon.png" width="20" height="20" (click)="likeFunc()">
+            <img src="assets/corazon.png" width="25" height="25" (click)="likeFunc()" [src]="fav ? 'assets/corazon.png' : 'assets/corazon_vacio.png'">
             <p>{{viaje.likes}}</p>
         </div>
         </div>

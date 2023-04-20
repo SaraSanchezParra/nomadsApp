@@ -41,7 +41,7 @@ export class PaginaViajeComponent {
         }
       });
     });
-    this.fav = false;
+    this.fav = true;
   }
 
   ngAfterViewInit(): void {
@@ -59,16 +59,20 @@ export class PaginaViajeComponent {
         this.viaje.viaje_id,
         this.userService.user_logged.user_id
       );
+      this.viaje.likes++;
       this.isLiked = false;
+      this.fav = true;
     } else {
       this.ViajeService.addLike(
         this.userService.user_logged.user_id,
         this.viaje.viaje_id
-      );
-      this.isLiked = true;
+      ).subscribe(() => {
+        this.viaje.likes--;
+        this.isLiked = true;
+        this.fav = false;
+      });
     }
   }
-
   showOnMap(cardMessage) {
     if (cardMessage.isOpen) {
       console.log(cardMessage.isOpen);
@@ -88,7 +92,7 @@ export class PaginaViajeComponent {
             popUpList.push(PI.nombre)
           });
           coordinatesList.forEach((pair) => {
-            marker(pair, {opacity: 0.8}).addTo(this.map).bindPopup(popUpList[iPopUp])
+            marker(pair, { opacity: 0.8 }).addTo(this.map).bindPopup(popUpList[iPopUp])
             iPopUp += 1
           })
           polyline(coordinatesList, { color: '#1F8989' }).addTo(this.map);
