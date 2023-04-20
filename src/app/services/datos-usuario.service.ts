@@ -45,7 +45,7 @@ export class DatosUsuarioService {
 
     usuarioEncontrado(username:string){
       let url =`http://localhost:3000/userFound?username=${username}`
-4      
+     
       return this.http.get(url)
     }
 
