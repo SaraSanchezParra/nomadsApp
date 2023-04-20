@@ -36,6 +36,9 @@
        <button [ngClass]="{'active': !showFavs}" class="button2" type="button" (click)="mostrarMisViajes()">Mis viajes</button>
     </div>
     
+    
+    
+    <div>
     <div class="cards" *ngIf="showFavs ; else misviajes">
         <ng-container *ngFor="let viaje of this.usuarioMostrado.favs; let i = index">
             <app-card-viaje [cardviaje]="viaje" [isLoged]="true" (viajeEvent)="clickCard($event)" (profileEvent)="goToProfile($event)"></app-card-viaje>
@@ -47,6 +50,8 @@
         </ng-container>
 
     </ng-template>
+</div>
+    
 </div>
     
     
