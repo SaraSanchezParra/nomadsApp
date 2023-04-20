@@ -25,7 +25,7 @@
               <
             </button>
             <div class="nombreUsuario">
-              <img
+              <img class="imgFoto"
                 src="{{this.chatService.chat.photo}}"
                 alt="img"
               />
@@ -37,7 +37,7 @@
         <div class="bocadillos">
           
         
-          <div class="bocadilloMorado" *ngIf="chatService.chat.mensajes.length >0">
+          <div class="bocadillos2" *ngIf="chatService.chat.mensajes.length >0">
             <div *ngFor="let mensaje of chatService.chat.mensajes" >
               <div [ngClass]="mensaje.emisor === userService.user_logged.user_id ? 'bocadilloAmarillo' :'bocadilloVerde'">
                 {{ mensaje.mensaje_body }}
