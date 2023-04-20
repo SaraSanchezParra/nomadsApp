@@ -31,30 +31,37 @@
         </section>
     </div>
     <div id="descripcion" name="descripcion">{{this.usuarioMostrado.descripcion}}</div>
-    <div class="botones">
+
+
+    <div class="botones" >
        <button [ngClass]="{'active': showFavs}" class="button1" type="button" (click)="mostrarFavoritas()">Favoritas</button>
        <button [ngClass]="{'active': !showFavs}" class="button2" type="button" (click)="mostrarMisViajes()">Mis viajes</button>
     </div>
     
+
+        
+ 
     
-    
-    <div>
+
+
+  
     <div class="cards" *ngIf="showFavs ; else misviajes">
         <ng-container *ngFor="let viaje of this.usuarioMostrado.favs; let i = index">
             <app-card-viaje [cardviaje]="viaje" [isLoged]="true" (viajeEvent)="clickCard($event)" (profileEvent)="goToProfile($event)"></app-card-viaje>
         </ng-container>
     </div>
-    <div  class="cards"><ng-template #misviajes>
+    <div  class="cards">
+    <ng-template #misviajes>
         <ng-container *ngFor="let viaje of this.usuarioMostrado.misViajes; let i = index">
-            <app-card-viaje [cardviaje]="viaje" [viajesMios]="true" [isLoged]="true" (modifyEvent)="goToModify($event)" (cardEvent)="borrarViaje($event)"></app-card-viaje>
+            <app-card-viaje [cardviaje]="viaje" [viajesMios]="this.soyYo" [isLoged]="true" (viajeEvent)="clickCard($event)" (modifyEvent)="goToModify($event)" (cardEvent)="borrarViaje($event)"></app-card-viaje>
         </ng-container>
 
     </ng-template>
-</div>
-    
-</div>
-    
-    
+    </div>  
+ 
+
+
+  
    
 
 </main>

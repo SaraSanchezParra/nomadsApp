@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { Viaje } from 'src/app/models/viaje';
+import { PerfilComponent } from 'src/app/pages/perfil/perfil.component';
 import { DialogService } from 'src/app/services/dialog.service';
 
 @Component({
@@ -21,8 +22,11 @@ export class CardViajeComponent implements OnInit {
   @Input() cardviaje!: Viaje;
   @Input() i: number;
   @Input() viajesMios!: boolean;
+ 
 
   constructor(public router: Router, private dialogService: DialogService) {
+
+  
   }
 
   ngOnInit(): void {

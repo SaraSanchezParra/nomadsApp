@@ -44,12 +44,15 @@ export class BusquedaComponent {
      
       if(respuesta.error){
         this.toastr.warning(`No se ha encontrado a ${form.controls['usuario'].value}`);
+        console.log(respuesta.error);
       }
+     
+      
       else {
 
       this.userService.user_noLoged = respuesta.data_user[0]
       this.userService.usuarioBuscado = true;
-        this.router.navigate(['/perfil']);
+      this.router.navigate(['/perfil']);
        
 
       }

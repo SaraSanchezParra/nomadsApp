@@ -86,11 +86,14 @@ export class PerfilComponent {
     })
   }
 
-  goToViaje(viaje_idCard: number) {
-    this.viajeService.getViaje(viaje_idCard).subscribe((answer: Respuesta) => {
-      this.viajeService.viajes = answer.data_viaje
-      this.router.navigate(["/paginaViaje"])
-    })
+   clickCard(viaje_id: number) {
+    if(this.userService.loged)
+    this.viajeService.goToViaje(viaje_id)
+    else{
+      this.userService.showHeaderFooter = false
+      this.router.navigate(["/login"])
+
+    }
   }
 
    ajustesPerfil():void{
@@ -153,8 +156,6 @@ export class PerfilComponent {
       this.router.navigateByUrl("/home-loged")
     }
   }
-
-
 
 
 }

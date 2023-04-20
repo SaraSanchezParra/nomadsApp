@@ -1,6 +1,7 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700&family=Quicksand:wght@300;400;500;600&display=swap'); */
 
 main {
+    /* border: 2px solid black; */
     margin-top: 10vh;
     width: 100vw;
     padding-left: 20px;
@@ -12,8 +13,10 @@ main {
     justify-content: center;
     gap: 3%;
     z-index: 8;
+   
 
 }
+
 
 .backButton {
 
@@ -110,6 +113,7 @@ h1 {
 }
 
 section {
+    
     font-size: small;
     display: flex;
     flex-direction: column;
@@ -157,6 +161,7 @@ section div {
     box-shadow: 1px;
     justify-content: space-between;
     margin-bottom: 4%;
+    
 }
 
 
@@ -196,6 +201,7 @@ section div {
     border: 3px solid #1f8989;
     cursor: pointer;
 }
+
 
 .cards {
 
