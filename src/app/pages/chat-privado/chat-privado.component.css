@@ -86,7 +86,7 @@ img{
 
 }
 
-.bocadillo1{
+.bocadilloVerde{
   display: inline-block;
   min-height: 0;
   max-width: 90%;
@@ -101,7 +101,7 @@ img{
   overflow-wrap: break-word;
   margin-top: 5%;
   padding: 5px;
-  align-self: flex-start;
+  /* align-self: flex-start; */
   
 }
 
@@ -118,12 +118,13 @@ img{
   max-width: 90%;
   height: auto;
  
+  align-items: flex-end;
   
   
   
 }
-.bocadillo2{
-  
+.bocadilloAmarillo{
+ 
   display: inline-block;
   min-height: 0;
   max-width: 90%;
@@ -137,14 +138,14 @@ img{
   color: black;
   font-size: 1.2em;
   font-family: var(--ff-main);
-  
+  align-self: flex-end;
   
   /* box-shadow: 3px 3px 2px #948f8f; */
   overflow-wrap: break-word;
   margin-bottom: 8px; 
   margin-top: 2%;
   padding: 5px;
-  align-self: flex-end;
+  /* align-self: flex-end; */
 
   
 }
@@ -241,3 +242,10 @@ textarea {
   
 }
 
+.izquierda {
+  float: left;
+}
+
+.derecha {
+  float: right;
+}

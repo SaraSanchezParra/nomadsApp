@@ -1,4 +1,4 @@
-export class Mensajes {
+export class Mensaje {
 
     public mensaje_id:number;
     public emisor: number;

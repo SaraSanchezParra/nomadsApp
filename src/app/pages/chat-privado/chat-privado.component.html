@@ -36,15 +36,16 @@
 
         <div class="bocadillos">
           <div class="bocadilloVerde">
-            <div class="bocadillo1">{{ mensajePredefinido }}</div>
-          </div>
-
-          <div class="bocadilloMorado">
-            <div *ngIf="haRespondidoPredefinido" class="bocadillo2">
-              {{ mensajePredefinido2 }}
+            <div class="bocadillo1" [ngClass]="{'izquierda': true}" >
+              {{ mensajePredefinido }}
             </div>
-            <div *ngFor="let mensaje of mensajes" class="bocadillo1">
-              {{ mensaje }}
+          </div>
+        
+          <div class="bocadilloMorado">
+            <div *ngFor="let mensaje of mensajes" >
+              <div [ngClass]="mensaje.emisor === user_logged.user_id ? 'bocadilloAmarillo' :'bocadilloVerde'">
+                {{ mensaje.mensaje_body }}
+              </div>
             </div>
           </div>
         </div>

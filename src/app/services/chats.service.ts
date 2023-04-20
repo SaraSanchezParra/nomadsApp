@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Chats } from '../models/chat';
+import { Mensaje } from '../models/mensajes';
 import { User } from '../models/user';
 
 @Injectable({
@@ -46,6 +47,10 @@ getMessages(chat_id:number){
   return this.http.get(url)
 }
 
+
+postMessages(newMessage:Mensaje){
+  return this.http.post(this.url3,newMessage)
+  }
 }  
 
 
