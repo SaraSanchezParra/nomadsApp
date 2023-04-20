@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Map, marker, polyline, tileLayer } from 'leaflet';
+import { Map, Marker, Polyline, marker, polyline, tileLayer } from 'leaflet';
 import { map } from 'rxjs';
 import { Day } from 'src/app/models/day';
 import { PuntoDeInteres } from 'src/app/models/punto-de-interes';
@@ -73,6 +73,8 @@ export class PaginaViajeComponent {
     if (cardMessage.isOpen) {
       console.log(cardMessage.isOpen);
     } else {
+      let markers: Marker[] = [];
+      let pL: Polyline;
       console.log('is closed' + cardMessage.isOpen);
       console.log(cardMessage);
       this.ViajeService.getDay(cardMessage.dia_id).subscribe(
@@ -88,10 +90,21 @@ export class PaginaViajeComponent {
             popUpList.push(PI.nombre)
           });
           coordinatesList.forEach((pair) => {
-            marker(pair, {opacity: 0.8}).addTo(this.map).bindPopup(popUpList[iPopUp])
+            markers.push(marker(pair, {opacity: 0.8}).bindPopup(popUpList[iPopUp]))
             iPopUp += 1
           })
-          polyline(coordinatesList, { color: '#1F8989' }).addTo(this.map);
+          markers.forEach((mark) => {
+            mark.addTo(this.map)
+          })
+          pL = polyline(coordinatesList, { color: '#1F8989' })
+          pL.addTo(this.map)
+
+          if (cardMessage.isOpen) {
+            markers.forEach((mark) => {
+              mark.remove()
+            })
+            pL.remove()
+          }
 
         }
       );
