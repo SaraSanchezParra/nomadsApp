@@ -52,4 +52,7 @@ export class ViajeService {
   public unLike(viaje_id: number, user_id: number) {
     // return this.http.delete(`${this.url}viaje`, {viaje_id_fav: viaje_id, user_id_fav: user_id})
   }
+  public viajeNo(viaje_id:number){
+    return this.http.delete(this.url + "viajeNo?viaje_id=" + viaje_id)
+  }
 }

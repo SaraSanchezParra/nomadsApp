@@ -74,7 +74,7 @@ export class PerfilComponent {
   }
   
    borrarViaje(i: number): void {
-    // this.viaj.splice(day_id, 1)
+    
   }
 
   goToProfile(user_idCard: number) {
