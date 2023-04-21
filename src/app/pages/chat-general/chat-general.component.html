@@ -22,7 +22,7 @@
   <div class="container">
     <div *ngIf="chatsMostrados.length > 0 && (!buscandoUsuario || usuarioEncontrado)">
       <div *ngFor="let chat of chatsMostrados; let i = index">
-        <app-card-chat [cardGeneral]="chat" (mensajesDeChat)="irMensajes($event)" (eliminarTarjeta)="eliminarTarjeta(chat)"></app-card-chat>
+        <app-card-chat [cardGeneral]="chat" (eliminarTarjeta)="eliminarTarjeta($event)" (mensajesDeChat)="irMensajes($event)" ></app-card-chat>
       </div>
     </div>
 

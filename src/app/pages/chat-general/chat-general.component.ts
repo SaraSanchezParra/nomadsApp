@@ -1,11 +1,15 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 import { Chats } from 'src/app/models/chat';
 import { RespuestaChat } from 'src/app/models/respuestaChat';
 import { User } from 'src/app/models/user';
 import { ChatsService } from 'src/app/services/chats.service';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
+
+
+
+
 
 @Component({
   selector: 'app-chat-general',
@@ -26,7 +30,7 @@ export class ChatGeneralComponent {
  
 
 
-  constructor (private chatService: ChatsService,private userService: DatosUsuarioService,public router: Router)
+  constructor (private chatService: ChatsService,private userService: DatosUsuarioService,public router: Router )
   {
     this.chats = []
     this.chatsMostrados = this.chats;
@@ -38,6 +42,8 @@ export class ChatGeneralComponent {
     console.log(res);
     this.chats = res.data;
     this.chatsMostrados = this.chats;
+
+    
   });
   
   }
@@ -76,29 +82,15 @@ export class ChatGeneralComponent {
     this.chatsMostrados = this.chats;
   }  
 
-  eliminarTarjeta(chat:Chats) {
-
-
-    let index = this.chats.findIndex(data => data == chat);
-    if (index !== -1) {
-      this.chats.splice(index, 1);
-    }
-
-    if (this.chatsMostrados.length == 1)
-    {
-      this.chatsMostrados = [];
-    }
-    else
-    {
-      this.chatsMostrados = this.chats;
-    }
-    
+  eliminarTarjeta(chat_id:number) {
+    this.chats = this.chats.filter(data => data.chat_id != chat_id);
+    this.chatsMostrados = this.chats;
   
-    this.chatService.deleteChat(chat.chat_id).subscribe((res: RespuestaChat) => {
-
+    this.chatService.deleteChat(chat_id).subscribe((res: RespuestaChat) => {
       console.log(res);
     });
   }
+  
 
   irMensajes(chat_id:number){ 
 

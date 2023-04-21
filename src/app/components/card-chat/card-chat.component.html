@@ -1,17 +1,20 @@
-<div class="cardChats" (click)="irMensajes()">
+<div class="padre">
 
-  <img src="{{cardGeneral.photo}}" class="photo" alt="">
-  <div class="cardNombre">
+  <div class="cardChats" (click)="irMensajes()">
 
-    <p>{{cardGeneral.username}}</p>
+      <img src="{{cardGeneral.photo}}" class="photo" alt="">
+      <div class="cardNombre">
+
+        <p>{{cardGeneral.username}}</p>
+        <div class="hora">{{cardGeneral.hora}}</div>
+
+      </div>
+    </div>
+
+    <div class="containerHora">
+      
+    <button class="eliminar" (click)="openDialog()"><img src="../../../assets/papeleraChats2.png" alt=""></button>
 
   </div>
-   <div class="containerHora">
-      <div class="hora">{{cardGeneral.hora}}</div>
-     <button class="eliminar" (click)="eliminarCard()"><img src="../../../assets/borrar.png" alt=""></button>
 
-   </div>
-
-  
-
-</div>
+</div> 
