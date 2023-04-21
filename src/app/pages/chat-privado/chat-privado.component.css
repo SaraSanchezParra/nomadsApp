@@ -83,7 +83,10 @@ p{
   gap: 5%;
   overflow: auto;
   margin-top: 5%;
-  padding: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 2%;
+  padding-right: 3.5%;
   
 
 } 
@@ -120,6 +123,7 @@ p{
   /* display: inline-block; */
   min-height: 0;
   max-width: 90%;
+ 
   display: flex;
   flex-wrap: wrap;
   border-radius: 10px;

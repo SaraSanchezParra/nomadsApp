@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Mensaje } from 'src/app/models/mensajes';
 import { ChatsService } from 'src/app/services/chats.service';
@@ -16,6 +16,7 @@ export class ChatPrivadoComponent {
 
   public bocadilloHeight:string;
   public mensajeActual:string;
+  @ViewChild('chatContainer') chatContainer: ElementRef;
 
 
   constructor(private router: Router,
@@ -29,8 +30,18 @@ export class ChatPrivadoComponent {
     this.chatService.getMessages(this.chatService.chat.chat_id).subscribe((respuesta:any)=>
     {
       this.chatService.chat.mensajes=respuesta.data
+      this.scrollToBottom(); 
     })
 
+  }
+
+  scrollToBottom() {
+    setTimeout(() => {
+      this.chatContainer.nativeElement.scrollTo({
+        top: this.chatContainer.nativeElement.scrollHeight,
+        behavior: 'instant'
+      });
+    },0);
   }
   
   navegarAChats() {
@@ -47,12 +58,21 @@ export class ChatPrivadoComponent {
       else{
         
       this.chatService.chat.mensajes.push(mensaje)
-        
+      setTimeout(() => {
+        this.chatContainer.nativeElement.scrollTo({
+          top: this.chatContainer.nativeElement.scrollHeight,
+          behavior: 'smooth'
+        });
+      }, 100);
         
       }
     })
 
+  
+
     this.mensajeActual="";
+
+
      
   }
   

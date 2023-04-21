@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Chats } from 'src/app/models/chat';
@@ -23,6 +23,8 @@ export class ChatGeneralComponent {
   public user_id_creador: number;
   public user_id_participante: number;
   public indexEncontrado:number;
+ 
+
 
   constructor (private chatService: ChatsService,private userService: DatosUsuarioService,public router: Router)
   {

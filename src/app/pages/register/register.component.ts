@@ -4,6 +4,7 @@ import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/services/register.service';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @Component({
@@ -33,11 +34,13 @@ export class RegisterComponent {
             (resp: string) => {
         this.userService.user_noLoged = user;
         this.userService.user_noLoged.user_id = Number(resp);
+       
 
         this.router.navigate(['/login']);
 
 
-      }
+      },
+  
     );
   }
 
