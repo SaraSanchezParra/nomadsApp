@@ -1,19 +1,21 @@
-<div class="add-viaje">
+<!-- <div class="add-viaje">
     <div class="title">
         <h3>Añadir viaje</h3>
     </div>
     <div class="form-area">
         <form [formGroup]="addForm" class="form">
-            <!-- Nombre de Viaje -->
+       
             <label for="nombreViaje">Nombre del viaje</label>
             <input id="nombreViaje" type="text" formControlName="nombreViaje" class="form-control"
                 placeholder="{{viaje.titulo}}"
                 [ngClass]="{'is-invalid': addForm.get('nombreViaje').invalid && (addForm.get('nombreViaje').dirty || addForm.get('nombreViaje').touched)}">
             <div *ngIf="addForm.get('nombreViaje').invalid && (addForm.get('nombreViaje').dirty || addForm.get('nombreViaje').touched)"
                 class="invalid-feedback">
-                El nombre del viaje es necesario
+                <div *ngIf="myForm.get('nombreViaj').errors.required">Your password is required</div>
+                          <div *ngIf="addForm.get('password').errors.minlength">Your password must have at least 8 characters
+                          </div>
             </div>
-            <!-- laugar de Viaje -->
+           
             <label for="lugarViaje">Lugar de destino</label>
             <input id="lugarViaje" type="text" formControlName="lugarViaje" class="form-control"
                 [ngClass]="{'is-invalid': addForm.get('lugarViaje').invalid && (addForm.get('lugarViaje').dirty || addForm.get('lugarViaje').touched)}">
@@ -21,7 +23,7 @@
                 class="invalid-feedback">
                 La ubicación del viaje es necesaria
             </div>
-            <!-- Descripcion Viaje -->
+           
             <label for="descripcionViaje">Descripción del viaje</label>
             <input id="descripcionViaje" type="text" formControlName="descripcionViaje" class="form-control"
                 placeholder="{{viaje.descripcion}}"
@@ -30,7 +32,7 @@
                 class="invalid-feedback">
                 Una breve descripción del viaje es necesaria
             </div>
-            <!-- Foto -->
+            
             <label for="fotoViaje">Foto</label>
             <input id="fotoViaje" type="text" formControlName="fotoViaje" class="form-control"
                 placeholder="{{viaje.foto}}"
@@ -50,4 +52,4 @@
             <button type="button" [disabled]="addForm.invalid" (click)="addViaje()">Confirmar</button>
         </div>
     </div>
-</div>
+</div> -->
