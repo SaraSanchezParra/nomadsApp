@@ -4,8 +4,7 @@ import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
 import { RegisterService } from 'src/app/services/register.service';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
-import { ToastrModule } from 'ngx-toastr';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -18,32 +17,44 @@ export class RegisterComponent {
   public myForm: FormGroup;
   public route: Router
   isFormValid: boolean = false;
+public username:User
 
-  constructor(private formBuilder:FormBuilder,private router: Router,public userService:DatosUsuarioService){
+  constructor(private formBuilder:FormBuilder,private router: Router,public userService:DatosUsuarioService,  private toastr: ToastrService, private registerservice: RegisterService){
     this.buildForm();
     this.route = router;
   }
 
 
 
-
   public register() {
     const user = this.myForm.value;
     console.log(user);
-    this.userService.postRegister(user).subscribe(
+
+    // Verificar si el nombre de usuario ya existe
+    this.userService.usuarioEncontrado(user.username).subscribe(
+      (resp: any) => {
+        if (resp.length > 0) {
+          console.log(resp);
+          
+          this.toastr.error('El nombre de usuario ya existe.');
+        } else {
+          // Si el usuario no existe, registrar al usuario
+          this.userService.postRegister(user).subscribe(
             (resp: string) => {
-        this.userService.user_noLoged = user;
-        this.userService.user_noLoged.user_id = Number(resp);
-       
-
-        this.router.navigate(['/login']);
-
-
-      },
-  
+              this.userService.user_noLoged = user;
+              this.userService.user_noLoged.user_id = Number(resp);
+              console.log(resp);
+              
+              this.toastr.success('Registro exitoso. Por favor inicie sesión.');
+              this.router.navigate(['/login']);
+            }
+          );
+        }
+      }
     );
   }
-
+  
+  
     private buildForm(){
     const minPassLength = 8;
   
