@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ConfirmComponent } from 'src/app/dialogs/confirm/confirm.component';
 import { User } from 'src/app/models/user';
 import { Viaje } from 'src/app/models/viaje';
 import { DialogService } from 'src/app/services/dialog.service';
@@ -22,7 +24,7 @@ export class CardViajeComponent implements OnInit {
   @Input() i: number;
   @Input() viajesMios!: boolean;
 
-  constructor(public router: Router, private dialogService: DialogService) {
+  constructor(public router: Router, private dialogService: DialogService, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -37,11 +39,6 @@ export class CardViajeComponent implements OnInit {
 
   }
 
-  borrarViaje() {
-    let ref = this.i;
-    this.cardEvent.emit(ref)
-  }
-
   editarViaje() {
     let ref = this.cardviaje.viaje_id
     this.modifyEvent.emit(ref)
@@ -50,8 +47,18 @@ export class CardViajeComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialogService.confirmDialog();
-    console.log('open dialog');
+    const dialogRef = this.dialog.open(ConfirmComponent, {
+      data: '¿Estás seguro de que quieres eliminarlo?'
+    }); 
+    dialogRef.afterClosed().subscribe( res => {
+      console.log(res);
+      if (res) {
+        let ref = this.cardviaje.viaje_id
+        console.log(ref);
+        
+    this.cardEvent.emit(ref)
+      }
+    })
   }
 
   goProfile() {

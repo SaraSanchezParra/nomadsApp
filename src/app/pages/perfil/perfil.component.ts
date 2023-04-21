@@ -75,12 +75,20 @@ export class PerfilComponent {
   }
 
   borrarViaje(i: number): void {
+    console.log(i);
+    
     this.viajeService.viajeNo(i).subscribe((answer: Respuesta) => {
       if (answer.error) {
-        console.log("Carabobo");
+        this.toastr.error("No se ha borrado el viaje")
       }
       else {
+        console.log(answer);
         this.toastr.success(`Has borrado el viaje`)
+        let index = this.usuarioMostrado.misViajes.findIndex(checkId);
+        function checkId(viaje) {
+          return viaje.viaje_id == i
+        }
+        this.usuarioMostrado.misViajes.splice(index, 1)
       }
     })
   }
