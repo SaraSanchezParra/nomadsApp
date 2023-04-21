@@ -15,7 +15,10 @@ public chat_id: number;
  private url3:string = "http://localhost:3000/mensajes"
  public chat : Chats;
     // private url: string = "https://nomads-api.vercel.app/"
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) { 
+
+    this.chat =  new Chats("","","");
+  }
 
 
 getChats(user_id:number){

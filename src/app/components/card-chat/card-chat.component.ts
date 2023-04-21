@@ -13,14 +13,16 @@ export class CardChatComponent {
 
   @Input() cardGeneral: Chats
   @Output() eliminarTarjeta = new EventEmitter();
+  @Output() mensajesDeChat=new EventEmitter();
   constructor(private router: Router) {}
 
-  irAChatPrivado() {
-    this.router.navigate(['/chatPrivado']);
-  }
 
   eliminarCard() {
     this.eliminarTarjeta.emit();
   }
   
+  irMensajes(){
+    this.mensajesDeChat.emit(this.cardGeneral.chat_id)
+    this.router.navigate(['/chatPrivado']);
+  }
 }

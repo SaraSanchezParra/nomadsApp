@@ -1,5 +1,8 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Mensaje } from 'src/app/models/mensajes';
+import { ChatsService } from 'src/app/services/chats.service';
+import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 
 
 @Component({
@@ -8,18 +11,37 @@ import { Router } from '@angular/router';
   styleUrls: ['./chat-privado.component.css']
 })
 export class ChatPrivadoComponent {
-  mensajeActual: string = '';
-  mensajes: string[] = [];
-  mensajePredefinido = 'Hola, ¿cómo estás?';
-  haRespondidoPredefinido: boolean = false;
-  bocadilloHeight = '25%';
-  mostrarBloquear = false;
-  chatBloqueado = false;
-  habilitarBotonBloquear = true;
-  
 
-  constructor(private router: Router,private elementRef: ElementRef){
-    this.chatBloqueado = false;
+
+
+  public bocadilloHeight:string;
+  public mensajeActual:string;
+  @ViewChild('chatContainer') chatContainer: ElementRef;
+
+
+  constructor(private router: Router,
+              private elementRef: ElementRef,
+              public chatService: ChatsService,
+              public userService:DatosUsuarioService){
+    
+   this.bocadilloHeight = '25%';
+   
+    this.mensajeActual="";
+    this.chatService.getMessages(this.chatService.chat.chat_id).subscribe((respuesta:any)=>
+    {
+      this.chatService.chat.mensajes=respuesta.data
+      this.scrollToBottom(); 
+    })
+
+  }
+
+  scrollToBottom() {
+    setTimeout(() => {
+      this.chatContainer.nativeElement.scrollTo({
+        top: this.chatContainer.nativeElement.scrollHeight,
+        behavior: 'instant'
+      });
+    },0);
   }
   
   navegarAChats() {
@@ -27,30 +49,33 @@ export class ChatPrivadoComponent {
   }
 
   enviarMensaje() {
-    if (this.mensajeActual.includes(this.mensajePredefinido) && !this.haRespondidoPredefinido) {
-      
-      this.haRespondidoPredefinido = true; // establecer haRespondidoPredefinido a true
-    } else {
-      this.mensajes.push(this.mensajeActual);
-    }
-    
-    this.mensajeActual = '';
+
+    let mensaje:Mensaje=new Mensaje(this.userService.user_logged.user_id,this.mensajeActual,this.chatService.chat.chat_id)
+    this.chatService.postMessages(mensaje).subscribe((answerPost: any)=>{
+      if(answerPost.error ){
+        console.log(answerPost.error)//meter toastr
+      }
+      else{
+        
+      this.chatService.chat.mensajes.push(mensaje)
+      setTimeout(() => {
+        this.chatContainer.nativeElement.scrollTo({
+          top: this.chatContainer.nativeElement.scrollHeight,
+          behavior: 'smooth'
+        });
+      }, 100);
+        
+      }
+    })
+
+  
+
+    this.mensajeActual="";
+
+
+     
   }
   
 
-  // toggleMenu() {
-  //   this.mostrarBloquear = !this.mostrarBloquear;
-  // }
-  // bloquearChat() {
-  //   const chat = this.elementRef.nativeElement.querySelector('.chat');
-  //   if (this.chatBloqueado) {
-  //     chat.classList.remove('chat-bloqueado');
-  //     this.habilitarBotonBloquear = true;
-  //   } else {
-  //     chat.classList.add('chat-bloqueado');
-  //     this.habilitarBotonBloquear = true;
-  //   }
-  //   this.chatBloqueado = !this.chatBloqueado;
-  //   this.mostrarBloquear = false;
-  // }
+
 }
