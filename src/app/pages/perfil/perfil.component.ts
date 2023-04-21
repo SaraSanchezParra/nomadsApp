@@ -10,6 +10,7 @@ import { ModifyViajeService } from 'src/app/services/modify-viaje.service';
 import { ViajeService } from 'src/app/shared/viaje.service';
 import { ChatsService } from 'src/app/services/chats.service';
 import { Chats } from 'src/app/models/chat';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -21,65 +22,79 @@ import { Chats } from 'src/app/models/chat';
 export class PerfilComponent {
   public showFavs = true;
   public showIcons = false;
-  public loged:boolean;
-  public usuarioMostrado:User;
+  public loged: boolean;
+  public usuarioMostrado: User;
   public soyYo: boolean
-  
-  
-  
-  constructor(private router:Router, public userService: DatosUsuarioService, private http: HttpClient, public servicioModify: ModifyViajeService, public viajeService: ViajeService, public chatService: ChatsService) {
+
+
+
+  constructor(private router: Router, public userService: DatosUsuarioService, private http: HttpClient, public servicioModify: ModifyViajeService, public viajeService: ViajeService, public chatService: ChatsService, public toastr: ToastrService) {
     this.loged = true;
-    if(this.userService.usuarioBuscado){
+    if (this.userService.usuarioBuscado) {
       this.usuarioMostrado = this.userService.user_noLoged;
       this.soyYo = false
     }
-    else{
+    else {
       this.usuarioMostrado = this.userService.user_logged
       console.log("Perfil user:");
       this.soyYo = true
       console.log(this.usuarioMostrado);
-      
+
     }
 
-      
-  
-    
+
+
+
   }
-  
+
   // isMe() {
   //   let res: boolean = false;
   //   if (this.userService.user.username == this.userService.user_logged.username){
   //     res = true
   //   }
-  
+
   // }
 
   mostrarFavoritas(): void {
     this.showFavs = true;
     this.showIcons = false;
   }
-  
+
   mostrarMisViajes(): void {
-   this.showFavs = false;
-   this.showIcons = true;
+    this.showFavs = false;
+    this.showIcons = true;
   }
-  goToModify(viaje_idCard): void {
-    let selectedViaje;
-    this.usuarioMostrado.misViajes.forEach((viajeMio) => {
-      if (viajeMio.viaje_id === viaje_idCard) {
-        selectedViaje = viajeMio
+  goToModify(viaje_idCard: number): void {
+    this.viajeService.viajeDetalle_id = viaje_idCard
+
+    this.viajeService.getViaje(viaje_idCard).subscribe((answer: Respuesta) => {
+      this.viajeService.viajes = answer.data_viaje
+
+      this.router.navigate(["/modificarViaje"])
+    })
+  }
+
+  borrarViaje(i: number): void {
+    console.log(i);
+    
+    this.viajeService.viajeNo(i).subscribe((answer: Respuesta) => {
+      if (answer.error) {
+        this.toastr.error("No se ha borrado el viaje")
+      }
+      else {
+        console.log(answer);
+        this.toastr.success(`Has borrado el viaje`)
+        let index = this.usuarioMostrado.misViajes.findIndex(checkId);
+        function checkId(viaje) {
+          return viaje.viaje_id == i
+        }
+        this.usuarioMostrado.misViajes.splice(index, 1)
       }
     })
-    this.servicioModify.viajeAModificar = selectedViaje
-    this.router.navigate(['/modificarViaje'])
-  }
-  
-   borrarViaje(i: number): void {
-    // this.viaj.splice(day_id, 1)
   }
 
   goToProfile(user_idCard: number) {
-    this.userService.getUserByID(user_idCard).subscribe((answer: Respuesta)=>{
+    this.userService.getUserByID(user_idCard).subscribe((answer: Respuesta) => {
       this.userService.user_noLoged = answer.data_user[0];
       this.userService.usuarioBuscado = true;
       this.router.navigate["/perfil"]
@@ -96,43 +111,43 @@ export class PerfilComponent {
     }
   }
 
-   ajustesPerfil():void{
+  ajustesPerfil(): void {
     this.router.navigate(['/modificarPerfil'])
   }
-  enviarMensaje(){
-    this.chatService.getChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id).subscribe((answerGet: any)=>{
+  enviarMensaje() {
+    this.chatService.getChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id).subscribe((answerGet: any) => {
       console.log(answerGet);
-      if(answerGet.data.length == 0){
-        this.chatService.postChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id, "10:00").subscribe((answerPost: any)=>{
-          if(answerPost.error ){
+      if (answerGet.data.length == 0) {
+        this.chatService.postChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id, "10:00").subscribe((answerPost: any) => {
+          if (answerPost.error) {
             console.log(answerPost.error)//meter toastr
           }
-          else{
-            this.chatService.chat = new Chats(this.usuarioMostrado.photo, 
-                                              this.usuarioMostrado.name,
-                                              "10:00");
+          else {
+            this.chatService.chat = new Chats(this.usuarioMostrado.photo,
+              this.usuarioMostrado.name,
+              "10:00");
             this.chatService.chat.chat_id = answerPost.data.insertId;
             this.chatService.chat.mensajes = [];
             console.log(answerPost);
             console.log(this.chatService.chat);
-            
+
             this.router.navigate(['/chatPrivado'])
-            
+
           }
         })
       }
-      else{
-        this.chatService.chat = new Chats(this.usuarioMostrado.photo, 
-                                          this.usuarioMostrado.name,
-                                          answerGet.data[0].hora);
+      else {
+        this.chatService.chat = new Chats(this.usuarioMostrado.photo,
+          this.usuarioMostrado.name,
+          answerGet.data[0].hora);
 
         this.chatService.chat.chat_id = answerGet.data[0].chat_id;
 
-        this.chatService.getMessages(answerGet.data[0].chat_id).subscribe((answerMessages: any)=>{
-          if(answerMessages.error ){
+        this.chatService.getMessages(answerGet.data[0].chat_id).subscribe((answerMessages: any) => {
+          if (answerMessages.error) {
             console.log(answerMessages.error)//meter toastr
           }
-          else{
+          else {
             this.chatService.chat.mensajes = answerMessages.data;
             console.log(this.chatService.chat);
           }
@@ -145,14 +160,13 @@ export class PerfilComponent {
     })
     this.router.navigate(['/chatPrivado'])
   }
-  
-  iraUser():void{
+
+  iraUser(): void {
     this.router.navigate(['/perfil'])
   }
-  irHome()
-  { if (this.loged==false)
-    {this.router.navigateByUrl("/home-no-loged")}
-    else{
+  irHome() {
+    if (this.loged == false) { this.router.navigateByUrl("/home-no-loged") }
+    else {
       this.router.navigateByUrl("/home-loged")
     }
   }

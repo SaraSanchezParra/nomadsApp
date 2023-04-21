@@ -75,9 +75,14 @@ button {
     opacity: 0.4;
 }
 
-.day-area {
+.days-area {
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+}
+
+.days-area * {
+    margin-block: 0.4rem;
 }

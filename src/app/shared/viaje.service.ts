@@ -37,7 +37,12 @@ export class ViajeService {
   }
 
   public addViaje(viaje: Viaje) {
+    console.log(viaje);
     return this.http.post(`${this.url}addViaje`, viaje)
+  }
+
+  public modViaje(viaje: Viaje) {
+    return this.http.put(this.url+"modificarViaje", viaje)
   }
 
   public addLike(user_id: number, viaje_id: number) {
@@ -46,5 +51,9 @@ export class ViajeService {
 
   public unLike(viaje_id: number, user_id: number) {
     // return this.http.delete(`${this.url}viaje`, {viaje_id_fav: viaje_id, user_id_fav: user_id})
+  }
+  public viajeNo(viaje_id:number){
+   let deletedViaje = {headers: null, body:{viaje_id:viaje_id}};
+    return this.http.delete(this.url + "viajeNo", deletedViaje)
   }
 }
