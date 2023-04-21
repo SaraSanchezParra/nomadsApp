@@ -42,24 +42,32 @@ z-index: 9;
 
 .secundaryButton {
     fill: white;
+    height: 10vh;
+    color: white;
+    
+    
 }
 .tertiaryButton{
-    fill:var(--green)
+    fill:var(--green);
+    height: 10vh;
 }
 
 .lupa{
     /* border: 2px solid red; */
-    height: 18vh;
+    height: 16vh;
     width: 18vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-content: center;
+    margin-top: 26%;
+    margin-left: 1%;
+    
 } 
 
 .centro{
     /* border:2px solid black; */
-    height: 15vh;
+    height: 10vh;
     width: 52vw;
     display: flex;
     flex-direction: row;
