@@ -10,7 +10,7 @@
              <!-- <div class="profile_photo"> -->
                 <img class="photoBorde" src={{this.usuarioMostrado.photo}} alt="perfil">
             <!-- </div> -->
-            <div class="ajustesymensaje" *ngIf="this.soyYo; else esFalso">
+            <div class="ajustesymensaje" *ngIf="!this.userService.usuarioBuscado; else esFalso">
                 <button type="button" class="icono" (click)="ajustesPerfil()"> Editar
                 </button>
             </div>
@@ -59,7 +59,7 @@
     </ng-container>
     <ng-template #viajes>
         <ng-container *ngFor="let viaje of this.usuarioMostrado.misViajes; let i = index">
-            <app-card-viaje [cardviaje]="viaje" [viajesMios]="this.soyYo" [isLoged]="true" (viajeEvent)="clickCard($event)" (modifyEvent)="goToModify($event)" (cardEvent)="borrarViaje($event)"></app-card-viaje>
+            <app-card-viaje [cardviaje]="viaje" [viajesMios]="!this.userService.usuarioBuscado" [isLoged]="true" (viajeEvent)="clickCard($event)" (modifyEvent)="goToModify($event)" (cardEvent)="borrarViaje($event)"></app-card-viaje>
         </ng-container>
     </ng-template>
     </ng-template> 

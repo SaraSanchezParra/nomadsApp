@@ -63,7 +63,8 @@ export class HomeLogedComponent implements OnInit {
     this.datosUsuarioService.usuarioEncontrado(username).subscribe((respuesta:Respuesta)=>{
 
       console.log(respuesta.data_user);
-          this.datosUsuarioService.usuarioBuscado = true;
+          this.datosUsuarioService.usuarioBuscado = !(respuesta.data_user[0].user_id == this.datosUsuarioService.user_logged.user_id);
+        
           this.datosUsuarioService.user_noLoged = respuesta.data_user[0];
           this.router.navigate(['/perfil']);
 
