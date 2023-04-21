@@ -5,7 +5,7 @@
     <div class="form-area">
         <form [formGroup]="addForm" class="form">
             <!-- Nombre de Viaje -->
-            <label for="nombreViaje">Nombre del Viaje</label>
+            <label for="nombreViaje">Nombre del viaje</label>
             <input id="nombreViaje" type="text" formControlName="nombreViaje" class="form-control"
                 placeholder="{{viaje.titulo}}"
                 [ngClass]="{'is-invalid': addForm.get('nombreViaje').invalid && (addForm.get('nombreViaje').dirty || addForm.get('nombreViaje').touched)}">
@@ -14,21 +14,21 @@
                 El nombre del viaje es necesario
             </div>
             <!-- laugar de Viaje -->
-            <label for="lugarViaje">Lugar de Destino</label>
+            <label for="lugarViaje">Lugar de destino</label>
             <input id="lugarViaje" type="text" formControlName="lugarViaje" class="form-control"
                 [ngClass]="{'is-invalid': addForm.get('lugarViaje').invalid && (addForm.get('lugarViaje').dirty || addForm.get('lugarViaje').touched)}">
             <div *ngIf="addForm.get('lugarViaje').invalid && (addForm.get('lugarViaje').dirty || addForm.get('lugarViaje').touched)"
                 class="invalid-feedback">
-                El nombre del viaje es necesario
+                La ubicación del viaje es necesaria
             </div>
             <!-- Descripcion Viaje -->
-            <label for="descripcionViaje">Descripcion del Viaje</label>
+            <label for="descripcionViaje">Descripción del viaje</label>
             <input id="descripcionViaje" type="text" formControlName="descripcionViaje" class="form-control"
                 placeholder="{{viaje.descripcion}}"
                 [ngClass]="{'is-invalid': addForm.get('descripcionViaje').invalid && (addForm.get('descripcionViaje').dirty || addForm.get('descripcionViaje').touched)}">
             <div *ngIf="addForm.get('descripcionViaje').invalid && (addForm.get('descripcionViaje').dirty || addForm.get('descripcionViaje').touched)"
                 class="invalid-feedback">
-                Una breve descripcion del viaje es necesaria
+                Una breve descripción del viaje es necesaria
             </div>
             <!-- Foto -->
             <label for="fotoViaje">Foto</label>
@@ -41,13 +41,13 @@
             </div>
         </form>
         <div class="days-area">
-            <ng-container *ngFor="let dia of viaje.days; let i = index">
+            <ng-container *ngFor="let dia of this.viajeService.viajeAdd.days; let i = index">
                 <app-day-card [dia]="dia" [i]="i" (cardEvent)="eliminate($event)"></app-day-card>
             </ng-container>
         </div>
         <div class="btn-area">
             <button type="button" (click)="addDays()">Añadir día</button>
-            <button type="button" [disabled]="addForm.invalid" (click)="addViaje()">Añadir</button>
+            <button type="button" [disabled]="addForm.invalid" (click)="addViaje()">Confirmar</button>
         </div>
     </div>
 </div>

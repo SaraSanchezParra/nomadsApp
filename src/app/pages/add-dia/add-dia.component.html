@@ -1,6 +1,6 @@
 <div class="add-dia">
     <div class="title">
-        <h3>Añadir día</h3>
+        <h1>Añadir día</h1>
     </div>
     <div class="form-area">
         <form [formGroup]="addDiaForm" class="form">
@@ -24,7 +24,7 @@
             
 
             <div class="PI" *ngIf="counter > 0;">
-                <h4>Punto de interes 2</h4>
+                <h4>Punto de interés 2</h4>
                 <label for="nombrePuntoDeInteres2">Nombre del punto de interés</label>
                 <input id="nombrePuntoDeInteres2" type="text" formControlName="nombrePuntoDeInteres2" class="form-control">
                 <label for="fotoPuntoDeInteres2">Foto del punto de interés</label>
@@ -60,7 +60,7 @@
             </div>
         </form>
         <div class="btn-area">
-            <button type="button" (click)="addPI()" *ngIf="counter < 4;">+ Punto interes</button>
-            <button type="button" (click)="addDay()">Añadir Dia</button>
+            <button type="button" (click)="addPI()" *ngIf="counter < 4;">+ Punto interés</button>
+            <button type="button" (click)="addDay()">Guardar día</button>
     </div>
 </div>

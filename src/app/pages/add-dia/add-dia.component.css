@@ -7,16 +7,17 @@
     justify-content: space-between;
 }
 
-h3 {
+h1 {
     font-family: var(--ff-titles);
     color: var(--green);
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
+    font-size: 25pt;
 }
 
 h4 {
     font-family: var(--ff-titles);
     color: var(--green);
-    margin-bottom: 0.8rem;
+    margin-bottom: 3rem;
 }
 
 .form-area {
@@ -36,7 +37,7 @@ h4 {
 
 label {
     font-family: var(--ff-main);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.8rem;
 }
 
 .btn-area {
@@ -61,9 +62,10 @@ input {
 button {
     width: 170px;
     padding: 0;
-    padding-block: 0.4rem;
+    padding-block: 0.6rem;
+    font-weight: bold;
     color: #fff;
-    font-size: 120%;
+    font-size: 100%;
     border-radius: 6px;
     background-color: var(--yellow);
     border: none;

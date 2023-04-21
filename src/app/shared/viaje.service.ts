@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ViajeService {
 
+  public viajeAdd: Viaje
   public viajes: Viaje[]
   public user: User;
   viajeDetalle_id: number;
@@ -16,6 +17,7 @@ export class ViajeService {
   private url = "http://localhost:3000/"
 
   constructor( private http: HttpClient, public router: Router) {
+    this.viajeAdd = new Viaje(null,"","","","", [], 0, null, null, "")
   }
 
   public goToViaje(viaje_idCard: number) {

@@ -8,6 +8,10 @@ import { Route, Router } from '@angular/router';
 import { AddDiaService } from 'src/app/services/add-dia.service';
 import { Respuesta } from 'src/app/models/respuesta';
 import { ToastrService } from 'ngx-toastr';
+import { ViajeService } from 'src/app/shared/viaje.service';
+import { DialogService } from 'src/app/services/dialog.service';
+import { ConfirmComponent } from 'src/app/dialogs/confirm/confirm.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-dia',
@@ -21,10 +25,10 @@ export class AddDiaComponent {
   viaje_id :number;
   dia_index: number
 
-  constructor(private fb: FormBuilder, public dayToAddService: AddViajeService, private router: Router, public servicioDia: AddDiaService, public toastr: ToastrService) {
+  constructor(private fb: FormBuilder, private router: Router, public viajeService: ViajeService, public addDiaService: AddDiaService, public dialog: MatDialog, public toastr: ToastrService) {
     this.buildForm();
     this.counter=0;
-    this.dia_index = this.dayToAddService.viajeToAdd.days.length + 1
+    this.dia_index = this.viajeService.viajeAdd.days.length
     
   }
 
@@ -54,18 +58,36 @@ export class AddDiaComponent {
     let PI3 = new PuntoDeInteres(null, formValue.fotoPuntoDeInteres3, formValue.nombrePuntoDeInteres3, null, null)
     let PI4 = new PuntoDeInteres(null, formValue.fotoPuntoDeInteres4, formValue.nombrePuntoDeInteres4, null, null)
     let PI5 = new PuntoDeInteres(null, formValue.fotoPuntoDeInteres5, formValue.nombrePuntoDeInteres5, null, null)
-
+    let dialogText: string;
     let PIs = [PI1, PI2, PI3, PI4, PI5]
-    let dayToAdd: Day = new Day(null, null, `Dia ${this.dia_index}`, [])
+    let dayToAdd: Day = new Day(null, this.viajeService.viajeAdd.viaje_id, `Dia ${this.dia_index}`, [])
     for (let PI of PIs){
       if (PI.foto != null && PI.nombre != null){
         dayToAdd.puntosDeInteres.push(PI)
+        dialogText.concat(`${PI.nombre}, \n`)
       }
     }
+    const dialogRef = this.dialog.open(ConfirmComponent, {
+      data: `¿Quieres añadir este día y los siguientes puntos de interés? \n ${dialogText}`
 
-  this.dayToAddService.viajeToAdd.days.push(dayToAdd)    
-
+    }); 
+    dialogRef.afterClosed().subscribe( res => {
+      console.log(res);
+      if (res) {
+        this.viajeService.viajeAdd.days.push(dayToAdd)
+    this.addDiaService.postDia(dayToAdd).subscribe((answer: Respuesta) => {
+      if (answer.error){
+        console.log("error");
+      }
+      else {
+        // dayToAdd.puntosDeInteres.forEach((punto) => {
+        //   punto.dia_id = Number(answer.mensaje)
+        // })
+        this.router.navigate(["/add-viaje"])
+      }
+    })
+      }
+    })
     
-    this.router.navigate(["/add-viaje"])
 }
 }

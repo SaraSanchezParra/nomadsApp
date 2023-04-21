@@ -41,10 +41,11 @@ export class AddViajeComponent {
   }
 
   private buildForm() {
+    const maxLength = 20
     this.addForm = this.formBuilder.group({
-      nombreViaje: [this.viajeToAddService.viajeToAdd.titulo, Validators.required],
+      nombreViaje: [this.viajeToAddService.viajeToAdd.titulo, Validators.required, Validators.maxLength(maxLength)],
       lugarViaje: [this.viajeToAddService.viajeToAdd.ubicacion, Validators.required],
-      descripcionViaje: [this.viajeToAddService.viajeToAdd.descripcion, Validators.required],
+      descripcionViaje: [this.viajeToAddService.viajeToAdd.descripcion, Validators.required, Validators.maxLength(maxLength)],
       fotoViaje: [this.viajeToAddService.viajeToAdd.foto, Validators.required]
     })
   }
@@ -52,62 +53,40 @@ export class AddViajeComponent {
 
 
   public addViaje() {
-    let formValue = this.addForm.value
+    if (this.viajeService.viajeAdd.days.length === 0) {
+      this.toastr.warning("Necesitas añadir al menos un día")
+    }
+    else{
+      this.toastr.success("¡Tu viaje se ha creado!")
+    this.viajeService.viajeDetalle_id = this.viajeService.viajeAdd.viaje_id;
+    this.addForm.reset()
+    this.viajeService.viajeAdd = null
+    this.router.navigate(["/paginaViaje"])
+    }
+    
+  }
+
+  public addDays() {
+    if (this.viajeService.viajeAdd.days.length === 0) {
+      let formValue = this.addForm.value
     console.log(formValue);
     console.log(formValue.lugarViaje);
     // n dias viaje
     let viajeToAdd = new Viaje(null, formValue.nombreViaje, formValue.lugarViaje, formValue.fotoViaje, formValue.descripcionViaje, this.diaService.dias, 0, this.userService.user_logged.user_id, this.userService.user_logged, this.userService.user_logged.photo)
     console.log(viajeToAdd);
+    this.viajeService.viajeAdd = viajeToAdd
     this.viajeService.addViaje(viajeToAdd).subscribe((answer: Respuesta) => {
       if (answer.mensaje != "0") {
-        console.log("Viaje creado");
+        this.viajeToAddService.viajeToAdd.viaje_id = Number(answer.mensaje)
+        this.toastr.success("¡Su viaje se ha generado!")
         console.log(answer);
-        
-        this.diaService.dias.forEach((diaToAdd) => {
-          diaToAdd.viaje_id = Number(answer.mensaje)
-          this.diaService.postDia(diaToAdd).subscribe((answer: Respuesta) => {
-            if (answer.error) {
-              console.log(answer.error);
-            }
-            else if (answer.mensaje != "0") {
-              console.log("success");
-              let dia_id = Number(answer.mensaje)
-              console.log(dia_id);
-
-              diaToAdd.puntosDeInteres.forEach((punto) => {
-                punto.dia_id = dia_id
-                this.diaService.postPI(punto).subscribe((answer: Respuesta) => {
-                  if (answer.error) {
-                    this.toastr.warning("Punto de interés no añadido")
-                  }
-                  else {
-                    if (answer.mensaje != "-1") {
-                      console.log("Se ha creado el punto de interés");
-                      
-                    }
-                  }
-                })
-              })
-            }
-          })
-        })
-        // this.viajeService.viajeDetalle_id = this.viaje.viaje_id
-        // this.router.navigate(["/paginaViaje"])
+        this.router.navigate(['/add-dia'])
       }
     })
-  }
-
-  public addDays() {
-    if (this.viajeToAddService.viajeToAdd.titulo != '') {
-      this.router.navigate(['/add-dia'])
     }
     else {
-      let formValue = this.addForm.value
-      this.viajeToAddService.viajeToAdd.titulo = formValue.nombreViaje
-      this.viajeToAddService.viajeToAdd.ubicacion = formValue.lugarViaje
-      this.viajeToAddService.viajeToAdd.descripcion = formValue.descripcionViaje
-      this.viajeToAddService.viajeToAdd.foto = formValue.fotoViaje
-      this.router.navigate(['/add-dia'])
+      this.toastr.success("Día añadido")
+      this.router.navigate(["/add-dia"])
     }
   }
 
