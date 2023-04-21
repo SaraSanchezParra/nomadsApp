@@ -32,6 +32,7 @@ export class HomeLogedComponent implements OnInit {
 
         // console.log(this.users[0].photo);
       });
+      this.datosUsuarioService.usuarioBuscado = false
     }
 
       // console.log(this.viajes);

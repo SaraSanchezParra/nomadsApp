@@ -1,7 +1,7 @@
 .menu-container {
     position: fixed;
     top: 75px;
-    border: 3px solid #1F8989;
+    /* border: 3px solid #1F8989; */
     right: -250px;
     /* Inicialmente oculto fuera del viewport */
     width: 240px;
@@ -17,7 +17,7 @@
 }
 
 .menu-container li {
-    border-bottom: 0.5px solid #1F8989;
+    /* border-bottom: 0.5px solid #1F8989; */
     width: 100%;
     padding: 7px;
     height: 80px;

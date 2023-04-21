@@ -43,14 +43,15 @@ header{
    .menu-container {
     position: fixed;
     top: 75px;
-    border: 2px solid #1F8989;
+    /* border: 2px solid #1F8989; */
     right: -250px;
     /* Inicialmente oculto fuera del viewport */
     width: 240px;
     height: 38%;
-    background-color: #F5F5F5;
+    background-color: var(--yellow);
     transition: right 0.3s ease-out;
     list-style: none;
+    
 }
 
 .menu-container.visible {
@@ -59,7 +60,7 @@ header{
 }
 
 .menu-container li {
-    border-bottom: 0.5px solid #1F8989;
+    border-bottom: 0.5px solid white;
     width: 100%;
     padding: 7px;
     height: 80px;
@@ -74,7 +75,7 @@ header{
 
 .menu-container li a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .menu-container li img {
