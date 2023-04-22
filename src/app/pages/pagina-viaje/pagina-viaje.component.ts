@@ -7,6 +7,7 @@ import { Respuesta } from 'src/app/models/respuesta';
 import { User } from 'src/app/models/user';
 import { Viaje } from 'src/app/models/viaje';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
+import { ViajesService } from 'src/app/services/viajes.service';
 import { ViajeService } from 'src/app/shared/viaje.service';
 
 @Component({
@@ -27,8 +28,10 @@ export class PaginaViajeComponent {
 
   constructor(
     public ViajeService: ViajeService,
-    public userService: DatosUsuarioService
+    public userService: DatosUsuarioService,
+    public viajesService : ViajesService
   ) {
+    // this.fav = false;
     this.userToCheck = this.userService.user_logged;
     this.ViajeService.getViaje(this.ViajeService.viajeDetalle_id).subscribe((answer: Respuesta) => {
       this.viaje = answer.data_viaje[0];
@@ -38,10 +41,11 @@ export class PaginaViajeComponent {
       this.userService.user_logged.favs.forEach((viajeFav) => {
         if (viajeFav.viaje_id === this.viaje.viaje_id) {
           this.isLiked = true;
+          this.fav = true;
         }
       });
     });
-    this.fav = true;
+    
   }
 
   ngAfterViewInit(): void {
@@ -54,25 +58,34 @@ export class PaginaViajeComponent {
   }
 
   likeFunc() {
+
     if (this.isLiked) {
-      this.ViajeService.unLike(
-        this.viaje.viaje_id,
-        this.userService.user_logged.user_id
-      );
-      this.viaje.likes++;
-      this.isLiked = false;
-      this.fav = true;
-    } else {
-      this.ViajeService.addLike(
-        this.userService.user_logged.user_id,
-        this.viaje.viaje_id
-      ).subscribe(() => {
-        this.viaje.likes--;
-        this.isLiked = true;
+      this.ViajeService.unLike(this.viaje.viaje_id, this.userService.user_logged.user_id).subscribe(() => {
+        console.log(this.viaje.likes);
+        
+        console.log( this.isLiked);
+        
+        this.isLiked = false;
         this.fav = false;
+      });
+    } else {
+      console.log('viaje');
+      
+      console.log(this.viaje.viaje_id);
+      
+      this.ViajeService.addLike(this.viaje.viaje_id, this.userService.user_logged.user_id).subscribe(() => {
+        console.log( this.viaje.likes);
+        console.log( this.isLiked);
+        
+        this.viaje.likes++;
+        this.isLiked = true;
+        this.fav = true;
+    
       });
     }
   }
+  
+
   showOnMap(cardMessage) {
     if (cardMessage.isOpen) {
       console.log(cardMessage.isOpen);

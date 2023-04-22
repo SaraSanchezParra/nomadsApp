@@ -11,46 +11,46 @@ export class ViajesService {
 
   selectedViaje: Viaje;
   // viajesBuscados: Viaje[];
- public viajesBuscados: Viaje []
-private apiUrl = "http://localhost:3000/viajesDestino";
-// private apiUrl = "https://nomads-api.vercel.app/"
-private apiUrl1 = "http://localhost:3000/topViajes";
-private apiUrl2 = "http://localhost:3000/topViajesLog";
+  public viajesBuscados: Viaje[]
+  private apiUrl = "http://localhost:3000/viajesDestino";
+  // private apiUrl = "https://nomads-api.vercel.app/"
+  private apiUrl1 = "http://localhost:3000/topViajes";
+  private apiUrl2 = "http://localhost:3000/topViajesLog";
   destinoActualizado: any;
-//  private apiUrl = "http://localhost:3000/viajes";
-//  private apiUrl: string = "https://nomads-api.vercel.app/viajes";
-//  private apiUrl1 = "https://nomads-api.vercel.app/topViajes";
-//  private apiUrl2 = "https://nomads-api.vercel.app/topViajesLog";
+  //  private apiUrl = "http://localhost:3000/viajes";
+  //  private apiUrl: string = "https://nomads-api.vercel.app/viajes";
+  //  private apiUrl1 = "https://nomads-api.vercel.app/topViajes";
+  //  private apiUrl2 = "https://nomads-api.vercel.app/topViajesLog";
 
 
- constructor(private http: HttpClient) { }
- 
- getViajes(): Observable<Viaje[]> {
-   return this.http.get<Viaje[]>(this.apiUrl);
-   
- }
+  constructor(private http: HttpClient) { }
 
- getTopViajes(): Observable<Viaje[]> {
-  return this.http.get<Viaje[]>(this.apiUrl1);
-}
+  getViajes(): Observable<Viaje[]> {
+    return this.http.get<Viaje[]>(this.apiUrl);
 
+  }
 
-getTopViajesLog(): Observable<Viaje[]> {
-  return this.http.get<Viaje[]>(this.apiUrl2);
-}
+  getTopViajes(): Observable<Viaje[]> {
+    return this.http.get<Viaje[]>(this.apiUrl1);
+  }
 
 
-
-viajesBusqueda(ubicacion:string, dias:number){
-  
- // let url = `https://nomads-api.vercel.app/viajesDestino?ubicacion=${ubicacion}&ndiasViaje=${dias}`
-  let url = `http://localhost:3000/viajesDestino?ubicacion=${ubicacion}&ndiasViaje=${dias}`
-console.log(url); 
-
-  return this.http.get(url)
-}
+  getTopViajesLog(): Observable<Viaje[]> {
+    return this.http.get<Viaje[]>(this.apiUrl2);
+  }
 
 
- 
+
+  viajesBusqueda(ubicacion: string, dias: number) {
+
+    // let url = `https://nomads-api.vercel.app/viajesDestino?ubicacion=${ubicacion}&ndiasViaje=${dias}`
+    let url = `http://localhost:3000/viajesDestino?ubicacion=${ubicacion}&ndiasViaje=${dias}`
+    console.log(url);
+
+    return this.http.get(url)
+  }
+
+
+
 }
 

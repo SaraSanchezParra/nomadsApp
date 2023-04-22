@@ -13,13 +13,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegisterComponent {
 
-  public user = new User ("","","","","","",[],[]);
+  public user = new User("", "", "", "", "", "", [], []);
   public myForm: FormGroup;
   public route: Router
   isFormValid: boolean = false;
-public username:User
+  public username: User
 
-  constructor(private formBuilder:FormBuilder,private router: Router,public userService:DatosUsuarioService,  private toastr: ToastrService, private registerservice: RegisterService){
+  constructor(private formBuilder: FormBuilder, private router: Router, public userService: DatosUsuarioService, private toastr: ToastrService, private registerservice: RegisterService) {
     this.buildForm();
     this.route = router;
   }
@@ -33,18 +33,17 @@ public username:User
     // Verificar si el nombre de usuario ya existe
     this.userService.usuarioEncontrado(user.username).subscribe(
       (resp: any) => {
-        if (resp.length > 0) {
+        if (resp && resp.data_user && resp.data_user.length > 0) {
           console.log(resp);
-          
           this.toastr.error('El nombre de usuario ya existe.');
+          this.userService.user_logged = resp[0];
         } else {
           // Si el usuario no existe, registrar al usuario
           this.userService.postRegister(user).subscribe(
             (resp: string) => {
+              console.log(resp);
               this.userService.user_noLoged = user;
               this.userService.user_noLoged.user_id = Number(resp);
-              console.log(resp);
-              
               this.toastr.success('Registro exitoso. Por favor inicie sesión.');
               this.router.navigate(['/login']);
             }
@@ -53,11 +52,11 @@ public username:User
       }
     );
   }
-  
-  
-    private buildForm(){
+
+
+  private buildForm() {
     const minPassLength = 8;
-  
+
     this.myForm = this.formBuilder.group({
       username: ['', [Validators.required, Validators.pattern(/^@/)]],
       email: ['', [Validators.required, Validators.email]],
@@ -72,11 +71,10 @@ public username:User
       this.isFormValid = this.myForm.valid;
     });
   }
-  
 
-  private checkPasswords(control: AbstractControl)
-  {
-    let resultado = {matchPassword: true};
+
+  private checkPasswords(control: AbstractControl) {
+    let resultado = { matchPassword: true };
 
     // console.log(control.parent);
     // console.log(control.parent?.value);

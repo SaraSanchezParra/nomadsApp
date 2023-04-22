@@ -37,7 +37,7 @@ export class HomeLogedComponent implements OnInit {
 
       // console.log(this.viajes);
     );
-  
+
   }
 
   ngOnInit() {
@@ -47,7 +47,6 @@ export class HomeLogedComponent implements OnInit {
     this.viajesService.getTopViajesLog().subscribe(viajes => {
       console.log(viajes);
       this.viajes = viajes
-
       // console.log(this.viajes);
     });
   }
@@ -61,7 +60,7 @@ export class HomeLogedComponent implements OnInit {
   }
   userPerfil(username: string): void {
     console.log(username);
-    this.datosUsuarioService.usuarioEncontrado(username).subscribe((respuesta:Respuesta)=>{
+    this.datosUsuarioService.usuarioEncontrado(username).subscribe((respuesta: Respuesta) => {
 
       console.log(respuesta.data_user);
           this.datosUsuarioService.usuarioBuscado = !(respuesta.data_user[0].user_id == this.datosUsuarioService.user_logged.user_id);
@@ -70,9 +69,9 @@ export class HomeLogedComponent implements OnInit {
           this.router.navigate(['/perfil']);
 
     })
-   
+
   }
-  
+
   goToViaje(viaje_id: number) {
     this.viajeService.goToViaje(viaje_id)
   }
