@@ -1,4 +1,4 @@
-<!-- <div class="add-viaje">
+<div class="add-viaje">
     <div class="title">
         <h3>Añadir viaje</h3>
     </div>
@@ -11,8 +11,8 @@
                 [ngClass]="{'is-invalid': addForm.get('nombreViaje').invalid && (addForm.get('nombreViaje').dirty || addForm.get('nombreViaje').touched)}">
             <div *ngIf="addForm.get('nombreViaje').invalid && (addForm.get('nombreViaje').dirty || addForm.get('nombreViaje').touched)"
                 class="invalid-feedback">
-                <div *ngIf="myForm.get('nombreViaj').errors.required">Your password is required</div>
-                          <div *ngIf="addForm.get('password').errors.minlength">Your password must have at least 8 characters
+                <div *ngIf="myForm.get('nombreViaje').errors.required">El nobre de viaje es necesario</div>
+                          <div *ngIf="addForm.get('nombreViaje').errors.maxLength">El nombre no puede tener mas de 20 characteres
                           </div>
             </div>
            
@@ -52,4 +52,4 @@
             <button type="button" [disabled]="addForm.invalid" (click)="addViaje()">Confirmar</button>
         </div>
     </div>
-</div> -->
+</div>
