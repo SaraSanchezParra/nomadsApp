@@ -53,9 +53,12 @@ export class HomeNoLogedComponent implements OnInit {
 
         console.log(respuesta);
         this.viajesService.viajesBuscados = respuesta.data_viaje;
-
-
         this.router.navigate(['/viajesDestino'], { queryParams: { ubicacion: ubicacion } });
+
+       if(respuesta.data_viaje.length === 0){
+        this.toastr.warning(`No hay coincidencias`);
+        this.router.navigate(['/home-no-loged'])
+      }
       })
     
   }
