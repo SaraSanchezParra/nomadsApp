@@ -78,9 +78,9 @@ h1 {
     /* border: 2px solid red; */
     min-height: 145px;
     max-height: 145px;
-    border-radius: 100%;
     min-width: 145px;
     max-width: 145px;
+    border-radius: 100%;
     overflow: hidden;
     object-fit: cover;
   }
