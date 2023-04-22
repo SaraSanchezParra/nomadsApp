@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { Map, marker, polyline, tileLayer } from 'leaflet';
 import { map } from 'rxjs';
@@ -29,7 +30,8 @@ export class PaginaViajeComponent {
   constructor(
     public ViajeService: ViajeService,
     public userService: DatosUsuarioService,
-    public viajesService : ViajesService
+    public viajesService : ViajesService,
+    private _location: Location
   ) {
     // this.fav = false;
     this.userToCheck = this.userService.user_logged;
@@ -115,6 +117,10 @@ export class PaginaViajeComponent {
 
       // como sacar el map de nginitview ?
     }
+  }
+
+  goBack() {
+    this._location.back()
   }
 
   eliminar(i: number) {
