@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmComponent } from 'src/app/dialogs/confirm/confirm.component';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +14,7 @@ export class HeaderComponent {
 
   menuVisible = false;
 
-  constructor(private router: Router, public location: Location, public userService: DatosUsuarioService) {
+  constructor(private router: Router, public location: Location, public userService: DatosUsuarioService,public dialog: MatDialog) {
     
   }
 
@@ -50,6 +52,26 @@ export class HeaderComponent {
   irASobreLaApp() {
     this.ocultarMenu();
     this.router.navigate(['/sobreLaApp']);
+  }
+
+
+
+  openDialog(): void {
+    this.ocultarMenu();
+    const dialogRef = this.dialog.open(ConfirmComponent, {
+      data: '¿Está seguro de que desea cerrar la sesión?'
+    });
+ 
+    dialogRef.afterClosed().subscribe(res => { 
+      console.log(res)
+      if (res) {
+        this.userService.loged = false;
+    this.userService.showHeaderFooter = false;
+        this.router.navigate(['/login']); 
+       
+      }
+    });    
+
   }
 
 }

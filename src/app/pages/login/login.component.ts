@@ -24,47 +24,43 @@ export class LoginComponent {
   }
 
 
-  onSubmit(form:NgForm){
-    console.log(form.value)
-    console.log(this.user)
-    if(form.valid){
+  onSubmit(form: NgForm) {
+    // console.log(form.value);
+    // console.log(this.user);
+  
+    if (form.valid) {
       this.isFormValid = true;
-
+  
       this.userService.postLogin(this.user).subscribe((res: Respuesta) => {
         if (res.mensaje === "logeado") {
           this.userService.loged = true;
           this.userService.user_logged = res.data_user;
           console.log("logged user data:");
           console.log(res.data_user);
-    
+  
           this.userService.loged = true;
           this.userService.showHeaderFooter = true;
-    
+  
           this.router.navigate(['/home-loged']);
           this.toastr.success('¡Ingreso exitoso!', 'Bienvenido');
-         
-         
+        } else if (res.error && res.mensaje === "No logeado") {
+          console.log('Error de ingreso:', res.mensaje);
+          this.userService.loged = false;
+          
+          console.log(res.error);
+          this.toastr.error('Error de ingreso', 'El correo electrónico o la contraseña son incorrectos');
         } else {
           console.log('Error de ingreso:', res.mensaje);
-         this.userService.loged = false;  
-         this.userService.user_noLoged = res.data_user;
-         console.log(res);
-         this.toastr.error('Error de ingreso', 'El correo electrónico o la contraseña son incorrectos');
-       
+          this.toastr.error('Error de ingreso', 'Ha ocurrido un error durante el ingreso');
         }
-
-      
       });
-
-
+    } else {
+      this.isFormValid = false;
+      console.log('Error de ingreso: Todos los campos son requeridos');
+      this.toastr.error('Error de ingreso', 'Todos los campos son requeridos');
     }
-    else{
-
-         this.isFormValid = false;
-     
-    }
-   
   }
+  
   
   registrateAqui() {
     this.router.navigate(['/register']);

@@ -3,3 +3,43 @@
     justify-content: space-between;
     align-items: center;
 }
+
+
+/* letras de botones */
+
+.mat-mdc-raised-button:not(:disabled) {
+    color: #ffb800;
+}
+
+/* boton de si */
+.mat-mdc-raised-button.mat-warn {
+    --mdc-protected-button-container-color: #1f8989;
+    --mdc-protected-button-label-text-color: #fff;
+}
+
+/* 
+boton de no */
+
+.mat-mdc-raised-button.mat-unthemed {
+    --mdc-protected-button-container-color: #fff;
+    --mdc-protected-button-label-text-color: #000;
+}
+
+
+/* fondo,letras de atencion y mensaje */
+
+.mat-mdc-dialog-container {
+    --mdc-dialog-container-color: #ffc107;
+    --mdc-dialog-with-divider-divider-color: #198754;
+    --mdc-dialog-subhead-color: #198754;
+    --mdc-dialog-supporting-text-color: #198754;
+}
+
+style attribute {
+    --mat-dialog-transition-duration: 150ms;
+}
+/* boton */
+.mat-mdc-icon-button {
+    --mat-mdc-button-persistent-ripple-color: #ffc107;
+    --mat-mdc-button-ripple-color: rgba(0, 0, 0, 0.1);
+}

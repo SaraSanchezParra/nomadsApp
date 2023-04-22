@@ -2,6 +2,8 @@
 
    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Shadows+Into+Light&display=swap');
 
+  
+  
    header{
        position: fixed;
        top:0;
@@ -41,6 +43,8 @@
            font-size: 35pt;
            color: #1F8989;
       }
+
+      
       .menu-container {
         position: fixed;
         top: 75px;
