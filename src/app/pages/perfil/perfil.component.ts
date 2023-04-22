@@ -100,6 +100,7 @@ export class PerfilComponent {
     this.router.navigate(['/modificarPerfil'])
   }
   enviarMensaje(){
+    
     this.chatService.getChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id).subscribe((answerGet: any)=>{
       console.log(answerGet);
       if(answerGet.data.length == 0){
@@ -116,7 +117,10 @@ export class PerfilComponent {
             console.log(answerPost);
             console.log(this.chatService.chat);
             
-            this.router.navigate(['/chatPrivado'])
+            this.router.navigate(['/chatPrivado']);
+            setTimeout(() => {
+              this.scrollToBottom();
+            }, 0);
             
           }
         })
@@ -139,12 +143,20 @@ export class PerfilComponent {
 
         })
         // this.chatService.chat.mensajes = [];
-        this.router.navigate(['/chatPrivado'])
+        this.router.navigate(['/chatPrivado']);
+        setTimeout(() => {
+          this.scrollToBottom();
+        }, 0);
       }
 
     })
-    this.router.navigate(['/chatPrivado'])
   }
+
+  scrollToBottom() {
+    const chatContent = document.querySelector('.chat-content');
+    chatContent.scrollTop = chatContent.scrollHeight;
+  }
+
   
   iraUser():void{
     this.router.navigate(['/perfil'])
