@@ -4,14 +4,15 @@
         <span class="material-symbols-outlined">
                 arrow_back_ios
          </span>
-        <h2>{{viaje.titulo}}</h2>
+        <h2 class ="titulo">{{viaje.titulo}}</h2>
         <div class="user-area">
             <img id="user_foto" src="{{viaje.user_foto}}" width="45" height="45">
-            <div class="likes">
+             <div class="likes">
             <img src="assets/corazon.png" width="25" height="25" (click)="likeFunc()" [src]="fav ? 'assets/corazon.png' : 'assets/corazon_vacio.png'">
-            <p>{{viaje.likes}}</p>
+            <p class="nLikes">{{viaje.likes}}</p>
         </div>
-        </div>
+                
+    </div>
         
     </div>
     <div id="map"></div>

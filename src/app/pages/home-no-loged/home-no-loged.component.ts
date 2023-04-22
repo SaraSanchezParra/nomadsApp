@@ -57,8 +57,8 @@ export class HomeNoLogedComponent implements OnInit {
 
         this.router.navigate(['/viajesDestino'], { queryParams: { ubicacion: ubicacion } });
       })
-    }
     
+  }
   }
 
 
