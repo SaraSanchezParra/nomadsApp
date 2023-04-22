@@ -47,6 +47,7 @@ import { ViajesService } from './services/viajes.service';
 import { ToastNoAnimationModule } from 'ngx-toastr';
 import { ChatsService } from './services/chats.service';
 import { ToastrModule } from 'ngx-toastr';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -101,6 +102,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     ToastNoAnimationModule.forRoot(),
     ToastrModule.forRoot(),
+    MatSnackBarModule
   ],
   providers: [DatosUsuarioService, ViajesService,ChatsService],
   bootstrap: [AppComponent]

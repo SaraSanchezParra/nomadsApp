@@ -28,8 +28,9 @@ getChats(user_id:number){
 }  
   
 deleteChat(chat_id: number) {
-  let deletedBook = {headers: null, body:{chat_id:chat_id}};
-  return this.http.delete(this.url,deletedBook);
+  let deletedChat = {headers: null, body:{chat_id:chat_id}};
+  return this.http.delete(this.url,deletedChat);
+ 
 }
 
 getChat(user_id_loged:number, user_id_buscado:number){

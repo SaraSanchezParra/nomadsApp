@@ -13,6 +13,8 @@
   
 }
 
+
+
 .titulo{
 
     color: #1F8989;
@@ -64,6 +66,7 @@ p{
 .container {
   height: 500px; /* ajusta la altura a lo que necesites */
   overflow-y: auto;
+  
 }
 
 .atras{

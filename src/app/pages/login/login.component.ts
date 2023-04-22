@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Respuesta } from 'src/app/models/respuesta';
 import { User } from 'src/app/models/user';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,7 @@ export class LoginComponent {
   public isFormValid: boolean = false;
   
 
-  constructor(private router: Router, private userService:DatosUsuarioService){
+  constructor(private router: Router, private userService:DatosUsuarioService,private toastr: ToastrService){
 
     this.user = new User("", "", "", "", "", "", [], []);
   }
@@ -39,15 +41,27 @@ export class LoginComponent {
           this.userService.showHeaderFooter = true;
     
           this.router.navigate(['/home-loged']);
+          this.toastr.success('¡Ingreso exitoso!', 'Bienvenido');
+         
+         
         } else {
-          this.userService.loged = false;
+          console.log('Error de ingreso:', res.mensaje);
+         this.userService.loged = false;  
+         this.userService.user_noLoged = res.data_user;
+         console.log(res);
+         this.toastr.error('Error de ingreso', 'El correo electrónico o la contraseña son incorrectos');
+       
         }
+
+      
       });
 
 
     }
     else{
-      this.isFormValid = false;
+
+         this.isFormValid = false;
+     
     }
    
   }
