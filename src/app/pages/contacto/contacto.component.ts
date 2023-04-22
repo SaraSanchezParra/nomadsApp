@@ -37,13 +37,15 @@ export class ContactoComponent {
       email: this.myForm.get('email').value,
       mensaje: this.myForm.get('mensaje').value
     };
+    this.toastr.info('Enviando mensaje...');
     this.contactanosService.enviarCorreo(data).subscribe(emails => {
       console.log(emails);
       this.emails = emails;
-      this.enviado = true;
       this.myForm.reset();
       this.toastr.success('Mensaje enviado con éxito.');
+      this.enviado = true;
     }, error => {
+
       console.log(error);
       this.toastr.error('Error al enviar el mensaje.');
     });
