@@ -54,3 +54,10 @@ input {
 input:focus::placeholder {
   color: transparent;
 }
+
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+
+ 
+}
