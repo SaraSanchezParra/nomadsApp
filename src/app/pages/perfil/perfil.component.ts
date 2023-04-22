@@ -10,6 +10,7 @@ import { ModifyViajeService } from 'src/app/services/modify-viaje.service';
 import { ViajeService } from 'src/app/shared/viaje.service';
 import { ChatsService } from 'src/app/services/chats.service';
 import { Chats } from 'src/app/models/chat';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -27,7 +28,7 @@ export class PerfilComponent {
   
   
   
-  constructor(private router:Router, public userService: DatosUsuarioService, private http: HttpClient, public servicioModify: ModifyViajeService, public viajeService: ViajeService, public chatService: ChatsService) {
+  constructor(private router:Router, public userService: DatosUsuarioService, private http: HttpClient, public servicioModify: ModifyViajeService, public viajeService: ViajeService, public chatService: ChatsService, public toastr: ToastrService) {
     
     if(this.userService.usuarioBuscado){
       this.usuarioMostrado = this.userService.user_noLoged;
@@ -64,18 +65,24 @@ export class PerfilComponent {
    this.showIcons = true;
   }
   goToModify(viaje_idCard): void {
-    let selectedViaje;
-    this.usuarioMostrado.misViajes.forEach((viajeMio) => {
-      if (viajeMio.viaje_id === viaje_idCard) {
-        selectedViaje = viajeMio
+    this.viajeService.getViaje(viaje_idCard).subscribe((answer: Respuesta) => {
+      if (answer.error) {
+        this.toastr.warning("Error al ir a modificar")
+      }
+      else {
+        this.viajeService.viajeMod = answer.data_viaje[0]
+        this.router.navigate(['/modificarViaje'])
       }
     })
-    this.servicioModify.viajeAModificar = selectedViaje
-    this.router.navigate(['/modificarViaje'])
+    
+    
   }
   
    borrarViaje(i: number): void {
-    // this.viaj.splice(day_id, 1)
+    this.toastr.success(`Borando el viaje ${i}`)
+    // this.viajeService.viajeNo(i).subscribe((answer: Respuesta) => {
+
+    // })
   }
 
   goToProfile(user_idCard: number) {
