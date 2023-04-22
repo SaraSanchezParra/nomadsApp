@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Respuesta } from 'src/app/models/respuesta';
 import { Viaje } from 'src/app/models/viaje';
 import { ViajeService } from 'src/app/shared/viaje.service';
@@ -17,8 +18,8 @@ export class ModificarViajeComponent {
   public modifyForm: FormGroup
 
 
-  constructor(private fb: FormBuilder, public viajeService: ViajeService, private router: Router, private location: Location) {
-    this.viaje = this.viajeService.viajes[0]
+  constructor(private fb: FormBuilder, public viajeService: ViajeService, private router: Router, private location: Location, public toastr: ToastrService) {
+    this.viaje = this.viajeService.viajeMod
     console.log(this.viaje);
     
     this.modifyForm = this.fb.group({
@@ -32,11 +33,12 @@ export class ModificarViajeComponent {
   public modify(){
     let modViaje = this.modifyForm.value;
     console.log(modViaje);
-    let viajeEditado = new Viaje(this.viajeService.viajeDetalle_id, modViaje.titulo==""? null: modViaje.titulo, 
+    let viajeEditado = new Viaje(this.viajeService.viajeMod.viaje_id, 
+                                modViaje.titulo==""? null: modViaje.titulo, 
                                 modViaje.ubicacion==""? null: modViaje.ubicacion, 
                                 modViaje.foto==""? null: modViaje.foto,
                                 modViaje.descripcion==""? null: modViaje.descripcion,
-                                null,
+                                this.viajeService.viajeMod.days,
                                 null,
                                 this.viaje.user_id_propietario,
                                 null,
@@ -46,30 +48,31 @@ export class ModificarViajeComponent {
         console.log("Le aviso cordialmente de que el viaje no se editó satisfactoriamente, de hecho, no se editó del todo");
       }
       else {
-        console.log("¡Yay, se editó!");
-        // aqui iria el editar mod PI´s
+        this.toastr.success("Su viaje se ha editado!")
+        this.viajeService.viajeDetalle_id = this.viajeService.viajeMod.viaje_id
+        this.router.navigate(["/paginaViaje"])
       }
     })
-    this.router.navigate(['/paginaViaje'])
+   
   }
 
-  showOnMap(cardMessage) {
-    if (cardMessage.isOpen) {
-      console.log(cardMessage.isOpen);
-    } else {
-      console.log('is closed' + cardMessage.isOpen);
-      console.log(cardMessage);
-      this.viajeService.getDay(cardMessage.dia_id).subscribe(
-        (answer: Respuesta) => {
-          console.log(answer);
-          this.viaje.days[cardMessage.index].puntosDeInteres = answer.data_dia;
-          console.log(this.viaje);
-        }
-      );
+  // showOnMap(cardMessage) {
+  //   if (cardMessage.isOpen) {
+  //     console.log(cardMessage.isOpen);
+  //   } else {
+  //     console.log('is closed' + cardMessage.isOpen);
+  //     console.log(cardMessage);
+  //     this.viajeService.getDay(cardMessage.dia_id).subscribe(
+  //       (answer: Respuesta) => {
+  //         console.log(answer);
+  //         this.viaje.days[cardMessage.index].puntosDeInteres = answer.data_dia;
+  //         console.log(this.viaje);
+  //       }
+  //     );
 
-      // como sacar el map de nginitview ?
-    }
-  }
+  //     // como sacar el map de nginitview ?
+  //   }
+  // }
 
   public eliminate(day_id: number) {
     this.viaje.days.splice(day_id, 1)

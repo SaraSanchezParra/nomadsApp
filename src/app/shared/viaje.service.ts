@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ViajeService {
 
+  public viajeMod: Viaje
   public viajeAdd: Viaje
   public viajes: Viaje[]
   public user: User;
