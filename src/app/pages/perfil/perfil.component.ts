@@ -99,18 +99,18 @@ export class PerfilComponent {
    ajustesPerfil():void{
     this.router.navigate(['/modificarPerfil'])
   }
-  enviarMensaje(){
+  enviarMensaje(){ 
     this.chatService.getChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id).subscribe((answerGet: any)=>{
       console.log(answerGet);
       if(answerGet.data.length == 0){
-        this.chatService.postChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id, "10:00").subscribe((answerPost: any)=>{
+        this.chatService.postChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id, new Date().toLocaleString()).subscribe((answerPost: any)=>{
           if(answerPost.error ){
             console.log(answerPost.error)//meter toastr
           }
           else{
             this.chatService.chat = new Chats(this.usuarioMostrado.photo, 
                                               this.usuarioMostrado.name,
-                                              "10:00");
+                                              new Date().toLocaleString());
             this.chatService.chat.chat_id = answerPost.data.insertId;
             this.chatService.chat.mensajes = [];
             console.log(answerPost);

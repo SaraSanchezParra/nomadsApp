@@ -54,8 +54,10 @@ export class ModificarPerfilComponent implements OnInit {
     this.userService.user_logged.name= this.myForm.get('nombre')?.value;
     this.userService.user_logged.surname= this.myForm.get('apellido')?.value;
     this.userService.user_logged.email= this.myForm.get('email')?.value;
+    this.userService.user_logged.username = this.myForm.get('nombreUsuario')?.value;
     this.userService.user_logged.descripcion= this.myForm.get('descripcion')?.value;
     this.userService.user_logged.photo= this.myForm.get('foto')?.value;
+    this.userService.user_logged.password = this.myForm.get('password')?.value;
     this.userService.modificarUser(this.userService.user_logged).subscribe(
       () => {
         this.toastr.success('Usuario modificado correctamente')
