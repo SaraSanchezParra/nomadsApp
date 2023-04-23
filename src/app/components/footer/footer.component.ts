@@ -12,13 +12,12 @@ import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 })
 export class FooterComponent {
   
- 
   constructor(private router: Router, public location : Location, public userService:DatosUsuarioService ){
   
   }
   
   resetPerfil(){
-    this.userService.usuarioBuscado = false
+    this.userService.usuarioBuscado = false;
   }
 
   ngOnInit(): void {
