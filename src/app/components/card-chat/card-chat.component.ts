@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Chats } from 'src/app/models/chat';
 import { Router } from '@angular/router';
 import { ConfirmComponent } from 'src/app/dialogs/confirm/confirm.component';
@@ -12,14 +12,23 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './card-chat.component.html',
   styleUrls: ['./card-chat.component.css']
 })
-export class CardChatComponent {
+export class CardChatComponent implements AfterViewInit{
+
 
   @Input() cardGeneral: Chats
   @Output() eliminarTarjeta = new EventEmitter();
   @Output() mensajesDeChat=new EventEmitter();
+  dia:string;
+  mes:string;
+  anyo:string;
   constructor(private router: Router, private dialogService: DialogService, public dialog: MatDialog) {}
 
-
+  ngAfterViewInit() {
+    let fecha = this.cardGeneral.hora.split("T")[0];
+    this.dia = fecha.split("-")[2];
+    this.mes = fecha.split("-")[1];
+    this.anyo = fecha.split("-")[0];
+  }
   openDialog() {
     // this.dialogService.confirmDialog();
     // console.log('open dialog');
