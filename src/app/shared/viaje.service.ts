@@ -45,7 +45,7 @@ export class ViajeService {
   }
 
   public modViaje(viaje: Viaje) {
-    return this.http.put(this.url + "modificarViaje", viaje)
+    return this.http.put(this.url + "viaje", viaje)
   }
 
   public addLike(user_id: number, viaje_id: number) {

@@ -34,15 +34,17 @@ export class ModificarViajeComponent {
     let modViaje = this.modifyForm.value;
     console.log(modViaje);
     let viajeEditado = new Viaje(this.viajeService.viajeMod.viaje_id, 
-                                modViaje.titulo==""? null: modViaje.titulo, 
-                                modViaje.ubicacion==""? null: modViaje.ubicacion, 
-                                modViaje.foto==""? null: modViaje.foto,
-                                modViaje.descripcion==""? null: modViaje.descripcion,
+                                modViaje.nombreViaje, 
+                                modViaje.lugarViaje, 
+                                modViaje.fotoViaje,
+                                modViaje.descripcionViaje,
                                 this.viajeService.viajeMod.days,
                                 null,
                                 this.viaje.user_id_propietario,
                                 null,
                                 null)
+    console.log(viajeEditado);
+    
     this.viajeService.modViaje(viajeEditado).subscribe((answer: Respuesta) => {
       if (answer.error) {
         console.log("Le aviso cordialmente de que el viaje no se editó satisfactoriamente, de hecho, no se editó del todo");

@@ -111,7 +111,7 @@ export class PaginaViajeComponent {
             iPopUp += 1
           })
           polyline(coordinatesList, { color: '#1F8989' }).addTo(this.map);
-
+          
         }
       );
 

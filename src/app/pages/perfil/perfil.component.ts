@@ -78,11 +78,17 @@ export class PerfilComponent {
     
   }
   
-   borrarViaje(i: number): void {
-    this.toastr.success(`Borando el viaje ${i}`)
-    // this.viajeService.viajeNo(i).subscribe((answer: Respuesta) => {
-
-    // })
+   borrarViaje(i: number): void { 
+    this.viajeService.viajeNo(i).subscribe((answer: Respuesta) => {
+      if (answer.mensaje == '0') {
+        this.toastr.error("Viaje no borrado")
+      }
+      else {
+        this.toastr.success("Tu viaje ha sido borrado")
+       let viajeBorradoI =  this.usuarioMostrado.misViajes.findIndex(v => v.viaje_id == i)
+       this.usuarioMostrado.misViajes.splice(viajeBorradoI, 1)
+      }
+    })
   }
 
   goToProfile(user_idCard: number) {
