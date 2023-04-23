@@ -110,14 +110,14 @@ export class PerfilComponent {
     this.chatService.getChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id).subscribe((answerGet: any)=>{
       console.log(answerGet);
       if(answerGet.data.length == 0){
-        this.chatService.postChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id, new Date().toLocaleString()).subscribe((answerPost: any)=>{
+        this.chatService.postChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id, new Date().toISOString().slice(0, 19).replace('T', ' ')).subscribe((answerPost: any)=>{
           if(answerPost.error ){
             console.log(answerPost.error)//meter toastr
           }
           else{
             this.chatService.chat = new Chats(this.usuarioMostrado.photo, 
                                               this.usuarioMostrado.name,
-                                              new Date().toLocaleString());
+                                              new Date().toISOString().slice(0, 19).replace('T', ' '));
             this.chatService.chat.chat_id = answerPost.data.insertId;
             this.chatService.chat.mensajes = [];
             console.log(answerPost);
@@ -145,12 +145,12 @@ export class PerfilComponent {
           else{
             this.chatService.chat.mensajes = answerMessages.data;
             console.log(this.chatService.chat);
-            this.chatService.chat.hora = new Date().toLocaleString()
+            this.chatService.chat.hora = new Date().toISOString().slice(0, 19).replace('T', ' ')
           }
 
         })
         // this.chatService.chat.mensajes = [];
-        this.chatService.chat.hora = new Date().toLocaleString()
+        this.chatService.chat.hora = new Date().toISOString().slice(0, 19).replace('T', ' ')
         this.router.navigate(['/chatPrivado']);
         setTimeout(() => {
           this.scrollToBottom();

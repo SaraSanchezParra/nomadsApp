@@ -38,11 +38,11 @@ getChat(user_id_loged:number, user_id_buscado:number){
   return this.http.get(url2)
 }
 
-postChat(user_id_creador:number, user_id_participante:number, user_hora:string){
+postChat(user_id_creador:number, user_id_participante:number, hora:string){
   let url=(this.url2);
   let body = {user_id_creador: user_id_creador,
               user_id_participante: user_id_participante,
-              user_hora: user_hora}
+              hora: hora}
   return this.http.post(url, body)
 }
 
