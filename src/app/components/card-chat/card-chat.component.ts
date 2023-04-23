@@ -25,7 +25,7 @@ export class CardChatComponent {
     // console.log('open dialog');
 
     const dialogRef = this.dialog.open(ConfirmComponent, {
-      data: ' ¿Estás seguro de que quieres eliminarlo?'
+      data: ' ¿Estás seguro de que quieres eliminar este chat?'
     }); 
 
     dialogRef.beforeClosed().subscribe( res => {

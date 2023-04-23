@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Viaje } from 'src/app/models/viaje';
@@ -24,6 +24,7 @@ export class PerfilComponent {
   public showIcons = false;
  
   public usuarioMostrado:User;
+  
 
   
   
@@ -166,11 +167,8 @@ export class PerfilComponent {
     })
   }
 
-  scrollToBottom() {
-    const chatContent = document.querySelector('.chat-content');
-    chatContent.scrollTop = chatContent.scrollHeight;
-  }
-
+  scrollToBottom(){}
+  
   
   iraUser():void{
     this.router.navigate(['/perfil'])
