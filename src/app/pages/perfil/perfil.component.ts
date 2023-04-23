@@ -145,10 +145,12 @@ export class PerfilComponent {
           else{
             this.chatService.chat.mensajes = answerMessages.data;
             console.log(this.chatService.chat);
+            this.chatService.chat.hora = new Date().toLocaleString()
           }
 
         })
         // this.chatService.chat.mensajes = [];
+        this.chatService.chat.hora = new Date().toLocaleString()
         this.router.navigate(['/chatPrivado']);
         setTimeout(() => {
           this.scrollToBottom();
