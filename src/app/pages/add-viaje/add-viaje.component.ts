@@ -76,14 +76,18 @@ export class AddViajeComponent {
     console.log(viajeToAdd);
     this.viajeService.viajeAdd = viajeToAdd
     this.viajeService.addViaje(viajeToAdd).subscribe((answer: Respuesta) => {
-      if (answer.mensaje != "0") {
+      if(answer.error) {
+        this.toastr.error("No se genero su viaje")
+      }
+      else if (answer.mensaje != "0") {
         this.viajeToAddService.viajeToAdd.viaje_id = Number(answer.mensaje)
         this.toastr.success("¡Su viaje se ha generado!")
         console.log(answer);
+        console.log(this.viajeToAddService.viajeToAdd.viaje_id);
+        
         this.router.navigate(['/add-dia'])
       }
       else {
-      this.viajeService.viajeAdd.viaje_id = Number(answer.mensaje)
       this.toastr.success("Día añadido")
       this.router.navigate(["/add-dia"])
     }
