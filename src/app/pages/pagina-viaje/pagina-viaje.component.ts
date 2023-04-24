@@ -1,9 +1,15 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { Map, marker, polyline, tileLayer } from 'leaflet';
-import { map } from 'rxjs';
+import {
+  LatLngExpression,
+  Map,
+  Marker,
+  Polyline,
+  marker,
+  polyline,
+  tileLayer,
+} from 'leaflet';
 import { Day } from 'src/app/models/day';
-import { PuntoDeInteres } from 'src/app/models/punto-de-interes';
 import { Respuesta } from 'src/app/models/respuesta';
 import { User } from 'src/app/models/user';
 import { Viaje } from 'src/app/models/viaje';
@@ -24,24 +30,33 @@ export class PaginaViajeComponent {
   dia2: Day;
   fav: boolean;
   map: Map;
+  pL: Polyline;
+  mL: Marker[];
+  coordinatesList: LatLngExpression[];
 
   constructor(
     public ViajeService: ViajeService,
     public userService: DatosUsuarioService,
-    public viajesService : ViajesService,
+    public viajesService: ViajesService,
     private _location: Location
   ) {
     // this.fav = false;
     this.userToCheck = this.userService.user_logged;
-    this.ViajeService.getViaje(this.ViajeService.viajeDetalle_id).subscribe((answer: Respuesta) => {
-      this.viaje = answer.data_viaje[0];
-      console.log(this.viaje);
-      
-      //  check liked
-      this.fav = (this.userService.user_logged.favs.findIndex((viajeFav) => viajeFav.viaje_id === this.viaje.viaje_id) != -1);
-      console.log(this.fav);
-    });
-    
+    this.ViajeService.getViaje(this.ViajeService.viajeDetalle_id).subscribe(
+      (answer: Respuesta) => {
+        this.viaje = answer.data_viaje[0];
+        console.log(this.viaje);
+
+        //  check liked
+        this.fav =
+          this.userService.user_logged.favs.findIndex(
+            (viajeFav) => viajeFav.viaje_id === this.viaje.viaje_id
+          ) != -1;
+        console.log(this.fav);
+      }
+    );
+    this.pL = polyline([]);
+    this.coordinatesList = [];
   }
 
   ngAfterViewInit(): void {
@@ -54,33 +69,43 @@ export class PaginaViajeComponent {
   }
 
   likeFunc() {
-
     if (this.fav) {
-      this.ViajeService.unLike(this.viaje.viaje_id, this.userService.user_logged.user_id).subscribe(() => {
+      this.ViajeService.unLike(
+        this.viaje.viaje_id,
+        this.userService.user_logged.user_id
+      ).subscribe(() => {
         console.log(this.viaje.likes);
         this.fav = false;
         this.viaje.likes--;
-        this.userService.user_logged.favs = this.userService.user_logged.favs.filter(fav => fav.viaje_id != this.viaje.viaje_id);
-
+        this.userService.user_logged.favs =
+          this.userService.user_logged.favs.filter(
+            (fav) => fav.viaje_id != this.viaje.viaje_id
+          );
       });
     } else {
       console.log('viaje');
-      
+
       console.log(this.viaje.viaje_id);
-      
-      this.ViajeService.addLike(this.userService.user_logged.user_id,this.viaje.viaje_id, ).subscribe(() => {
-        console.log( this.viaje.likes);
+
+      this.ViajeService.addLike(
+        this.userService.user_logged.user_id,
+        this.viaje.viaje_id
+      ).subscribe(() => {
+        console.log(this.viaje.likes);
         this.viaje.likes++;
         this.fav = true;
         this.userService.user_logged.favs.push(this.viaje);
       });
     }
   }
-  
 
   showOnMap(cardMessage) {
     if (cardMessage.isOpen) {
       console.log(cardMessage.isOpen);
+      this.pL.removeFrom(this.map);
+      this.coordinatesList.forEach((mark) => {
+        marker(mark).removeFrom(this.map);
+      });
     } else {
       console.log('is closed' + cardMessage.isOpen);
       console.log(cardMessage);
@@ -89,19 +114,18 @@ export class PaginaViajeComponent {
           console.log(answer);
           this.viaje.days[cardMessage.index].puntosDeInteres = answer.data_dia;
           console.log(this.viaje);
-          let coordinatesList = [];
-          let popUpList = []
-          let iPopUp = 0
+          let popUpList = [];
           this.viaje.days[cardMessage.index].puntosDeInteres.forEach((PI) => {
-            coordinatesList.push([PI.corLong, PI.corLat]);
-            popUpList.push(PI.nombre)
+            this.coordinatesList.push([Number(PI.corLong), Number(PI.corLat)]);
+            popUpList.push(PI.nombre);
           });
-          coordinatesList.forEach((pair) => {
-            marker(pair, { opacity: 0.8 }).addTo(this.map).bindPopup(popUpList[iPopUp])
-            iPopUp += 1
-          })
-          polyline(coordinatesList, { color: '#1F8989' }).addTo(this.map);
-          
+          this.coordinatesList.forEach((pair, index) => {
+            marker(pair, { opacity: 0.8 })
+              .addTo(this.map)
+              .bindPopup(popUpList[index]);
+          });
+          this.pL = polyline(this.coordinatesList, { color: '#1F8989' });
+          this.map.fitBounds(this.pL.addTo(this.map).getBounds());
         }
       );
 
@@ -110,7 +134,7 @@ export class PaginaViajeComponent {
   }
 
   goBack() {
-    this._location.back()
+    this._location.back();
   }
 
   eliminar(i: number) {

@@ -86,8 +86,11 @@ export class PerfilComponent {
       }
       else {
         this.toastr.success("Tu viaje ha sido borrado")
-       let viajeBorradoI =  this.usuarioMostrado.misViajes.findIndex(v => v.viaje_id == i)
-       this.usuarioMostrado.misViajes.splice(viajeBorradoI, 1)
+        this.userService.postLogin(this.userService.user_logged).subscribe((answer: Respuesta) => {
+          this.userService.user_logged = answer.data_user
+        })
+      //  let viajeBorradoI =  this.usuarioMostrado.misViajes.findIndex(v => v.viaje_id == i)
+      //  this.usuarioMostrado.misViajes.splice(viajeBorradoI, 1)
       }
     })
   }
