@@ -57,7 +57,7 @@
                 </div>
 
                 <div routerLink="/perfil" class="perfil" (click)="resetPerfil()"
-                    *ngIf="!userService.usuarioBuscado || userService.usuarioBuscado !== user_logged.user_id">
+                    *ngIf="!userService.usuarioBuscado || userService.usuarioBuscado !== user_logged">
                     <svg [ngClass]="this.location.path() === '/perfil' ? 'tertiaryButton':'secundaryButton'"
                         xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9"
                         viewBox="0 0 512 512">

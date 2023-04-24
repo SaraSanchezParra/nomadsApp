@@ -17,7 +17,7 @@ export class FooterComponent {
   }
   
   resetPerfil(){
-    this.userService.usuarioBuscado = false;
+    this.userService.usuarioBuscado = false
   }
 
   ngOnInit(): void {

@@ -54,7 +54,8 @@ export class ViajeService {
   }
 
   public unLike(viaje_id: number, user_id: number) {
-    return this.http.delete(`${this.url}viaje/${viaje_id}/user/${user_id}`);
+    let deleteLike = { headers: null, body: { viaje_id: viaje_id , user_id: user_id} };
+    return this.http.delete(this.url + "viaje", deleteLike)
   }  
   
   public viajeNo(viaje_id: number) {
