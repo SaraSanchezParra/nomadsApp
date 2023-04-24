@@ -1,124 +1,108 @@
 <head>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-         integrity="sha512-k6TZRZ6JfUd7lY+OWtzfJj//fLg+2VzvF9+A0+0zZJmh+ZCS1cJw8CDLW0nBY5g5PL5mUtTZ/q8XcvWVxxytQ=="
-         crossorigin="anonymous" referrerpolicy="no-referrer" />  -->
- </head>
- 
- <div *ngIf="userService.showHeaderFooter">
-     <div *ngIf="userService.loged;else esFalso" class="footer_container">
-         <footer class="footer_loged">
- 
-             <div routerLink="/home-loged" class="home">
-                 <svg [ngClass]="this.location.path() === '/home-loged' ? 'tertiaryButton':'secundaryButton'"
-                     xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9"
-                     class="bi bi-house-fill" viewBox="0 0 16 16">
-                     <path
-                         d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
-                     <path fill-rule="evenodd"
-                         d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
-                 </svg>
-             </div>
- 
- 
-             <div class ="centro">
- 
-         
-             <div routerLink="/add-viaje" class="add">
-                 <svg [ngClass]="this.location.path() === '/add-viaje' ? 'tertiaryButton':'secundaryButton'"
-                     xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9" viewBox="0 0 448 512">
-                     <path
-                         d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
-                 </svg>
-             </div>
- 
- 
-             <div routerLink="/busqueda" class= "lupa" >
-                 <svg [ngClass]="this.location.path() === '/busqueda'? 'tertiaryButton':'secundaryButton'"
-                     xmlns="http://www.w3.org/2000/svg" width="120%" height="100%" fill="#D9D9D9"
-                     viewBox="0 0 800.000000 500.000000" preserveAspectRatio="xMidYMid meet">
- 
-                     <g transform="translate(0.000000,513.000000) scale(0.100000,-0.100000)">
- 
-                         <path d="M3505 4585 c-382 -61 -741 -240 -1000 -500 -253 -253 -418 -566 -497
-                -944 -30 -141 -33 -484 -5 -628 118 -617 513 -1112 1071 -1342 263 -108 410
-                -136 706 -135 193 0 228 3 341 27 213 45 404 121 587 235 l73 45 457 -455
-                c303 -302 472 -464 502 -479 37 -20 60 -24 135 -24 75 0 98 4 140 24 165 82
-                235 276 156 434 -26 54 -92 123 -479 511 l-450 449 56 91 c191 314 272 650
-                250 1046 -27 500 -298 1003 -700 1301 -237 175 -503 289 -796 339 -134 23
-                -416 26 -547 5z m465 -649 c104 -19 251 -70 335 -116 246 -136 459 -387 538
-                -635 49 -151 60 -233 54 -404 -5 -175 -30 -294 -88 -425 -105 -233 -331 -462
-                -562 -572 -350 -164 -791 -131 -1104 83 -158 108 -293 255 -380 415 -95 173
-                -128 311 -128 533 0 168 9 225 52 360 88 273 310 528 572 659 101 51 161 71
-                279 96 106 23 323 25 432 6z" />
-                     </g>
-                 </svg>
-                 
-             </div>
-                   
- 
- 
- 
- 
- 
- 
- 
- 
- 
-             <div routerLink="/perfil" class="perfil" (click)="resetPerfil()" *ngIf="!this.userService.usuarioBuscado;else noColor">
-                 <svg [ngClass]="this.location.path() === '/perfil' ? 'tertiaryButton':'secundaryButton'"
-                     xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9" viewBox="0 0 512 512">
-                     <path
-                         d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z" />
-                 </svg>
-             </div>
-         </div>
-         
-             <ng-template #noColor>
-                 <ng-container (click)="resetPerfil()" >
-                     <svg [ngClass]="'secundaryButton'"
-                     xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9" viewBox="0 0 512 512">
-                     <path
-                         d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z" />
-                 </svg>
-                 </ng-container>
-                 
-             </ng-template>
-      
-        
-         
- 
- 
- 
-             <div class="butt" id="chat" routerLink="/chatGeneral" class="chat">
-                 <svg [ngClass]="this.location.path() === '/chatGeneral' ? 'tertiaryButton':'secundaryButton'"
-                     xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9" viewBox="0 0 512 512">
-                     <path
-                         d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />
-                 </svg>
-             </div>
- 
- 
- 
- 
- 
- 
-         </footer>
-     </div>
- 
- 
-     <ng-template #esFalso>
-         <footer class="footer_noLoged">
-             <div routerLink="home-no-loged">
-                 <svg [ngClass]="this.location.path() === '/home-no-loged' ? 'primaryButton':'secundaryButton'"
-                     xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9"
-                     class="bi bi-house-fill" viewBox="0 0 16 16">
-                     <path
-                         d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
-                     <path fill-rule="evenodd"
-                         d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
-                 </svg>
-             </div>
- 
-         </footer>
-     </ng-template>
- </div>
+        integrity="sha512-k6TZRZ6JfUd7lY+OWtzfJj//fLg+2VzvF9+A0+0zZJmh+ZCS1cJw8CDLW0nBY5g5PL5mUtTZ/q8XcvWVxxytQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />  -->
+</head>
+
+<div *ngIf="userService.showHeaderFooter">
+    <div *ngIf="userService.loged;else esFalso" class="footer_container">
+        <footer class="footer_loged">
+
+            <div routerLink="/home-loged" class="home">
+                <svg [ngClass]="this.location.path() === '/home-loged' ? 'tertiaryButton':'secundaryButton'"
+                    xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9"
+                    class="bi bi-house-fill" viewBox="0 0 16 16">
+                    <path
+                        d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                    <path fill-rule="evenodd"
+                        d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                </svg>
+            </div>
+
+
+            <div class="centro">
+
+
+                <div routerLink="/add-viaje" class="add">
+                    <svg [ngClass]="this.location.path() === '/add-viaje' ? 'tertiaryButton':'secundaryButton'"
+                        xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9"
+                        viewBox="0 0 448 512">
+                        <path
+                            d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
+                    </svg>
+                </div>
+
+
+                <div routerLink="/busqueda" class="lupa">
+                    <svg [ngClass]="this.location.path() === '/busqueda'? 'tertiaryButton':'secundaryButton'"
+                        xmlns="http://www.w3.org/2000/svg" width="120%" height="100%" fill="#D9D9D9"
+                        viewBox="0 0 800.000000 500.000000" preserveAspectRatio="xMidYMid meet">
+
+                        <g transform="translate(0.000000,513.000000) scale(0.100000,-0.100000)">
+
+                            <path d="M3505 4585 c-382 -61 -741 -240 -1000 -500 -253 -253 -418 -566 -497
+               -944 -30 -141 -33 -484 -5 -628 118 -617 513 -1112 1071 -1342 263 -108 410
+               -136 706 -135 193 0 228 3 341 27 213 45 404 121 587 235 l73 45 457 -455
+               c303 -302 472 -464 502 -479 37 -20 60 -24 135 -24 75 0 98 4 140 24 165 82
+               235 276 156 434 -26 54 -92 123 -479 511 l-450 449 56 91 c191 314 272 650
+               250 1046 -27 500 -298 1003 -700 1301 -237 175 -503 289 -796 339 -134 23
+               -416 26 -547 5z m465 -649 c104 -19 251 -70 335 -116 246 -136 459 -387 538
+               -635 49 -151 60 -233 54 -404 -5 -175 -30 -294 -88 -425 -105 -233 -331 -462
+               -562 -572 -350 -164 -791 -131 -1104 83 -158 108 -293 255 -380 415 -95 173
+               -128 311 -128 533 0 168 9 225 52 360 88 273 310 528 572 659 101 51 161 71
+               279 96 106 23 323 25 432 6z" />
+                        </g>
+                    </svg>
+
+                </div>
+
+                <div routerLink="/perfil" class="perfil" (click)="resetPerfil()"
+                    *ngIf="!userService.usuarioBuscado || userService.usuarioBuscado !== user_logged">
+                    <svg [ngClass]="this.location.path() === '/perfil' ? 'tertiaryButton':'secundaryButton'"
+                        xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9"
+                        viewBox="0 0 512 512">
+                        <path
+                            d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z" />
+                    </svg>
+                </div>
+            </div>
+
+            <ng-template #noColor>
+                <ng-container (click)="resetPerfil()">
+                    <svg [ngClass]="'secundaryButton'" xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw"
+                        fill="#D9D9D9" viewBox="0 0 512 512">
+                        <path
+                            d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z" />
+                    </svg>
+                </ng-container>
+
+            </ng-template>
+
+
+            <div class="butt" id="chat" routerLink="/chatGeneral" class="chat">
+                <svg [ngClass]="this.location.path() === '/chatGeneral' ? 'tertiaryButton':'secundaryButton'"
+                    xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9" viewBox="0 0 512 512">
+                    <path
+                        d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />
+                </svg>
+            </div>
+
+        </footer>
+    </div>
+
+    <ng-template #esFalso>
+        <footer class="footer_noLoged">
+            <div routerLink="home-no-loged">
+                <svg [ngClass]="this.location.path() === '/home-no-loged' ? 'primaryButton':'secundaryButton'"
+                    xmlns="http://www.w3.org/2000/svg" width="10vw" height="10vw" fill="#D9D9D9"
+                    class="bi bi-house-fill" viewBox="0 0 16 16">
+                    <path
+                        d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                    <path fill-rule="evenodd"
+                        d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                </svg>
+            </div>
+
+        </footer>
+    </ng-template>
+</div>

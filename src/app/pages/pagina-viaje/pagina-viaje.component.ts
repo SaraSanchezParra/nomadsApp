@@ -25,8 +25,6 @@ export class PaginaViajeComponent {
   fav: boolean;
   map: Map;
 
-  isLiked: boolean;
-
   constructor(
     public ViajeService: ViajeService,
     public userService: DatosUsuarioService,
@@ -40,12 +38,8 @@ export class PaginaViajeComponent {
       console.log(this.viaje);
       
       //  check liked
-      this.userService.user_logged.favs.forEach((viajeFav) => {
-        if (viajeFav.viaje_id === this.viaje.viaje_id) {
-          this.isLiked = true;
-          this.fav = true;
-        }
-      });
+      this.fav = (this.userService.user_logged.favs.findIndex((viajeFav) => viajeFav.viaje_id === this.viaje.viaje_id) != -1);
+      console.log(this.fav);
     });
     
   }
@@ -61,28 +55,24 @@ export class PaginaViajeComponent {
 
   likeFunc() {
 
-    if (this.isLiked) {
+    if (this.fav) {
       this.ViajeService.unLike(this.viaje.viaje_id, this.userService.user_logged.user_id).subscribe(() => {
         console.log(this.viaje.likes);
-        
-        console.log( this.isLiked);
-        
-        this.isLiked = false;
         this.fav = false;
+        this.viaje.likes--;
+        this.userService.user_logged.favs = this.userService.user_logged.favs.filter(fav => fav.viaje_id != this.viaje.viaje_id);
+
       });
     } else {
       console.log('viaje');
       
       console.log(this.viaje.viaje_id);
       
-      this.ViajeService.addLike(this.viaje.viaje_id, this.userService.user_logged.user_id).subscribe(() => {
+      this.ViajeService.addLike(this.userService.user_logged.user_id,this.viaje.viaje_id, ).subscribe(() => {
         console.log( this.viaje.likes);
-        console.log( this.isLiked);
-        
         this.viaje.likes++;
-        this.isLiked = true;
         this.fav = true;
-    
+        this.userService.user_logged.favs.push(this.viaje);
       });
     }
   }

@@ -12,7 +12,6 @@ import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 })
 export class FooterComponent {
   
- 
   constructor(private router: Router, public location : Location, public userService:DatosUsuarioService ){
   
   }

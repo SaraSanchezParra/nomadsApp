@@ -173,6 +173,7 @@ export class PerfilComponent {
   iraUser():void{
     this.router.navigate(['/perfil'])
   }
+  
   irHome()
   { if (this.userService.loged==false)
     {this.router.navigateByUrl("/home-no-loged")}
