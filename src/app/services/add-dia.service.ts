@@ -9,11 +9,13 @@ import { ViajeService } from '../shared/viaje.service';
   providedIn: 'root'
 })
 export class AddDiaService {
-  private urlViaje = "http://localhost:3000/addViaje"
-  private url = "http://localhost:3000/addDia";
-  private url2 = "http://localhost:3000/addPI";
-  // private url = "https://nomads-api.vercel.app/addDia";
-  // private url2 = "https://nomads-api.vercel.app/addPI";
+  // private urlViaje = "http://localhost:3000/addViaje"
+  // private url = "http://localhost:3000/addDia";
+  // private url2 = "http://localhost:3000/addPI";
+  private url = "https://nomads-api.vercel.app/addDia";
+  private url2 = "https://nomads-api.vercel.app/addPI";
+  private urlViaje = "https://nomads-api.vercel.app/addViaje";
+  
   diaToAdd: Viaje
   viajeAInsertar_id: number
   dias: Day[]

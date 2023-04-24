@@ -10,11 +10,14 @@ import { User } from '../models/user';
 })
 export class ChatsService {
 public chat_id: number;
- private url: string = "http://localhost:3000/chats"
- private url2:string = "http://localhost:3000/chat"
- private url3:string = "http://localhost:3000/mensajes"
+//  private url: string = "http://localhost:3000/chats"
+//  private url2:string = "http://localhost:3000/chat"
+//  private url3:string = "http://localhost:3000/mensajes"
+
  public chat : Chats;
-    // private url: string = "https://nomads-api.vercel.app/"
+    private url: string = "https://nomads-api.vercel.app/chats"
+    private url2: string = "https://nomads-api.vercel.app/chat"
+    private url3: string = "https://nomads-api.vercel.app/mensajes"
   constructor(private http:HttpClient) { 
 
     this.chat =  new Chats("","","");
