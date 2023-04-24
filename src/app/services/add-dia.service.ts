@@ -28,7 +28,6 @@ export class AddDiaService {
    }
 
    postDia(newDay : Day){
-    newDay.viaje_id = this.viajeService.viajeAdd.viaje_id
     console.log(newDay);
     
     return this.http.post(this.url, newDay)
