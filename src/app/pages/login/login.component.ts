@@ -36,19 +36,20 @@ export class LoginComponent {
           this.userService.loged = true;
           this.userService.user_logged = res.data_user;
           console.log("logged user data:");
-          console.log(res.data_user);
+          // console.log(res.data_user);
   
           this.userService.loged = true;
           this.userService.showHeaderFooter = true;
   
           this.router.navigate(['/home-loged']);
           this.toastr.success('¡Ingreso exitoso!', 'Bienvenido');
-        } else if (res.error && res.mensaje === "No logeado") {
+        } else if (res.mensaje === "No logueado") {
           console.log('Error de ingreso:', res.mensaje);
+          this.userService.user_noLoged = res.data_user;
           this.userService.loged = false;
-          
-          console.log(res.error);
-          this.toastr.error('Error de ingreso', 'El correo electrónico o la contraseña son incorrectos');
+  
+          console.log(res.mensaje);
+          this.toastr.error('Error de ingreso', 'Es necesario registrarse');
         } else {
           console.log('Error de ingreso:', res.mensaje);
           this.toastr.error('Error de ingreso', 'Ha ocurrido un error durante el ingreso');
