@@ -3,6 +3,7 @@ import { Viaje } from '../models/viaje';
 import { HttpClient } from '@angular/common/http';
 import { Day } from '../models/day';
 import { PuntoDeInteres } from '../models/punto-de-interes';
+import { ViajeService } from '../shared/viaje.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class AddDiaService {
   viajeAInsertar_id: number
   dias: Day[]
   
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public viajeService: ViajeService) {
     // this.diaToAdd = new Viaje(0,'', '', '', [], 0)
     this.dias = []
    }
@@ -27,6 +28,7 @@ export class AddDiaService {
    }
 
    postDia(newDay : Day){
+    newDay.viaje_id = this.viajeService.viajeAdd.viaje_id
     console.log(newDay);
     
     return this.http.post(this.url, newDay)

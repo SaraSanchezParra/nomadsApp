@@ -62,5 +62,9 @@ export class ViajeService {
     let deletedViaje = { headers: null, body: { viaje_id: viaje_id } };
     return this.http.delete(this.url + "viajeNo", deletedViaje)
   }
+  public diaNo(dia_id: number){
+    let deletedDia ={headers: null, body: {dia_id: dia_id}};
+    return this.http.delete(this.url +"diaNo", deletedDia)
+  }
 }
 

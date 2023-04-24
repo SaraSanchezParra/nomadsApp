@@ -22,14 +22,14 @@ export class AddDiaComponent {
 
   addDiaForm: FormGroup;
   counter: number;
-  viaje_id :number;
+  viaje_id: number;
   dia_index: number
 
   constructor(private fb: FormBuilder, private router: Router, public viajeService: ViajeService, public addDiaService: AddDiaService, public dialog: MatDialog, public toastr: ToastrService) {
     this.buildForm();
-    this.counter=0;
+    this.counter = 0;
     this.dia_index = this.viajeService.viajeAdd.days.length
-    
+
   }
 
   private buildForm() {
@@ -58,36 +58,36 @@ export class AddDiaComponent {
     let PI3 = new PuntoDeInteres(null, formValue.fotoPuntoDeInteres3, formValue.nombrePuntoDeInteres3, null, null)
     let PI4 = new PuntoDeInteres(null, formValue.fotoPuntoDeInteres4, formValue.nombrePuntoDeInteres4, null, null)
     let PI5 = new PuntoDeInteres(null, formValue.fotoPuntoDeInteres5, formValue.nombrePuntoDeInteres5, null, null)
-    let dialogText: string;
     let PIs = [PI1, PI2, PI3, PI4, PI5]
-    let dayToAdd: Day = new Day(null, this.viajeService.viajeAdd.viaje_id, `Dia ${this.dia_index}`, [])
-    for (let PI of PIs){
-      if (PI.foto != null && PI.nombre != null){
+    let dayToAdd: Day = new Day(null, this.viajeService.viajeAdd.viaje_id, `Dia ${this.dia_index + 1}`, [])
+    for (let PI of PIs) {
+      if (PI.foto != null && PI.nombre != null) {
         dayToAdd.puntosDeInteres.push(PI)
-        dialogText.concat(`${PI.nombre}, \n`)
       }
     }
-    const dialogRef = this.dialog.open(ConfirmComponent, {
-      data: `¿Quieres añadir este día y los siguientes puntos de interés? \n ${dialogText}`
 
-    }); 
-    dialogRef.afterClosed().subscribe( res => {
-      console.log(res);
-      if (res) {
-        this.viajeService.viajeAdd.days.push(dayToAdd)
+    this.viajeService.viajeAdd.days.push(dayToAdd)
+    console.log(dayToAdd);
+    
     this.addDiaService.postDia(dayToAdd).subscribe((answer: Respuesta) => {
-      if (answer.error){
+      if (answer.error) {
         console.log("error");
       }
       else {
-        // dayToAdd.puntosDeInteres.forEach((punto) => {
-        //   punto.dia_id = Number(answer.mensaje)
-        // })
         this.router.navigate(["/add-viaje"])
       }
     })
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ConfirmComponent, {
+      data: ' ¿Estás seguro de que quieres eliminar este día?'
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+      if (res) {
+        this.addDay()
       }
     })
-    
-}
+  }
 }

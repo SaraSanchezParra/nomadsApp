@@ -82,12 +82,14 @@ export class AddViajeComponent {
         console.log(answer);
         this.router.navigate(['/add-dia'])
       }
-    })
-    }
-    else {
+      else {
+      this.viajeService.viajeAdd.viaje_id = Number(answer.mensaje)
       this.toastr.success("Día añadido")
       this.router.navigate(["/add-dia"])
     }
+    })
+    }
+    
   }
 
   // public submitViaje(){
