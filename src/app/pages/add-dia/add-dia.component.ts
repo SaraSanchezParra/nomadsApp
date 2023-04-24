@@ -84,11 +84,15 @@ export class AddDiaComponent {
     console.log(dayToAdd);
     
     this.addDiaService.postDia(dayToAdd).subscribe((answer: Respuesta) => {
+      console.log(answer);
+      
       if (answer.error) {
         console.log("error");
       }
-      else if (answer.mensaje != '0'){
+      else {
         this.viajeService.viajeAdd.days.push(dayToAdd)
+        console.log(this.viajeService.viajeAdd.days);
+        
         this.router.navigate(["/add-viaje"])
       }
     })
