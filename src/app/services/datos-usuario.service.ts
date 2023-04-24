@@ -13,7 +13,7 @@ export class DatosUsuarioService {
     throw new Error('Method not implemented.');
   }
 //  private url: string = "http://localhost:3000/"
-private url: string = "https://nomads-api.vercel.app/"
+private url: string = "https://nomads-api.vercel.app"
  
  public user_noLoged: User;
  public user_logged: User;
