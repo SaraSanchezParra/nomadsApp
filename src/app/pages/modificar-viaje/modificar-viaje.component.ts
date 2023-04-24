@@ -77,7 +77,26 @@ export class ModificarViajeComponent {
   // }
 
   public eliminate(day_id: number) {
-    this.viaje.days.splice(day_id, 1)
+    console.log(day_id);
+    
+    this.viajeService.diaNo(day_id).subscribe((answer: Respuesta)=>{
+      if (answer.error){
+        console.log("Error al eliminar el día")
+      }
+      else{
+        this.toastr.success("El día se ha eliminado.")
+        this.viajeService.getViaje(this.viaje.viaje_id).subscribe((answer: Respuesta) => {
+          if (answer.error) {
+            this.toastr.warning("Unexpected")
+          }
+          else {
+            this.viaje = answer.data_viaje[0]
+          }
+        })
+      }
+
+    })
+    
   }
 
   public back():void {

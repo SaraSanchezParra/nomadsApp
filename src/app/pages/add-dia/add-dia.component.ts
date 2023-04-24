@@ -51,7 +51,7 @@ export class AddDiaComponent {
 
   openDialog() {
     const dialogRef = this.dialog.open(ConfirmComponent, {
-      data: 'Vas a anadir un dia'
+      data: 'Estás añadiendo un día.'
     }); 
     dialogRef.afterClosed().subscribe( res => {
       console.log(res);
