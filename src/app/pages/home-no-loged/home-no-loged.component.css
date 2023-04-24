@@ -109,6 +109,80 @@
     justify-content: space-between
 }
 
+
+
+/* Estilo para dispositivos con un ancho máximo de 767px y un alto máximo de 1023px
+@media only screen and (max-width: 390px) and (max-height: 844px) {
+    .header {
+        height: 12%;
+    }
+
+    .caja {
+        height: 68%;
+    }
+
+    .buscador {
+        height: 25%;
+    }
+
+    .caja1 {
+        height: 55%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .top-viajes {
+        height: 20%;
+        font-size: 32px;
+    }
+
+    .cards {
+        height: 20%;
+    }
+}
+
+
+
+@media only screen and (min-width: 390px) and (min-height: 844px) {
+    .home {
+        padding: 20px;
+    }
+
+    .header {
+        height: 8vh;
+    }
+
+    .caja {
+        height: 75%;
+    }
+
+    .buscador {
+        height: 18%;
+    }
+
+    .caja1 {
+        height: 72%;
+    }
+
+    .top-viajes {
+        height: 14%;
+        font-size: 48px;
+    }
+
+    .cards {
+        height: 22%;
+    }
+} */
+
+
+
+
+
+
+
+
+
 /* .cards1 {
     border: 2px solid #1F8989;
     border-radius: 6px;

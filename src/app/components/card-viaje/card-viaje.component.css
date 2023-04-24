@@ -17,7 +17,9 @@
 
 .img img {
     width: 100%;
+    max-width: 122.45px;
     min-height: 100%;
+    max-height: 100%;
     border-radius: 6px 0px 0px 6px;
 }
 
@@ -95,4 +97,6 @@
     border-radius: 50%;
     object-fit: cover;
     background-color: #1f8989;
+    overflow: hidden;
+  
 }
