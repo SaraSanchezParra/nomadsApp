@@ -43,7 +43,7 @@ export class AddViajeComponent {
   private buildForm() {
     const maxLength = 20
     this.addForm = this.formBuilder.group({
-      nombreViaje: [this.viajeToAddService.viajeToAdd.titulo, Validators.required, Validators.maxLength(maxLength)],
+      nombreViaje: [this.viajeToAddService.viajeToAdd.titulo, [Validators.required, Validators.maxLength(maxLength)]],
       lugarViaje: [this.viajeToAddService.viajeToAdd.ubicacion, Validators.required],
       descripcionViaje: [this.viajeToAddService.viajeToAdd.descripcion, Validators.required, Validators.maxLength(maxLength)],
       fotoViaje: [this.viajeToAddService.viajeToAdd.foto, Validators.required]
