@@ -30,6 +30,7 @@
    
      }
      .bolaMundo{
+       /* border:2px solid black; */
        margin-top: 4px;
        width: 20%;
        height: 20%;
@@ -114,7 +115,7 @@
     
     .imagenMenu{
        
-       /* border:2px solid white; */ 
+       /* border:2px solid white;  */
        height: 12vh;
        width: 25vw;
        margin-top: 15px;

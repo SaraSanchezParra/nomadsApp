@@ -79,10 +79,12 @@ header{
 }
 
 .menu-container li img {
+   
     margin: 15px;
 }
 
 .imagen-container {
+   
     /* border: 2px solid black; */
     position: absolute;
     top: 0;
