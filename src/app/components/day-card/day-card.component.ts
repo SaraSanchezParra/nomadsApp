@@ -47,7 +47,7 @@ export class DayCardComponent {
     // this.dialogService.confirmDialog();
     // console.log('open dialog');
     const dialogRef = this.dialog.open(ConfirmComponent, {
-      data: ' ¿Estás seguro de que quieres eliminar este viaje?'
+      data: ' ¿Estás seguro de que quieres eliminar este día?'
     }); 
     dialogRef.afterClosed().subscribe( res => {
       console.log(res);

@@ -42,7 +42,7 @@ export class LoginComponent {
           this.userService.showHeaderFooter = true;
   
           this.router.navigate(['/home-loged']);
-          this.toastr.success('¡Ingreso exitoso!', 'Bienvenido');
+          this.toastr.success('Ya estás conectad@', '¡Bienvenid@ Nomad!', {timeOut: 2000});
         } else if (res.error && res.mensaje === "No logeado") {
           console.log('Error de ingreso:', res.mensaje);
           this.userService.loged = false;
