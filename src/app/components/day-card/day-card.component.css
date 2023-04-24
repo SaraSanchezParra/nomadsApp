@@ -66,6 +66,12 @@
   width: 100%;
   height: 4rem;
 }
+.icono{
+ border:none;
+  background:none;
+  transform: translateX(2rem);
+  transform: scale(1.2);
+}
 
 /* 
 .lbl-toggle {

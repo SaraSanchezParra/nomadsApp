@@ -41,7 +41,7 @@
             </form>
             <div class="days-area">
                 <ng-container *ngFor="let dia of viaje.days; let i = index; let own = true">
-                    <app-day-card [dia]="dia" [i]="i" [own]="own" (isOpen)="showOnMap($event)" (cardEvent)="eliminate($event)"></app-day-card>
+                    <app-day-card [dia]="dia" [i]="i" [own]="true" (isOpen)="showOnMap($event)" (cardEvent)="eliminate($event)"></app-day-card>
                 </ng-container>
             </div>
             <div class="btn-area">

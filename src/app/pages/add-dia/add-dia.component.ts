@@ -51,7 +51,7 @@ export class AddDiaComponent {
 
   openDialog() {
     const dialogRef = this.dialog.open(ConfirmComponent, {
-      data: 'Vas a anadir un dia'
+      data: 'Estás añadiendo un día.'
     }); 
     dialogRef.afterClosed().subscribe( res => {
       console.log(res);
@@ -87,7 +87,7 @@ export class AddDiaComponent {
       if (answer.error) {
         console.log("error");
       }
-      else if (answer.mensaje != '0'){
+      else {
         this.viajeService.viajeAdd.days.push(dayToAdd)
         this.router.navigate(["/add-viaje"])
       }
