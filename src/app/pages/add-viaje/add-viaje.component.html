@@ -9,12 +9,11 @@
             <input id="nombreViaje" type="text" formControlName="nombreViaje" class="form-control"
                 placeholder="{{viaje.titulo}}"
                 [ngClass]="{'is-invalid': addForm.get('nombreViaje').invalid && (addForm.get('nombreViaje').dirty || addForm.get('nombreViaje').touched)}">
-            <div *ngIf="addForm.get('nombreViaje').invalid && (addForm.get('nombreViaje').dirty || addForm.get('nombreViaje').touched)"
-                class="invalid-feedback">
-                <div *ngIf="myForm.get('nombreViaje').errors.required">El nobre de viaje es necesario</div>
-                          <div *ngIf="addForm.get('nombreViaje').errors.maxLength">El nombre no puede tener mas de 20 characteres
-                          </div>
-            </div>
+                <div *ngIf="addForm.get('nombreViaje').invalid && (addForm.get('nombreViaje').dirty || addForm.get('nombreViaje').touched)" class="invalid-feedback">
+                    <div *ngIf="addForm.get('nombreViaje').errors.required">El nombre del viaje es necesario</div>
+                    <div *ngIf="addForm.get('nombreViaje').errors.maxLength">El nombre no puede tener más de 20 caracteres</div>
+                </div>
+                
            
             <label for="lugarViaje">Lugar de destino</label>
             <input id="lugarViaje" type="text" formControlName="lugarViaje" class="form-control"
