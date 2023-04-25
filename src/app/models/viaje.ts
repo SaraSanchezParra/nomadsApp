@@ -13,8 +13,10 @@ export class Viaje {
     public user_id_propietario: number
     public users: User
     public user_foto: string
+    public corLat: number
+    public corLong: number
 
-    constructor(viaje_id: number, titulo: string, ubicacion: string, foto:string, descripcion: string, days: Day[], likes: number, user_id_propietario: number, users: User, user_foto: string){
+    constructor(viaje_id: number, titulo: string, ubicacion: string, foto:string, descripcion: string, days: Day[], likes: number, user_id_propietario: number, users: User, user_foto: string, corLat: number, corLong: number){
         this.viaje_id = viaje_id
         this.titulo = titulo
         this.ubicacion = ubicacion
@@ -25,5 +27,7 @@ export class Viaje {
         this.user_id_propietario = user_id_propietario
         this.users = users
         this.user_foto = user_foto
+        this.corLat  = corLat
+        this.corLong = corLong
     }
 }

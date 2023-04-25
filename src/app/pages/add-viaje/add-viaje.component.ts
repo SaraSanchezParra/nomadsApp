@@ -44,7 +44,7 @@ export class AddViajeComponent {
     const maxLength = 20
     this.addForm = this.formBuilder.group({
       nombreViaje: [this.viajeToAddService.viajeToAdd.titulo, [Validators.required, Validators.maxLength(maxLength)]],
-      lugarViaje: [this.viajeToAddService.viajeToAdd.ubicacion, Validators.required],
+      lugarViaje: [this.viajeToAddService.viajeToAdd.ubicacion, [Validators.required, Validators.maxLength(maxLength)]],
       descripcionViaje: [this.viajeToAddService.viajeToAdd.descripcion, Validators.required, Validators.maxLength(maxLength)],
       fotoViaje: [this.viajeToAddService.viajeToAdd.foto, Validators.required]
     })
@@ -72,7 +72,7 @@ export class AddViajeComponent {
     console.log(formValue);
     console.log(formValue.lugarViaje);
     // n dias viaje
-    let viajeToAdd = new Viaje(null, formValue.nombreViaje, formValue.lugarViaje, formValue.fotoViaje, formValue.descripcionViaje, this.diaService.dias, 0, this.userService.user_logged.user_id, this.userService.user_logged, this.userService.user_logged.photo)
+    let viajeToAdd = new Viaje(null, formValue.nombreViaje, formValue.lugarViaje, formValue.fotoViaje, formValue.descripcionViaje, this.diaService.dias, 0, this.userService.user_logged.user_id, this.userService.user_logged, this.userService.user_logged.photo, null, null)
     console.log(viajeToAdd);
     this.viajeService.viajeAdd = viajeToAdd
     this.viajeService.addViaje(viajeToAdd).subscribe((answer: Respuesta) => {
@@ -84,7 +84,6 @@ export class AddViajeComponent {
         this.toastr.success("¡Su viaje se ha generado!")
         console.log(answer);
         console.log(this.viajeToAddService.viajeToAdd.viaje_id);
-        
         this.router.navigate(['/add-dia'])
       }
       else {

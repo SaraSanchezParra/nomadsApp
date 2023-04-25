@@ -29,7 +29,9 @@
                 [ngClass]="{'is-invalid': addForm.get('descripcionViaje').invalid && (addForm.get('descripcionViaje').dirty || addForm.get('descripcionViaje').touched)}">
             <div *ngIf="addForm.get('descripcionViaje').invalid && (addForm.get('descripcionViaje').dirty || addForm.get('descripcionViaje').touched)"
                 class="invalid-feedback">
-                Una breve descripción del viaje es necesaria
+                <div *ngIf="addForm.get('descripcionViaje').errors.required"> Una breve descripción del viaje es necesaria</div>
+                    <div *ngIf="addForm.get('descripcionViaje').errors.maxLength">La descripcion no puede tener más de 20 caracteres</div>
+               
             </div>
             
             <label for="fotoViaje">Foto</label>
