@@ -73,6 +73,7 @@ export class AddViajeComponent {
     
     this.addForm.reset()
     this.viajeService.viajeAdd = null
+    this.viajeService.viajeAdd.days = []
     this.router.navigate(["/paginaViaje"])
     }
     
