@@ -15,14 +15,8 @@ export class ViajeService {
   public user: User;
   viajeDetalle_id: number;
 
-<<<<<<< HEAD
   // private url = "http://localhost:3000/"
   private url = "https://nomads-api.vercel.app/";
-=======
-  private url = "http://localhost:3000/"
-  
- 
->>>>>>> rebeRepasoFinal4
 
   constructor(private http: HttpClient, public router: Router) {
     this.viajeAdd = new Viaje(null, "", "", "", "", [], 0, null, null, "", null, null)
