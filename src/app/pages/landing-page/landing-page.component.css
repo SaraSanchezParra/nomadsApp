@@ -69,9 +69,8 @@ h1{
 
 
 .logo{
-  /* border: 2px solid blue; */
-  height: 35%;
-  
+  /* border: 2px solid white; */
+  height: 35%;  
   /* display: flex;
   flex-direction: row;
   align-items: center; */
@@ -85,10 +84,10 @@ h1{
   align-content: center;
   margin-left: 10%;
   
-  animation-name: mover-logo;
-    animation-duration: 3s;
-    animation-iteration-count: inherit;
-    animation-direction:alternate-reverse;
+     animation-name: mover-logo;
+      animation-duration: 3s;
+      animation-iteration-count: inherit;
+      animation-direction:alternate-reverse; 
   
 
 }

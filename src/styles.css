@@ -59,6 +59,7 @@ input:focus::placeholder {
 /* Responsive Design */
 @media all and (max-width:240px) {
 
+
   .caja{
     padding: 15px 15px 15px 20px;
     width: 25em;
@@ -107,14 +108,54 @@ input:focus::placeholder {
 
 }
 
-@media all and (min-width:241px) and (max-width:396px) {
+@media screen and (min-width:241px) and (max-width:392px) {
 
+ .logo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  /* max-width:300px; */
+  /* margin-left: 20px; */
+  /* border:2px solid black; */
+ }
+ .bolaMundo img{
+  position:relative;
+  max-width:55px ;
+  max-height: 55px;
+  margin-top: 3px;
+  /* border:2px solid blanchedalmond; */
+ }
+
+ .name{
+  /* border:2px solid white; */
+  margin-right:300px;
+ }
+
+ .imagen-container{
  
+ /* border:2px solid red; */
+ max-height:20px;
+ display: flex;
+ flex-direction: row;
+ justify-content: flex-end;
+ align-items: center;
+ margin-top: 10px;
+
+}
 
 }  
 
-@media all and (min-width:392px) and (max-width:8000px) {
+@media all and (min-width:391px) and (max-width:8000px) {
+  
+  .logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width:1500px;
 
+  }
   .animate-right{
     padding: 15px 15px 15px 20px;
     width: 25em;
@@ -139,6 +180,7 @@ input:focus::placeholder {
     position: relative;
   }
   .logo img{
+    /* border:2px solid white; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -192,7 +234,7 @@ input:focus::placeholder {
     overflow: hidden;
     height: 50px;
     width: 50.5px;
-    border:2px solid red;
+    /* border:2px solid red; */
 
     
 }
@@ -301,6 +343,7 @@ input:focus::placeholder {
     min-height: 80.28px;
     min-width: 80.28px;
     margin-right: 8%;
+    /* border:2px solid red; */
   }
 
   .fondo{
@@ -318,15 +361,20 @@ input:focus::placeholder {
   .entrar {
     padding: 15px 15px 15px 20px;
     width: 25em;
-   
-  /* }
+}
+
   .padre{
     padding: 15px 15px 15px 20px;
     
     display: flex;
     flex-direction: column;
     justify-content: center;
-  } */
-}
-  
+  } 
+
+  .nombre{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 }

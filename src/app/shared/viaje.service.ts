@@ -16,6 +16,8 @@ export class ViajeService {
   viajeDetalle_id: number;
 
   private url = "http://localhost:3000/"
+  
+ 
 
   constructor(private http: HttpClient, public router: Router) {
     this.viajeAdd = new Viaje(null, "", "", "", "", [], 0, null, null, "")

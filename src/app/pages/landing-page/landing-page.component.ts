@@ -19,7 +19,7 @@ export class LandingPageComponent {
     this.userService.loged = false;
   }, 3000);
  
-
+  
 
 }
 

@@ -13,7 +13,7 @@ export class ViajesService {
   // viajesBuscados: Viaje[];
   public viajesBuscados: Viaje[]
   private apiUrl = "http://localhost:3000/viajesDestino";
-  // private apiUrl = "https://nomads-api.vercel.app/"
+  //private apiUrl = "https://nomads-api.vercel.app/"
   private apiUrl1 = "http://localhost:3000/topViajes";
   private apiUrl2 = "http://localhost:3000/topViajesLog";
   destinoActualizado: any;
@@ -43,8 +43,8 @@ export class ViajesService {
 
   viajesBusqueda(ubicacion: string, dias: number) {
 
-    // let url = `https://nomads-api.vercel.app/viajesDestino?ubicacion=${ubicacion}&ndiasViaje=${dias}`
-    let url = `http://localhost:3000/viajesDestino?ubicacion=${ubicacion}&ndiasViaje=${dias}`
+    let url = `https://nomads-api.vercel.app/viajesDestino?ubicacion=${ubicacion}&ndiasViaje=${dias}`
+    //let url = `http://localhost:3000/viajesDestino?ubicacion=${ubicacion}&ndiasViaje=${dias}`
     console.log(url);
 
     return this.http.get(url)
