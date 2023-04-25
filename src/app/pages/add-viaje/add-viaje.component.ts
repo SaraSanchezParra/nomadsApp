@@ -42,13 +42,23 @@ export class AddViajeComponent {
 
   private buildForm() {
     const maxLength = 20
-    this.addForm = this.formBuilder.group({
+    if (this.viajeToAddService.viajeToAdd.titulo.length != 0) {
+      this.addForm = this.formBuilder.group({
       nombreViaje: [this.viajeToAddService.viajeToAdd.titulo, [Validators.required, Validators.maxLength(maxLength)]],
       lugarViaje: [this.viajeToAddService.viajeToAdd.ubicacion, [Validators.required, Validators.maxLength(maxLength)]],
       descripcionViaje: [this.viajeToAddService.viajeToAdd.descripcion, Validators.required, Validators.maxLength(maxLength)],
       fotoViaje: [this.viajeToAddService.viajeToAdd.foto, Validators.required]
     })
-  }
+    }
+    else {
+      this.addForm = this.formBuilder.group({
+        nombreViaje: ['', [Validators.required, Validators.maxLength(maxLength)]],
+        lugarViaje: ['', [Validators.required, Validators.maxLength(maxLength)]],
+        descripcionViaje: ['', Validators.required, Validators.maxLength(maxLength)],
+        fotoViaje: ['', Validators.required]
+    })
+    
+  }}
 
 
 
@@ -58,7 +68,9 @@ export class AddViajeComponent {
     }
     else{
       this.toastr.success("¡Tu viaje se ha creado!")
-    this.viajeService.viajeDetalle_id = this.viajeService.viajeAdd.viaje_id;
+    this.viajeService.viajeDetalle_id = this.viajeToAddService.viajeToAdd.viaje_id
+    console.log(this.viajeService.viajeAdd.viaje_id);
+    
     this.addForm.reset()
     this.viajeService.viajeAdd = null
     this.router.navigate(["/paginaViaje"])
@@ -80,6 +92,7 @@ export class AddViajeComponent {
         this.toastr.error("No se genero su viaje")
       }
       else if (answer.mensaje != "0") {
+        this.viajeToAddService.viajeToAdd = viajeToAdd
         this.viajeToAddService.viajeToAdd.viaje_id = Number(answer.mensaje)
         this.toastr.success("¡Su viaje se ha generado!")
         console.log(answer);

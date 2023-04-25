@@ -30,6 +30,7 @@ export class PaginaViajeComponent {
   fav: boolean;
   map: Map;
   pL: Polyline;
+  mark: Marker
   mL: Marker[];
   coordinatesList: LatLngExpression[];
   corLong: number;
@@ -58,6 +59,7 @@ export class PaginaViajeComponent {
     );
     this.pL = polyline([]);
     this.coordinatesList = [];
+    this.mL = [];
   }
 
   ngAfterViewInit(): void {
@@ -103,10 +105,10 @@ export class PaginaViajeComponent {
   showOnMap(cardMessage) {
     if (cardMessage.isOpen) {
       console.log(cardMessage.isOpen);
-      this.pL.removeFrom(this.map);
-      this.coordinatesList.forEach((mark) => {
-        marker(mark).removeFrom(this.map);
+      this.mL.forEach((maker) => {
+        maker.remove();
       });
+      this.pL.removeFrom(this.map);
     } else {
       console.log('is closed' + cardMessage.isOpen);
       console.log(cardMessage);
@@ -121,9 +123,10 @@ export class PaginaViajeComponent {
             popUpList.push(PI.nombre);
           });
           this.coordinatesList.forEach((pair, index) => {
-            marker(pair, { opacity: 0.8 })
+           this.mL.push( marker(pair, { opacity: 0.8 })
               .addTo(this.map)
-              .bindPopup(popUpList[index]);
+              .bindPopup(popUpList[index]))
+              console.log(pair);
           });
           this.pL = polyline(this.coordinatesList, { color: '#1F8989' });
           this.map.fitBounds(this.pL.addTo(this.map).getBounds());
