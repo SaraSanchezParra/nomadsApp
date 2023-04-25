@@ -27,12 +27,13 @@ export class PaginaViajeComponent {
   viaje_id: number;
   viaje: Viaje;
   dia: Day;
-  dia2: Day;
   fav: boolean;
   map: Map;
   pL: Polyline;
   mL: Marker[];
   coordinatesList: LatLngExpression[];
+  corLong: number;
+  corLat: number
 
   constructor(
     public ViajeService: ViajeService,
@@ -60,7 +61,7 @@ export class PaginaViajeComponent {
   }
 
   ngAfterViewInit(): void {
-    this.map = new Map('map').setView([40.4167047, -3.7035825], 13);
+    this.map = new Map('map').setView([this.viaje.corLat, this.viaje.corLong], 13);
     tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution:

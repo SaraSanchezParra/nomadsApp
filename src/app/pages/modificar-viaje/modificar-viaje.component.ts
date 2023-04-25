@@ -42,7 +42,7 @@ export class ModificarViajeComponent {
                                 null,
                                 this.viaje.user_id_propietario,
                                 null,
-                                null)
+                                null, null, null)
     console.log(viajeEditado);
     
     this.viajeService.modViaje(viajeEditado).subscribe((answer: Respuesta) => {

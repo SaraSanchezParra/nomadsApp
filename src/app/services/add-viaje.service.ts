@@ -9,6 +9,6 @@ export class AddViajeService {
   viajeToAdd: Viaje
   
   constructor() {
-    this.viajeToAdd = new Viaje(null, '', '', '', '', [], 0, null, null, '')
+    this.viajeToAdd = new Viaje(null, '', '', '', '', [], 0, null, null, "", null, null)
    }
 }

@@ -19,7 +19,7 @@ export class ViajeService {
   private url = "https://nomads-api.vercel.app";
 
   constructor(private http: HttpClient, public router: Router) {
-    this.viajeAdd = new Viaje(null, "", "", "", "", [], 0, null, null, "")
+    this.viajeAdd = new Viaje(null, "", "", "", "", [], 0, null, null, "", null, null)
   }
 
   public goToViaje(viaje_idCard: number) {
