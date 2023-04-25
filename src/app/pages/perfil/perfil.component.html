@@ -3,12 +3,11 @@
        
         <h1>Perfil</h1>
     
-    
     <div class="userInfo">
 
         <div class="ajustesProfile"> 
              <!-- <div class="profile_photo"> -->
-                <img class="photoBorde" src={{this.usuarioMostrado.photo}} alt="perfil">
+                <img class="photoBorde" src={{this.userService.usuarioMostrado.photo}} alt="perfil">
             <!-- </div> -->
             <div class="ajustesymensaje" *ngIf="!this.userService.usuarioBuscado; else esFalso">
                 <button type="button" class="icono" (click)="ajustesPerfil()"> Editar
@@ -24,13 +23,13 @@
             
         </div>
         <section>
-            <div name="nombre">{{this.usuarioMostrado.name}}</div>
-            <div name="apellido">{{this.usuarioMostrado.surname}}</div>
-            <div name="email">{{this.usuarioMostrado.email}}</div>
-            <div name="nombre">{{this.usuarioMostrado.username}}</div>
+            <div name="nombre">{{this.userService.usuarioMostrado.name}}</div>
+            <div name="apellido">{{this.userService.usuarioMostrado.surname}}</div>
+            <div name="email">{{this.userService.usuarioMostrado.email}}</div>
+            <div name="nombre">{{this.userService.usuarioMostrado.username}}</div>
         </section>
     </div>
-    <div id="descripcion" name="descripcion">{{this.usuarioMostrado.descripcion}}</div>
+    <div id="descripcion" name="descripcion">{{this.userService.usuarioMostrado.descripcion}}</div>
 
 
     <div class="botones" >
@@ -42,11 +41,11 @@
 
 
 <div class="cards" *ngIf="showFavs ; else misviajes">
-    <ng-container *ngIf="this.usuarioMostrado.favs.length == [0]; else mostrarFavs">
+    <ng-container *ngIf="this.userService.usuarioMostrado.favs.length == [0]; else mostrarFavs">
         <p class="viajesFavs">No hay viajes para mostrar</p>
     </ng-container>
     <ng-template #mostrarFavs>
-        <ng-container *ngFor="let viaje of this.usuarioMostrado.favs; let i = index">
+        <ng-container *ngFor="let viaje of this.userService.usuarioMostrado.favs; let i = index">
             <app-card-viaje [cardviaje]="viaje" [isLoged]="true" (viajeEvent)="clickCard($event)" (profileEvent)="goToProfile($event)"></app-card-viaje>
         </ng-container>
     </ng-template>
@@ -54,43 +53,14 @@
 </div>
 <div class="cards">
 <ng-template #misviajes>
-    <ng-container *ngIf="this.usuarioMostrado.misViajes.length == [0]; else viajes">
+    <ng-container *ngIf="this.userService.usuarioMostrado.misViajes.length == [0]; else viajes">
           <p class="viajesFavs">No hay viajes para mostrar</p>
     </ng-container>
     <ng-template #viajes>
-        <ng-container *ngFor="let viaje of this.usuarioMostrado.misViajes; let i = index">
+        <ng-container *ngFor="let viaje of this.userService.usuarioMostrado.misViajes; let i = index">
             <app-card-viaje [cardviaje]="viaje" [viajesMios]="!this.userService.usuarioBuscado" [isLoged]="true" (viajeEvent)="clickCard($event)" (modifyEvent)="goToModify($event)" (cardEvent)="borrarViaje($event)"></app-card-viaje>
         </ng-container>
     </ng-template>
     </ng-template> 
 </div>
-
-
-
-
-
-
-
-  
-    <!-- <div class="cards" *ngIf="showFavs ; else misviajes">
-        <ng-container *ngFor="let viaje of this.usuarioMostrado.favs; let i = index">
-            <app-card-viaje [cardviaje]="viaje" [isLoged]="true" (viajeEvent)="clickCard($event)" (profileEvent)="goToProfile($event)"></app-card-viaje>
-        </ng-container>
-    </div> -->
-    <!-- <div  class="cards">
-    <ng-template #misviajes>
-        <ng-container *ngFor="let viaje of this.usuarioMostrado.misViajes; let i = index">
-            <app-card-viaje [cardviaje]="viaje" [viajesMios]="this.soyYo" [isLoged]="true" (viajeEvent)="clickCard($event)" (modifyEvent)="goToModify($event)" (cardEvent)="borrarViaje($event)"></app-card-viaje>
-        </ng-container>
-
-    </ng-template>
-    </div>  -->
-
-
-
-
-
-  
-   
-
 </main>

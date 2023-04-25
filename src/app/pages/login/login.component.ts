@@ -42,14 +42,14 @@ export class LoginComponent {
           this.userService.showHeaderFooter = true;
   
           this.router.navigate(['/home-loged']);
-          this.toastr.success('¡Ingreso exitoso!', 'Bienvenido');
+          this.toastr.success('Ya estás conectad@', `¡Bienvenid@  ${this.userService.user_logged.name}!`, {timeOut: 2500})
         } else if (res.mensaje === "No logueado") {
           console.log('Error de ingreso:', res.mensaje);
           this.userService.user_noLoged = res.data_user;
           this.userService.loged = false;
   
           console.log(res.mensaje);
-          this.toastr.error('Error de ingreso', 'Es necesario registrarse');
+          this.toastr.error('', 'Regístrate o verifica tus credenciales.', {timeOut: 3000});
         } else {
           console.log('Error de ingreso:', res.mensaje);
           this.toastr.error('Error de ingreso', 'Ha ocurrido un error durante el ingreso');

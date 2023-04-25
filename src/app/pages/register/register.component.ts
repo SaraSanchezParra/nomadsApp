@@ -35,7 +35,7 @@ export class RegisterComponent {
       (resp: any) => {
         if (resp && resp.data_user && resp.data_user.length > 0) {
           console.log(resp);
-          this.toastr.error('El nombre de usuario ya existe.');
+          this.toastr.error("", 'El nombre de usuario ya existe.', {timeOut: 3000});
           this.userService.user_logged = resp[0];
         } else {
           // Si el usuario no existe, registrar al usuario
@@ -44,7 +44,7 @@ export class RegisterComponent {
               console.log(resp);
               this.userService.user_noLoged = user;
               this.userService.user_noLoged.user_id = Number(resp);
-              this.toastr.success('Registro exitoso. Por favor inicie sesión.');
+              this.toastr.success("", 'Registro exitoso. Por favor inicie sesión.', {timeOut: 3000});
               this.router.navigate(['/login']);
             }
           );

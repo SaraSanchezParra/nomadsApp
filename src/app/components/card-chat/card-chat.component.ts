@@ -24,11 +24,14 @@ export class CardChatComponent implements AfterViewInit{
   constructor(private router: Router, private dialogService: DialogService, public dialog: MatDialog) {}
 
   ngAfterViewInit() {
-    let fecha = this.cardGeneral.hora.split("T")[0];
-    this.dia = fecha.split("-")[2];
-    this.mes = fecha.split("-")[1];
-    this.anyo = fecha.split("-")[0];
+    setTimeout(() => {
+      let fecha = this.cardGeneral.hora.split("T")[0];
+      this.dia = fecha.split("-")[2];
+      this.mes = fecha.split("-")[1];
+      this.anyo = fecha.split("-")[0];
+    });
   }
+  
   openDialog() {
     // this.dialogService.confirmDialog();
     // console.log('open dialog');

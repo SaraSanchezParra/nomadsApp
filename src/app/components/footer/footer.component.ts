@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
+import { User } from 'src/app/models/user';
 
 
 
@@ -16,10 +17,18 @@ export class FooterComponent {
   constructor(private router: Router, public location : Location, public userService:DatosUsuarioService ){
   
   }
-  
-  resetPerfil(){
-    this.userService.usuarioBuscado = false
+  resetPerfil() {
+    if (this.userService.usuarioBuscado)
+    {
+      this.userService.usuarioBuscado = false;
+      this.userService.usuarioMostrado = this.userService.user_logged;
+    }
+    else
+    {
+      this.router.navigate(['/perfil']);
+    }  
   }
+  
 
   ngOnInit(): void {
   }

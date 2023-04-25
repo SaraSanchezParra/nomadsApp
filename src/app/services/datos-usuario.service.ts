@@ -7,11 +7,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DatosUsuarioService {
-  usuarioMostrado: User;
   public users: User[];
-  setUsuarioBuscado(selectedUser: User) {
-    throw new Error('Method not implemented.');
-  }
+
  private url: string = "http://localhost:3000/"
 // private url: string = "https://nomads-api.vercel.app/"
  
@@ -20,6 +17,7 @@ export class DatosUsuarioService {
  public loged: boolean;
  public showHeaderFooter: boolean; 
  public usuarioBuscado: boolean
+ public usuarioMostrado: User;
 
 
  
