@@ -1,6 +1,6 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Viaje } from 'src/app/models/viaje';
 import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 import { HttpClient } from '@angular/common/http';
@@ -22,29 +22,31 @@ import { ToastrService } from 'ngx-toastr';
 export class PerfilComponent {
   public showFavs = true;
   public showIcons = false;
- 
-  public usuarioMostrado:User;
-  
 
-  
-  
-  
-  constructor(private router:Router, public userService: DatosUsuarioService, private http: HttpClient, public servicioModify: ModifyViajeService, public viajeService: ViajeService, public chatService: ChatsService, public toastr: ToastrService) {
+    
+  constructor(private router:Router, 
+              public userService: DatosUsuarioService, 
+              private http: HttpClient, 
+              public servicioModify: ModifyViajeService, 
+              public viajeService: ViajeService, 
+              public chatService: ChatsService, 
+              public toastr: ToastrService
+              ) {
     
     if(this.userService.usuarioBuscado){
-      this.usuarioMostrado = this.userService.user_noLoged;
+      this.userService.usuarioMostrado = this.userService.user_noLoged;
       
     }
     else{
-      this.usuarioMostrado = this.userService.user_logged
+      this.userService.usuarioMostrado = this.userService.user_logged
       console.log("Perfil user:");
     
-      console.log(this.usuarioMostrado);
+      console.log(this.userService.usuarioMostrado);
       
     }
 
       
-  
+  console.log(this.userService.usuarioMostrado);
     
   }
   
@@ -117,16 +119,16 @@ export class PerfilComponent {
     this.router.navigate(['/modificarPerfil'])
   }
   enviarMensaje(){ 
-    this.chatService.getChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id).subscribe((answerGet: any)=>{
+    this.chatService.getChat(this.userService.user_logged.user_id, this.userService.usuarioMostrado.user_id).subscribe((answerGet: any)=>{
       console.log(answerGet);
       if(answerGet.data.length == 0){
-        this.chatService.postChat(this.userService.user_logged.user_id, this.usuarioMostrado.user_id, new Date().toISOString().slice(0, 19).replace('T', ' ')).subscribe((answerPost: any)=>{
+        this.chatService.postChat(this.userService.user_logged.user_id, this.userService.usuarioMostrado.user_id, new Date().toISOString().slice(0, 19).replace('T', ' ')).subscribe((answerPost: any)=>{
           if(answerPost.error ){
             console.log(answerPost.error)//meter toastr
           }
           else{
-            this.chatService.chat = new Chats(this.usuarioMostrado.photo, 
-                                              this.usuarioMostrado.name,
+            this.chatService.chat = new Chats(this.userService.usuarioMostrado.photo, 
+                                              this.userService.usuarioMostrado.name,
                                               new Date().toISOString().slice(0, 19).replace('T', ' '));
             this.chatService.chat.chat_id = answerPost.data.insertId;
             this.chatService.chat.mensajes = [];
@@ -142,8 +144,8 @@ export class PerfilComponent {
         })
       }
       else{
-        this.chatService.chat = new Chats(this.usuarioMostrado.photo, 
-                                          this.usuarioMostrado.name,
+        this.chatService.chat = new Chats(this.userService.usuarioMostrado.photo, 
+                                          this.userService.usuarioMostrado.name,
                                           answerGet.data[0].hora);
 
         this.chatService.chat.chat_id = answerGet.data[0].chat_id;

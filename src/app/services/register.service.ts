@@ -7,8 +7,8 @@ import { User } from '../models/user';
 })
 export class RegisterService {
 
-  // private url: string = "http://localhost:3000/"
-  private url: string = "https://nomads-api.vercel.app"
+  private url: string = "http://localhost:3000/"
+  // private url: string = "https://nomads-api.vercel.app"
 
   public logueado: boolean
   public user : User

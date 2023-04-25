@@ -37,7 +37,7 @@ export class ContactoComponent {
       email: this.myForm.get('email').value,
       mensaje: this.myForm.get('mensaje').value
     };
-    this.toastr.info('Enviando mensaje...');
+    this.toastr.info("", 'Enviando mensaje...', {timeOut: 1700})
     this.contactanosService.enviarCorreo(data).subscribe(emails => {
       console.log(emails);
       this.emails = emails;
