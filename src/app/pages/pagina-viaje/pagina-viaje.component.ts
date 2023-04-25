@@ -138,7 +138,4 @@ export class PaginaViajeComponent {
     this._location.back();
   }
 
-  eliminar(i: number) {
-    this.viaje.days.splice(i, 1);
-  }
 }

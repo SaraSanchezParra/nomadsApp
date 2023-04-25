@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Respuesta } from 'src/app/models/respuesta';
 import { Viaje } from 'src/app/models/viaje';
+import { DatosUsuarioService } from 'src/app/services/datos-usuario.service';
 import { ViajeService } from 'src/app/shared/viaje.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class ModificarViajeComponent {
   public modifyForm: FormGroup
 
 
-  constructor(private fb: FormBuilder, public viajeService: ViajeService, private router: Router, private location: Location, public toastr: ToastrService) {
+  constructor(private fb: FormBuilder, public viajeService: ViajeService, private router: Router, private location: Location, public toastr: ToastrService, public userService: DatosUsuarioService) {
     this.viaje = this.viajeService.viajeMod
     console.log(this.viaje);
     
@@ -58,28 +59,26 @@ export class ModificarViajeComponent {
    
   }
 
-  // showOnMap(cardMessage) {
-  //   if (cardMessage.isOpen) {
-  //     console.log(cardMessage.isOpen);
-  //   } else {
-  //     console.log('is closed' + cardMessage.isOpen);
-  //     console.log(cardMessage);
-  //     this.viajeService.getDay(cardMessage.dia_id).subscribe(
-  //       (answer: Respuesta) => {
-  //         console.log(answer);
-  //         this.viaje.days[cardMessage.index].puntosDeInteres = answer.data_dia;
-  //         console.log(this.viaje);
-  //       }
-  //     );
-
-  //     // como sacar el map de nginitview ?
-  //   }
-  // }
+  showOnMap(cardMessage) {
+    if (cardMessage.isOpen) {
+      console.log(cardMessage.isOpen);
+    } else {
+      console.log('is closed' + cardMessage.isOpen);
+      console.log(cardMessage);
+      this.viajeService.getDay(cardMessage.dia_id).subscribe(
+        (answer: Respuesta) => {
+          console.log(answer);
+          this.viaje.days[cardMessage.index].puntosDeInteres = answer.data_dia;
+          console.log(this.viaje);
+        }
+      );
+    }
+  }
 
   public eliminate(day_id: number) {
     console.log(day_id);
-    
-    this.viajeService.diaNo(day_id).subscribe((answer: Respuesta)=>{
+    if (this.viaje.days.length < 1) {
+       this.viajeService.diaNo(day_id).subscribe((answer: Respuesta)=>{
       if (answer.error){
         console.log("Error al eliminar el día")
       }
@@ -96,6 +95,23 @@ export class ModificarViajeComponent {
       }
 
     })
+    }
+    else {
+      this.viajeService.viajeNo(this.viaje.viaje_id).subscribe((answer: Respuesta) => {
+        if (answer.mensaje == '0') {
+          this.toastr.error("Viaje no borrado")
+        }
+        else {
+          this.toastr.success("Tu viaje ha sido borrado")
+          this.router.navigate(["/perfil"])
+          let index = this.userService.user_logged.misViajes.findIndex(v => v.viaje_id == this.viaje.viaje_id)
+          this.userService.user_logged.misViajes.splice(index, 1)
+        //  let viajeBorradoI =  this.usuarioMostrado.misViajes.findIndex(v => v.viaje_id == i)
+        //  this.usuarioMostrado.misViajes.splice(viajeBorradoI, 1)
+        }
+      })
+    }
+   
     
   }
 
