@@ -332,7 +332,7 @@ input:focus::placeholder {
     max-height: 52.52px;
   }
   .lupa svg{
-   border:2px solid red;
+   /* border:2px solid red; */
    bottom: 0;
   }
  
