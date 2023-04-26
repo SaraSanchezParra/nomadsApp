@@ -40,10 +40,10 @@ export class ModificarViajeComponent {
                                 modViaje.fotoViaje,
                                 modViaje.descripcionViaje,
                                 this.viajeService.viajeMod.days,
-                                null,
+                                this.viajeService.viajeMod.likes,
                                 this.viaje.user_id_propietario,
                                 null,
-                                null, null, null)
+                                this.userService.user_logged.photo, this.viajeService.viajeMod.corLat, this.viajeService.viajeMod.corLong)
     console.log(viajeEditado);
     
     this.viajeService.modViaje(viajeEditado).subscribe((answer: Respuesta) => {
@@ -54,6 +54,8 @@ export class ModificarViajeComponent {
         this.toastr.success("Su viaje se ha editado!")
         this.viajeService.viajeDetalle_id = this.viajeService.viajeMod.viaje_id
         this.router.navigate(["/paginaViaje"])
+        let index = this.userService.user_logged.misViajes.findIndex(viaje => viaje.viaje_id == this.viajeService.viajeMod.viaje_id)
+        this.userService.user_logged.misViajes.splice(index, 1, viajeEditado)
       }
     })
    
