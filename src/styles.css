@@ -57,7 +57,7 @@ input:focus::placeholder {
 
 
 /* Responsive Design */
-@media all and (max-width:240px) {
+/* @media all and (max-width:240px) {
 
 
   .caja{
@@ -67,10 +67,10 @@ input:focus::placeholder {
   
   }
  
-  .topUsers {
+  .topUsers { */
     /* border: 2px solid rgb(255, 0, 0); */
 
-    height: 400.2px;
+    /* height: 400.2px;
     width:300.2px;
     display: flex;
     flex-direction:row ;
@@ -114,28 +114,28 @@ input:focus::placeholder {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-content: center;
+  align-content: center; */
   /* max-width:300px; */
   /* margin-left: 20px; */
   /* border:2px solid black; */
- }
+ /* }
  .bolaMundo img{
   position:relative;
   max-width:55px ;
   max-height: 55px;
-  margin-top: 3px;
+  margin-top: 3px; */
   /* border:2px solid blanchedalmond; */
- }
+ /* } */
 
- .name{
+ /* .name{ */
   /* border:2px solid white; */
-  margin-right:300px;
- }
+  /* margin-right:300px;
+ } */
 
- .imagen-container{
+ /* .imagen-container{ */
  
  /* border:2px solid red; */
- max-height:20px;
+ /* max-height:20px;
  display: flex;
  flex-direction: row;
  justify-content: flex-end;
@@ -179,14 +179,14 @@ input:focus::placeholder {
     margin-left: 100px;
     position: relative;
   }
-  .logo img{
+  .logo img{ */
     /* border:2px solid white; */
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: center;
     align-content: center;
     /* padding-left: 80%; */
-    position:relative;
+    /* position:relative;
     max-width:300px ;
     max-height: 300px;
    
@@ -204,10 +204,10 @@ input:focus::placeholder {
   justify-content: center;
   align-items: center;
 }
-  .topUsers {
+  .topUsers { */ 
     /* border: 2px solid rgb(255, 0, 0); */
 
-    height: 400.2px;
+    /* height: 400.2px;
     width:300.2px;
     display: flex;
     flex-direction:row ;
@@ -233,11 +233,11 @@ input:focus::placeholder {
     border-radius: 50px;
     overflow: hidden;
     height: 50px;
-    width: 50.5px;
+    width: 50.5px; */
     /* border:2px solid red; */
 
     
-}
+/* }
 
 .nomads img {
     border-radius: 50px;
@@ -323,28 +323,28 @@ input:focus::placeholder {
   .primaryButton svg{
     max-width: 59.51px;
     max-height: 59.51px;
-    margin-bottom: 8px;
+    margin-bottom: 8px; */
     /* border:2px solid red; */
-  }
+  /* }
 
   .footer_loged svg {
     max-width: 48.48px;
     max-height: 52.52px;
   }
   .lupa svg{
-   border:2px solid red;
-   bottom: 0;
-  }
+   /* border:2px solid red; */
+   /* bottom: 0;
+  } */
  
-
+/* 
   .imagen-container{
     max-width:100.4px;
     max-height:100.28px;
     min-height: 80.28px;
     min-width: 80.28px;
-    margin-right: 8%;
+    margin-right: 8%; */
     /* border:2px solid red; */
-  }
+  /* }
 
   .fondo{
     display: flex;
@@ -376,5 +376,5 @@ input:focus::placeholder {
     display: flex;
     flex-direction: row;
     justify-content: center;
-  }
-}
+  } */
+/* }  */
