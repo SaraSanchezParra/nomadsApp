@@ -333,16 +333,16 @@ input:focus::placeholder {
   }
   .lupa svg{
    /* border:2px solid red; */
-   bottom: 0;
-  }
+   /* bottom: 0;
+  } */
  
-
+/* 
   .imagen-container{
     max-width:100.4px;
     max-height:100.28px;
     min-height: 80.28px;
     min-width: 80.28px;
-    margin-right: 8%;
+    margin-right: 8%; */
     /* border:2px solid red; */
   /* }
 
