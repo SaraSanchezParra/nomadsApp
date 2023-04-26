@@ -9,7 +9,8 @@
             <input id="nombreViaje" type="text" formControlName="nombreViaje" class="form-control"
                 placeholder="{{viaje.titulo}}"
                 [ngClass]="{'is-invalid': addForm.get('nombreViaje').invalid && (addForm.get('nombreViaje').dirty || addForm.get('nombreViaje').touched)}">
-                <div *ngIf="addForm.get('nombreViaje').invalid && (addForm.get('nombreViaje').dirty || addForm.get('nombreViaje').touched)" class="invalid-feedback">
+                <!-- <div *ngIf="addForm.get('nombreViaje').invalid && (addForm.get('nombreViaje').dirty || addForm.get('nombreViaje').touched)" class="invalid-feedback"> -->
+                <div *ngIf="!addForm.get('nombreViaje').valid" class="invalid-feedback">
                     <div *ngIf="addForm.get('nombreViaje').errors.required">El nombre del viaje es necesario</div>
                     <div *ngIf="addForm.get('nombreViaje').errors.maxLength">El nombre no puede tener más de 20 caracteres</div>
                 </div>
@@ -25,7 +26,6 @@
            
             <label for="descripcionViaje">Descripción del viaje</label>
             <input id="descripcionViaje" type="text" formControlName="descripcionViaje" class="form-control"
-                placeholder="{{viaje.descripcion}}"
                 [ngClass]="{'is-invalid': addForm.get('descripcionViaje').invalid && (addForm.get('descripcionViaje').dirty || addForm.get('descripcionViaje').touched)}">
             <div *ngIf="addForm.get('descripcionViaje').invalid && (addForm.get('descripcionViaje').dirty || addForm.get('descripcionViaje').touched)"
                 class="invalid-feedback">
@@ -36,7 +36,6 @@
             
             <label for="fotoViaje">Foto</label>
             <input id="fotoViaje" type="text" formControlName="fotoViaje" class="form-control"
-                placeholder="{{viaje.foto}}"
                 [ngClass]="{'is-invalid': addForm.get('fotoViaje').invalid && (addForm.get('fotoViaje').dirty || addForm.get('fotoViaje').touched)}">
             <div *ngIf="addForm.get('fotoViaje').invalid && (addForm.get('fotoViaje').dirty || addForm.get('fotoViaje').touched)"
                 class="invalid-feedback">

@@ -7,6 +7,7 @@ import { Viaje } from '../models/viaje';
 export class AddViajeService {
   
   viajeToAdd: Viaje
+  viajeAddID: number
   
   constructor() {
     this.viajeToAdd = new Viaje(null, '', '', '', '', [], 0, null, null, "", null, null)

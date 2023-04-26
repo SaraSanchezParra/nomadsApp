@@ -8,8 +8,8 @@ import { Email } from '../models/email';
 })
 export class ContactanosService {
 
-  // private apiUrl = "http://localhost:3000/email/contactanos";
-  private apiUrl: string = "https://nomads-api.vercel.app/email/contactanos"
+  private apiUrl = "http://localhost:3000/email/contactanos";
+  // private apiUrl: string = "https://nomads-api.vercel.app/email/contactanos"
 
   constructor(private http: HttpClient) { }
 

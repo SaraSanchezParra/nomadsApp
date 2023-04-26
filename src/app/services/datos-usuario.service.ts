@@ -9,8 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class DatosUsuarioService {
   public users: User[];
 
-//  private url: string = "http://localhost:3000/"
-private url: string = "https://nomads-api.vercel.app/"
+ private url: string = "http://localhost:3000/"
+// private url: string = "https://nomads-api.vercel.app/"
  
  public user_noLoged: User;
  public user_logged: User;
@@ -42,16 +42,16 @@ private url: string = "https://nomads-api.vercel.app/"
 
 
     usuarioEncontrado(username:string){
-      // let url =`http://localhost:3000/userFound?username=${username}`
-      let url = `https://nomads-api.vercel.app/userFound?username=${username}`
+      let url =`http://localhost:3000/userFound?username=${username}`
+      // let url = `https://nomads-api.vercel.app/userFound?username=${username}`
       
      
       return this.http.get(url)
     }
 
     getUserByID(user_id: number) {
-      // let url = "http://localhost:3000/user"
-      let url = `https://nomads-api.vercel.app/user`
+      let url = "http://localhost:3000/user"
+      // let url = `https://nomads-api.vercel.app/user`
       return this.http.get(url)
     }
 

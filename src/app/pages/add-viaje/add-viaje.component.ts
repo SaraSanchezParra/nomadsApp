@@ -44,21 +44,22 @@ export class AddViajeComponent {
     const maxLength = 20
     if (this.viajeToAddService.viajeToAdd.titulo.length != 0) {
       this.addForm = this.formBuilder.group({
-      nombreViaje: [this.viajeToAddService.viajeToAdd.titulo, [Validators.required, Validators.maxLength(maxLength)]],
-      lugarViaje: [this.viajeToAddService.viajeToAdd.ubicacion, [Validators.required, Validators.maxLength(maxLength)]],
-      descripcionViaje: [this.viajeToAddService.viajeToAdd.descripcion, Validators.required, Validators.maxLength(maxLength)],
-      fotoViaje: [this.viajeToAddService.viajeToAdd.foto, Validators.required]
-    })
+        nombreViaje: [this.viajeToAddService.viajeToAdd.titulo, [Validators.required, Validators.maxLength(maxLength)]],
+        lugarViaje: [this.viajeToAddService.viajeToAdd.ubicacion, [Validators.required]],
+        descripcionViaje: [this.viajeToAddService.viajeToAdd.descripcion, Validators.required],
+        fotoViaje: [this.viajeToAddService.viajeToAdd.foto, Validators.required]
+      })
     }
     else {
       this.addForm = this.formBuilder.group({
         nombreViaje: ['', [Validators.required, Validators.maxLength(maxLength)]],
-        lugarViaje: ['', [Validators.required, Validators.maxLength(maxLength)]],
-        descripcionViaje: ['', Validators.required, Validators.maxLength(maxLength)],
+        lugarViaje: ['', [Validators.required]],
+        descripcionViaje: ['', Validators.required],
         fotoViaje: ['', Validators.required]
-    })
-    
-  }}
+      })
+
+    }
+  }
 
 
 
@@ -66,47 +67,49 @@ export class AddViajeComponent {
     if (this.viajeService.viajeAdd.days.length === 0) {
       this.toastr.warning("Necesitas añadir al menos un día")
     }
-    else{
+    else {
       this.toastr.success("¡Tu viaje se ha creado!")
-    this.viajeService.viajeDetalle_id = this.viajeToAddService.viajeToAdd.viaje_id
-    console.log(this.viajeService.viajeAdd.viaje_id);
-    
-    this.addForm.reset()
-    this.viajeService.viajeAdd = null
-    this.viajeService.viajeAdd.days = []
-    this.router.navigate(["/paginaViaje"])
+      this.viajeService.viajeDetalle_id = this.viajeToAddService.viajeAddID
+      console.log(this.viajeToAddService.viajeAddID);
+      this.userService.user_logged.misViajes.push(this.viajeToAddService.viajeToAdd)
+      this.addForm.reset()
+      this.viajeToAddService.viajeAddID = 0;
+      this.viajeToAddService.viajeToAdd = new Viaje(null, '', '', '', '', null, null, null, null, '', null, null)
+      this.viaje.days = []
+      this.router.navigate(["/paginaViaje"])
     }
-    
+
   }
 
   public addDays() {
     if (this.viajeService.viajeAdd.days.length === 0) {
       let formValue = this.addForm.value
-    console.log(formValue);
-    console.log(formValue.lugarViaje);
-    // n dias viaje
-    let viajeToAdd = new Viaje(null, formValue.nombreViaje, formValue.lugarViaje, formValue.fotoViaje, formValue.descripcionViaje, this.diaService.dias, 0, this.userService.user_logged.user_id, this.userService.user_logged, this.userService.user_logged.photo, null, null)
-    console.log(viajeToAdd);
-    this.viajeService.viajeAdd = viajeToAdd
-    this.viajeService.addViaje(viajeToAdd).subscribe((answer: Respuesta) => {
-      if(answer.error) {
-        this.toastr.error("No se genero su viaje")
-      }
-      else if (answer.mensaje != "0") {
-        this.viajeToAddService.viajeToAdd = viajeToAdd
-        this.viajeToAddService.viajeToAdd.viaje_id = Number(answer.mensaje)
-        this.toastr.success("¡Su viaje se ha generado!")
-        console.log(answer);
-        console.log(this.viajeToAddService.viajeToAdd.viaje_id);
-        this.router.navigate(['/add-dia'])
-      }
-      else {
-      this.toastr.success("Día añadido")
-      this.router.navigate(["/add-dia"])
+      console.log(formValue);
+      console.log(formValue.lugarViaje);
+      // n dias viaje
+      let viajeToAdd = new Viaje(null, formValue.nombreViaje, formValue.lugarViaje, formValue.fotoViaje, formValue.descripcionViaje, this.diaService.dias, 0, this.userService.user_logged.user_id, this.userService.user_logged, this.userService.user_logged.photo, null, null)
+      console.log(viajeToAdd);
+      this.viajeService.viajeAdd = viajeToAdd
+      this.viajeService.addViaje(viajeToAdd).subscribe((answer: Respuesta) => {
+        if (answer.error) {
+          this.toastr.error("No se genero su viaje")
+        }
+        else if (answer.mensaje != "0") {
+          this.viajeToAddService.viajeToAdd = viajeToAdd
+          this.viajeToAddService.viajeToAdd.viaje_id = Number(answer.mensaje)
+          this.viajeToAddService.viajeAddID = Number(answer.mensaje)
+          this.toastr.success("¡Su viaje se ha generado!")
+          console.log(answer);
+          console.log(this.viajeToAddService.viajeToAdd.viaje_id);
+          this.router.navigate(['/add-dia'])
+        }
+        else {
+          this.toastr.success("Día añadido")
+          this.router.navigate(["/add-dia"])
+        }
+      })
     }
-    })
-    }
-    
+
   }
 
   // public submitViaje(){
