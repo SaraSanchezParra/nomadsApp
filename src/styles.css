@@ -68,11 +68,7 @@ input:focus::placeholder {
   } 
 } */
  
-<<<<<<< HEAD
-  .topUsers {  */
-=======
   /* .topUsers {  */
->>>>>>> 0ed386ece9e6902cc70df0d36f86e1901bcd25ff
     /* border: 2px solid rgb(255, 0, 0); */
 /* 
    height: 400.2px;
@@ -122,15 +118,9 @@ input:focus::placeholder {
   align-content: center; 
   max-width:300px;
    margin-left: 20px; 
-<<<<<<< HEAD
-  border:2px solid rgb(248, 0, 0); 
-  }
- .bolaMundo img{
-=======
   border:2px solid black; 
   } */
  /* .bolaMundo img{
->>>>>>> 0ed386ece9e6902cc70df0d36f86e1901bcd25ff
   position:relative;
   max-width:55px ;
   max-height: 55px;
@@ -155,17 +145,10 @@ max-height:20px;
 
 } */
 
-<<<<<<< HEAD
-}    */
+/* }    */ 
 
  /* @media all and (min-width:391px) and (max-width:8000px) {
   
-=======
-/* }    */
-
-/* @media all and (min-width:391px) and (max-width:8000px) { */
-/*   
->>>>>>> 0ed386ece9e6902cc70df0d36f86e1901bcd25ff
   .logo{
     display: flex;
     flex-direction: row;
@@ -395,9 +378,3 @@ max-height:20px;
     flex-direction: row;
     justify-content: center;
   } 
-<<<<<<< HEAD
-}   */
-=======
-}  */
-/* Ajustes para pantallas con resolución de 390x691 */
->>>>>>> 0ed386ece9e6902cc70df0d36f86e1901bcd25ff
