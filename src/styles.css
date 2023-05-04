@@ -56,7 +56,7 @@ input:focus::placeholder {
 }
 
 
-/* Responsive Design
+/* Responsive Design*/
 @media all and (max-width:240px) {
 
 
@@ -65,12 +65,13 @@ input:focus::placeholder {
     width: 25em;
     
   
-  }
+  } 
+}
  
-  .topUsers { */
+  .topUsers { 
     /* border: 2px solid rgb(255, 0, 0); */
 
-    /* height: 400.2px;
+   height: 400.2px;
     width:300.2px;
     display: flex;
     flex-direction:row ;
@@ -79,11 +80,11 @@ input:focus::placeholder {
     gap: 2%;
     margin-top: 15px;
    
-    */
+    
  
-/* } */
+} 
  
-  /* .nomads {
+  .nomads {
     border: 2px solid #1F8989;
     border-radius: 50px;
     overflow: hidden;
@@ -104,38 +105,38 @@ input:focus::placeholder {
   padding: 15px 15px 15px 20px;
   width: 25em;
 
-} */
+} 
 
-/* } */
 
-/* @media screen and (min-width:241px) and (max-width:392px) {
+
+@media screen and (min-width:241px) and (max-width:392px) {
 
  .logo{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-content: center; */
-  /* max-width:300px; */
-  /* margin-left: 20px; */
-  /* border:2px solid black; */
- /* }
+  align-content: center; 
+  max-width:300px;
+   margin-left: 20px; 
+  border:2px solid black; 
+  }
  .bolaMundo img{
   position:relative;
   max-width:55px ;
   max-height: 55px;
-  margin-top: 3px; */
-  /* border:2px solid blanchedalmond; */
- /* }
+  margin-top: 3px; 
+   border:2px solid blanchedalmond; 
+  }
 
- .name{ */
-  /* border:2px solid white; */
-  /* margin-right:300px;
+ .name{ 
+   border:2px solid white; 
+   margin-right:300px;
  }
 
  .imagen-container{
-  */
- /* border:2px solid red; */
- /* max-height:20px;
+  
+ border:2px solid red; 
+max-height:20px;
  display: flex;
  flex-direction: row;
  justify-content: flex-end;
@@ -144,9 +145,9 @@ input:focus::placeholder {
 
 }
 
-}   */
+}   
 
-/* @media all and (min-width:391px) and (max-width:8000px) {
+@media all and (min-width:391px) and (max-width:8000px) {
   
   .logo{
     display: flex;
@@ -179,35 +180,35 @@ input:focus::placeholder {
     margin-left: 100px;
     position: relative;
   }
-  .logo img{ */
-    /* border:2px solid white; */
-    /* display: flex;
+  .logo img{ 
+    border:2px solid white; 
+   display: flex;
     flex-direction: row;
     justify-content: center;
-    align-content: center; */
-    /* padding-left: 80%; */
-    /* position:relative;
+    align-content: center; 
+    padding-left: 80%; 
+     position:relative;
     max-width:300px ;
     max-height: 300px;
    
-  } */
+  } 
   
-  /* .title img{
+ .title img{
     max-width: 195.44px;
     max-height:190.52px;
     
-  } */
+  } 
 
-/* .users{
+.users{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-  .topUsers { */
-    /* border: 2px solid rgb(255, 0, 0); */
+  .topUsers { 
+     border: 2px solid rgb(255, 0, 0); 
 
-    /* height: 400.2px;
+  height: 400.2px;
     width:300.2px;
     display: flex;
     flex-direction:row ;
@@ -218,9 +219,9 @@ input:focus::placeholder {
    
    
  
-} */
+} 
 
-/* .top-viajes{
+ .top-viajes{
   display: flex;
   flex-direction:row ;
   justify-content: center;
@@ -233,11 +234,11 @@ input:focus::placeholder {
     border-radius: 50px;
     overflow: hidden;
     height: 50px;
-    width: 50.5px; */
-    /* border:2px solid red; */
+    width: 50.5px; 
+     border:2px solid red; 
 
     
-/* }
+ }
 
 .nomads img {
     border-radius: 50px;
@@ -323,28 +324,28 @@ input:focus::placeholder {
   .primaryButton svg{
     max-width: 59.51px;
     max-height: 59.51px;
-    margin-bottom: 8px; */
-    /* border:2px solid red; */
-  /* }
+    margin-bottom: 8px; 
+    border:2px solid red; 
+ }
 
   .footer_loged svg {
     max-width: 48.48px;
     max-height: 52.52px;
   }
-  .lupa svg{ */
-   /* border:2px solid red; */
-   /* bottom: 0;
-  } */
+  .lupa svg{ 
+   border:2px solid red; 
+  bottom: 0;
+  } 
  
-/* 
+
   .imagen-container{
     max-width:100.4px;
     max-height:100.28px;
     min-height: 80.28px;
     min-width: 80.28px;
-    margin-right: 8%; */
-    /* border:2px solid red; */
-  /* }
+    margin-right: 8%; 
+   border:2px solid red; 
+   }
 
   .fondo{
     display: flex;
@@ -376,5 +377,5 @@ input:focus::placeholder {
     display: flex;
     flex-direction: row;
     justify-content: center;
-  } */
-/* } */ 
+  } 
+} 
