@@ -57,7 +57,7 @@ input:focus::placeholder {
 
 
 /* Responsive Design*/
-@media all and (max-width:240px) {
+/* @media all and (max-width:240px) {
 
 
   .caja{
@@ -68,9 +68,9 @@ input:focus::placeholder {
   } 
 }
  
-  .topUsers { 
+  .topUsers {  */
     /* border: 2px solid rgb(255, 0, 0); */
-
+/* 
    height: 400.2px;
     width:300.2px;
     display: flex;
@@ -105,11 +105,11 @@ input:focus::placeholder {
   padding: 15px 15px 15px 20px;
   width: 25em;
 
-} 
+}  */
 
 
 
-@media screen and (min-width:241px) and (max-width:392px) {
+/* @media screen and (min-width:241px) and (max-width:392px) {
 
  .logo{
   display: flex;
@@ -118,14 +118,14 @@ input:focus::placeholder {
   align-content: center; 
   max-width:300px;
    margin-left: 20px; 
-  border:2px solid black; 
+  border:2px solid rgb(248, 0, 0); 
   }
  .bolaMundo img{
   position:relative;
   max-width:55px ;
   max-height: 55px;
   margin-top: 3px; 
-   border:2px solid blanchedalmond; 
+  border:2px solid blanchedalmond; 
   }
 
  .name{ 
@@ -145,9 +145,9 @@ max-height:20px;
 
 }
 
-}   
+}    */
 
-@media all and (min-width:391px) and (max-width:8000px) {
+ /* @media all and (min-width:391px) and (max-width:8000px) {
   
   .logo{
     display: flex;
@@ -378,4 +378,4 @@ max-height:20px;
     flex-direction: row;
     justify-content: center;
   } 
-} 
+}   */

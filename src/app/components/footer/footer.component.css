@@ -74,3 +74,22 @@ z-index: 9;
     justify-content: space-around;
     align-items: center;
 }
+
+
+@media screen and (min-width:390px) and (max-width:8000px){
+    
+    .lupa{
+        border: 2px solid red;
+        height: 10vh;
+        width: 18vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        margin-bottom: 26%;
+        margin-left: 1%;
+        
+    } 
+    
+
+}
