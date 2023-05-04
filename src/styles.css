@@ -57,7 +57,7 @@ input:focus::placeholder {
 
 
 /* Responsive Design*/
-@media all and (max-width:240px) {
+/* @media all and (max-width:240px) {
 
 
   .caja{
@@ -66,11 +66,11 @@ input:focus::placeholder {
     
   
   } 
-}
+} */
  
-  .topUsers { 
+  /* .topUsers {  */
     /* border: 2px solid rgb(255, 0, 0); */
-
+/* 
    height: 400.2px;
     width:300.2px;
     display: flex;
@@ -99,9 +99,9 @@ input:focus::placeholder {
     width: 70%;
     object-fit: cover;
    
-}
+} */
 
-.padre{
+/* .padre{
   padding: 15px 15px 15px 20px;
   width: 25em;
 
@@ -119,8 +119,8 @@ input:focus::placeholder {
   max-width:300px;
    margin-left: 20px; 
   border:2px solid black; 
-  }
- .bolaMundo img{
+  } */
+ /* .bolaMundo img{
   position:relative;
   max-width:55px ;
   max-height: 55px;
@@ -143,12 +143,12 @@ max-height:20px;
  align-items: center;
  margin-top: 10px;
 
-}
+} */
 
-}   
+/* }    */
 
-@media all and (min-width:391px) and (max-width:8000px) {
-  
+/* @media all and (min-width:391px) and (max-width:8000px) { */
+/*   
   .logo{
     display: flex;
     flex-direction: row;
@@ -191,9 +191,9 @@ max-height:20px;
     max-width:300px ;
     max-height: 300px;
    
-  } 
+  }  */
   
- .title img{
+ /* .title img{
     max-width: 195.44px;
     max-height:190.52px;
     
@@ -227,8 +227,8 @@ max-height:20px;
   justify-content: center;
   align-items: center;
   
-}
-
+} */
+/* 
 .nomads {
     border: 2px solid #1F8989;
     border-radius: 50px;
@@ -287,9 +287,9 @@ max-height:20px;
 .card{
   max-width: 605px;
   min-width: 110px ;
-}
+} */
 
-.caja2{
+/* .caja2{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -315,8 +315,8 @@ max-height:20px;
   max-width: 900px;
   min-height: 150px;
   margin-bottom: 10px;
-  
-}
+   */
+/* }
 .footer_noLoged svg{
   max-width: 48.48px;
   max-height: 52.52px;
@@ -336,9 +336,9 @@ max-height:20px;
    border:2px solid red; 
   bottom: 0;
   } 
- 
+  */
 
-  .imagen-container{
+  /* .imagen-container{
     max-width:100.4px;
     max-height:100.28px;
     min-height: 80.28px;
@@ -378,4 +378,5 @@ max-height:20px;
     flex-direction: row;
     justify-content: center;
   } 
-} 
+}  */
+/* Ajustes para pantallas con resolución de 390x691 */

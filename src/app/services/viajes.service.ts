@@ -43,8 +43,8 @@ export class ViajesService {
 
   viajesBusqueda(ubicacion: string, dias: number) {
 
-    // let url = `https://nomads-api.vercel.app/viajesDestino?ubicacion=${ubicacion}&ndiasViaje=${dias}`
-    let url = `http://localhost:3000/viajesDestino?ubicacion=${ubicacion}&ndiasViaje=${dias}`
+    let url = `https://nomads-api.vercel.app/viajesDestino?ubicacion=${ubicacion}&ndiasViaje=${dias}`
+    // let url = `http://localhost:3000/viajesDestino?ubicacion=${ubicacion}&ndiasViaje=${dias}`
     console.log(url);
 
     return this.http.get(url)
