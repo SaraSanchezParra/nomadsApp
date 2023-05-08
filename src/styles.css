@@ -57,107 +57,66 @@ input:focus::placeholder {
 
 
 /* Responsive Design*/
-/* @media all and (max-width:240px) {
 
-
-  .caja{
-    padding: 15px 15px 15px 20px;
-    width: 25em;
-    
-  
-  } 
-} */
+ @media screen and (min-width:241px) and (max-width:392px) {
  
-  /* .topUsers {  */
-    /* border: 2px solid rgb(255, 0, 0); */
-/* 
-   height: 400.2px;
-    width:300.2px;
-    display: flex;
-    flex-direction:row ;
-    justify-content: space-between;
-    text-align: center;
-    gap: 2%;
-    margin-top: 15px;
-   
-    
- 
-} 
- 
-  .nomads {
-    border: 2px solid #1F8989;
-    border-radius: 50px;
-    overflow: hidden;
-    height: 50px;
-    width: 50.5px;
-    
-}
-
-.nomads img {
-    border-radius: 50px;
-    min-height: 100%;
-    width: 70%;
-    object-fit: cover;
-   
-} */
-
-/* .padre{
-  padding: 15px 15px 15px 20px;
-  width: 25em;
-
-}  */
-
-
-
-/* @media screen and (min-width:241px) and (max-width:392px) {
-
+  /*landing-page:mundo que gira*/
  .logo{
+  /* border:2px solid purple;  */
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-content: center; 
   max-width:300px;
    margin-left: 20px; 
-  border:2px solid black; 
-  } */
- /* .bolaMundo img{
+  
+  } 
+  /*Header verde:bola mundo a la izqda del todo*/
+  .bolaMundo img{
+  /* border:2px solid purple;  */
   position:relative;
   max-width:55px ;
   max-height: 55px;
   margin-top: 3px; 
-  border:2px solid blanchedalmond; 
-  }
 
+  }
+ /*Header verde:nombre Nomads*/
  .name{ 
-   border:2px solid white; 
+   /* border:2px solid white;  */
    margin-right:300px;
  }
-
+/*Header verde:padre de icono de acceso de usuario y menú hamburguesa(rayas no desplegado)*/
  .imagen-container{
   
- border:2px solid red; 
-max-height:20px;
+ /* border:2px solid purple;  */
+ max-height:20px;
  display: flex;
  flex-direction: row;
  justify-content: flex-end;
  align-items: center;
  margin-top: 10px;
 
-} */
+} 
 
-/* }    */ 
+}    
 
- /* @media all and (min-width:391px) and (max-width:8000px) {
+ @media all and (min-width:391px) and (max-width:8000px) {
   
+  /*landing-page:mundo que gira*/
   .logo{
+    /* border:2px solid purple; */
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width:1500px;
+   
 
   }
+
+   /*landing-page:Nomads*/
   .animate-right{
+    /* border:2px solid purple; */
     padding: 15px 15px 15px 20px;
     width: 25em;
     display: flex;
@@ -168,8 +127,12 @@ max-height:20px;
     margin-left: 100px;
     position: relative;
     
+    
   }
+
+  /*landing-page:Unete a la aventura*/
   .animate-left{
+    /* border:2px solid purple; */
     padding: 15px 15px 15px 20px;
     width: 25em;
     display: flex;
@@ -180,9 +143,11 @@ max-height:20px;
     margin-left: 100px;
     position: relative;
   }
+
+    /*landing-page:mundo que gira*/
   .logo img{ 
-    border:2px solid white; 
-   display: flex;
+    /* border:2px solid purple; */
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-content: center; 
@@ -191,24 +156,28 @@ max-height:20px;
     max-width:300px ;
     max-height: 300px;
    
-  }  */
+  }  
   
- /* .title img{
+  /*Login:imagen mundo*/
+ .title img{
+    /* border:2px solid purple; */
     max-width: 195.44px;
     max-height:190.52px;
     
   } 
 
+  /*home-loged:Frase TopNomads y padre fotos de top nomads*/
 .users{
+  /* border:2px solid purple; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+/*home-loged:fotos de top nomads*/
   .topUsers { 
-     border: 2px solid rgb(255, 0, 0); 
-
-  height: 400.2px;
+     /* border: 2px solid rgb(255, 0, 0);  */
+     height: 400.2px;
     width:300.2px;
     display: flex;
     flex-direction:row ;
@@ -220,60 +189,39 @@ max-height:20px;
    
  
 } 
-
+/*home-no logged: Titulo: Top viajes*/
  .top-viajes{
+   /* border:2px solid purple; */
   display: flex;
   flex-direction:row ;
   justify-content: center;
   align-items: center;
   
-} */
-/* 
-.nomads {
-    border: 2px solid #1F8989;
-    border-radius: 50px;
-    overflow: hidden;
-    height: 50px;
-    width: 50.5px; 
-     border:2px solid red; 
-
-    
- }
-
-.nomads img {
-    border-radius: 50px;
-    min-height: 100%;
-    width: 70%;
-    object-fit: cover;
-   
-   
-}
+} 
 
 
+/*Header verde:bola mundo a la izqda del todo*/
 .bolaMundo img{
-  
+   /* border:2px solid purple; */
   width: 70.08px;
   height: 70.08px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+/*Header verde:menú hamburguesa(las rayas, no expandido)*/
 .imagenMenu {
+  /* border:2px solid purple; */
   max-width:117.4px;
   max-height:101.28px;
   margin-right: -13%;
   
 }
 
-.name p{
- left:8px;
- display: flex;
- flex-direction: row;
- justify-content: flex-start;
- 
-}
 
+/*Home logged:parte central entre el header y el footer*/
 .caja{
+    /* border:2px solid purple; */
   padding: 15px 15px 15px 20px;
   width: 25em;
   display: flex;
@@ -284,12 +232,9 @@ max-height:20px;
 
 }
 
-.card{
-  max-width: 605px;
-  min-width: 110px ;
-} */
-
-/* .caja2{
+/*home no logged:padre de titulo top viajes y card de esos viajes*/
+.caja2{
+  /* border:2px solid purple; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -298,7 +243,9 @@ max-height:20px;
 
 
 }
+/*home no logged:las propias cards de top viajes*/
 .cards{
+  /* border:2px solid purple; */
   max-width: 457.79px;
   min-width: 457.78px;
   min-height: 110px;
@@ -306,8 +253,9 @@ max-height:20px;
   gap:20px;
  
 }
-
+/*home no logged:contenedor de inputs y botón para buscar viajes*/
 .buscador{
+  /* border:2px solid purple; */
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -315,66 +263,77 @@ max-height:20px;
   max-width: 900px;
   min-height: 150px;
   margin-bottom: 10px;
-   */
-/* }
+  }
+/*footer no logged:icono de inicio*/
 .footer_noLoged svg{
+  /* border:2px solid purple; */
   max-width: 48.48px;
   max-height: 52.52px;
 }
+/*Header verde: padre icono de acceso de usuario*/
+.imagen-container{
+  /* border:2px solid purple; */
+  max-width:100.4px;
+  max-height:100.28px;
+  min-height: 80.28px;
+  min-width: 80.28px;
+  margin-right: 8%; 
+  
+ }
+/*Header verde: icono de acceso de usuario*/
   .primaryButton svg{
+    /* border:2px solid purple; */
     max-width: 59.51px;
     max-height: 59.51px;
     margin-bottom: 8px; 
-    border:2px solid red; 
+    
  }
-
+/* Footer loged:cada uno de los iconos, menos la lupa*/
   .footer_loged svg {
+    /* border:2px solid purple; */
     max-width: 48.48px;
     max-height: 52.52px;
   }
-  .lupa svg{ 
-   border:2px solid red; 
-  bottom: 0;
-  } 
-  */
+    
 
-  /* .imagen-container{
-    max-width:100.4px;
-    max-height:100.28px;
-    min-height: 80.28px;
-    min-width: 80.28px;
-    margin-right: 8%; 
-   border:2px solid red; 
-   }
-
+/*landing page: padre de todo lo que contiene la pagina*/
   .fondo{
+     /* border:2px solid purple; */
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
+  
+/*landing page:nombre app y únete a la aventura*/
+  .nombre{
+  /* border:2px solid purple; */
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}  
+/*Login:los dos inputs de usuario y contraseña*/
   .form-control{
+     /* border:2px solid purple; */
     padding: 15px 15px 15px 20px;
     width: 25em;
     
   }
-
+/*Login:botón de entrar*/
   .entrar {
+     /* border:2px solid purple; */
     padding: 15px 15px 15px 20px;
     width: 25em;
 }
-
+/*Chats General:las cards*/
   .padre{
+      /* border:2px solid purple; */
     padding: 15px 15px 15px 20px;
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
   } 
 
-  .nombre{
-    width: 600px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  } 
+
+ }
