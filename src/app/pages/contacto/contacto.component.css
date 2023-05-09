@@ -2,7 +2,7 @@
 
 
 .cuerpo {
-    /* border: 2px solid black; */
+    /* border: 2px solid rgb(188, 53, 53); */
     margin-top: 9vh;
     height: 85vh;
     z-index: 8;
@@ -18,15 +18,15 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    font-size: 36px;
+    font-size: 34px;
     margin-left: 20px;
     margin-right: 20px;
-    margin-top: 12vh;
+    margin-top: 20%;
     margin-bottom: 30px;
 }
 
 .caja {
-    /* border: 2px solid black; */
+    /* border: 2px solid rgb(27, 43, 150); */
     height: 45vh;
     display: flex;
     flex-direction: column;
@@ -67,14 +67,14 @@ input {
 }
 
 .caja2 {
-    /* border: 2px solid black; */
-    height: 30%;
+    /* border: 2px solid rgb(198, 51, 198); */
+    height: 27%;
     margin-left: 20px;
     margin-right: 20px;
 }
 
 .boton {
-    /* border: 2px solid rgb(0, 0, 0); */
+    /* border: 2px solid rgb(107, 172, 37); */
     height: 10vh;
     display: flex;
     justify-content: center;
@@ -97,12 +97,12 @@ input {
 }
 
 .paginas {
-    /* border: 2px solid rgb(0, 0, 0); */
+    /* border: 2px solid rgb(218, 188, 18); */
     height: 60%;
 }
 
 .donde {
-    /* border: 2px solid rgb(0, 0, 0); */
+    /* border: 2px solid rgb(55, 201, 189); */
     color: #1F8989;
     height: 40%;
     font-family: 'Mulish', sans-serif;
@@ -113,7 +113,7 @@ input {
 }
 
 .enlaces {
-    /* border: 2px solid rgb(0, 0, 0); */
+    /* border: 2px solid rgb(82, 111, 73); */
     height: 45%;
     display: flex;
     align-items: center;

@@ -47,7 +47,7 @@ header{
     right: -250px;
     /* Inicialmente oculto fuera del viewport */
     width: 240px;
-    height: 38%;
+    height: 47.6%;
     background-color: var(--yellow);
     transition: right 0.3s ease-out;
     list-style: none;

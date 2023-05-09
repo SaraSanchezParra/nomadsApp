@@ -61,6 +61,7 @@ z-index: 9;
     justify-content: center;
     align-content: center;
     margin-top: 26%;
+    margin-bottom: 8%;
     margin-left: 1%;
     
 } 
@@ -76,7 +77,7 @@ z-index: 9;
 }
 
 
-@media screen and (min-width:320px) and (max-width:8000px){
+/* @media screen and (min-width:320px) and (max-width:8000px){
     
      .lupa{
        border: 2px solid red; 
@@ -111,4 +112,4 @@ z-index: 9;
          height: 100%;
         }  
 
-}
+} */

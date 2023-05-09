@@ -22,7 +22,7 @@ body {
 
 .padre{
   /* border: 2px solid red; */
- padding-top: 12%;
+  padding-top: 4%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -158,12 +158,10 @@ input{
 }
 
 
- /* @media screen and (min-width:391px) and (max-width:400px)  {
+ /* @media screen and (min-width:391px) and (max-width:600px)  {
   
 
- 
 
- 
 
   .padre{
     padding: 15px 15px 15px 20px;
