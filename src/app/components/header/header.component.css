@@ -106,6 +106,8 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        margin-top: 5%;
+        margin-right: 2%;
         padding: 8px;
     }
     
@@ -131,8 +133,9 @@
        margin-top: 15px;
        display: flex;
        flex-direction: row;
-       justify-content: flex-end;
-       align-items: flex-end;
+       /* justify-content: center;
+       align-items: center;
+       align-content: center; */
        margin-right: -13%;
 
     }
