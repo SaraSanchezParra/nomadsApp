@@ -2,13 +2,13 @@
 
 /* You can add global styles to this file, and also import other style files */
 :root {
-    --yellow: #FFB800;
-    --green: #1F8989;
-    --grey: #fafafa;
-    --ff-titles: 'Mulish', sans-serif;
-    --ff-main: 'Quicksand', sans-serif;
-    --ff-nomads: 'Shadows Into Light Two', cursive;
-    --border: '6px';
+  --yellow: #FFB800;
+  --green: #1F8989;
+  --grey: #fafafa;
+  --ff-titles: 'Mulish', sans-serif;
+  --ff-main: 'Quicksand', sans-serif;
+  --ff-nomads: 'Shadows Into Light Two', cursive;
+  --border: '6px';
 }
 
 @import url("https://unpkg.com/leaflet@1.9.3/dist/leaflet.css");
@@ -43,7 +43,7 @@ button,
 textarea,
 select {
   font: inherit;
-  
+
 }
 
 input {
