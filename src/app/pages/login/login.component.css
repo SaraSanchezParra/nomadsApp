@@ -157,3 +157,37 @@ input{
  
 }
 
+
+ /* @media screen and (min-width:391px) and (max-width:400px)  {
+  
+
+ 
+
+ 
+
+  .padre{
+    padding: 15px 15px 15px 20px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  } 
+
+  .nombre{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  } 
+
+  .password{
+    border: 3px solid purple;  
+    width: 100%;
+    height: 40vh;
+    border-radius: 6%;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  } 
+}  */

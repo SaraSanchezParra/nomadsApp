@@ -20,11 +20,12 @@ body {
 }
 
 .padre{
-  /* border: 3px solid black; */
+  border: 3px solid black;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
   gap: 10%;
 }
 
@@ -74,16 +75,17 @@ h1{
   /* display: flex;
   flex-direction: row;
   align-items: center; */
+  justify-content: center; 
 }
 
 .img2{
   height: 110%;
-  /* width: 100%; */
+  width: auto;
   display: flex;
   flex-direction: row;
-  align-content: center;
-  margin-left: 10%;
-  
+  justify-content: center; 
+  /* margin-left: 16%;
+   */
      animation-name: mover-logo;
       animation-duration: 3s;
       animation-iteration-count: inherit;
@@ -105,20 +107,20 @@ h1{
 
 .animate-left {
   opacity: 0;
-  transform: translateX(-100px);
+  transform: translateX(-500px);
   animation: slide-in-left 1s ease-out forwards;
 }
 
 .animate-right {
   opacity: 0;
-  transform: translateX(100px);
+  transform: translateX(500px);
   animation: slide-in-right 1s ease-out forwards;
 }
 
 @keyframes slide-in-left {
   from {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-500px);
   }
 
   to {
@@ -130,7 +132,7 @@ h1{
 @keyframes slide-in-right {
   from {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(500px);
   }
 
   to {
@@ -138,3 +140,5 @@ h1{
     transform: translateX(0);
   }
 }
+
+
