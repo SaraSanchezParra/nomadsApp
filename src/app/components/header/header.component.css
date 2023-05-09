@@ -22,29 +22,30 @@
      }  */
 
      .brand{
-        border: solid 3px red;
+        /* border: solid 3px red; */
        margin-left: 20px;
        margin-right: 20px;
    
        /* color: #1F8989; */
-       margin-top: 10px;
+       /* margin-top: 10px; */
        display: flex;
        flex-direction: row;
        flex-wrap: nowrap;
+       gap: 2%;
    
      }
      .bolaMundo{
        /* border:2px solid black; */
-       border: solid 3px yellow;
+       /* border: solid 3px yellow; */
        
-       margin-top: 4px;
-       width: 20%;
-       height: 20%;
+       margin-top: 2px;
+       width: 19%;
+       height: 19%;
      }
    
        .name{
-        border: solid 3px black;
-           margin-top: 3px;
+           /* border: solid 3px black; */
+           /* margin-top: 3px; */
            font-family: 'Shadows Into Light', cursive;
            font-size: 35pt;
            color: #1F8989;

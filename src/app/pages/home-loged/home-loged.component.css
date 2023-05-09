@@ -29,6 +29,7 @@
     margin-right: 20px;
     display: flex;
     flex-direction: column;
+
 }
 
 .top-viajes {
@@ -40,6 +41,7 @@
     align-items:center;
     font-size: 40px;
     font-family: 'Mulish', sans-serif;
+    
 
     /* padding-block-end: 20px; */
 }
@@ -49,7 +51,9 @@
     height: 21%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between
+    justify-content: space-between;
+
+    
 }
 
 .users {
