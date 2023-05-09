@@ -150,11 +150,11 @@ input:focus::placeholder {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-content: center; */
-    /* padding-left: 80%; */
+    align-content: center; 
+    /* padding-left: 80%;
     /* position:relative;
     max-width:300px ;
-    max-height: 300px;
+    max-height: 300px;*/
    
   }  
   
@@ -163,8 +163,7 @@ input:focus::placeholder {
     /* border:2px solid purple; */
     max-width: 195.44px;
     max-height:190.52px;
-    
-  } */
+  } 
 
   /*home-loged:Frase TopNomads y padre fotos de top nomads*/
 .users{
@@ -337,4 +336,4 @@ input:focus::placeholder {
 
 
  }
- }
+ 
