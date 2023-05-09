@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@600&family=Quicksand:wght@500&display=swap');
 
 .caja {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     margin-top: 9vh;
     height: 85vh;
 }
