@@ -2,13 +2,13 @@
 
 /* You can add global styles to this file, and also import other style files */
 :root {
-    --yellow: #FFB800;
-    --green: #1F8989;
-    --grey: #fafafa;
-    --ff-titles: 'Mulish', sans-serif;
-    --ff-main: 'Quicksand', sans-serif;
-    --ff-nomads: 'Shadows Into Light Two', cursive;
-    --border: '6px';
+  --yellow: #FFB800;
+  --green: #1F8989;
+  --grey: #fafafa;
+  --ff-titles: 'Mulish', sans-serif;
+  --ff-main: 'Quicksand', sans-serif;
+  --ff-nomads: 'Shadows Into Light Two', cursive;
+  --border: '6px';
 }
 
 @import url("https://unpkg.com/leaflet@1.9.3/dist/leaflet.css");
@@ -43,7 +43,7 @@ button,
 textarea,
 select {
   font: inherit;
-  
+
 }
 
 input {
@@ -68,9 +68,9 @@ input:focus::placeholder {
   }
  
   .topUsers { */
-    /* border: 2px solid rgb(255, 0, 0); */
+/* border: 2px solid rgb(255, 0, 0); */
 
-    /* height: 400.2px;
+/* height: 400.2px;
     width:300.2px;
     display: flex;
     flex-direction:row ;
@@ -80,10 +80,10 @@ input:focus::placeholder {
     margin-top: 15px;
    
     */
- 
+
 /* } */
- 
-  /* .nomads {
+
+/* .nomads {
     border: 2px solid #1F8989;
     border-radius: 50px;
     overflow: hidden;
@@ -115,27 +115,27 @@ input:focus::placeholder {
   flex-direction: row;
   justify-content: center;
   align-content: center; */
-  /* max-width:300px; */
-  /* margin-left: 20px; */
-  /* border:2px solid black; */
- /* }
+/* max-width:300px; */
+/* margin-left: 20px; */
+/* border:2px solid black; */
+/* }
  .bolaMundo img{
   position:relative;
   max-width:55px ;
   max-height: 55px;
   margin-top: 3px; */
-  /* border:2px solid blanchedalmond; */
- /* }
+/* border:2px solid blanchedalmond; */
+/* }
 
  .name{ */
-  /* border:2px solid white; */
-  /* margin-right:300px;
+/* border:2px solid white; */
+/* margin-right:300px;
  }
 
  .imagen-container{
   */
- /* border:2px solid red; */
- /* max-height:20px;
+/* border:2px solid red; */
+/* max-height:20px;
  display: flex;
  flex-direction: row;
  justify-content: flex-end;
@@ -144,9 +144,9 @@ input:focus::placeholder {
 
 } */
 
-/* }    */ 
+/* }    */
 
- /* @media all and (min-width:391px) and (max-width:8000px) {
+/* @media all and (min-width:391px) and (max-width:8000px) {
   
   .logo{
     display: flex;
@@ -180,19 +180,19 @@ input:focus::placeholder {
     position: relative;
   }
   .logo img{ */
-    /* border:2px solid white; */
-    /* display: flex;
+/* border:2px solid white; */
+/* display: flex;
     flex-direction: row;
     justify-content: center;
     align-content: center; */
-    /* padding-left: 80%; */
-    /* position:relative;
+/* padding-left: 80%; */
+/* position:relative;
     max-width:300px ;
     max-height: 300px;
    
   } */
-  
-  /* .title img{
+
+/* .title img{
     max-width: 195.44px;
     max-height:190.52px;
     
@@ -205,9 +205,9 @@ input:focus::placeholder {
   align-items: center;
 }
   .topUsers { */
-    /* border: 2px solid rgb(255, 0, 0); */
+/* border: 2px solid rgb(255, 0, 0); */
 
-    /* height: 400.2px;
+/* height: 400.2px;
     width:300.2px;
     display: flex;
     flex-direction:row ;
@@ -234,9 +234,9 @@ input:focus::placeholder {
     overflow: hidden;
     height: 50px;
     width: 50.5px; */
-    /* border:2px solid red; */
+/* border:2px solid red; */
 
-    
+
 /* }
 
 .nomads img {
@@ -305,8 +305,8 @@ input:focus::placeholder {
   gap:20px;
  
 }
-
-.buscador{
+*/
+/* .buscador{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -314,28 +314,30 @@ input:focus::placeholder {
   max-width: 900px;
   min-height: 150px;
   margin-bottom: 10px;
-   */
-/* }
-.footer_noLoged svg{
+} */
+
+.footer_noLoged svg {
   max-width: 48.48px;
   max-height: 52.52px;
 }
-  .primaryButton svg{
+
+/* .primaryButton svg{
     max-width: 59.51px;
     max-height: 59.51px;
-    margin-bottom: 8px; */
-    /* border:2px solid red; */
-  /* }
+    margin-bottom: 8px;  
+ border:2px solid red; 
+ }
+*/
+.footer_loged svg {
+  max-width: 48.48px;
+  max-height: 52.52px;
+}
 
-  .footer_loged svg {
-    max-width: 48.48px;
-    max-height: 52.52px;
-  }
-  .lupa svg{ */
-   /* border:2px solid red; */
-   /* bottom: 0;
+/* .lupa svg{ 
+ border:2px solid red; 
+ bottom: 0;
   } */
- 
+
 /* 
   .imagen-container{
     max-width:100.4px;
@@ -343,8 +345,8 @@ input:focus::placeholder {
     min-height: 80.28px;
     min-width: 80.28px;
     margin-right: 8%; */
-    /* border:2px solid red; */
-  /* }
+/* border:2px solid red; */
+/* }
 
   .fondo{
     display: flex;
@@ -377,4 +379,4 @@ input:focus::placeholder {
     flex-direction: row;
     justify-content: center;
   } */
-/* } */ 
+/* } */
