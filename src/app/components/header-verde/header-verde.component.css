@@ -25,16 +25,15 @@ header{
     margin-left: 20px;
     display: flex;
     flex-direction: row;
-
+    align-items: center;
   }
 .bolaMundo{
-    margin-top: 4px;
-    width: 20%;
-    height: 20%;
+    width: 16%;
+    height: 16%;
   }
 
     .name{
-        margin-top: 3px;
+
         font-family: 'Shadows Into Light', cursive;
         font-size: 35pt;
         color: #FFB800;
