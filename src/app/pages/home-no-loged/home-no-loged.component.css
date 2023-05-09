@@ -103,10 +103,10 @@
 
 .cards {
     /* border: 2px solid rgb(255, 0, 0); */
-    height: 23%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between
+    justify-content: space-between;
+    gap: 0.4rem;
 }
 
 
